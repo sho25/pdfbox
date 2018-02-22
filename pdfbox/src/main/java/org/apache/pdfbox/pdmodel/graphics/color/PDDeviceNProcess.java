@@ -105,6 +105,34 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A DeviceN Process Dictionary  *  * @author John Hewson  */
 end_comment
@@ -114,6 +142,22 @@ specifier|public
 class|class
 name|PDDeviceNProcess
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDDeviceNProcess
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 specifier|final
 name|COSDictionary
@@ -333,6 +377,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get the colorants information - returning 'ERROR' instead'"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|sb
 operator|.
 name|append

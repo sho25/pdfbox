@@ -107,6 +107,34 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * Contains additional information about the components of colour space.  * Instead of using the alternate color space and tint transform, conforming readers may use custom  * blending algorithms, along with other information provided in the attributes dictionary.  *  * @author Ben Litchfield  */
 end_comment
@@ -117,6 +145,22 @@ specifier|final
 class|class
 name|PDDeviceNAttributes
 block|{
+comment|/**      * Log instance.      */
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|PDDeviceNAttributes
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 specifier|final
 name|COSDictionary
@@ -541,6 +585,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get the colorants information - returning 'ERROR' instead'"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|sb
 operator|.
 name|append
