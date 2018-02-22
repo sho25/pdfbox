@@ -2393,6 +2393,15 @@ parameter_list|)
 block|{
 comment|// we can safely ignore the exception here
 comment|// as this might only cause a misplacement
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't resolve possible need for translation - ignoring, content might be misplaced"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 return|return
