@@ -482,6 +482,10 @@ operator|&&
 name|index
 operator|<=
 literal|32767
+operator|&&
+name|nameArray
+operator|!=
+literal|null
 condition|)
 block|{
 name|glyphNames
