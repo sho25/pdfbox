@@ -2585,6 +2585,36 @@ condition|(
 name|isCIDFont
 condition|)
 block|{
+comment|// CharStrings index could be null if the index data couldn't be read
+name|int
+name|numEntries
+init|=
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|charStringsIndex
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't read CharStrings index - parsing CIDFontDicts with number of char strings set to 0"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|numEntries
+operator|=
+name|charStringsIndex
+operator|.
+name|length
+expr_stmt|;
+block|}
 name|parseCIDFontDicts
 argument_list|(
 name|input
@@ -2596,9 +2626,7 @@ name|CFFCIDFont
 operator|)
 name|font
 argument_list|,
-name|charStringsIndex
-operator|.
-name|length
+name|numEntries
 argument_list|)
 expr_stmt|;
 name|List
