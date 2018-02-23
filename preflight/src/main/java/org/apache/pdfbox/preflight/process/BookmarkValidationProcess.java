@@ -797,6 +797,35 @@ return|return
 literal|false
 return|;
 block|}
+if|if
+condition|(
+name|realPrevObject
+operator|==
+literal|null
+condition|)
+block|{
+comment|// unclear if this can ever happen
+name|addValidationError
+argument_list|(
+name|ctx
+argument_list|,
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_SYNTAX_TRAILER_OUTLINES_INVALID
+argument_list|,
+literal|"Outline object before "
+operator|+
+name|currentObj
+operator|+
+literal|" is null"
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 name|levelObjects
 operator|.
 name|add
