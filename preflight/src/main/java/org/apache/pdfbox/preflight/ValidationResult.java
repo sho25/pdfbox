@@ -322,6 +322,7 @@ name|ValidationError
 block|{
 comment|/**          * Error identifier. This error code can be used as identifier to internationalize the logging message using          * i18n.          */
 specifier|private
+specifier|final
 name|String
 name|errorCode
 decl_stmt|;
@@ -1105,24 +1106,6 @@ operator|)
 name|o
 decl_stmt|;
 comment|// check errorCode
-if|if
-condition|(
-name|errorCode
-operator|==
-literal|null
-operator|&&
-name|ve
-operator|.
-name|errorCode
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-elseif|else
 if|if
 condition|(
 operator|!
