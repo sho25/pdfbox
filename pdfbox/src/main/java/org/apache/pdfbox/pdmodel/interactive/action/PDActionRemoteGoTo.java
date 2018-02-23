@@ -230,7 +230,9 @@ name|action
 operator|.
 name|getBoolean
 argument_list|(
-literal|"NewWindow"
+name|COSName
+operator|.
+name|NEW_WINDOW
 argument_list|,
 literal|true
 argument_list|)
@@ -249,7 +251,9 @@ name|action
 operator|.
 name|setBoolean
 argument_list|(
-literal|"NewWindow"
+name|COSName
+operator|.
+name|NEW_WINDOW
 argument_list|,
 name|value
 argument_list|)
