@@ -426,7 +426,7 @@ decl_stmt|;
 name|String
 name|dstPrev
 init|=
-literal|null
+literal|""
 decl_stmt|;
 name|int
 name|srcCode1
