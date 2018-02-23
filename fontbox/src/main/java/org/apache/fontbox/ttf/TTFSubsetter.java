@@ -2510,6 +2510,9 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+name|long
+name|isResult
+init|=
 name|is
 operator|.
 name|skip
@@ -2519,7 +2522,43 @@ operator|.
 name|getOffset
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|Long
+operator|.
+name|compare
+argument_list|(
+name|isResult
+argument_list|,
+name|g
+operator|.
+name|getOffset
+argument_list|()
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Tried skipping "
+operator|+
+name|g
+operator|.
+name|getOffset
+argument_list|()
+operator|+
+literal|" bytes but skipped only "
+operator|+
+name|isResult
+operator|+
+literal|" bytes"
+argument_list|)
 expr_stmt|;
+block|}
 name|long
 name|lastOff
 init|=
@@ -2553,6 +2592,8 @@ index|]
 operator|-
 name|offset
 decl_stmt|;
+name|isResult
+operator|=
 name|is
 operator|.
 name|skip
@@ -2562,6 +2603,42 @@ operator|-
 name|lastOff
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|Long
+operator|.
+name|compare
+argument_list|(
+name|isResult
+argument_list|,
+name|offset
+operator|-
+name|lastOff
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Tried skipping "
+operator|+
+operator|(
+name|offset
+operator|-
+name|lastOff
+operator|)
+operator|+
+literal|" bytes but skipped only "
+operator|+
+name|isResult
+operator|+
+literal|" bytes"
+argument_list|)
+expr_stmt|;
+block|}
 name|byte
 index|[]
 name|buf
@@ -2575,6 +2652,8 @@ operator|)
 name|len
 index|]
 decl_stmt|;
+name|isResult
+operator|=
 name|is
 operator|.
 name|read
@@ -2582,6 +2661,36 @@ argument_list|(
 name|buf
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|Long
+operator|.
+name|compare
+argument_list|(
+name|isResult
+argument_list|,
+name|len
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Tried reading "
+operator|+
+name|len
+operator|+
+literal|" bytes but only "
+operator|+
+name|isResult
+operator|+
+literal|" bytes read"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// rewrite glyphIds for compound glyphs
 if|if
 condition|(
@@ -2912,6 +3021,9 @@ name|getOriginalData
 argument_list|()
 init|)
 block|{
+name|long
+name|isResult
+init|=
 name|is
 operator|.
 name|skip
@@ -2921,7 +3033,43 @@ operator|.
 name|getOffset
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|Long
+operator|.
+name|compare
+argument_list|(
+name|isResult
+argument_list|,
+name|g
+operator|.
+name|getOffset
+argument_list|()
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Tried skipping "
+operator|+
+name|g
+operator|.
+name|getOffset
+argument_list|()
+operator|+
+literal|" bytes but skipped only "
+operator|+
+name|isResult
+operator|+
+literal|" bytes"
+argument_list|)
 expr_stmt|;
+block|}
 name|long
 name|prevEnd
 init|=
@@ -2977,6 +3125,8 @@ index|]
 operator|=
 name|newOffset
 expr_stmt|;
+name|isResult
+operator|=
 name|is
 operator|.
 name|skip
@@ -2986,6 +3136,42 @@ operator|-
 name|prevEnd
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|Long
+operator|.
+name|compare
+argument_list|(
+name|isResult
+argument_list|,
+name|offset
+operator|-
+name|prevEnd
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Tried skipping "
+operator|+
+operator|(
+name|offset
+operator|-
+name|prevEnd
+operator|)
+operator|+
+literal|" bytes but skipped only "
+operator|+
+name|isResult
+operator|+
+literal|" bytes"
+argument_list|)
+expr_stmt|;
+block|}
 name|byte
 index|[]
 name|buf
@@ -2999,6 +3185,8 @@ operator|)
 name|length
 index|]
 decl_stmt|;
+name|isResult
+operator|=
 name|is
 operator|.
 name|read
@@ -3006,6 +3194,36 @@ argument_list|(
 name|buf
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|Long
+operator|.
+name|compare
+argument_list|(
+name|isResult
+argument_list|,
+name|length
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Tried reading "
+operator|+
+name|length
+operator|+
+literal|" bytes but only "
+operator|+
+name|isResult
+operator|+
+literal|" bytes read"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// detect glyph type
 if|if
 condition|(
@@ -4521,6 +4739,9 @@ expr_stmt|;
 block|}
 try|try
 block|{
+name|long
+name|isResult
+init|=
 name|is
 operator|.
 name|skip
@@ -4530,7 +4751,43 @@ operator|.
 name|getOffset
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|Long
+operator|.
+name|compare
+argument_list|(
+name|isResult
+argument_list|,
+name|hm
+operator|.
+name|getOffset
+argument_list|()
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Tried skipping "
+operator|+
+name|hm
+operator|.
+name|getOffset
+argument_list|()
+operator|+
+literal|" bytes but only "
+operator|+
+name|isResult
+operator|+
+literal|" bytes skipped"
+argument_list|)
 expr_stmt|;
+block|}
 name|long
 name|lastOffset
 init|=
