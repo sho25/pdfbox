@@ -190,7 +190,7 @@ operator|&&
 operator|!
 name|COSName
 operator|.
-name|P
+name|C
 operator|.
 name|equals
 argument_list|(
