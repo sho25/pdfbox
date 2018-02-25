@@ -111,16 +111,6 @@ name|javax
 operator|.
 name|imageio
 operator|.
-name|ImageIO
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|imageio
-operator|.
 name|ImageReader
 import|;
 end_import
@@ -134,6 +124,18 @@ operator|.
 name|stream
 operator|.
 name|ImageInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|imageio
+operator|.
+name|stream
+operator|.
+name|MemoryCacheImageInputStream
 import|;
 end_import
 
@@ -386,14 +388,14 @@ argument_list|,
 literal|"Java Advanced Imaging (JAI) Image I/O Tools are not installed"
 argument_list|)
 decl_stmt|;
+comment|// PDFBOX-4121: ImageIO.createImageInputStream() is much slower
 try|try
 init|(
 name|ImageInputStream
 name|iis
 init|=
-name|ImageIO
-operator|.
-name|createImageInputStream
+operator|new
+name|MemoryCacheImageInputStream
 argument_list|(
 name|input
 argument_list|)
