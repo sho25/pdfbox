@@ -2201,6 +2201,14 @@ literal|9
 index|]
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|fontFile
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
 name|FSFontInfo
 name|info
 init|=
@@ -2237,6 +2245,24 @@ argument_list|(
 name|info
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Font file "
+operator|+
+name|fontFile
+operator|.
+name|getAbsolutePath
+argument_list|()
+operator|+
+literal|" not found, skipped"
+argument_list|)
+expr_stmt|;
+block|}
 name|pending
 operator|.
 name|remove
