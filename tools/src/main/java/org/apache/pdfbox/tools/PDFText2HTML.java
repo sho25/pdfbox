@@ -428,9 +428,16 @@ comment|//If we're past 64 chars we will assume that we're past the title
 comment|//64 is arbitrary
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|currentFontSize
-operator|!=
+argument_list|,
 name|lastFontSize
+argument_list|)
+operator|!=
+literal|0
 operator|||
 name|titleText
 operator|.
