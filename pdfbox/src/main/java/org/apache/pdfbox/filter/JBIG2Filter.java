@@ -218,7 +218,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Decompresses data encoded using the JBIG2 standard, reproducing the original  * monochrome (1 bit per pixel) image data (or an approximation of that data).  *  * Requires a JBIG2 plugin for Java Image I/O to be installed. A known working  * plug-in is<a href="https://github.com/levigo/jbig2-imageio">jbig2-imageio</a>  * which is available under the GPL v3 license.  *  * @author Timo Boehme  */
+comment|/**  * Decompresses data encoded using the JBIG2 standard, reproducing the original  * monochrome (1 bit per pixel) image data (or an approximation of that data).  *  * Requires a JBIG2 plugin for Java Image I/O to be installed. A known working  * plug-in is the Apache PDFBox JBIG2 plugin.  *  * @author Timo Boehme  */
 end_comment
 
 begin_class
