@@ -392,7 +392,14 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|result
+argument_list|,
+literal|0
+argument_list|)
 operator|==
 literal|0
 condition|)

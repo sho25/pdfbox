@@ -6752,6 +6752,15 @@ name|IOException
 name|ex
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get an alternate ColorSpace"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;

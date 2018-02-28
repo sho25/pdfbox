@@ -5831,7 +5831,17 @@ parameter_list|(
 name|NoSuchAlgorithmException
 name|ex
 parameter_list|)
-block|{         }
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"AES Algorithm not available"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * {@inheritDoc}      */
 annotation|@

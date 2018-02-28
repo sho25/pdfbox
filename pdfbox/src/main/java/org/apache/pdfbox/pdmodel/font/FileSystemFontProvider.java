@@ -1787,7 +1787,17 @@ parameter_list|(
 name|SecurityException
 name|e
 parameter_list|)
-block|{         }
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error checking for file existence"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|fileExists
