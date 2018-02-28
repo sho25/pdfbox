@@ -935,15 +935,6 @@ name|EOFException
 name|ex
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Couldn't get the triangle information - stop reading"
-argument_list|,
-name|ex
-argument_list|)
-expr_stmt|;
 name|eof
 operator|=
 literal|true
