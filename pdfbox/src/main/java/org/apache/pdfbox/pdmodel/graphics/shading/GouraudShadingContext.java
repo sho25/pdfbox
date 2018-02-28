@@ -541,6 +541,7 @@ name|colorComponentTab
 argument_list|)
 return|;
 block|}
+specifier|final
 name|void
 name|setTriangleList
 parameter_list|(
