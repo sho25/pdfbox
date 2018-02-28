@@ -205,6 +205,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -576,6 +604,21 @@ name|SinglePageValidationProcess
 extends|extends
 name|AbstractProcess
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOGGER
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|SinglePageValidationProcess
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Override
 specifier|public
@@ -825,7 +868,15 @@ name|e
 parameter_list|)
 block|{
 comment|// fixme: this code was previously in PDResources
-comment|// LOG.error("error while creating a colorspace", exception);
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Unable to create colorspace"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -917,6 +968,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Unable to read Thumb image"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|addValidationError
@@ -1006,6 +1066,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Unable to read page contet stream"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|addValidationError

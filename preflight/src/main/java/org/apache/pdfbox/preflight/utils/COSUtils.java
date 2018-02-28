@@ -327,6 +327,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get COSObject from object pool - returning false"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -414,6 +423,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get COSObject from object pool - returning false"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -496,6 +514,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get COSObject from object pool - returning false"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -574,6 +601,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get COSObject from object pool - returning false"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -681,6 +717,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get COSObject from object pool - returning false"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -759,6 +804,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get COSObject from object pool - returning false"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
@@ -853,6 +907,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get COSObject from object pool - returning null"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -996,6 +1059,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get COSObject from object pool - returning null"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1129,6 +1201,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get COSObject from object pool - returning null"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1237,6 +1318,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get COSObject from object pool - returning null"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1358,6 +1448,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get COSObject from object pool - returning null"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1484,6 +1583,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get COSObject from object pool - returning null"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1558,6 +1666,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
