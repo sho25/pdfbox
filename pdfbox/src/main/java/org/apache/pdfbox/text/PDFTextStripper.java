@@ -465,6 +465,15 @@ parameter_list|)
 block|{
 comment|// PDFBOX-1946 when run in an applet
 comment|// ignore and use default
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't read system properties - using defauults"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -4996,6 +5005,8 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
