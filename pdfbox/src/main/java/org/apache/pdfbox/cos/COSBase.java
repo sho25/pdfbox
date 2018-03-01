@@ -96,7 +96,7 @@ return|return
 name|direct
 return|;
 block|}
-comment|/**      * Set the state true, if the dictionary should be written as a direct object and not indirect.      *       * @param direct set it true, for writting direct object      */
+comment|/**      * Set the state true, if the dictionary should be written as a direct object and not indirect.      *       * @param direct set it true, for writing direct object      */
 specifier|public
 name|void
 name|setDirect
