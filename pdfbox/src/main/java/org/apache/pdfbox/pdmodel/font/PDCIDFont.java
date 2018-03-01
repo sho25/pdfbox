@@ -284,7 +284,6 @@ argument_list|()
 decl_stmt|;
 comment|// v
 specifier|private
-specifier|final
 name|float
 index|[]
 name|dw2
