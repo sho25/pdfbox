@@ -152,10 +152,6 @@ class|class
 name|DateConverter
 block|{
 specifier|private
-name|DateConverter
-parameter_list|()
-block|{     }
-specifier|private
 specifier|static
 specifier|final
 name|Log
@@ -170,6 +166,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+specifier|private
+name|DateConverter
+parameter_list|()
+block|{     }
 comment|// milliseconds/1000 = seconds; seconds / 60 = minutes; minutes/60 = hours
 specifier|private
 specifier|static
