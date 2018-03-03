@@ -126,7 +126,7 @@ literal|"Base"
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the base URI to be used in resolving relative URI references.      * URI actions within the document may specify URIs in partial form, to be interpreted      * relative to this base address. If no base URI is specified, such partial URIs      * will be interpreted relative to the location of the document itself.      * The use of this entry is parallel to that of the body element&lt;BASE&gt;, as described      * in the HTML 4.01 Specification.      *      * @param base The the base URI to be used.      */
+comment|/**      * This will set the base URI to be used in resolving relative URI references.      * URI actions within the document may specify URIs in partial form, to be interpreted      * relative to this base address. If no base URI is specified, such partial URIs      * will be interpreted relative to the location of the document itself.      * The use of this entry is parallel to that of the body element&lt;BASE&gt;, as described      * in the HTML 4.01 Specification.      *      * @param base The base URI to be used.      */
 specifier|public
 name|void
 name|setBase

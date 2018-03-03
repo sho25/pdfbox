@@ -452,7 +452,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will set the coordinates of the the vertices.      *      * @param vertices array of floats [x1, y1, x2, y2, ...] vertex coordinates in default user space.      */
+comment|/**      * This will set the coordinates of the vertices.      *      * @param vertices array of floats [x1, y1, x2, y2, ...] vertex coordinates in default user space.      */
 specifier|public
 specifier|final
 name|void
@@ -489,7 +489,7 @@ name|newVertices
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the coordinates of the the vertices.      *      * @return array of floats [x1, y1, x2, y2, ...] vertex coordinates in default user space.      */
+comment|/**      * This will get the coordinates of the vertices.      *      * @return array of floats [x1, y1, x2, y2, ...] vertex coordinates in default user space.      */
 specifier|public
 name|float
 index|[]

@@ -1032,7 +1032,7 @@ return|return
 name|strokingColorSpace
 return|;
 block|}
-comment|/**      * Sets the the stroking color space.      *      * @param colorSpace The new stroking color space.      */
+comment|/**      * Sets the stroking color space.      *      * @param colorSpace The new stroking color space.      */
 specifier|public
 name|void
 name|setStrokingColorSpace
@@ -1056,7 +1056,7 @@ return|return
 name|nonStrokingColorSpace
 return|;
 block|}
-comment|/**      * Sets the the non-stroking color space.      *      * @param colorSpace The new non-stroking color space.      */
+comment|/**      * Sets the non-stroking color space.      *      * @param colorSpace The new non-stroking color space.      */
 specifier|public
 name|void
 name|setNonStrokingColorSpace

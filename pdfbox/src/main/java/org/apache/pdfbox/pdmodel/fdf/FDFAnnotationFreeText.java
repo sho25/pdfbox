@@ -659,7 +659,7 @@ name|newCallout
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the coordinates of the the callout line.      *      * @return An array of four or six numbers specifying a callout line attached to the free text      * annotation. Six numbers [ x1 y1 x2 y2 x3 y3 ] represent the starting, knee point, and ending      * coordinates of the line in default user space, Four numbers [ x1 y1 x2 y2 ] represent the      * starting and ending coordinates of the line.      */
+comment|/**      * This will get the coordinates of the callout line.      *      * @return An array of four or six numbers specifying a callout line attached to the free text      * annotation. Six numbers [ x1 y1 x2 y2 x3 y3 ] represent the starting, knee point, and ending      * coordinates of the line in default user space, Four numbers [ x1 y1 x2 y2 ] represent the      * starting and ending coordinates of the line.      */
 specifier|public
 name|float
 index|[]

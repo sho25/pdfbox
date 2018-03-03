@@ -126,7 +126,7 @@ return|return
 name|parameters
 return|;
 block|}
-comment|/**      * Returns the embedded JPX color space, if any.      * @return the the embedded JPX color space, or null if there is none.      */
+comment|/**      * Returns the embedded JPX color space, if any.      * @return the embedded JPX color space, or null if there is none.      */
 specifier|public
 name|PDJPXColorSpace
 name|getJPXColorSpace
