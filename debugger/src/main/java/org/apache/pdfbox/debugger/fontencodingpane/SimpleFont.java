@@ -199,6 +199,23 @@ name|totalAvailableGlyph
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|attributes
+operator|.
+name|put
+argument_list|(
+literal|"Standard 14"
+argument_list|,
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+name|font
+operator|.
+name|isStandard14
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|view
 operator|=
 operator|new
