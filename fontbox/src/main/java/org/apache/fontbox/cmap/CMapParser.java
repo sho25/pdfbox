@@ -1226,6 +1226,26 @@ operator|<=
 literal|2
 condition|)
 block|{
+comment|// some CMaps are using CID ranges to map single values
+if|if
+condition|(
+name|end
+operator|==
+name|start
+condition|)
+block|{
+name|result
+operator|.
+name|addCIDMapping
+argument_list|(
+name|start
+argument_list|,
+name|mappedCode
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|result
 operator|.
 name|addCIDRange
@@ -1243,6 +1263,7 @@ argument_list|,
 name|mappedCode
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
