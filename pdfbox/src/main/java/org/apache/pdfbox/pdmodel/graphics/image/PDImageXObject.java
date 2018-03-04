@@ -656,12 +656,11 @@ name|filters
 operator|!=
 literal|null
 operator|&&
+operator|!
 name|filters
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|>
-literal|0
 operator|&&
 name|COSName
 operator|.
