@@ -130,6 +130,16 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns true if the Font dictionary specifies an explicit width for the given glyph.      * This includes Width, W but not default widths entries.      *       * @param code character code      * @throws IOException if the font could not be read      */
+name|boolean
+name|hasExplicitWidth
+parameter_list|(
+name|int
+name|code
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Returns the width of a glyph in the embedded font file.      *      * @param code character code      * @return width in glyph space      * @throws IOException if the font could not be read      */
 name|float
 name|getWidthFromFont
