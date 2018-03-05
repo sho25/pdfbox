@@ -655,6 +655,14 @@ init|;
 name|i
 operator|<=
 name|repeats
+operator|&&
+name|index
+operator|+
+name|i
+operator|<
+name|flags
+operator|.
+name|length
 condition|;
 name|i
 operator|++
