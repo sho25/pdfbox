@@ -1335,7 +1335,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Test of PDFBOX-3757: check that postcript names that are not part of WGL4Names don't get      * shuffled in buildPostTable().      *      * @throws java.io.IOException      */
+comment|/**      * Test of PDFBOX-3757: check that PostScript names that are not part of WGL4Names don't get      * shuffled in buildPostTable().      *      * @throws java.io.IOException      */
 annotation|@
 name|Test
 specifier|public
