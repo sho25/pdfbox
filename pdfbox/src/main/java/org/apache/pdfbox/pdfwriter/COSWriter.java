@@ -2145,6 +2145,16 @@ operator|.
 name|writeEOL
 argument_list|()
 expr_stmt|;
+comment|// null test added to please Sonar
+comment|// TODO: shouldn't all public methods be guarded against passing null. Passing null to most methods will
+comment|// fail with an NPE
+if|if
+condition|(
+name|obj
+operator|!=
+literal|null
+condition|)
+block|{
 name|obj
 operator|.
 name|accept
@@ -2152,6 +2162,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+block|}
 name|getStandardOutput
 argument_list|()
 operator|.
