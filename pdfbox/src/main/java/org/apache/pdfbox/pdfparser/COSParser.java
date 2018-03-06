@@ -5818,19 +5818,14 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+comment|// initialize bfSearchXRefTablesOffsets -> not null
 name|bfSearchForXRefTables
 argument_list|()
 expr_stmt|;
+comment|// initialize bfSearchXRefStreamsOffsets -> not null
 name|bfSearchForXRefStreams
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|bfSearchXRefTablesOffsets
-operator|!=
-literal|null
-condition|)
-block|{
 comment|// TODO to be optimized, this won't work in every case
 name|newOffsetTable
 operator|=
@@ -5841,14 +5836,6 @@ argument_list|,
 name|xrefOffset
 argument_list|)
 expr_stmt|;
-block|}
-if|if
-condition|(
-name|bfSearchXRefStreamsOffsets
-operator|!=
-literal|null
-condition|)
-block|{
 comment|// TODO to be optimized, this won't work in every case
 name|newOffsetStream
 operator|=
@@ -5859,7 +5846,6 @@ argument_list|,
 name|xrefOffset
 argument_list|)
 expr_stmt|;
-block|}
 comment|// choose the nearest value
 if|if
 condition|(
