@@ -2428,7 +2428,7 @@ operator|-
 name|height2
 return|;
 block|}
-comment|/**      * Write the line separator value to the output stream.      *       * @throws IOException If there is a problem writing out the lineseparator to the document.      */
+comment|/**      * Write the line separator value to the output stream.      *       * @throws IOException If there is a problem writing out the line separator to the document.      */
 specifier|protected
 name|void
 name|writeLineSeparator
@@ -2445,7 +2445,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Write the word separator value to the output stream.      *       * @throws IOException If there is a problem writing out the wordseparator to the document.      */
+comment|/**      * Write the word separator value to the output stream.      *       * @throws IOException If there is a problem writing out the word separator to the document.      */
 specifier|protected
 name|void
 name|writeWordSeparator
