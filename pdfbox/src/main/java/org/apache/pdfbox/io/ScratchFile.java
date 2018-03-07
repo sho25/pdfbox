@@ -1224,7 +1224,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new buffer using this page handler and initializes it with the      * data read from provided input stream (input stream is copied to buffer).      * The buffer data pointer is reset to point to first byte.      *       * @return A new buffer containing data read from input stream.      *       * @throws IOException If an error occurred.      */
+comment|/**      * Creates a new buffer using this page handler and initializes it with the      * data read from provided input stream (input stream is copied to buffer).      * The buffer data pointer is reset to point to first byte.      *       * @param input The input stream that is to be copied into the buffer.      * @return A new buffer containing data read from input stream.      *       * @throws IOException If an error occurred.      */
 specifier|public
 name|RandomAccess
 name|createBuffer
