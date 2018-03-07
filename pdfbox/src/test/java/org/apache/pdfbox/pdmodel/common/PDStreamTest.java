@@ -554,6 +554,12 @@ name|pdStream
 operator|.
 name|createInputStream
 argument_list|(
+operator|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;

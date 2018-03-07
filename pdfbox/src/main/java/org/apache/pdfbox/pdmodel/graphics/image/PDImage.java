@@ -35,6 +35,16 @@ name|java
 operator|.
 name|awt
 operator|.
+name|Rectangle
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|image
 operator|.
 name|BufferedImage
@@ -93,6 +103,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|filter
+operator|.
+name|DecodeOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|common
@@ -137,6 +161,19 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns the content of this image as an AWT buffered image with an (A)RGB colored space.      * Only the subregion specified is rendered, and is subsampled by advancing the specified amount      * of rows and columns in the source image for every resulting pixel.      *      * Note that unlike {@link PDImage#getImage() the unparameterized version}, this method does      * not cache the resulting image.      * @param region The region of the source image to get, or null if the entire image is needed.      *               The actual region will be clipped to the dimensions of the source image.      * @param subsampling The amount of rows and columns to advance for every output pixel, a value      *                  of 1 meaning every pixel will be read      * @return subsampled content of the requested subregion as a buffered image.      * @throws IOException      */
+name|BufferedImage
+name|getImage
+parameter_list|(
+name|Rectangle
+name|region
+parameter_list|,
+name|int
+name|subsampling
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Returns an ARGB image filled with the given paint and using this image as a mask.      * @param paint the paint to fill the visible portions of the image with      * @return a masked image filled with the given paint      * @throws IOException if the image cannot be read      * @throws IllegalStateException if the image is not a stencil.      */
 name|BufferedImage
 name|getStencilImage
@@ -163,6 +200,16 @@ argument_list|<
 name|String
 argument_list|>
 name|stopFilters
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Returns an InputStream, passing additional options to each filter      * @param options Additional decoding options passed to the filters used      * @return Decoded stream      * @throws IOException if the data could not be read      */
+name|InputStream
+name|createInputStream
+parameter_list|(
+name|DecodeOptions
+name|options
 parameter_list|)
 throws|throws
 name|IOException

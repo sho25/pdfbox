@@ -49,6 +49,11 @@ specifier|final
 name|PDPage
 name|page
 decl_stmt|;
+specifier|private
+specifier|final
+name|boolean
+name|subsamplingAllowed
+decl_stmt|;
 comment|/**      * Package-private constructor.      */
 name|PageDrawerParameters
 parameter_list|(
@@ -57,6 +62,9 @@ name|renderer
 parameter_list|,
 name|PDPage
 name|page
+parameter_list|,
+name|boolean
+name|subsamplingAllowed
 parameter_list|)
 block|{
 name|this
@@ -70,6 +78,12 @@ operator|.
 name|page
 operator|=
 name|page
+expr_stmt|;
+name|this
+operator|.
+name|subsamplingAllowed
+operator|=
+name|subsamplingAllowed
 expr_stmt|;
 block|}
 comment|/**      * Returns the page.      */
@@ -89,6 +103,16 @@ parameter_list|()
 block|{
 return|return
 name|renderer
+return|;
+block|}
+comment|/**      * Returns whether to allow subsampling of images.      */
+specifier|public
+name|boolean
+name|isSubsamplingAllowed
+parameter_list|()
+block|{
+return|return
+name|subsamplingAllowed
 return|;
 block|}
 block|}
