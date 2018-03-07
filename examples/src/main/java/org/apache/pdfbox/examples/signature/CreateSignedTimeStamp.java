@@ -190,7 +190,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example for timestamp-singing a PDF for PADeS-Specification. The document will be extended by  * a signed TimeStamp (another kind of signature) (Signed TimeStamp and Hash-Value of the document  * are signed by a Time Stamp Authority (TSA)).  *  * @author Thomas Chojecki  * @author Vakhtang Koroghlishvili  * @author John Hewson  * @author Alexis Suter  */
+comment|/**  * An example for timestamp-signing a PDF for PADeS-Specification. The document will be extended by  * a signed TimeStamp (another kind of signature) (Signed TimeStamp and Hash-Value of the document  * are signed by a Time Stamp Authority (TSA)).  *  * @author Thomas Chojecki  * @author Vakhtang Koroghlishvili  * @author John Hewson  * @author Alexis Suter  */
 end_comment
 
 begin_class

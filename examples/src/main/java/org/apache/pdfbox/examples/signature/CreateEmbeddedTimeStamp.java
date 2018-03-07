@@ -230,7 +230,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example for timestamp-singing a PDF for PADeS-Specification. The document will only be changed  * in its existing signature by a signed timestamp (A timestamp and the Hash-Value of the document  * are signed by a Time Stamp Authority (TSA)).  *  * This method only changes the unsigned parameters of a signature, so that it is kept valid.  *  * Use case: sign offline to avoid zero-day attacks against the signing machine. Once the signature  * is there and the pdf is transferred to a network connected machine, one is likely to want to add  * a timestamp. (Ralf Hauser)  *  * @author Alexis Suter  */
+comment|/**  * An example for timestamp-signing a PDF for PADeS-Specification. The document will only be changed  * in its existing signature by a signed timestamp (A timestamp and the Hash-Value of the document  * are signed by a Time Stamp Authority (TSA)).  *  * This method only changes the unsigned parameters of a signature, so that it is kept valid.  *  * Use case: sign offline to avoid zero-day attacks against the signing machine. Once the signature  * is there and the pdf is transferred to a network connected machine, one is likely to want to add  * a timestamp. (Ralf Hauser)  *  * @author Alexis Suter  */
 end_comment
 
 begin_class

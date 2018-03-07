@@ -630,7 +630,7 @@ specifier|public
 name|boolean
 name|externallySign
 decl_stmt|;
-comment|/**      * Values for {@link #externallySign} test parameter to specify if signing should be conducted      * using externally singing scenario ({@code true}) or SignatureInterface ({@code false}).      */
+comment|/**      * Values for {@link #externallySign} test parameter to specify if signing should be conducted      * using externally signing scenario ({@code true}) or SignatureInterface ({@code false}).      */
 annotation|@
 name|Parameterized
 operator|.

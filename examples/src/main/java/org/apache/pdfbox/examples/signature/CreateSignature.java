@@ -218,7 +218,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example for singing a PDF with bouncy castle.  * A keystore can be created with the java keytool, for example:  *  * {@code keytool -genkeypair -storepass 123456 -storetype pkcs12 -alias test -validity 365  *        -v -keyalg RSA -keystore keystore.p12 }  *  * @author Thomas Chojecki  * @author Vakhtang Koroghlishvili  * @author John Hewson  */
+comment|/**  * An example for signing a PDF with bouncy castle.  * A keystore can be created with the java keytool, for example:  *  * {@code keytool -genkeypair -storepass 123456 -storetype pkcs12 -alias test -validity 365  *        -v -keyalg RSA -keystore keystore.p12 }  *  * @author Thomas Chojecki  * @author Vakhtang Koroghlishvili  * @author John Hewson  */
 end_comment
 
 begin_class
