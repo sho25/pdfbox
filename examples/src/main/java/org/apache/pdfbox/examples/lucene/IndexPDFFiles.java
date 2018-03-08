@@ -512,6 +512,12 @@ comment|// you're done adding documents to it):
 comment|//
 comment|// writer.forceMerge(1);
 block|}
+comment|// When done close the directory
+name|dir
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|Date
 name|end
 init|=
