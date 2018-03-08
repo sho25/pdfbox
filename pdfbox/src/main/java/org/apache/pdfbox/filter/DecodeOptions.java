@@ -87,7 +87,9 @@ comment|/**      * Constructs an empty DecodeOptions instance      */
 specifier|public
 name|DecodeOptions
 parameter_list|()
-block|{     }
+block|{
+comment|// this constructor is intentionally left empty
+block|}
 comment|/**      * Constructs an instance specifying the region of the image that should be decoded. The actual      * region will be clipped to the dimensions of the image.      *      * @param sourceRegion Region of the source image that should be decoded      */
 specifier|public
 name|DecodeOptions
