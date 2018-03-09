@@ -455,6 +455,12 @@ init|=
 literal|"1.3.6.1.5.5.7.1.1"
 decl_stmt|;
 comment|// As described in https://tools.ietf.org/html/rfc3280.html#section-4.2.1.14
+comment|// Disable false Sonar warning for "Hardcoded IP Address ..."
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"squid:S1313"
+argument_list|)
 specifier|private
 specifier|static
 specifier|final
