@@ -890,15 +890,6 @@ argument_list|)
 expr_stmt|;
 name|rotationMenu
 operator|.
-name|setRotationSelection
-argument_list|(
-name|RotationMenu
-operator|.
-name|ROTATE_0_DEGREES
-argument_list|)
-expr_stmt|;
-name|rotationMenu
-operator|.
 name|setEnableMenu
 argument_list|(
 literal|true
