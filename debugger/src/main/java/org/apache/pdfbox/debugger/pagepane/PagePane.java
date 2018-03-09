@@ -679,8 +679,6 @@ name|getPageZoomScale
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// render in a background thread: rendering is read-only, so this should be ok, despite
-comment|// the fact that PDDocument is not officially thread safe
 name|startRendering
 argument_list|()
 expr_stmt|;
