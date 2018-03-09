@@ -1527,6 +1527,11 @@ specifier|static
 name|JCheckBoxMenuItem
 name|showGlyphBounds
 decl_stmt|;
+specifier|public
+specifier|static
+name|JCheckBoxMenuItem
+name|allowSubsampling
+decl_stmt|;
 comment|// configuration
 specifier|public
 specifier|static
@@ -3445,6 +3450,33 @@ operator|.
 name|add
 argument_list|(
 name|showGlyphBounds
+argument_list|)
+expr_stmt|;
+name|viewMenu
+operator|.
+name|addSeparator
+argument_list|()
+expr_stmt|;
+name|allowSubsampling
+operator|=
+operator|new
+name|JCheckBoxMenuItem
+argument_list|(
+literal|"Allow subsampling"
+argument_list|)
+expr_stmt|;
+name|allowSubsampling
+operator|.
+name|setEnabled
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|viewMenu
+operator|.
+name|add
+argument_list|(
+name|allowSubsampling
 argument_list|)
 expr_stmt|;
 return|return
