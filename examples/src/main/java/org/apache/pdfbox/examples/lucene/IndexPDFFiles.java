@@ -414,6 +414,8 @@ operator|+
 literal|"'..."
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|Directory
 name|dir
 init|=
@@ -430,7 +432,8 @@ operator|.
 name|toPath
 argument_list|()
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|Analyzer
 name|analyzer
 init|=
@@ -485,6 +488,7 @@ comment|//
 comment|// iwc.setRAMBufferSizeMB(256.0);
 try|try
 init|(
+specifier|final
 name|IndexWriter
 name|writer
 init|=
@@ -512,12 +516,7 @@ comment|// you're done adding documents to it):
 comment|//
 comment|// writer.forceMerge(1);
 block|}
-comment|// When done close the directory
-name|dir
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|Date
 name|end
 init|=
