@@ -5121,7 +5121,7 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-comment|// a negative offset number represents a object number itself
+comment|// a negative offset number represents an object number itself
 comment|// see type 2 entry in xref stream
 if|if
 condition|(
@@ -5274,14 +5274,6 @@ name|objectKeyFound
 init|=
 literal|false
 decl_stmt|;
-name|long
-name|originOffset
-init|=
-name|source
-operator|.
-name|getPosition
-argument_list|()
-decl_stmt|;
 try|try
 block|{
 name|source
@@ -5301,17 +5293,37 @@ argument_list|()
 operator|==
 name|readObjectNumber
 argument_list|()
-operator|&&
+condition|)
+block|{
+name|int
+name|genNumber
+init|=
+name|readGenerationNumber
+argument_list|()
+decl_stmt|;
+comment|//
+if|if
+condition|(
+name|genNumber
+operator|==
 name|objectKey
 operator|.
 name|getGeneration
 argument_list|()
-operator|==
-name|readGenerationNumber
+operator|||
+operator|(
+name|isLenient
+operator|&&
+name|genNumber
+operator|>
+name|objectKey
+operator|.
+name|getGeneration
 argument_list|()
+operator|)
 condition|)
 block|{
-comment|// finally tro to read the object marker
+comment|// finally try to read the object marker
 name|readExpectedString
 argument_list|(
 name|OBJ_MARKER
@@ -5323,6 +5335,7 @@ name|objectKeyFound
 operator|=
 literal|true
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
@@ -5343,16 +5356,6 @@ operator|+
 literal|" - ignoring"
 argument_list|,
 name|exception
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|source
-operator|.
-name|seek
-argument_list|(
-name|originOffset
 argument_list|)
 expr_stmt|;
 block|}
