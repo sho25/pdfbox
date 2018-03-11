@@ -2321,7 +2321,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      * @throws IOException If there is an error converting to a date.      */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      */
 specifier|public
 name|Calendar
 name|getEmbeddedDate
@@ -2332,8 +2332,6 @@ parameter_list|,
 name|String
 name|key
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|getEmbeddedDate
@@ -2351,7 +2349,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      *      * @throws IOException If there is an error converting to a date.      */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a name and convert it to      * a string. Null is returned if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @return The name converted to a string.      */
 specifier|public
 name|Calendar
 name|getEmbeddedDate
@@ -2362,8 +2360,6 @@ parameter_list|,
 name|COSName
 name|key
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|getEmbeddedDate
@@ -2376,7 +2372,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a date. Null is returned      * if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      * @throws IOException If there is an error converting to a date.      */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a date. Null is returned      * if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      */
 specifier|public
 name|Calendar
 name|getEmbeddedDate
@@ -2390,8 +2386,6 @@ parameter_list|,
 name|Calendar
 name|defaultValue
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|getEmbeddedDate
@@ -2409,7 +2403,7 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
-comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a date. Null is returned      * if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      * @throws IOException If there is an error converting to a date.      */
+comment|/**      * This is a convenience method that will get the dictionary object that is expected to be a date. Null is returned      * if the entry does not exist in the dictionary.      *      * @param embedded The embedded dictionary to get.      * @param key The key to the item in the dictionary.      * @param defaultValue The default value to return.      * @return The name converted to a string.      */
 specifier|public
 name|Calendar
 name|getEmbeddedDate
@@ -2423,8 +2417,6 @@ parameter_list|,
 name|Calendar
 name|defaultValue
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|Calendar
 name|retval
