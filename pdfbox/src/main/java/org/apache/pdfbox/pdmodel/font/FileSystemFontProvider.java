@@ -1280,24 +1280,6 @@ operator|=
 name|getDiskCacheFile
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SecurityException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Couldn't create writer for font cache file"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
 try|try
 init|(
 name|BufferedWriter
@@ -1675,6 +1657,24 @@ argument_list|(
 literal|"You can assign a directory to the 'pdfbox.fontcache' property"
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't create writer for font cache file"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+return|return;
 block|}
 block|}
 comment|/**      * Loads the font metadata cache from disk.      */
