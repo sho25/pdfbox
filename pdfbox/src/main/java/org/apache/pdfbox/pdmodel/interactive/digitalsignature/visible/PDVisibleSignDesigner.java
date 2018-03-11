@@ -788,7 +788,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Zoom signature image with some percent.      *       * @param percent increase image with x percent.      * @return Visible Signature Configuration Object      */
+comment|/**      * Zoom signature image with some percent.      *       * @param percent increase (positive value) or decrease (negative value) image with x percent.      * @return Visible Signature Configuration Object      */
 specifier|public
 name|PDVisibleSignDesigner
 name|zoom
