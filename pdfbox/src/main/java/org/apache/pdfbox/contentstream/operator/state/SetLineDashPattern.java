@@ -306,10 +306,17 @@ name|base
 decl_stmt|;
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|num
 operator|.
 name|floatValue
 argument_list|()
+argument_list|,
+literal|0
+argument_list|)
 operator|!=
 literal|0
 condition|)
