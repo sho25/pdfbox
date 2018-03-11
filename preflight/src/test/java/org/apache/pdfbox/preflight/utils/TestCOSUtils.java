@@ -1033,21 +1033,24 @@ parameter_list|(
 name|COSObjectKey
 name|key
 parameter_list|)
-throws|throws
-name|IOException
+block|{
+try|try
 block|{
 name|super
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
-throw|throw
-operator|new
+block|}
+catch|catch
+parameter_list|(
 name|IOException
-argument_list|(
-literal|"Exception for code coverage"
-argument_list|)
-throw|;
+name|ioe
+parameter_list|)
+block|{                              }
+return|return
+literal|null
+return|;
 block|}
 block|}
 block|}
