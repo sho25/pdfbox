@@ -63,6 +63,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|RandomAccessFile
 import|;
 end_import
@@ -409,7 +419,7 @@ parameter_list|,
 name|int
 name|zoomPercent
 parameter_list|,
-name|FileInputStream
+name|InputStream
 name|imageStream
 parameter_list|,
 name|int
@@ -459,7 +469,7 @@ parameter_list|(
 name|int
 name|zoomPercent
 parameter_list|,
-name|FileInputStream
+name|InputStream
 name|imageStream
 parameter_list|)
 throws|throws
@@ -1512,7 +1522,7 @@ name|page
 decl_stmt|;
 try|try
 init|(
-name|FileInputStream
+name|InputStream
 name|imageStream
 init|=
 operator|new
