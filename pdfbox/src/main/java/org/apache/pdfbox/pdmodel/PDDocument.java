@@ -3655,6 +3655,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|RandomAccessBufferedFileInputStream
 name|raFile
 init|=
@@ -3663,8 +3665,7 @@ name|RandomAccessBufferedFileInputStream
 argument_list|(
 name|file
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|ScratchFile
 name|scratchFile
@@ -3730,13 +3731,6 @@ name|IOException
 name|ioe
 parameter_list|)
 block|{
-name|IOUtils
-operator|.
-name|closeQuietly
-argument_list|(
-name|raFile
-argument_list|)
-expr_stmt|;
 throw|throw
 name|ioe
 throw|;
