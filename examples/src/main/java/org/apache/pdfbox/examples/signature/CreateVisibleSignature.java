@@ -392,7 +392,7 @@ operator|=
 name|lateExternalSigning
 expr_stmt|;
 block|}
-comment|/**      * Set visible signature designer for a new signature field.      *       * @param filename      * @param x position of the signature field      * @param y position of the signature field      * @param zoomPercent      * @param imageStream      * @param page the signature should be placed on      * @throws IOException      */
+comment|/**      * Set visible signature designer for a new signature field.      *       * @param filename      * @param x position of the signature field      * @param y position of the signature field      * @param zoomPercent increase (positive value) or decrease (negative value) image with x percent.      * @param imageStream input stream of an image.      * @param page the signature should be placed on      * @throws IOException      */
 specifier|public
 name|void
 name|setVisibleSignDesigner
@@ -451,7 +451,7 @@ name|adjustForRotation
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Set visible signature designer for an existing signature field.      *       * @param zoomPercent      * @param imageStream      * @throws IOException      */
+comment|/**      * Set visible signature designer for an existing signature field.      *       * @param zoomPercent increase (positive value) or decrease (negative value) image with x percent.      * @param imageStream input stream of an image.      * @throws IOException      */
 specifier|public
 name|void
 name|setVisibleSignDesigner
