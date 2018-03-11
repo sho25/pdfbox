@@ -362,7 +362,7 @@ return|return
 name|stream
 return|;
 block|}
-comment|/**      * This will get the first dictionary object by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      * @throws IOException If there is an error getting the object      */
+comment|/**      * This will get the first dictionary object by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      */
 specifier|public
 name|COSObject
 name|getObjectByType
@@ -370,8 +370,6 @@ parameter_list|(
 name|COSName
 name|type
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 for|for
 control|(
@@ -494,7 +492,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * This will get all dictionary objects by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      * @throws IOException If there is an error getting the object      */
+comment|/**      * This will get all dictionary objects by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      */
 specifier|public
 name|List
 argument_list|<
@@ -505,8 +503,6 @@ parameter_list|(
 name|String
 name|type
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|getObjectsByType
@@ -520,7 +516,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get a dictionary object by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      * @throws IOException If there is an error getting the object      */
+comment|/**      * This will get a dictionary object by type.      *      * @param type The type of the object.      *      * @return This will return an object with the specified type.      */
 specifier|public
 name|List
 argument_list|<
@@ -531,8 +527,6 @@ parameter_list|(
 name|COSName
 name|type
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|List
 argument_list|<
@@ -1302,7 +1296,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * This will get an object from the pool.      *      * @param key The object key.      *      * @return The object in the pool or a new one if it has not been parsed yet.      *      * @throws IOException If there is an error getting the proxy object.      */
+comment|/**      * This will get an object from the pool.      *      * @param key The object key.      *      * @return The object in the pool or a new one if it has not been parsed yet.      */
 specifier|public
 name|COSObject
 name|getObjectFromPool
@@ -1310,8 +1304,6 @@ parameter_list|(
 name|COSObjectKey
 name|key
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|COSObject
 name|obj
