@@ -309,7 +309,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -903,10 +923,13 @@ specifier|private
 name|Area
 name|lastClip
 decl_stmt|;
-comment|// buffered clipping area for text being drawn
+comment|// shapes of glyphs being drawn to be used for clipping
 specifier|private
-name|Area
-name|textClippingArea
+name|List
+argument_list|<
+name|Shape
+argument_list|>
+name|textClippings
 decl_stmt|;
 comment|// glyph caches
 specifier|private
@@ -1648,11 +1671,12 @@ name|void
 name|beginTextClip
 parameter_list|()
 block|{
-comment|// buffer the text clip because it represents a single clipping area
-name|textClippingArea
+comment|// buffer the text clippings because they represents a single clipping area
+name|textClippings
 operator|=
 operator|new
-name|Area
+name|ArrayList
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -1688,22 +1712,52 @@ name|isClip
 argument_list|()
 operator|&&
 operator|!
-name|textClippingArea
+name|textClippings
 operator|.
 name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// PDFBOX-4150: this is much faster than using textClippingArea.add(new Area(glyph))
+comment|// https://stackoverflow.com/questions/21519007/fast-union-of-shapes-in-java
+name|GeneralPath
+name|path
+init|=
+operator|new
+name|GeneralPath
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|Shape
+name|shape
+range|:
+name|textClippings
+control|)
+block|{
+name|path
+operator|.
+name|append
+argument_list|(
+name|shape
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 name|state
 operator|.
 name|intersectClippingPath
 argument_list|(
-name|textClippingArea
+name|path
 argument_list|)
 expr_stmt|;
-name|textClippingArea
+name|textClippings
 operator|=
-literal|null
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
 expr_stmt|;
 comment|// PDFBOX-3681: lastClip needs to be reset, because after intersection it is still the same
 comment|// object, thus setClip() would believe that it is cached.
@@ -2064,15 +2118,11 @@ name|isClip
 argument_list|()
 condition|)
 block|{
-name|textClippingArea
+name|textClippings
 operator|.
 name|add
 argument_list|(
-operator|new
-name|Area
-argument_list|(
 name|glyph
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
