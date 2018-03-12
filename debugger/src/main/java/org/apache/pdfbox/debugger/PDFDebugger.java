@@ -1509,28 +1509,63 @@ name|viewModeItem
 decl_stmt|;
 specifier|public
 specifier|static
+specifier|final
 name|JCheckBoxMenuItem
 name|showTextStripper
+init|=
+operator|new
+name|JCheckBoxMenuItem
+argument_list|(
+literal|"Show TextStripper TextPositions"
+argument_list|)
 decl_stmt|;
 specifier|public
 specifier|static
+specifier|final
 name|JCheckBoxMenuItem
 name|showTextStripperBeads
+init|=
+operator|new
+name|JCheckBoxMenuItem
+argument_list|(
+literal|"Show TextStripper Beads"
+argument_list|)
 decl_stmt|;
 specifier|public
 specifier|static
+specifier|final
 name|JCheckBoxMenuItem
 name|showFontBBox
+init|=
+operator|new
+name|JCheckBoxMenuItem
+argument_list|(
+literal|"Show Approximate Text Bounds"
+argument_list|)
 decl_stmt|;
 specifier|public
 specifier|static
+specifier|final
 name|JCheckBoxMenuItem
 name|showGlyphBounds
+init|=
+operator|new
+name|JCheckBoxMenuItem
+argument_list|(
+literal|"Show Glyph Bounds"
+argument_list|)
 decl_stmt|;
 specifier|public
 specifier|static
+specifier|final
 name|JCheckBoxMenuItem
 name|allowSubsampling
+init|=
+operator|new
+name|JCheckBoxMenuItem
+argument_list|(
+literal|"Allow subsampling"
+argument_list|)
 decl_stmt|;
 comment|// configuration
 specifier|public
@@ -3365,14 +3400,6 @@ name|addSeparator
 argument_list|()
 expr_stmt|;
 name|showTextStripper
-operator|=
-operator|new
-name|JCheckBoxMenuItem
-argument_list|(
-literal|"Show TextStripper TextPositions"
-argument_list|)
-expr_stmt|;
-name|showTextStripper
 operator|.
 name|setEnabled
 argument_list|(
@@ -3387,14 +3414,6 @@ name|showTextStripper
 argument_list|)
 expr_stmt|;
 name|showTextStripperBeads
-operator|=
-operator|new
-name|JCheckBoxMenuItem
-argument_list|(
-literal|"Show TextStripper Beads"
-argument_list|)
-expr_stmt|;
-name|showTextStripperBeads
 operator|.
 name|setEnabled
 argument_list|(
@@ -3409,14 +3428,6 @@ name|showTextStripperBeads
 argument_list|)
 expr_stmt|;
 name|showFontBBox
-operator|=
-operator|new
-name|JCheckBoxMenuItem
-argument_list|(
-literal|"Show Approximate Text Bounds"
-argument_list|)
-expr_stmt|;
-name|showFontBBox
 operator|.
 name|setEnabled
 argument_list|(
@@ -3428,14 +3439,6 @@ operator|.
 name|add
 argument_list|(
 name|showFontBBox
-argument_list|)
-expr_stmt|;
-name|showGlyphBounds
-operator|=
-operator|new
-name|JCheckBoxMenuItem
-argument_list|(
-literal|"Show Glyph Bounds"
 argument_list|)
 expr_stmt|;
 name|showGlyphBounds
@@ -3456,14 +3459,6 @@ name|viewMenu
 operator|.
 name|addSeparator
 argument_list|()
-expr_stmt|;
-name|allowSubsampling
-operator|=
-operator|new
-name|JCheckBoxMenuItem
-argument_list|(
-literal|"Allow subsampling"
-argument_list|)
 expr_stmt|;
 name|allowSubsampling
 operator|.
