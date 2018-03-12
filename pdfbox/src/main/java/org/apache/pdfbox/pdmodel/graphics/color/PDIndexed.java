@@ -195,6 +195,20 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|PDResources
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|common
 operator|.
 name|PDStream
@@ -318,7 +332,7 @@ name|NULL
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new Indexed color space from the given PDF array.      * @param indexedArray the array containing the indexed parameters      */
+comment|/**      * Creates a new indexed color space from the given PDF array.      * @param indexedArray the array containing the indexed parameters      * @throws java.io.IOException      */
 specifier|public
 name|PDIndexed
 parameter_list|(
@@ -328,10 +342,33 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|this
+argument_list|(
+name|indexedArray
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Creates a new indexed color space from the given PDF array.      * @param indexedArray the array containing the indexed parameters      * @param resources the resources, can be null. Allows to use its cache for the colorspace.      * @throws java.io.IOException      */
+specifier|public
+name|PDIndexed
+parameter_list|(
+name|COSArray
+name|indexedArray
+parameter_list|,
+name|PDResources
+name|resources
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|array
 operator|=
 name|indexedArray
 expr_stmt|;
+comment|// don't call getObject(1), we want to pass a reference if possible
+comment|// to profit of caching (PDFBOX-4149)
 name|baseColorSpace
 operator|=
 name|PDColorSpace
@@ -340,10 +377,12 @@ name|create
 argument_list|(
 name|array
 operator|.
-name|getObject
+name|get
 argument_list|(
 literal|1
 argument_list|)
+argument_list|,
+name|resources
 argument_list|)
 expr_stmt|;
 name|readColorTable
