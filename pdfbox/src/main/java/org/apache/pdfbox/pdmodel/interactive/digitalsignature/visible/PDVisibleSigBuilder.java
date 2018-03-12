@@ -1974,18 +1974,53 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// 100 means that document width is 100% via the rectangle. if rectangle
-comment|// is 500px, images 100% is 500px.
-comment|// String imgFormContent = "q "+imageWidthSize+ " 0 0 50 0 0 cm /" +
-comment|// imageName + " Do Q\n" + builder.toString();
+comment|// Use width and height of BBox as values for transformation matrix.
+name|int
+name|width
+init|=
+operator|(
+name|int
+operator|)
+name|this
+operator|.
+name|getStructure
+argument_list|()
+operator|.
+name|getFormatterRectangle
+argument_list|()
+operator|.
+name|getWidth
+argument_list|()
+decl_stmt|;
+name|int
+name|height
+init|=
+operator|(
+name|int
+operator|)
+name|this
+operator|.
+name|getStructure
+argument_list|()
+operator|.
+name|getFormatterRectangle
+argument_list|()
+operator|.
+name|getHeight
+argument_list|()
+decl_stmt|;
 name|String
 name|imgFormContent
 init|=
 literal|"q "
 operator|+
-literal|100
+name|width
 operator|+
-literal|" 0 0 50 0 0 cm /"
+literal|" 0 0 "
+operator|+
+name|height
+operator|+
+literal|" 0 0 cm /"
 operator|+
 name|imageName
 operator|.
