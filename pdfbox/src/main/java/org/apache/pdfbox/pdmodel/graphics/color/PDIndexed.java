@@ -368,7 +368,7 @@ operator|=
 name|indexedArray
 expr_stmt|;
 comment|// don't call getObject(1), we want to pass a reference if possible
-comment|// to profit of caching (PDFBOX-4149)
+comment|// to profit from caching (PDFBOX-4149)
 name|baseColorSpace
 operator|=
 name|PDColorSpace
