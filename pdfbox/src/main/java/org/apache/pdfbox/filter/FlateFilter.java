@@ -201,7 +201,7 @@ specifier|final
 name|int
 name|BUFFER_SIZE
 init|=
-literal|16348
+literal|0x4000
 decl_stmt|;
 annotation|@
 name|Override
