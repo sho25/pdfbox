@@ -35,7 +35,6 @@ name|long
 name|number
 decl_stmt|;
 specifier|private
-specifier|final
 name|int
 name|generation
 decl_stmt|;
@@ -137,6 +136,20 @@ block|{
 return|return
 name|generation
 return|;
+block|}
+comment|/**      * This will set the generation number. It is intended for fixes only.      *       * @param genNumber the new generation number.      */
+specifier|public
+name|void
+name|fixGeneration
+parameter_list|(
+name|int
+name|genNumber
+parameter_list|)
+block|{
+name|generation
+operator|=
+name|genNumber
+expr_stmt|;
 block|}
 comment|/**      * This will get the objects id.      *      * @return The object's id.      */
 specifier|public
