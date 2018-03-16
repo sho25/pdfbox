@@ -463,7 +463,6 @@ name|PDICCBased
 operator|)
 name|colorSpace
 decl_stmt|;
-comment|//TODO the javadoc of getColorSpaceType is incomplete?
 name|int
 name|colorSpaceType
 init|=

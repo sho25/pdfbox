@@ -1668,7 +1668,7 @@ name|METADATA
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the type of the color space in the ICC profile.      * Will be one of {@code TYPE_GRAY}, {@code TYPE_RGB}, or {@code TYPE_CMYK}.      * @return an ICC color space type      */
+comment|/**      * Returns the type of the color space in the ICC profile. If the ICC profile is invalid, the      * type of the alternate colorspace is returned, which will be one of      * {@link ColorSpace#TYPE_GRAY TYPE_GRAY}, {@link ColorSpace#TYPE_RGB TYPE_RGB},      * {@link ColorSpace#TYPE_CMYK TYPE_CMYK}, or -1 if that one is invalid.      *      * @return an ICC color space type. See {@link ColorSpace#getType()} and the static values of      * {@link ColorSpace} for more details.      */
 specifier|public
 name|int
 name|getColorSpaceType
