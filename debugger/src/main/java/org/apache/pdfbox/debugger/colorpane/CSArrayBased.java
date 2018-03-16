@@ -522,6 +522,16 @@ break|break;
 case|case
 name|ColorSpace
 operator|.
+name|TYPE_RGB
+case|:
+name|cs
+operator|=
+literal|"RGB"
+expr_stmt|;
+break|break;
+case|case
+name|ColorSpace
+operator|.
 name|TYPE_GRAY
 case|:
 name|cs
