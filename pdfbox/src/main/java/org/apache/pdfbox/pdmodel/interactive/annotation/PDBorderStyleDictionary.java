@@ -204,12 +204,19 @@ block|{
 comment|// PDFBOX-3929 workaround
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|w
-operator|==
+argument_list|,
 operator|(
 name|int
 operator|)
 name|w
+argument_list|)
+operator|==
+literal|0
 condition|)
 block|{
 name|getCOSObject
