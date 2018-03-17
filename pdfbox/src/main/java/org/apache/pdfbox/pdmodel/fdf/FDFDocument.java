@@ -875,6 +875,8 @@ block|}
 block|}
 block|}
 comment|/**      * This will close the underlying COSDocument object.      *      * @throws IOException If there is an error releasing resources.      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close

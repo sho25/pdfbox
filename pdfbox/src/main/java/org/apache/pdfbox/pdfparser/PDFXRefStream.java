@@ -1677,6 +1677,8 @@ name|nextFree
 decl_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|COSObject
 name|getObject
