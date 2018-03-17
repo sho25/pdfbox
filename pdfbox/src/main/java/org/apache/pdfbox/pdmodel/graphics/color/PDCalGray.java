@@ -246,17 +246,8 @@ block|{
 comment|// see implementation of toRGB in PDCalRGB, and PDFBOX-2971
 if|if
 condition|(
-name|wpX
-operator|==
-literal|1
-operator|&&
-name|wpY
-operator|==
-literal|1
-operator|&&
-name|wpZ
-operator|==
-literal|1
+name|isWhitePoint
+argument_list|()
 condition|)
 block|{
 name|float
