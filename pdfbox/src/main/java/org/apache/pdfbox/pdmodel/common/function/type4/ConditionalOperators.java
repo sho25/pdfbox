@@ -46,6 +46,8 @@ name|If
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
@@ -109,6 +111,8 @@ name|IfElse
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute

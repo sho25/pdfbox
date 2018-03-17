@@ -48,6 +48,8 @@ name|AbstractLogicalOperator
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
@@ -263,6 +265,8 @@ name|Bitshift
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
@@ -357,6 +361,8 @@ name|False
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
@@ -394,6 +400,8 @@ name|Not
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
@@ -545,6 +553,8 @@ name|True
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute

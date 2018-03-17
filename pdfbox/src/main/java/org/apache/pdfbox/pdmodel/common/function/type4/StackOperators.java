@@ -66,6 +66,8 @@ name|Copy
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
@@ -160,6 +162,8 @@ name|Dup
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
@@ -198,6 +202,8 @@ name|Exch
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
@@ -256,6 +262,8 @@ name|Index
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
@@ -341,6 +349,8 @@ name|Pop
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
@@ -374,6 +384,8 @@ name|Roll
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
