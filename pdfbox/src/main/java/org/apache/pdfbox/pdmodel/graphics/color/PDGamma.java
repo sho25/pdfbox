@@ -168,6 +168,8 @@ name|array
 expr_stmt|;
 block|}
 comment|/**      * Convert this standard java object to a COS object.      * @return the cos object that matches this Java object      */
+annotation|@
+name|Override
 specifier|public
 name|COSBase
 name|getCOSObject
