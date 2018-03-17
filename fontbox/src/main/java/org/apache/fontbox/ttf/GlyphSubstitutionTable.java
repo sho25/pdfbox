@@ -278,7 +278,11 @@ decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unused"
+block|,
+literal|"squid:S1854"
+block|}
 argument_list|)
 name|int
 name|majorVersion
@@ -323,7 +327,11 @@ decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unused"
+block|,
+literal|"squid:S1854"
+block|}
 argument_list|)
 name|long
 name|featureVariationsOffset
@@ -796,7 +804,11 @@ decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unused"
+block|,
+literal|"squid:S1854"
+block|}
 argument_list|)
 name|int
 name|lookupOrder
@@ -1032,7 +1044,11 @@ decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unused"
+block|,
+literal|"squid:S1854"
+block|}
 argument_list|)
 name|int
 name|featureParams

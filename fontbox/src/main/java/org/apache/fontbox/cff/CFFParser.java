@@ -506,7 +506,11 @@ decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unused"
+block|,
+literal|"squid:S1854"
+block|}
 argument_list|)
 name|short
 name|searchRange
@@ -519,7 +523,11 @@ decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unused"
+block|,
+literal|"squid:S1854"
+block|}
 argument_list|)
 name|short
 name|entrySelector
@@ -532,7 +540,11 @@ decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
+block|{
 literal|"unused"
+block|,
+literal|"squid:S1854"
+block|}
 argument_list|)
 name|short
 name|rangeShift
