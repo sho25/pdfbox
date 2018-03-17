@@ -583,9 +583,16 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|caf
-operator|!=
+argument_list|,
 literal|1.0f
+argument_list|)
+operator|!=
+literal|0
 condition|)
 block|{
 comment|// ---- Only 1.0 is authorized as value
