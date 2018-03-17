@@ -1407,9 +1407,16 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|unitsPerEM
-operator|!=
+argument_list|,
 literal|1000
+argument_list|)
+operator|!=
+literal|0
 condition|)
 block|{
 name|width

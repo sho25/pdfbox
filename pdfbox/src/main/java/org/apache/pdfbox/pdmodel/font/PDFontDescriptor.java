@@ -1265,11 +1265,18 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|capHeight
-operator|==
+argument_list|,
 name|Float
 operator|.
 name|NEGATIVE_INFINITY
+argument_list|)
+operator|==
+literal|0
 condition|)
 block|{
 comment|/* We observed a negative value being returned with              * the Scheherazade font. PDFBOX-429 was logged for this.              * We are not sure if returning the absolute value              * is the correct fix, but it seems to work.  */
@@ -1335,11 +1342,18 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|xHeight
-operator|==
+argument_list|,
 name|Float
 operator|.
 name|NEGATIVE_INFINITY
+argument_list|)
+operator|==
+literal|0
 condition|)
 block|{
 comment|/* We observed a negative value being returned with              * the Scheherazade font. PDFBOX-429 was logged for this.              * We are not sure if returning the absolute value              * is the correct fix, but it seems to work.  */
