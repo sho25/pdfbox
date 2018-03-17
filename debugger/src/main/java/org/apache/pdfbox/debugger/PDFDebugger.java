@@ -1776,13 +1776,17 @@ argument_list|)
 expr_stmt|;
 comment|// trigger premature initializations for more accurate rendering benchmarks
 comment|// See discussion in PDFBOX-3988
-name|PDFont
-name|font
-init|=
+if|if
+condition|(
 name|PDType1Font
 operator|.
 name|COURIER
-decl_stmt|;
+operator|.
+name|isStandard14
+argument_list|()
+condition|)
+block|{
+comment|// Yes this is always true
 name|PDDeviceCMYK
 operator|.
 name|INSTANCE
@@ -1821,6 +1825,7 @@ literal|0
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 comment|// open file, if any
 name|String
 name|filename
