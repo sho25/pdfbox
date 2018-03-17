@@ -46,6 +46,8 @@ name|Eq
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
@@ -112,8 +114,6 @@ parameter_list|)
 block|{
 name|boolean
 name|result
-init|=
-literal|false
 decl_stmt|;
 if|if
 condition|(
@@ -188,6 +188,8 @@ name|AbstractNumberComparisonOperator
 implements|implements
 name|Operator
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|execute
