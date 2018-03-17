@@ -4854,9 +4854,16 @@ decl_stmt|;
 comment|// nothing to do?
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|newVersion
-operator|==
+argument_list|,
 name|currentVersion
+argument_list|)
+operator|==
+literal|0
 condition|)
 block|{
 return|return;
