@@ -245,6 +245,8 @@ name|COSDictionary
 name|dictionary
 decl_stmt|;
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
 name|getCOSObject

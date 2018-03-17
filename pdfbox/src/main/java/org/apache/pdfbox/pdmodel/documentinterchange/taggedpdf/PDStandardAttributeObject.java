@@ -165,6 +165,16 @@ name|PDStandardAttributeObject
 extends|extends
 name|PDAttributeObject
 block|{
+comment|/**      * An "unspecified" default float value.      */
+specifier|protected
+specifier|static
+specifier|final
+name|float
+name|UNSPECIFIED
+init|=
+operator|-
+literal|1.f
+decl_stmt|;
 comment|/**      * Default constructor.      */
 specifier|public
 name|PDStandardAttributeObject
@@ -1002,16 +1012,6 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * An "unspecified" default float value.      */
-specifier|protected
-specifier|static
-specifier|final
-name|float
-name|UNSPECIFIED
-init|=
-operator|-
-literal|1.f
-decl_stmt|;
 comment|/**      * Gets a number or an array of numbers.      *       * @param name the attribute name      * @param defaultValue the default value      * @return a Float or an array of floats      */
 specifier|protected
 name|Object
@@ -1142,9 +1142,16 @@ return|;
 block|}
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|defaultValue
-operator|==
+argument_list|,
 name|UNSPECIFIED
+argument_list|)
+operator|==
+literal|0
 condition|)
 block|{
 return|return
