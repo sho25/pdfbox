@@ -472,7 +472,14 @@ block|{
 comment|// See PDF 2.0 specification
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|dstValue
+argument_list|,
+literal|0
+argument_list|)
 operator|==
 literal|0
 condition|)
@@ -532,9 +539,16 @@ block|{
 comment|// See PDF 2.0 specification
 if|if
 condition|(
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|dstValue
-operator|==
+argument_list|,
 literal|1
+argument_list|)
+operator|==
+literal|0
 condition|)
 block|{
 return|return
