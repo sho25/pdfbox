@@ -214,6 +214,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|int
 name|getFunctionType
@@ -224,6 +226,8 @@ literal|4
 return|;
 block|}
 comment|/**     * {@inheritDoc}     */
+annotation|@
+name|Override
 specifier|public
 name|float
 index|[]
