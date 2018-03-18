@@ -478,6 +478,12 @@ specifier|private
 name|ViewMenu
 name|viewMenu
 decl_stmt|;
+specifier|private
+name|String
+name|labelText
+init|=
+literal|""
+decl_stmt|;
 specifier|public
 name|PagePane
 parameter_list|(
@@ -1375,7 +1381,7 @@ name|statuslabel
 operator|.
 name|setText
 argument_list|(
-literal|""
+name|labelText
 argument_list|)
 expr_stmt|;
 block|}
@@ -1511,18 +1517,22 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+name|labelText
+operator|=
+literal|"Rendering..."
+expr_stmt|;
 name|label
 operator|.
 name|setText
 argument_list|(
-literal|"Rendering..."
+name|labelText
 argument_list|)
 expr_stmt|;
 name|statuslabel
 operator|.
 name|setText
 argument_list|(
-literal|"Rendering..."
+name|labelText
 argument_list|)
 expr_stmt|;
 name|PDFRenderer
@@ -1591,15 +1601,19 @@ operator|.
 name|NANOSECONDS
 argument_list|)
 decl_stmt|;
-name|statuslabel
-operator|.
-name|setText
-argument_list|(
+name|labelText
+operator|=
 literal|"Rendered in "
 operator|+
 name|ms
 operator|+
 literal|" ms"
+expr_stmt|;
+name|statuslabel
+operator|.
+name|setText
+argument_list|(
+name|labelText
 argument_list|)
 expr_stmt|;
 comment|// debug overlays
