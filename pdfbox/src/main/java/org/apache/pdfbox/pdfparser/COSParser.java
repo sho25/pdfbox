@@ -5832,15 +5832,9 @@ literal|1
 decl_stmt|;
 name|long
 name|newOffsetTable
-init|=
-operator|-
-literal|1
 decl_stmt|;
 name|long
 name|newOffsetStream
-init|=
-operator|-
-literal|1
 decl_stmt|;
 comment|// initialize bfSearchXRefTablesOffsets -> not null
 name|bfSearchForXRefTables
