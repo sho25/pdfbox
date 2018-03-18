@@ -1417,7 +1417,7 @@ argument_list|,
 literal|0.0f
 argument_list|)
 operator|!=
-literal|0.0f
+literal|0
 condition|)
 block|{
 name|average
