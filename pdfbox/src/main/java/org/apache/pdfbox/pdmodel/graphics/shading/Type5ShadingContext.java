@@ -307,6 +307,11 @@ name|deviceBounds
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"squid:S1166"
+argument_list|)
 specifier|private
 name|List
 argument_list|<
