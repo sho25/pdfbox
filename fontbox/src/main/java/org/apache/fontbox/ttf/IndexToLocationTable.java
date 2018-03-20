@@ -155,7 +155,7 @@ operator|.
 name|readUnsignedShort
 argument_list|()
 operator|*
-literal|2
+literal|2L
 expr_stmt|;
 block|}
 elseif|else
