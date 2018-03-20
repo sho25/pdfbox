@@ -1787,6 +1787,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Error: Modifying the current transformation matrix is not allowed within text objects."
+argument_list|)
+throw|;
+block|}
 name|writeAffineTransform
 argument_list|(
 name|matrix
@@ -1809,6 +1822,19 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Error: Saving the graphics state is not allowed within text objects."
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 operator|!
@@ -1883,6 +1909,19 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Error: Restoring the graphics state is not allowed within text objects."
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 operator|!
