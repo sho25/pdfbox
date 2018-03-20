@@ -350,6 +350,15 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Create a patch list from a data stream, the returned list contains all the patches contained      * in the data stream.      *      * @param shadingType the shading type      * @param xform transformation for user to device space      * @param matrix the pattern matrix concatenated with that of the parent content stream      * @param controlPoints number of control points, 12 for type 6 shading and 16 for type 7 shading      * @return the obtained patch list      * @throws IOException when something went wrong      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S2583"
+block|,
+literal|"squid:S1166"
+block|}
+argument_list|)
 specifier|final
 name|List
 argument_list|<
