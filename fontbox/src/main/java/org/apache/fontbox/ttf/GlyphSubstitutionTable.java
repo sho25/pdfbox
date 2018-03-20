@@ -255,6 +255,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S1854"
+block|}
+argument_list|)
 name|void
 name|read
 parameter_list|(
@@ -280,8 +287,6 @@ name|SuppressWarnings
 argument_list|(
 block|{
 literal|"unused"
-block|,
-literal|"squid:S1854"
 block|}
 argument_list|)
 name|int
@@ -329,8 +334,6 @@ name|SuppressWarnings
 argument_list|(
 block|{
 literal|"unused"
-block|,
-literal|"squid:S1854"
 block|}
 argument_list|)
 name|long
@@ -2308,6 +2311,11 @@ name|int
 name|gid
 parameter_list|)
 block|{
+name|int
+name|lookupResult
+init|=
+name|gid
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -2356,7 +2364,7 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-name|gid
+name|lookupResult
 operator|=
 name|doLookup
 argument_list|(
@@ -2367,7 +2375,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|gid
+name|lookupResult
 return|;
 block|}
 specifier|private
