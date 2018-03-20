@@ -2370,7 +2370,7 @@ name|doLookup
 argument_list|(
 name|lookupTable
 argument_list|,
-name|gid
+name|lookupResult
 argument_list|)
 expr_stmt|;
 block|}
