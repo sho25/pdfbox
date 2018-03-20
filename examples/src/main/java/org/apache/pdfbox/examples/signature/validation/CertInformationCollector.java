@@ -1275,8 +1275,9 @@ name|certInfo
 operator|.
 name|certChain
 argument_list|,
-operator|--
 name|maxDepth
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 break|break;
