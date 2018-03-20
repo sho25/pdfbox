@@ -517,6 +517,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// initial setting if stroking shall be done
+name|boolean
+name|resolvedHasStroke
+init|=
+name|hasStroke
+decl_stmt|;
+comment|// no stroking for very small lines
 if|if
 condition|(
 name|lineWidth
@@ -524,7 +531,7 @@ operator|<
 literal|1e-6
 condition|)
 block|{
-name|hasStroke
+name|resolvedHasStroke
 operator|=
 literal|false
 expr_stmt|;
@@ -533,7 +540,7 @@ if|if
 condition|(
 name|hasFill
 operator|&&
-name|hasStroke
+name|resolvedHasStroke
 condition|)
 block|{
 name|fillAndStroke
@@ -543,7 +550,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|hasStroke
+name|resolvedHasStroke
 condition|)
 block|{
 name|stroke
