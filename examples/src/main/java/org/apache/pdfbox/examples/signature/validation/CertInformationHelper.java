@@ -493,6 +493,15 @@ name|SignatureException
 name|se
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Couldn't get signature information - returning false"
+argument_list|,
+name|se
+argument_list|)
+expr_stmt|;
 return|return
 literal|false
 return|;
