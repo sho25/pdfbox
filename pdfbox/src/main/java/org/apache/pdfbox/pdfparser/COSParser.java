@@ -7276,15 +7276,28 @@ block|}
 comment|// add all found compressed objects to the brute force search result
 for|for
 control|(
+name|Entry
+argument_list|<
 name|Long
-name|offset
+argument_list|,
+name|COSObjectKey
+argument_list|>
+name|streamOffsetsEntry
 range|:
 name|bfSearchObjStreamsOffsets
 operator|.
-name|keySet
+name|entrySet
 argument_list|()
 control|)
 block|{
+name|Long
+name|offset
+init|=
+name|streamOffsetsEntry
+operator|.
+name|getKey
+argument_list|()
+decl_stmt|;
 name|Long
 name|bfOffset
 init|=
@@ -7292,12 +7305,10 @@ name|bfSearchCOSObjectKeyOffsets
 operator|.
 name|get
 argument_list|(
-name|bfSearchObjStreamsOffsets
+name|streamOffsetsEntry
 operator|.
-name|get
-argument_list|(
-name|offset
-argument_list|)
+name|getValue
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// incomplete object stream found?
@@ -7314,12 +7325,10 @@ name|warn
 argument_list|(
 literal|"Skipped incomplete object stream:"
 operator|+
-name|bfSearchObjStreamsOffsets
+name|streamOffsetsEntry
 operator|.
-name|get
-argument_list|(
-name|offset
-argument_list|)
+name|getValue
+argument_list|()
 operator|+
 literal|" at "
 operator|+
