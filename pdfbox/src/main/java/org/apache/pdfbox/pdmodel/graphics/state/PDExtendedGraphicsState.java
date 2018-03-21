@@ -996,14 +996,14 @@ operator|new
 name|COSArray
 argument_list|()
 decl_stmt|;
-name|dp
+name|array
 operator|.
 name|addAll
 argument_list|(
 name|dp
 argument_list|)
 expr_stmt|;
-name|dp
+name|array
 operator|.
 name|remove
 argument_list|(
