@@ -181,6 +181,18 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|AC
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"AC"
+argument_list|)
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|ACRO_FORM
 init|=
 operator|new
@@ -3077,6 +3089,18 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Issuer"
+argument_list|)
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|IX
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"IX"
 argument_list|)
 decl_stmt|;
 comment|// J
