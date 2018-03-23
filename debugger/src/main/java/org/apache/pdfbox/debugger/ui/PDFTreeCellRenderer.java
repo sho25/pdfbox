@@ -1186,6 +1186,13 @@ operator|.
 name|TYPE
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|type
+operator|!=
+literal|null
+condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -1201,6 +1208,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1226,6 +1234,13 @@ operator|.
 name|SUBTYPE
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|subtype
+operator|!=
+literal|null
+condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -1241,6 +1256,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|sb
