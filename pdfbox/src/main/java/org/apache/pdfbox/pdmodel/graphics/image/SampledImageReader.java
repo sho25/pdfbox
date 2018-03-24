@@ -1105,6 +1105,7 @@ parameter_list|,
 name|Rectangle
 name|clipped
 parameter_list|,
+specifier|final
 name|int
 name|subsampling
 parameter_list|,
@@ -1119,6 +1120,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|int
+name|currentSubsampling
+init|=
+name|subsampling
+decl_stmt|;
 specifier|final
 name|PDColorSpace
 name|colorSpace
@@ -1156,7 +1162,7 @@ init|=
 operator|new
 name|DecodeOptions
 argument_list|(
-name|subsampling
+name|currentSubsampling
 argument_list|)
 decl_stmt|;
 name|options
@@ -1229,7 +1235,7 @@ name|scanHeight
 operator|=
 name|height
 expr_stmt|;
-name|subsampling
+name|currentSubsampling
 operator|=
 literal|1
 expr_stmt|;
@@ -1475,7 +1481,7 @@ name|starty
 operator|||
 name|y
 operator|%
-name|subsampling
+name|currentSubsampling
 argument_list|>
 literal|0
 condition|)
@@ -1559,7 +1565,7 @@ name|startx
 operator|&&
 name|x
 operator|%
-name|subsampling
+name|currentSubsampling
 operator|==
 literal|0
 condition|)
@@ -1638,6 +1644,7 @@ parameter_list|,
 name|Rectangle
 name|clipped
 parameter_list|,
+specifier|final
 name|int
 name|subsampling
 parameter_list|,
@@ -1652,13 +1659,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|int
+name|currentSubsampling
+init|=
+name|subsampling
+decl_stmt|;
 name|DecodeOptions
 name|options
 init|=
 operator|new
 name|DecodeOptions
 argument_list|(
-name|subsampling
+name|currentSubsampling
 argument_list|)
 decl_stmt|;
 name|options
@@ -1730,7 +1742,7 @@ name|scanHeight
 operator|=
 name|height
 expr_stmt|;
-name|subsampling
+name|currentSubsampling
 operator|=
 literal|1
 expr_stmt|;
@@ -1818,7 +1830,7 @@ name|scanHeight
 operator|==
 name|height
 operator|&&
-name|subsampling
+name|currentSubsampling
 operator|==
 literal|1
 condition|)
@@ -1975,7 +1987,7 @@ name|starty
 operator|||
 name|y
 operator|%
-name|subsampling
+name|currentSubsampling
 argument_list|>
 literal|0
 condition|)
@@ -1984,7 +1996,7 @@ continue|continue;
 block|}
 if|if
 condition|(
-name|subsampling
+name|currentSubsampling
 operator|==
 literal|1
 condition|)
@@ -2032,7 +2044,7 @@ name|scanWidth
 condition|;
 name|x
 operator|+=
-name|subsampling
+name|currentSubsampling
 control|)
 block|{
 for|for
@@ -2103,6 +2115,7 @@ parameter_list|,
 name|Rectangle
 name|clipped
 parameter_list|,
+specifier|final
 name|int
 name|subsampling
 parameter_list|,
@@ -2117,6 +2130,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|int
+name|currentSubsampling
+init|=
+name|subsampling
+decl_stmt|;
 specifier|final
 name|PDColorSpace
 name|colorSpace
@@ -2160,7 +2178,7 @@ init|=
 operator|new
 name|DecodeOptions
 argument_list|(
-name|subsampling
+name|currentSubsampling
 argument_list|)
 decl_stmt|;
 name|options
@@ -2237,7 +2255,7 @@ name|scanHeight
 operator|=
 name|height
 expr_stmt|;
-name|subsampling
+name|currentSubsampling
 operator|=
 literal|1
 expr_stmt|;
@@ -2630,13 +2648,13 @@ name|starty
 operator|&&
 name|x
 operator|%
-name|subsampling
+name|currentSubsampling
 operator|==
 literal|0
 operator|&&
 name|y
 operator|%
-name|subsampling
+name|currentSubsampling
 operator|==
 literal|0
 condition|)
@@ -2651,7 +2669,7 @@ operator|-
 name|startx
 operator|)
 operator|/
-name|subsampling
+name|currentSubsampling
 argument_list|,
 operator|(
 name|y
@@ -2659,7 +2677,7 @@ operator|-
 name|starty
 operator|)
 operator|/
-name|subsampling
+name|currentSubsampling
 argument_list|,
 name|srcColorValues
 argument_list|)
@@ -2701,7 +2719,7 @@ operator|-
 name|startx
 operator|)
 operator|/
-name|subsampling
+name|currentSubsampling
 argument_list|,
 operator|(
 name|y
@@ -2709,7 +2727,7 @@ operator|-
 name|starty
 operator|)
 operator|/
-name|subsampling
+name|currentSubsampling
 argument_list|,
 name|alpha
 argument_list|)
