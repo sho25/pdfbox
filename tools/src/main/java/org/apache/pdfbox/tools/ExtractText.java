@@ -1163,6 +1163,8 @@ literal|")"
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+init|(
 name|InputStream
 name|fis
 init|=
@@ -1170,33 +1172,8 @@ name|file
 operator|.
 name|createInputStream
 argument_list|()
-decl_stmt|;
-name|PDDocument
-name|subDoc
-init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|subDoc
-operator|=
-name|PDDocument
-operator|.
-name|load
-argument_list|(
-name|fis
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|fis
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-try|try
+init|;                                         PDDocument subDoc = PDDocument.load(fis)
+block|)
 block|{
 name|stripper
 operator|.
@@ -1205,16 +1182,6 @@ argument_list|(
 name|subDoc
 argument_list|,
 name|output
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|IOUtils
-operator|.
-name|closeQuietly
-argument_list|(
-name|subDoc
 argument_list|)
 expr_stmt|;
 block|}
@@ -1250,6 +1217,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_class
+
+begin_function
 specifier|private
 name|long
 name|startProcessing
@@ -1280,6 +1250,9 @@ name|currentTimeMillis
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 specifier|private
 name|void
 name|stopProcessing
@@ -1335,7 +1308,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * This will print the usage requirements and exit.      */
+end_comment
+
+begin_function
 specifier|private
 specifier|static
 name|void
@@ -1388,8 +1367,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 
