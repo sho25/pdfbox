@@ -373,6 +373,8 @@ operator|.
 name|debug
 argument_list|(
 literal|"KCMS service not found - using LCMS"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
