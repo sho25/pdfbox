@@ -995,13 +995,13 @@ comment|// An AWT raster must use 8/16/32 bits per component. Images with< 8bpc
 comment|// will be unpacked into a byte-backed raster. Images with 16bpc will be reduced
 comment|// in depth to 8bpc as they will be drawn to TYPE_INT_RGB images anyway. All code
 comment|// in PDColorSpace#toRGBImage expects an 8-bit range, i.e. 0-255.
-comment|//
+comment|// Interleaved raster allows chunk-copying for 8-bit images.
 name|WritableRaster
 name|raster
 init|=
 name|Raster
 operator|.
-name|createBandedRaster
+name|createInterleavedRaster
 argument_list|(
 name|DataBuffer
 operator|.
@@ -1785,8 +1785,7 @@ decl_stmt|;
 comment|// get the raster's underlying byte buffer
 name|byte
 index|[]
-index|[]
-name|banks
+name|bank
 init|=
 operator|(
 operator|(
@@ -1798,9 +1797,95 @@ name|getDataBuffer
 argument_list|()
 operator|)
 operator|.
-name|getBankData
+name|getData
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|startx
+operator|==
+literal|0
+operator|&&
+name|starty
+operator|==
+literal|0
+operator|&&
+name|scanWidth
+operator|==
+name|width
+operator|&&
+name|scanHeight
+operator|==
+name|height
+operator|&&
+name|subsampling
+operator|==
+literal|1
+condition|)
+block|{
+comment|// we just need to copy all sample data, then convert to RGB image.
+name|long
+name|inputResult
+init|=
+name|input
+operator|.
+name|read
+argument_list|(
+name|bank
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|Long
+operator|.
+name|compare
+argument_list|(
+name|inputResult
+argument_list|,
+name|width
+operator|*
+name|height
+operator|*
+name|numComponents
+argument_list|)
+operator|!=
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Tried reading "
+operator|+
+name|width
+operator|*
+name|height
+operator|*
+name|numComponents
+operator|+
+literal|" bytes but only "
+operator|+
+name|inputResult
+operator|+
+literal|" bytes read"
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|pdImage
+operator|.
+name|getColorSpace
+argument_list|()
+operator|.
+name|toRGBImage
+argument_list|(
+name|raster
+argument_list|)
+return|;
+block|}
+comment|// either subsampling is required, or reading only part of the image, so its
+comment|// not possible to blindly copy all data.
 name|byte
 index|[]
 name|tempBytes
@@ -1897,6 +1982,41 @@ condition|)
 block|{
 continue|continue;
 block|}
+if|if
+condition|(
+name|subsampling
+operator|==
+literal|1
+condition|)
+block|{
+comment|// Not the entire region was requested, but if no subsampling should
+comment|// be performed, we can still copy the entire part of this row
+name|System
+operator|.
+name|arraycopy
+argument_list|(
+name|tempBytes
+argument_list|,
+name|startx
+operator|*
+name|numComponents
+argument_list|,
+name|bank
+argument_list|,
+name|y
+operator|*
+name|inputWidth
+operator|*
+name|numComponents
+argument_list|,
+name|scanWidth
+operator|*
+name|numComponents
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 for|for
 control|(
 name|int
@@ -1930,10 +2050,7 @@ name|c
 operator|++
 control|)
 block|{
-name|banks
-index|[
-name|c
-index|]
+name|bank
 index|[
 name|i
 index|]
@@ -1947,10 +2064,11 @@ operator|+
 name|c
 index|]
 expr_stmt|;
-block|}
 operator|++
 name|i
 expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 comment|// use the color space to convert the image to RGB
