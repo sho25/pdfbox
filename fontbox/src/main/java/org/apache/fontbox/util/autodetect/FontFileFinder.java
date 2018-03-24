@@ -152,8 +152,7 @@ name|WindowsFontDirFinder
 argument_list|()
 return|;
 block|}
-else|else
-block|{
+elseif|else
 if|if
 condition|(
 name|osName
@@ -170,6 +169,23 @@ name|MacFontDirFinder
 argument_list|()
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|osName
+operator|.
+name|startsWith
+argument_list|(
+literal|"OS/400"
+argument_list|)
+condition|)
+block|{
+return|return
+operator|new
+name|OS400FontDirFinder
+argument_list|()
+return|;
+block|}
 else|else
 block|{
 return|return
@@ -177,7 +193,6 @@ operator|new
 name|UnixFontDirFinder
 argument_list|()
 return|;
-block|}
 block|}
 block|}
 comment|/**      * Automagically finds a list of font files on local system.      *       * @return List&lt;URI&gt; of font files      */
