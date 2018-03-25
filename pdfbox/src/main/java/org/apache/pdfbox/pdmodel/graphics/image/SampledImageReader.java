@@ -1858,6 +1858,9 @@ name|width
 operator|*
 name|height
 operator|*
+operator|(
+name|int
+operator|)
 name|numComponents
 argument_list|)
 operator|!=
