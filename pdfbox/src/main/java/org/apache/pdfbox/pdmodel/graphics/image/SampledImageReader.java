@@ -1859,7 +1859,7 @@ operator|*
 name|height
 operator|*
 operator|(
-name|int
+name|long
 operator|)
 name|numComponents
 argument_list|)
@@ -1877,6 +1877,9 @@ name|width
 operator|*
 name|height
 operator|*
+operator|(
+name|long
+operator|)
 name|numComponents
 operator|+
 literal|" bytes but only "
