@@ -662,6 +662,11 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+name|deflater
+operator|.
+name|end
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
