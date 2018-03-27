@@ -1556,8 +1556,34 @@ throws|throws
 name|IOException
 block|{
 comment|// ---- parse indirect object head
+name|long
+name|objectNumber
+init|=
 name|readObjectNumber
 argument_list|()
+decl_stmt|;
+comment|// remember the highest XRef object number to avoid it being reused in incremental saving
+name|long
+name|currentHighestXRefObjectNumber
+init|=
+name|document
+operator|.
+name|getHighestXRefObjectNumber
+argument_list|()
+decl_stmt|;
+name|document
+operator|.
+name|setHighestXRefObjectNumber
+argument_list|(
+name|Math
+operator|.
+name|max
+argument_list|(
+name|currentHighestXRefObjectNumber
+argument_list|,
+name|objectNumber
+argument_list|)
+argument_list|)
 expr_stmt|;
 name|readGenerationNumber
 argument_list|()

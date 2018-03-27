@@ -262,6 +262,11 @@ specifier|private
 name|ScratchFile
 name|scratchFile
 decl_stmt|;
+comment|/**      * Used for incremental saving, to avoid XRef object numbers from being reused.      */
+specifier|private
+name|long
+name|highestXRefObjectNumber
+decl_stmt|;
 comment|/**      * Constructor. Uses main memory to buffer PDF streams.      */
 specifier|public
 name|COSDocument
@@ -1003,6 +1008,32 @@ block|{
 name|trailer
 operator|=
 name|newTrailer
+expr_stmt|;
+block|}
+comment|/**      * Internal PDFBox use only. Get the object number of the highest XRef stream. This is needed to      * avoid reusing such a number in incremental saving.      *      * @return The object number of the highest XRef stream, or 0 if there was no XRef stream.      */
+specifier|public
+name|long
+name|getHighestXRefObjectNumber
+parameter_list|()
+block|{
+return|return
+name|highestXRefObjectNumber
+return|;
+block|}
+comment|/**      * Internal PDFBox use only. Sets the object number of the highest XRef stream. This is needed      * to avoid reusing such a number in incremental saving.      *      * @param highestXRefObjectNumber The object number of the highest XRef stream.      */
+specifier|public
+name|void
+name|setHighestXRefObjectNumber
+parameter_list|(
+name|long
+name|highestXRefObjectNumber
+parameter_list|)
+block|{
+name|this
+operator|.
+name|highestXRefObjectNumber
+operator|=
+name|highestXRefObjectNumber
 expr_stmt|;
 block|}
 comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws IOException If an error occurs while visiting this object.      */

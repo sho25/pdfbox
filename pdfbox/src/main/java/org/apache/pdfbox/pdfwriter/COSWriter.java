@@ -1332,7 +1332,13 @@ decl_stmt|;
 name|long
 name|highestNumber
 init|=
-literal|0
+name|doc
+operator|.
+name|getDocument
+argument_list|()
+operator|.
+name|getHighestXRefObjectNumber
+argument_list|()
 decl_stmt|;
 for|for
 control|(
