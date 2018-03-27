@@ -3098,6 +3098,28 @@ literal|"Tr"
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the text rise value, i.e. move the baseline up or down. This is useful for drawing      * superscripts or subscripts.      *      * @param rise Specifies the distance, in unscaled text space units, to move the baseline up or      * down from its default location. 0 restores the default location.      * @throws IOException      */
+specifier|public
+name|void
+name|setTextRise
+parameter_list|(
+name|float
+name|rise
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|writeOperand
+argument_list|(
+name|rise
+argument_list|)
+expr_stmt|;
+name|writeOperator
+argument_list|(
+literal|"Ts"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
