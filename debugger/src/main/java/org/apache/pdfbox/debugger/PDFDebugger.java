@@ -329,6 +329,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|imageio
+operator|.
+name|spi
+operator|.
+name|IIORegistry
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1835,6 +1847,11 @@ block|,
 literal|0
 block|}
 argument_list|)
+expr_stmt|;
+name|IIORegistry
+operator|.
+name|getDefaultInstance
+argument_list|()
 expr_stmt|;
 block|}
 comment|// open file, if any
