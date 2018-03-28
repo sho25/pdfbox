@@ -237,6 +237,12 @@ specifier|final
 name|boolean
 name|center
 decl_stmt|;
+specifier|private
+name|boolean
+name|subsamplingAllowed
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Creates a new PDFPrintable.      *      * @param document the document to print      */
 specifier|public
 name|PDFPrintable
@@ -394,6 +400,32 @@ operator|.
 name|center
 operator|=
 name|center
+expr_stmt|;
+block|}
+comment|/**      * Value indicating if the renderer is allowed to subsample images before drawing, according to      * image dimensions and requested scale.      *      * Subsampling may be faster and less memory-intensive in some cases, but it may also lead to      * loss of quality, especially in images with high spatial frequency.      *      * @return true if subsampling of images is allowed, false otherwise.      */
+specifier|public
+name|boolean
+name|isSubsamplingAllowed
+parameter_list|()
+block|{
+return|return
+name|subsamplingAllowed
+return|;
+block|}
+comment|/**      * Sets a value instructing the renderer whether it is allowed to subsample images before      * drawing. The subsampling frequency is determined according to image size and requested scale.      *      * Subsampling may be faster and less memory-intensive in some cases, but it may also lead to      * loss of quality, especially in images with high spatial frequency.      *      * @param subsamplingAllowed The new value indicating if subsampling is allowed.      */
+specifier|public
+name|void
+name|setSubsamplingAllowed
+parameter_list|(
+name|boolean
+name|subsamplingAllowed
+parameter_list|)
+block|{
+name|this
+operator|.
+name|subsamplingAllowed
+operator|=
+name|subsamplingAllowed
 expr_stmt|;
 block|}
 annotation|@
@@ -727,6 +759,13 @@ argument_list|(
 name|Color
 operator|.
 name|WHITE
+argument_list|)
+expr_stmt|;
+name|renderer
+operator|.
+name|setSubsamplingAllowed
+argument_list|(
+name|subsamplingAllowed
 argument_list|)
 expr_stmt|;
 name|renderer
