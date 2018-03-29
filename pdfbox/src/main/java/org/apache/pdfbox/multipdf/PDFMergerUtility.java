@@ -1032,11 +1032,6 @@ comment|// - first Exception is kept
 comment|// - all PDDocuments are closed
 comment|// - all FileInputStreams are closed
 comment|// - there's a way to see which errors occured
-name|IOException
-name|firstException
-init|=
-literal|null
-decl_stmt|;
 name|List
 argument_list|<
 name|PDDocument
@@ -1095,12 +1090,6 @@ block|{
 name|PDDocument
 name|sourceDoc
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|sourceDoc
-operator|=
 name|PDDocument
 operator|.
 name|load
@@ -1109,28 +1098,7 @@ name|sourceInputStream
 argument_list|,
 name|partitionedMemSetting
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ioe
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Couldn't load source document"
-argument_list|,
-name|ioe
-argument_list|)
-expr_stmt|;
-name|firstException
-operator|=
-name|ioe
-expr_stmt|;
-block|}
+decl_stmt|;
 name|tobeclosed
 operator|.
 name|add
@@ -1180,8 +1148,6 @@ name|destinationMetadata
 argument_list|)
 expr_stmt|;
 block|}
-try|try
-block|{
 if|if
 condition|(
 name|destinationStream
@@ -1208,35 +1174,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ioe
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Couldn't save destination"
-argument_list|,
-name|ioe
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|firstException
-operator|==
-literal|null
-condition|)
-block|{
-name|firstException
-operator|=
-name|ioe
-expr_stmt|;
-block|}
-block|}
-block|}
 finally|finally
 block|{
 for|for
@@ -1247,8 +1184,6 @@ range|:
 name|tobeclosed
 control|)
 block|{
-name|firstException
-operator|=
 name|IOUtils
 operator|.
 name|closeAndLogException
@@ -1259,7 +1194,7 @@ name|LOG
 argument_list|,
 literal|"PDDocument"
 argument_list|,
-name|firstException
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1271,8 +1206,6 @@ range|:
 name|fileInputStreams
 control|)
 block|{
-name|firstException
-operator|=
 name|IOUtils
 operator|.
 name|closeAndLogException
@@ -1283,21 +1216,9 @@ name|LOG
 argument_list|,
 literal|"FileInputStream"
 argument_list|,
-name|firstException
+literal|null
 argument_list|)
 expr_stmt|;
-block|}
-comment|// rethrow first exception to keep method contract
-if|if
-condition|(
-name|firstException
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-name|firstException
-throw|;
 block|}
 block|}
 block|}

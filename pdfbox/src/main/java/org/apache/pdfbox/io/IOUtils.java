@@ -411,12 +411,6 @@ return|return
 name|ioe
 return|;
 block|}
-else|else
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 return|return
 literal|null
