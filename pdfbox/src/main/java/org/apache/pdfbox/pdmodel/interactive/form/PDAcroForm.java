@@ -2250,7 +2250,7 @@ block|{
 name|boolean
 name|needsTranslation
 init|=
-literal|false
+literal|true
 decl_stmt|;
 name|PDResources
 name|resources
@@ -2363,7 +2363,7 @@ name|llX
 argument_list|,
 literal|0
 argument_list|)
-operator|==
+operator|!=
 literal|0
 operator|&&
 name|Float
@@ -2374,13 +2374,13 @@ name|llY
 argument_list|,
 literal|0
 argument_list|)
-operator|==
+operator|!=
 literal|0
 condition|)
 block|{
 name|needsTranslation
 operator|=
-literal|true
+literal|false
 expr_stmt|;
 block|}
 block|}
