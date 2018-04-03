@@ -433,6 +433,11 @@ condition|(
 name|isartor
 operator|==
 literal|null
+operator|||
+name|isartor
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|staticLogger
