@@ -107,18 +107,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentHashMap
-import|;
-end_import
-
 begin_comment
 comment|/**  * PostScript glyph list, maps glyph names to sequences of Unicode characters.  * Instances of GlyphList are immutable.  */
 end_comment
@@ -341,7 +329,7 @@ argument_list|>
 name|uniNameToUnicodeCache
 init|=
 operator|new
-name|ConcurrentHashMap
+name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
