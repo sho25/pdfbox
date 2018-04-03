@@ -1198,6 +1198,8 @@ name|TIFF
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 return|return
 name|CCITTFactory
 operator|.
@@ -1208,6 +1210,23 @@ argument_list|,
 name|file
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+comment|// Plan B: try reading with ImageIO
+comment|// common exception:
+comment|// First image in tiff is not CCITT T4 or T6 compressed
+name|fileType
+operator|=
+name|FileType
+operator|.
+name|PNG
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1264,7 +1283,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Image type not supported: "
+literal|"Image type "
+operator|+
+name|fileType
+operator|+
+literal|" not supported: "
 operator|+
 name|file
 operator|.
@@ -1377,6 +1400,8 @@ name|TIFF
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 return|return
 name|CCITTFactory
 operator|.
@@ -1387,6 +1412,23 @@ argument_list|,
 name|byteArray
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+comment|// Plan B: try reading with ImageIO
+comment|// common exception:
+comment|// First image in tiff is not CCITT T4 or T6 compressed
+name|fileType
+operator|=
+name|FileType
+operator|.
+name|PNG
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1452,7 +1494,11 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Image type not supported: "
+literal|"Image type "
+operator|+
+name|fileType
+operator|+
+literal|" not supported: "
 operator|+
 name|name
 argument_list|)
