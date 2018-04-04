@@ -1217,6 +1217,15 @@ name|IOException
 name|ex
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Reading as TIFF failed, setting fileType to PNG"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
 comment|// Plan B: try reading with ImageIO
 comment|// common exception:
 comment|// First image in tiff is not CCITT T4 or T6 compressed
@@ -1419,6 +1428,15 @@ name|IOException
 name|ex
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Reading as TIFF failed, setting fileType to PNG"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
 comment|// Plan B: try reading with ImageIO
 comment|// common exception:
 comment|// First image in tiff is not CCITT T4 or T6 compressed
