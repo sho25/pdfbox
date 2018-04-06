@@ -2247,6 +2247,8 @@ name|PDAppearanceStream
 name|appearanceStream
 parameter_list|)
 block|{
+comment|// a field without specific settings typically needs to be translated
+comment|// to the correct position
 name|boolean
 name|needsTranslation
 init|=
