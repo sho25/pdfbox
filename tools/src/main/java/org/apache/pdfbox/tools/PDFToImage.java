@@ -1265,6 +1265,8 @@ literal|"  -endPage<int>                   : The last page to extract(inclusive)
 operator|+
 literal|"  -color<int>                     : The color depth (valid: bilevel, gray, rgb (default), rgba)\n"
 operator|+
+literal|"  -dpi<int>                       : The DPI of the output image, default: screen resolution or 96 if unknown\n"
+operator|+
 literal|"  -quality<float>                 : The quality to be used when compressing the image (0< quality<= 1 (default))\n"
 operator|+
 literal|"  -cropbox<int><int><int><int> : The page area to export\n"
