@@ -310,6 +310,14 @@ specifier|private
 specifier|static
 specifier|final
 name|String
+name|QUALITY
+init|=
+literal|"-quality"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
 name|CROPBOX
 init|=
 literal|"-cropbox"
@@ -427,6 +435,11 @@ literal|"rgb"
 decl_stmt|;
 name|int
 name|dpi
+decl_stmt|;
+name|float
+name|quality
+init|=
+literal|1.0f
 decl_stmt|;
 name|float
 name|cropBoxLowerLeftX
@@ -699,6 +712,25 @@ operator|=
 name|Integer
 operator|.
 name|parseInt
+argument_list|(
+name|args
+index|[
+name|i
+index|]
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
+name|QUALITY
+case|:
+name|i
+operator|++
+expr_stmt|;
+name|quality
+operator|=
+name|Float
+operator|.
+name|parseFloat
 argument_list|(
 name|args
 index|[
@@ -1111,6 +1143,8 @@ argument_list|,
 name|fileName
 argument_list|,
 name|dpi
+argument_list|,
+name|quality
 argument_list|)
 expr_stmt|;
 block|}
@@ -1229,9 +1263,9 @@ literal|"  -startPage<int>                 : The first page to start extraction 
 operator|+
 literal|"  -endPage<int>                   : The last page to extract(inclusive)\n"
 operator|+
-literal|"  -color<int>                     : The color depth (valid: bilevel, gray, rgb, rgba)\n"
+literal|"  -color<int>                     : The color depth (valid: bilevel, gray, rgb (default), rgba)\n"
 operator|+
-literal|"  -dpi<int>                       : The DPI of the output image\n"
+literal|"  -quality<float>                 : The quality to be used when compressing the image (0< quality<= 1 (default))\n"
 operator|+
 literal|"  -cropbox<int><int><int><int> : The page area to export\n"
 operator|+
