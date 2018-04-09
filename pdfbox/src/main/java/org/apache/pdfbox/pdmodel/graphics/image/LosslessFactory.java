@@ -912,7 +912,7 @@ operator|.
 name|getDataType
 argument_list|()
 decl_stmt|;
-comment|// for 16 it images we need to
+comment|// for 16 bit images divide by 256
 name|int
 name|shift
 init|=
