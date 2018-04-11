@@ -320,6 +320,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|// grayscale images need one color per sample
 specifier|private
 specifier|static
 name|PDImageXObject
@@ -362,10 +363,7 @@ index|]
 decl_stmt|;
 name|int
 name|bpc
-decl_stmt|;
-comment|// grayscale images need one color per sample
-name|bpc
-operator|=
+init|=
 name|image
 operator|.
 name|getColorModel
@@ -373,7 +371,7 @@ argument_list|()
 operator|.
 name|getPixelSize
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|ByteArrayOutputStream
 name|baos
 init|=
@@ -865,6 +863,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// skip boundary if needed
 if|if
 condition|(
 name|transparency
@@ -872,11 +871,7 @@ operator|==
 name|Transparency
 operator|.
 name|BITMASK
-condition|)
-block|{
-comment|// skip boundary if needed
-if|if
-condition|(
+operator|&&
 name|alphaBitPos
 operator|!=
 literal|7
@@ -889,7 +884,6 @@ expr_stmt|;
 operator|++
 name|alphaByteIdx
 expr_stmt|;
-block|}
 block|}
 block|}
 name|PDImageXObject
