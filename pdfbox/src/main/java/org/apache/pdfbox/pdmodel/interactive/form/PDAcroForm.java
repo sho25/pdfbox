@@ -2673,6 +2673,11 @@ block|}
 comment|// TODO: if there is a widget with a missing page reference
 comment|// we'd need to build the map reverse i.e. form the annotations to the
 comment|// widget. But this will be much slower so will be omitted for now.
+if|if
+condition|(
+name|hasMissingPageRef
+condition|)
+block|{
 name|LOG
 operator|.
 name|warn
@@ -2680,6 +2685,7 @@ argument_list|(
 literal|"There has been a widget with a missing page reference. Please report to the PDFBox project"
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|pagesAnnotationsMap
 return|;
