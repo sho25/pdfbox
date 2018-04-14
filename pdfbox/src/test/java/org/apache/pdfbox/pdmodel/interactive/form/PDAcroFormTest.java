@@ -981,61 +981,6 @@ name|file
 argument_list|)
 expr_stmt|;
 block|}
-comment|// compare rendering
-name|TestPDFToImage
-name|testPDFToImage
-init|=
-operator|new
-name|TestPDFToImage
-argument_list|(
-name|TestPDFToImage
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|testPDFToImage
-operator|.
-name|doTestFile
-argument_list|(
-name|file
-argument_list|,
-name|IN_DIR
-operator|.
-name|getAbsolutePath
-argument_list|()
-argument_list|,
-name|OUT_DIR
-operator|.
-name|getAbsolutePath
-argument_list|()
-argument_list|)
-condition|)
-block|{
-comment|// don't fail, rendering is different on different systems, result must be viewed manually
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Rendering of "
-operator|+
-name|file
-operator|+
-literal|" failed or is not identical to expected rendering in "
-operator|+
-name|IN_DIR
-operator|+
-literal|" directory"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 comment|/*      * Test that we do not modify an AcroForm with missing resource information      * when loading the document only.      * (PDFBOX-3752)      */
 annotation|@

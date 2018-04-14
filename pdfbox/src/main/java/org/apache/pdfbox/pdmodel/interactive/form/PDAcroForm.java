@@ -1016,6 +1016,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// Nothing to flatten if there are no fields provided
+if|if
+condition|(
+name|fields
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 comment|// for dynamic XFA forms there is no flatten as this would mean to do a rendering
 comment|// from the XFA content into a static PDF.
 if|if
