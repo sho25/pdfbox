@@ -330,6 +330,14 @@ name|TIME
 init|=
 literal|"-time"
 decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SUBSAMPLING
+init|=
+literal|"-subsampling"
+decl_stmt|;
 comment|/**      * private constructor.     */
 specifier|private
 name|PDFToImage
@@ -463,6 +471,11 @@ literal|0
 decl_stmt|;
 name|boolean
 name|showTime
+init|=
+literal|false
+decl_stmt|;
+name|boolean
+name|subsampling
 init|=
 literal|false
 decl_stmt|;
@@ -811,6 +824,14 @@ operator|=
 literal|true
 expr_stmt|;
 break|break;
+case|case
+name|SUBSAMPLING
+case|:
+name|subsampling
+operator|=
+literal|true
+expr_stmt|;
+break|break;
 default|default:
 if|if
 condition|(
@@ -1086,6 +1107,13 @@ argument_list|(
 name|document
 argument_list|)
 decl_stmt|;
+name|renderer
+operator|.
+name|setSubsamplingAllowed
+argument_list|(
+name|subsampling
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -1272,6 +1300,8 @@ operator|+
 literal|"  -cropbox<int><int><int><int> : The page area to export\n"
 operator|+
 literal|"  -time                            : Prints timing information to stdout\n"
+operator|+
+literal|"  -subsampling                     : Activate subsampling (for PDFs with huge images)\n"
 operator|+
 literal|"<inputfile>                      : The PDF document to use\n"
 decl_stmt|;
