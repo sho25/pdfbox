@@ -933,7 +933,7 @@ expr_stmt|;
 name|InputStream
 name|input
 init|=
-name|TestFontEmbedding
+name|PDFont
 operator|.
 name|class
 operator|.
@@ -942,7 +942,7 @@ argument_list|()
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"org/apache/pdfbox/ttf/LiberationSans-Regular.ttf"
+literal|"org/apache/pdfbox/resources/ttf/LiberationSans-Regular.ttf"
 argument_list|)
 decl_stmt|;
 name|PDType0Font
