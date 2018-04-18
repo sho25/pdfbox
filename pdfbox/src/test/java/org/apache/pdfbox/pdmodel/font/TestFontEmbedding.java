@@ -200,8 +200,6 @@ specifier|protected
 name|void
 name|setUp
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|OUT_DIR
 operator|.
@@ -209,13 +207,13 @@ name|mkdirs
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Embed a TTF as CIDFontType2.      */
+comment|/**      * Embed a TTF as CIDFontType2.      *       * @throws IOException      */
 specifier|public
 name|void
 name|testCIDFontType2
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|validateCIDFontType2
 argument_list|(
@@ -223,13 +221,13 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Embed a TTF as CIDFontType2 with subsetting.      */
+comment|/**      * Embed a TTF as CIDFontType2 with subsetting.      *       * @throws IOException      */
 specifier|public
 name|void
 name|testCIDFontType2Subset
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
 block|{
 name|validateCIDFontType2
 argument_list|(
@@ -903,15 +901,24 @@ name|boolean
 name|useSubset
 parameter_list|)
 throws|throws
-name|Exception
+name|IOException
 block|{
+name|String
+name|text
+decl_stmt|;
+name|File
+name|file
+decl_stmt|;
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
 operator|new
 name|PDDocument
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|PDPage
 name|page
 init|=
@@ -959,6 +966,8 @@ argument_list|,
 name|useSubset
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|PDPageContentStream
 name|stream
 init|=
@@ -969,7 +978,8 @@ name|document
 argument_list|,
 name|page
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|stream
 operator|.
 name|beginText
@@ -984,11 +994,10 @@ argument_list|,
 literal|12
 argument_list|)
 expr_stmt|;
-name|String
 name|text
-init|=
+operator|=
 literal|"Unicode русский язык Tiếng Việt"
-decl_stmt|;
+expr_stmt|;
 name|stream
 operator|.
 name|newLineAtOffset
@@ -1010,14 +1019,9 @@ operator|.
 name|endText
 argument_list|()
 expr_stmt|;
-name|stream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|File
+block|}
 name|file
-init|=
+operator|=
 operator|new
 name|File
 argument_list|(
@@ -1025,7 +1029,7 @@ name|OUT_DIR
 argument_list|,
 literal|"CIDFontType2.pdf"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|document
 operator|.
 name|save
@@ -1033,11 +1037,7 @@ argument_list|(
 name|file
 argument_list|)
 expr_stmt|;
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 comment|// check that the extracted text matches what we wrote
 name|String
 name|extracted
