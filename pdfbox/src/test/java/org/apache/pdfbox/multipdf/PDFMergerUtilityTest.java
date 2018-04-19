@@ -927,7 +927,7 @@ name|File
 argument_list|(
 name|TARGETTESTDIR
 argument_list|,
-literal|"PDFBOX-3999-GeneralForbearance-Flattened.pdf"
+literal|"PDFBOX-3999-GeneralForbearance-flattened.pdf"
 argument_list|)
 argument_list|)
 expr_stmt|;
