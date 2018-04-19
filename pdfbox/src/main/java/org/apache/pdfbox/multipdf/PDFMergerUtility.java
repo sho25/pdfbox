@@ -1959,24 +1959,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//                System.out.println(srcNames);
-comment|//                System.out.println(srcNames.getDests());
-comment|//                System.out.println(srcNames.getDests().getNames());
-comment|//                Map<String, PDPageDestination> names1 = srcNames.getDests().getNames();
-comment|//                Map<String, PDPageDestination> names2 = destNames.getDests().getNames();
-comment|//                if (names1 != null)
-comment|//                    System.out.println(names1.keySet());
-comment|//                else
-comment|//                {
-comment|//                    List<PDNameTreeNode<PDPageDestination>> kids = srcNames.getDests().getKids();
-comment|//                    for (PDNameTreeNode<PDPageDestination> kid : kids)
-comment|//                    {
-comment|//
-comment|//                    System.out.println(kid.getNames().keySet());
-comment|//                    }
-comment|//
-comment|//                }
-comment|//                System.out.println(names2.keySet());
 name|cloner
 operator|.
 name|cloneMerge
@@ -4124,24 +4106,97 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//            else
-comment|//            {
-comment|//                // PDFBOX-3999: clone objects that are not in mapping to make sure that
-comment|//                // these don't remain attached to the source document
-comment|//                COSBase item = parentTreeEntry.getItem(COSName.OBJ);
-comment|//                if (item instanceof COSObject)
-comment|//                {
-comment|//                    LOG.warn("clone potential orphan object in structure tree: " + item +
-comment|//                            ", type: " + ((COSDictionary) obj).getNameAsString(COSName.TYPE));
-comment|//                }
-comment|//                else
-comment|//                {
-comment|//                    // don't display because of stack overflow
-comment|//                    LOG.warn("clone potential orphan object in structure tree, type: " +
-comment|//                            ((COSDictionary) obj).getNameAsString(COSName.TYPE));
-comment|//                }
-comment|//                parentTreeEntry.setItem(COSName.OBJ, cloner.cloneForNewDocument(obj));
-comment|//            }
+else|else
+block|{
+comment|// PDFBOX-3999: clone objects that are not in mapping to make sure that
+comment|// these don't remain attached to the source document
+name|COSBase
+name|item
+init|=
+name|parentTreeEntry
+operator|.
+name|getItem
+argument_list|(
+name|COSName
+operator|.
+name|OBJ
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|item
+operator|instanceof
+name|COSObject
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"clone potential orphan object in structure tree: "
+operator|+
+name|item
+operator|+
+literal|", type: "
+operator|+
+operator|(
+operator|(
+name|COSDictionary
+operator|)
+name|obj
+operator|)
+operator|.
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|TYPE
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// don't display because of stack overflow
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"clone potential orphan object in structure tree, type: "
+operator|+
+operator|(
+operator|(
+name|COSDictionary
+operator|)
+name|obj
+operator|)
+operator|.
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|TYPE
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|parentTreeEntry
+operator|.
+name|setItem
+argument_list|(
+name|COSName
+operator|.
+name|OBJ
+argument_list|,
+name|cloner
+operator|.
+name|cloneForNewDocument
+argument_list|(
+name|obj
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|COSBase
 name|kSubEntry
