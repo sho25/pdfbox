@@ -1062,8 +1062,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Each element can be an array, a dictionary or a number.
-comment|// See PDF specification Table 37 â€“ Entries in a number tree node dictionary
-comment|// See PDF specification Table 322 â€“ Entries in the structure tree root
+comment|// See PDF specification Table 37 - Entries in a number tree node dictionary
+comment|// See PDF specification Table 322 - Entries in the structure tree root
+comment|// See PDF specification Table 323 - Entries in a structure element dictionary
 comment|// example of file with /Kids: 000153.pdf 000208.pdf 000314.pdf 000359.pdf 000671.pdf
 comment|// from digitalcorpora site
 specifier|private
