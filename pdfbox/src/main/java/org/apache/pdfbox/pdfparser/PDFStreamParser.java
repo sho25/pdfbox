@@ -1026,7 +1026,12 @@ literal|"Error: Expected operator 'ID' actual='"
 operator|+
 name|id
 operator|+
-literal|"'"
+literal|"' at stream offset "
+operator|+
+name|seqSource
+operator|.
+name|getPosition
+argument_list|()
 argument_list|)
 throw|;
 block|}
