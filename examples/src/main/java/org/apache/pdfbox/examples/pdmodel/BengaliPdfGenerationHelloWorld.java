@@ -138,6 +138,10 @@ specifier|public
 class|class
 name|BengaliPdfGenerationHelloWorld
 block|{
+specifier|private
+name|BengaliPdfGenerationHelloWorld
+parameter_list|()
+block|{             }
 comment|/**      * The unicode of this is given below:      *       *<pre>      * \u0986\u09ae\u09bf  \u0995\u09cb\u09a8 \u09aa\u09a5\u09c7  \u0995\u09cd\u09b7\u09c0\u09b0\u09c7\u09b0 \u09b7\u09a8\u09cd\u09a1  \u09aa\u09c1\u09a4\u09c1\u09b2 \u09b0\u09c1\u09aa\u09cb  \u0997\u0999\u09cd\u0997\u09be \u098b\u09b7\u09bf      *</pre>      *       */
 specifier|private
 specifier|static
@@ -259,14 +263,15 @@ operator|+
 name|filename
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
 operator|new
 name|PDDocument
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 name|PDPage
 name|page1
@@ -303,6 +308,8 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|PDPageContentStream
 name|contents
 init|=
@@ -313,7 +320,8 @@ name|doc
 argument_list|,
 name|page1
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|contents
 operator|.
 name|beginText
@@ -430,25 +438,13 @@ name|getHeight
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|contents
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|doc
 operator|.
 name|save
 argument_list|(
 name|filename
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}
