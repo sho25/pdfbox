@@ -1489,12 +1489,7 @@ name|COSWriter
 operator|.
 name|writeString
 argument_list|(
-name|font
-operator|.
-name|encode
-argument_list|(
-name|text
-argument_list|)
+name|encodedText
 argument_list|,
 name|getOutputStream
 argument_list|()
