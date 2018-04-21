@@ -336,7 +336,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Returns the K entry.      *       * @return the K entry      */
+comment|/**      * Returns the K entry. This can be a dictionary representing a structure element, or an array      * of them.      *      * @return the K entry.      */
 specifier|public
 name|COSBase
 name|getK
