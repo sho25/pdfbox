@@ -1377,6 +1377,24 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
+return|return
+name|encodeGlyphId
+argument_list|(
+name|cid
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|byte
+index|[]
+name|encodeGlyphId
+parameter_list|(
+name|int
+name|glyphId
+parameter_list|)
+block|{
 comment|// CID is always 2-bytes (16-bit) for TrueType
 return|return
 operator|new
@@ -1387,7 +1405,7 @@ call|(
 name|byte
 call|)
 argument_list|(
-name|cid
+name|glyphId
 operator|>>
 literal|8
 operator|&
@@ -1398,7 +1416,7 @@ call|(
 name|byte
 call|)
 argument_list|(
-name|cid
+name|glyphId
 operator|&
 literal|0xff
 argument_list|)

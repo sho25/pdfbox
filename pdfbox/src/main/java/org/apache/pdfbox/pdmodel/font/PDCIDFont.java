@@ -1562,6 +1562,16 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+specifier|public
+specifier|abstract
+name|byte
+index|[]
+name|encodeGlyphId
+parameter_list|(
+name|int
+name|glyphId
+parameter_list|)
+function_decl|;
 comment|/**      * Encodes the given Unicode code point for use in a PDF content stream.      * Content streams use a multi-byte encoding with 1 to 4 bytes.      *      *<p>This method is called when embedding text in PDFs and when filling in fields.      *      * @param unicode Unicode code point.      * @return Array of 1 to 4 PDF content stream bytes.      * @throws IOException If the text could not be encoded.      */
 specifier|protected
 specifier|abstract

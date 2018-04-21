@@ -5882,6 +5882,25 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+specifier|public
+name|void
+name|addGlyphIds
+parameter_list|(
+name|Set
+argument_list|<
+name|Integer
+argument_list|>
+name|allGlyphIds
+parameter_list|)
+block|{
+name|glyphIds
+operator|.
+name|addAll
+argument_list|(
+name|allGlyphIds
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
