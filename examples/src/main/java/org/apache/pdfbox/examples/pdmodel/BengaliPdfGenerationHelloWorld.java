@@ -138,10 +138,6 @@ specifier|public
 class|class
 name|BengaliPdfGenerationHelloWorld
 block|{
-specifier|private
-name|BengaliPdfGenerationHelloWorld
-parameter_list|()
-block|{             }
 comment|/**      * The unicode of this is given below:      *       *<pre>      * \u0986\u09ae\u09bf  \u0995\u09cb\u09a8 \u09aa\u09a5\u09c7  \u0995\u09cd\u09b7\u09c0\u09b0\u09c7\u09b0 \u09b7\u09a8\u09cd\u09a1  \u09aa\u09c1\u09a4\u09c1\u09b2 \u09b0\u09c1\u09aa\u09cb  \u0997\u0999\u09cd\u0997\u09be \u098b\u09b7\u09bf      *</pre>      *       */
 specifier|private
 specifier|static
@@ -169,21 +165,16 @@ literal|"ঋষি কল্লোল ব্যাস নির্ভয় "
 decl_stmt|;
 static|static
 block|{
-if|if
-condition|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"java.version"
-argument_list|)
-operator|.
-name|startsWith
-argument_list|(
-literal|"1.8"
-argument_list|)
-condition|)
+try|try
 block|{
+comment|// turns off log info about using KCMS (faster than LCMS) if available
+name|Class
+operator|.
+name|forName
+argument_list|(
+literal|"sun.java2d.cmm.kcms.KcmsServiceProvider"
+argument_list|)
+expr_stmt|;
 name|System
 operator|.
 name|setProperty
@@ -194,7 +185,19 @@ literal|"sun.java2d.cmm.kcms.KcmsServiceProvider"
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|ClassNotFoundException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
 block|}
+block|}
+specifier|private
+name|BengaliPdfGenerationHelloWorld
+parameter_list|()
+block|{             }
 specifier|public
 specifier|static
 name|void
