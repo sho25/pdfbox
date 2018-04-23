@@ -425,6 +425,21 @@ parameter_list|()
 throws|throws
 name|ValidationException
 block|{
+comment|// force early class loading to check if people forgot to use --add-modules javax.xml.bind
+comment|// on java 9 or later
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|DatatypeConverter
+operator|.
+name|parseInt
+argument_list|(
+literal|"0"
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|setConfig
