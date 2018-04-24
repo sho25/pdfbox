@@ -192,14 +192,12 @@ name|void
 name|generateNormalAppearance
 parameter_list|()
 block|{
-name|float
-name|lineWidth
-init|=
-literal|1f
-decl_stmt|;
-comment|//TODO Adobe creates the /RD entry, but it is unclear how it
-comment|// gets the (identical) numbers. The numbers from there are then substracted/added from /BBox
-comment|// and used in the translation in the matrix and also for the line width.
+comment|//TODO Adobe creates the /RD entry with a number that is decided by dividing the height by 10,
+comment|// with a maximum result of 5. That number is then substracted from the /BBox
+comment|// values and used in the translation values in the matrix and also for the line width
+comment|// (not used here because it has no effect).
+comment|// Currently, the rendering difference between our content stream and the one from Adobe
+comment|// is minimal, about one pixel line at the bottom.
 try|try
 block|{
 name|PDAnnotationCaret
@@ -226,13 +224,6 @@ name|setStrokingColor
 argument_list|(
 name|getColor
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|contentStream
-operator|.
-name|setLineWidth
-argument_list|(
-name|lineWidth
 argument_list|)
 expr_stmt|;
 name|contentStream
@@ -353,7 +344,6 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// closeAndFillAndStroke() would bring a thicker "thin top" shape.
 name|contentStream
 operator|.
 name|closePath
@@ -364,12 +354,8 @@ operator|.
 name|fill
 argument_list|()
 expr_stmt|;
-name|contentStream
-operator|.
-name|stroke
-argument_list|()
-expr_stmt|;
-comment|//TODO test whether the stroke() and setLineWidth() calls have any effect at all.
+comment|// Adobe has an additional stroke, but it has no effect
+comment|// because fill "consumes" the path.
 block|}
 block|}
 catch|catch
