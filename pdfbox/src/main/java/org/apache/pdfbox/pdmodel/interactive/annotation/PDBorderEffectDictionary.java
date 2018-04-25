@@ -179,7 +179,7 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border effect, see the STYLE_* constants for valid values.      *      * @return the effect of the border      */
+comment|/**      * This will retrieve the border effect, see the STYLE_* constants for valid values.      *      * @return the effect of the border or {@link #STYLE_SOLID} if none is found.      */
 specifier|public
 name|String
 name|getStyle
