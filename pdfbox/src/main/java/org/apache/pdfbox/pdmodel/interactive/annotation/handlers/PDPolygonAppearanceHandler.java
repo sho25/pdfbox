@@ -913,6 +913,18 @@ block|}
 block|}
 block|}
 block|}
+comment|//TODO line endings (LE) are missing
+comment|// How it could be done by reusing some of the code from
+comment|// the Line and StrikeOut handlers
+comment|// 1) if the LE is contained in SHORT_STYLES,
+comment|// shorten the first + last arms with "this weird old trick"
+comment|// used in the StrikeOut handler
+comment|// and paint
+comment|// 2) do a transform so that first and last arms are imagined flat
+comment|// (like in Line handler)
+comment|// 3) refactor + reuse the line handler code that draws the ending shapes
+comment|// the alternative would be to apply the transform to the LE shapes directly,
+comment|// which would be more work and produce code difficult to understand
 name|contentStream
 operator|.
 name|drawShape
