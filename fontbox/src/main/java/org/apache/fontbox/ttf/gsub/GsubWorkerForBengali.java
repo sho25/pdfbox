@@ -960,7 +960,7 @@ name|Integer
 argument_list|,
 name|BeforeAndAfterSpanComponent
 argument_list|>
-name|beforeAndAfterSpanGlyphIds
+name|result
 init|=
 operator|new
 name|HashMap
@@ -975,7 +975,7 @@ range|:
 name|BEFORE_AND_AFTER_SPAN_CHARS
 control|)
 block|{
-name|beforeAndAfterSpanGlyphIds
+name|result
 operator|.
 name|put
 argument_list|(
@@ -995,7 +995,7 @@ name|Collections
 operator|.
 name|unmodifiableMap
 argument_list|(
-name|beforeAndAfterSpanGlyphIds
+name|result
 argument_list|)
 return|;
 block|}
