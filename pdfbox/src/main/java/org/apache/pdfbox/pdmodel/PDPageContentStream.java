@@ -1454,9 +1454,6 @@ operator|.
 name|get
 argument_list|(
 name|font
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
