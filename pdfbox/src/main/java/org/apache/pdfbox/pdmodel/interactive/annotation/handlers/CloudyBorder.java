@@ -170,6 +170,19 @@ specifier|private
 specifier|static
 specifier|final
 name|double
+name|ANGLE_30_DEG
+init|=
+name|Math
+operator|.
+name|toRadians
+argument_list|(
+literal|30
+argument_list|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|double
 name|ANGLE_12_DEG
 init|=
 name|Math
@@ -828,7 +841,8 @@ init|=
 name|right
 operator|-
 name|left
-decl_stmt|,
+decl_stmt|;
+name|double
 name|h
 init|=
 name|top
@@ -1385,7 +1399,8 @@ name|array
 index|[
 literal|0
 index|]
-decl_stmt|,
+decl_stmt|;
+name|double
 name|dx
 init|=
 name|array
@@ -1958,17 +1973,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
-name|double
-name|D
-init|=
-name|Math
-operator|.
-name|toRadians
-argument_list|(
-literal|30
-argument_list|)
-decl_stmt|;
 name|double
 name|a
 init|=
@@ -1986,7 +1990,7 @@ name|a
 operator|+
 name|alpha
 operator|-
-name|D
+name|ANGLE_30_DEG
 argument_list|,
 name|cx
 argument_list|,
@@ -2007,7 +2011,7 @@ name|a
 operator|+
 name|alpha
 operator|-
-name|D
+name|ANGLE_30_DEG
 argument_list|,
 name|a
 operator|+
@@ -2204,7 +2208,8 @@ init|=
 name|template
 operator|.
 name|length
-decl_stmt|,
+decl_stmt|;
+name|int
 name|i
 init|=
 literal|0
@@ -2428,11 +2433,14 @@ argument_list|)
 expr_stmt|;
 name|double
 name|rdLeft
-decl_stmt|,
+decl_stmt|;
+name|double
 name|rdBottom
-decl_stmt|,
+decl_stmt|;
+name|double
 name|rdRight
-decl_stmt|,
+decl_stmt|;
+name|double
 name|rdTop
 decl_stmt|;
 if|if
@@ -2751,7 +2759,7 @@ return|return
 name|a
 return|;
 block|}
-comment|/**      * Creates one or more Bezier curves that represent an elliptical arc.      * Angles are in radians.      * The arc will always proceed in the positive angle direction.      * If the argument `out` is null, this writes the results to the instance      * variable `output`.      */
+comment|/**      * Creates one or more Bézier curves that represent an elliptical arc.      * Angles are in radians.      * The arc will always proceed in the positive angle direction.      * If the argument `out` is null, this writes the results to the instance      * variable `output`.      */
 specifier|private
 name|void
 name|getArc
@@ -2853,7 +2861,8 @@ name|double
 name|sweep
 init|=
 name|angleTodo
-decl_stmt|,
+decl_stmt|;
+name|double
 name|angleDone
 init|=
 literal|0
@@ -2970,7 +2979,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Creates a single Bezier curve that represents a section of an elliptical      * arc. The sweep angle of the section must not be larger than 90 degrees.      * If argument `out` is null, this writes the results to the instance      * variable `output`.      */
+comment|/**      * Creates a single Bézier curve that represents a section of an elliptical      * arc. The sweep angle of the section must not be larger than 90 degrees.      * If argument `out` is null, this writes the results to the instance      * variable `output`.      */
 specifier|private
 name|void
 name|getArcSegment
@@ -3009,7 +3018,7 @@ name|IOException
 block|{
 comment|// Algorithm is from the FAQ of the news group comp.text.pdf
 name|double
-name|cos_a
+name|cosA
 init|=
 name|Math
 operator|.
@@ -3019,7 +3028,7 @@ name|startAng
 argument_list|)
 decl_stmt|;
 name|double
-name|sin_a
+name|sinA
 init|=
 name|Math
 operator|.
@@ -3029,7 +3038,7 @@ name|startAng
 argument_list|)
 decl_stmt|;
 name|double
-name|cos_b
+name|cosB
 init|=
 name|Math
 operator|.
@@ -3039,7 +3048,7 @@ name|endAng
 argument_list|)
 decl_stmt|;
 name|double
-name|sin_b
+name|sinB
 init|=
 name|Math
 operator|.
@@ -3092,7 +3101,7 @@ name|cx
 operator|+
 name|rx
 operator|*
-name|cos_a
+name|cosA
 decl_stmt|;
 name|double
 name|ys
@@ -3101,7 +3110,7 @@ name|cy
 operator|+
 name|ry
 operator|*
-name|sin_a
+name|sinA
 decl_stmt|;
 if|if
 condition|(
@@ -3171,11 +3180,11 @@ operator|+
 name|rx
 operator|*
 operator|(
-name|cos_a
+name|cosA
 operator|-
 name|bcp
 operator|*
-name|sin_a
+name|sinA
 operator|)
 decl_stmt|;
 name|double
@@ -3186,11 +3195,11 @@ operator|+
 name|ry
 operator|*
 operator|(
-name|sin_a
+name|sinA
 operator|+
 name|bcp
 operator|*
-name|cos_a
+name|cosA
 operator|)
 decl_stmt|;
 name|double
@@ -3201,11 +3210,11 @@ operator|+
 name|rx
 operator|*
 operator|(
-name|cos_b
+name|cosB
 operator|+
 name|bcp
 operator|*
-name|sin_b
+name|sinB
 operator|)
 decl_stmt|;
 name|double
@@ -3216,11 +3225,11 @@ operator|+
 name|ry
 operator|*
 operator|(
-name|sin_b
+name|sinB
 operator|-
 name|bcp
 operator|*
-name|cos_b
+name|cosB
 operator|)
 decl_stmt|;
 name|double
@@ -3230,7 +3239,7 @@ name|cx
 operator|+
 name|rx
 operator|*
-name|cos_b
+name|cosB
 decl_stmt|;
 name|double
 name|p3y
@@ -3239,7 +3248,7 @@ name|cy
 operator|+
 name|ry
 operator|*
-name|sin_b
+name|sinB
 decl_stmt|;
 if|if
 condition|(
@@ -3253,7 +3262,7 @@ name|cx
 operator|+
 name|rx
 operator|*
-name|cos_a
+name|cosA
 decl_stmt|;
 name|double
 name|ys
@@ -3262,7 +3271,7 @@ name|cy
 operator|+
 name|ry
 operator|*
-name|sin_a
+name|sinA
 decl_stmt|;
 if|if
 condition|(
@@ -3509,6 +3518,8 @@ expr_stmt|;
 break|break;
 comment|// Curve segments are not expected because the path iterator is
 comment|// flattened. SEG_CLOSE can be ignored.
+default|default:
+break|break;
 block|}
 name|iterator
 operator|.
@@ -3642,15 +3653,18 @@ name|double
 name|left
 init|=
 name|leftOrig
-decl_stmt|,
+decl_stmt|;
+name|double
 name|bottom
 init|=
 name|bottomOrig
-decl_stmt|,
+decl_stmt|;
+name|double
 name|right
 init|=
 name|rightOrig
-decl_stmt|,
+decl_stmt|;
+name|double
 name|top
 init|=
 name|topOrig
@@ -3661,7 +3675,8 @@ init|=
 name|right
 operator|-
 name|left
-decl_stmt|,
+decl_stmt|;
+name|double
 name|height
 init|=
 name|top
@@ -4135,7 +4150,8 @@ operator|-
 name|p1
 operator|.
 name|x
-decl_stmt|,
+decl_stmt|;
+name|double
 name|dy
 init|=
 name|p2
@@ -4203,7 +4219,8 @@ name|dx
 argument_list|,
 name|length
 argument_list|)
-decl_stmt|,
+decl_stmt|;
+name|double
 name|sin
 init|=
 name|sine
@@ -4325,7 +4342,8 @@ name|double
 name|anglePrev
 init|=
 literal|0
-decl_stmt|,
+decl_stmt|;
+name|double
 name|alphaPrev
 init|=
 literal|0
