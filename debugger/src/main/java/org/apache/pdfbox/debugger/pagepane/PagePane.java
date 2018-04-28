@@ -601,6 +601,25 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+specifier|private
+specifier|final
+name|AffineTransform
+name|defaultTransform
+init|=
+name|GraphicsEnvironment
+operator|.
+name|getLocalGraphicsEnvironment
+argument_list|()
+operator|.
+name|getDefaultScreenDevice
+argument_list|()
+operator|.
+name|getDefaultConfiguration
+argument_list|()
+operator|.
+name|getDefaultTransform
+argument_list|()
+decl_stmt|;
 specifier|public
 name|PagePane
 parameter_list|(
@@ -1370,6 +1389,14 @@ name|getX
 argument_list|()
 operator|/
 name|zoomScale
+operator|*
+operator|(
+name|float
+operator|)
+name|defaultTransform
+operator|.
+name|getScaleX
+argument_list|()
 decl_stmt|;
 name|float
 name|y
@@ -1380,6 +1407,14 @@ name|getY
 argument_list|()
 operator|/
 name|zoomScale
+operator|*
+operator|(
+name|float
+operator|)
+name|defaultTransform
+operator|.
+name|getScaleY
+argument_list|()
 decl_stmt|;
 name|int
 name|x1
@@ -1945,23 +1980,6 @@ comment|// because of blurry upscaling in JDK9. Instead, the label is now create
 comment|// a smaller size than the image to compensate that the
 comment|// image is scaled up with some screen configurations (e.g. 125% on windows).
 comment|// See PDFBOX-3665 for more sample code and discussion.
-name|AffineTransform
-name|tx
-init|=
-name|GraphicsEnvironment
-operator|.
-name|getLocalGraphicsEnvironment
-argument_list|()
-operator|.
-name|getDefaultScreenDevice
-argument_list|()
-operator|.
-name|getDefaultConfiguration
-argument_list|()
-operator|.
-name|getDefaultTransform
-argument_list|()
-decl_stmt|;
 name|label
 operator|.
 name|setSize
@@ -1978,7 +1996,7 @@ operator|.
 name|getWidth
 argument_list|()
 operator|/
-name|tx
+name|defaultTransform
 operator|.
 name|getScaleX
 argument_list|()
@@ -1996,7 +2014,7 @@ operator|.
 name|getHeight
 argument_list|()
 operator|/
-name|tx
+name|defaultTransform
 operator|.
 name|getScaleY
 argument_list|()
