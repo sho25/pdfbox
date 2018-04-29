@@ -222,6 +222,17 @@ operator|.
 name|KIDS
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|kids
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|""
+return|;
+block|}
 name|int
 name|idx
 init|=
