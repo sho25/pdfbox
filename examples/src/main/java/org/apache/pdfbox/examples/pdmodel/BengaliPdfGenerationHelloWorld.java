@@ -177,6 +177,20 @@ name|PDType0Font
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Charsets
+import|;
+end_import
+
 begin_comment
 comment|/**  * Inspired from<a href=  * "https://svn.apache.org/viewvc/pdfbox/trunk/examples/src/main/java/org/apache/pdfbox/examples/pdmodel/HelloWorldTTF.java?view=markup">PdfBox  * Example</a>. This attempts to correctly demonstrate to what extent Bengali text rendering is  * supported. We read large amount of text from a file and try to render it properly.  *  * @author Palash Ray  *  */
 end_comment
@@ -900,6 +914,10 @@ name|getResourceAsStream
 argument_list|(
 name|TEXT_SOURCE_FILE
 argument_list|)
+argument_list|,
+name|Charsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|)
 init|;
