@@ -230,7 +230,6 @@ specifier|public
 class|class
 name|GlyphSubstitutionTableTest
 block|{
-specifier|private
 specifier|static
 specifier|final
 name|int

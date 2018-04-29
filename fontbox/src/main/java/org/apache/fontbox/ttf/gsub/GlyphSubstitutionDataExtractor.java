@@ -708,18 +708,6 @@ name|LookupListTable
 name|lookupListTable
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"*********** extracting GSUB data for the feature: "
-operator|+
-name|featureRecord
-operator|.
-name|getFeatureTag
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|Map
 argument_list|<
 name|List
@@ -769,6 +757,22 @@ name|lookupTable
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"*********** extracting GSUB data for the feature: "
+operator|+
+name|featureRecord
+operator|.
+name|getFeatureTag
+argument_list|()
+operator|+
+literal|", glyphSubstitutionMap: "
+operator|+
+name|glyphSubstitutionMap
+argument_list|)
+expr_stmt|;
 name|gsubData
 operator|.
 name|put

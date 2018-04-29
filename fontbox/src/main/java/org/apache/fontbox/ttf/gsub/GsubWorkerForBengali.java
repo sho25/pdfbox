@@ -209,9 +209,9 @@ literal|"rphf"
 argument_list|,
 literal|"blwf"
 argument_list|,
-literal|"half"
-argument_list|,
 literal|"pstf"
+argument_list|,
+literal|"half"
 argument_list|,
 literal|"vatu"
 argument_list|,
