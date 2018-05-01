@@ -3445,7 +3445,7 @@ name|lineDash
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the stream' resources.      */
+comment|/**      * @return the stream' resources. This is mainly to be used by the {@link OperatorProcessor}      * classes.      */
 specifier|public
 name|PDResources
 name|getResources
