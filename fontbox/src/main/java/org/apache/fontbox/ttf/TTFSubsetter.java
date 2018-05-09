@@ -5043,7 +5043,7 @@ name|glyphIds
 operator|.
 name|isEmpty
 argument_list|()
-operator|||
+operator|&&
 name|uniToGID
 operator|.
 name|isEmpty
