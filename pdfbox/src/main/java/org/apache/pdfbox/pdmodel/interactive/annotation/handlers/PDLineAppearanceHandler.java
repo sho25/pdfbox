@@ -1310,7 +1310,6 @@ operator|>
 literal|0
 condition|)
 block|{
-comment|//prepareResources(cs);
 name|cs
 operator|.
 name|beginText
