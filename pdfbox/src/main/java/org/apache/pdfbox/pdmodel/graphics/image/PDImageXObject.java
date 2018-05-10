@@ -2225,6 +2225,12 @@ operator|.
 name|createGraphics
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|getInterpolate
+argument_list|()
+condition|)
+block|{
 name|g
 operator|.
 name|setRenderingHint
@@ -2251,6 +2257,7 @@ operator|.
 name|VALUE_RENDER_QUALITY
 argument_list|)
 expr_stmt|;
+block|}
 name|g
 operator|.
 name|drawImage
