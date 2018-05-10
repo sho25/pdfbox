@@ -11,7 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|contentstream
+name|pdmodel
 package|;
 end_package
 
@@ -150,20 +150,6 @@ operator|.
 name|pdfwriter
 operator|.
 name|COSWriter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|PDResources
 import|;
 end_import
 
@@ -500,7 +486,6 @@ comment|/**  * Provides the ability to write to a content stream.  *  * @author 
 end_comment
 
 begin_class
-specifier|public
 specifier|abstract
 class|class
 name|PDAbstractContentStream

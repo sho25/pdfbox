@@ -199,10 +199,6 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|interactive
-operator|.
-name|annotation
-operator|.
 name|PDAppearanceContentStream
 import|;
 end_import

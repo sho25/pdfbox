@@ -33,20 +33,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|contentstream
-operator|.
-name|PDAbstractContentStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|pdmodel
 operator|.
 name|graphics
@@ -63,6 +49,7 @@ end_comment
 
 begin_class
 specifier|public
+specifier|final
 class|class
 name|PDPatternContentStream
 extends|extends

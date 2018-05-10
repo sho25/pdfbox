@@ -87,7 +87,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|contentstream
+name|pdmodel
 operator|.
 name|PDAbstractContentStream
 import|;
@@ -188,10 +188,6 @@ operator|.
 name|pdfbox
 operator|.
 name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|annotation
 operator|.
 name|PDAppearanceContentStream
 import|;
