@@ -803,7 +803,7 @@ name|getAppearance
 argument_list|()
 decl_stmt|;
 name|PDAppearanceEntry
-name|normalAappearanceEntry
+name|normalAppearanceEntry
 init|=
 name|appearanceDictionary
 operator|.
@@ -812,14 +812,14 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|normalAappearanceEntry
+name|normalAppearanceEntry
 operator|.
 name|isSubDictionary
 argument_list|()
 condition|)
 block|{
 comment|//TODO replace with "document.getDocument().createCOSStream()"
-name|normalAappearanceEntry
+name|normalAppearanceEntry
 operator|=
 operator|new
 name|PDAppearanceEntry
@@ -833,12 +833,12 @@ name|appearanceDictionary
 operator|.
 name|setNormalAppearance
 argument_list|(
-name|normalAappearanceEntry
+name|normalAppearanceEntry
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|normalAappearanceEntry
+name|normalAppearanceEntry
 return|;
 block|}
 specifier|private
