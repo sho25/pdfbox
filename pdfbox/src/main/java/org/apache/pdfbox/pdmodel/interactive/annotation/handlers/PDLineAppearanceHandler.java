@@ -89,20 +89,6 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
-name|PDAbstractContentStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
 name|common
 operator|.
 name|PDRectangle
@@ -2364,7 +2350,7 @@ specifier|private
 name|void
 name|drawArrow
 parameter_list|(
-name|PDAbstractContentStream
+name|PDAppearanceContentStream
 name|cs
 parameter_list|,
 name|float
@@ -2472,7 +2458,7 @@ specifier|private
 name|void
 name|drawDiamond
 parameter_list|(
-name|PDAbstractContentStream
+name|PDAppearanceContentStream
 name|cs
 parameter_list|,
 name|float
@@ -2542,7 +2528,7 @@ specifier|private
 name|void
 name|addCircle
 parameter_list|(
-name|PDAbstractContentStream
+name|PDAppearanceContentStream
 name|cs
 parameter_list|,
 name|float
