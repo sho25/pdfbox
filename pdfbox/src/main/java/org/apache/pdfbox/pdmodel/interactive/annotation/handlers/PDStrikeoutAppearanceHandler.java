@@ -529,8 +529,10 @@ name|getNormalAppearanceAsContentStream
 argument_list|()
 init|)
 block|{
-name|handleOpacity
+name|setOpacity
 argument_list|(
+name|cs
+argument_list|,
 name|annotation
 operator|.
 name|getConstantOpacity

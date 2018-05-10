@@ -722,9 +722,6 @@ name|getNormalAppearanceAsContentStream
 argument_list|()
 init|)
 block|{
-name|prepareResources
-argument_list|()
-expr_stmt|;
 name|PDExtendedGraphicsState
 name|r0
 init|=

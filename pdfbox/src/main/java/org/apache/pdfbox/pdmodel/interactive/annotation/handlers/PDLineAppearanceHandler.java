@@ -811,8 +811,10 @@ name|getNormalAppearanceAsContentStream
 argument_list|()
 init|)
 block|{
-name|handleOpacity
+name|setOpacity
 argument_list|(
+name|cs
+argument_list|,
 name|annotation
 operator|.
 name|getConstantOpacity
@@ -1308,9 +1310,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|prepareResources
-argument_list|()
-expr_stmt|;
+comment|//prepareResources(cs);
 name|cs
 operator|.
 name|beginText

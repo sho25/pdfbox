@@ -165,10 +165,7 @@ block|{
 name|super
 argument_list|(
 name|outputStream
-argument_list|)
-expr_stmt|;
-name|setResources
-argument_list|(
+argument_list|,
 name|appearance
 operator|.
 name|getResources

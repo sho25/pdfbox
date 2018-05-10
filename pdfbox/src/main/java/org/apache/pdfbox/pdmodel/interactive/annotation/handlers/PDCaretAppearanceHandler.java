@@ -230,8 +230,10 @@ name|getColor
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|handleOpacity
+name|setOpacity
 argument_list|(
+name|contentStream
+argument_list|,
 name|annotation
 operator|.
 name|getConstantOpacity

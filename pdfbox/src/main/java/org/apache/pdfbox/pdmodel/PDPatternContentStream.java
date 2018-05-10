@@ -74,10 +74,7 @@ argument_list|()
 operator|.
 name|createOutputStream
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|setResources
-argument_list|(
+argument_list|,
 name|pattern
 operator|.
 name|getResources
