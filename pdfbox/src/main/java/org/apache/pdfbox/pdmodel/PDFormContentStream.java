@@ -67,6 +67,8 @@ name|IOException
 block|{
 name|super
 argument_list|(
+literal|null
+argument_list|,
 name|form
 operator|.
 name|getContentStream
