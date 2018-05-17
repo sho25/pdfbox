@@ -1833,10 +1833,7 @@ name|destCatalog
 operator|.
 name|setOpenAction
 argument_list|(
-name|srcCatalog
-operator|.
-name|getOpenAction
-argument_list|()
+name|openAction
 argument_list|)
 expr_stmt|;
 block|}
