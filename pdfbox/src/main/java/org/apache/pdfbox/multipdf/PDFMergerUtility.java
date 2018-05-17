@@ -2363,6 +2363,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|int
+name|startSize
+init|=
+name|destNums
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -2404,17 +2412,36 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|warn
+name|error
 argument_list|(
-literal|"page labels skipped at index "
+literal|"page labels ignored, index "
 operator|+
 name|i
 operator|+
-literal|", should be a number, but is "
+literal|" should be a number, but is "
 operator|+
 name|base
 argument_list|)
 expr_stmt|;
+comment|// remove what we added
+while|while
+condition|(
+name|destNums
+operator|.
+name|size
+argument_list|()
+operator|>
+name|startSize
+condition|)
+block|{
+name|destNums
+operator|.
+name|remove
+argument_list|(
+name|startSize
+argument_list|)
+expr_stmt|;
+block|}
 break|break;
 block|}
 name|COSNumber
