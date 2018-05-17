@@ -1717,11 +1717,35 @@ comment|// PDFBOX-3972: get local dest page index, it must be reassigned after t
 name|PDDestinationOrAction
 name|openAction
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|openAction
+operator|=
 name|srcCatalog
 operator|.
 name|getOpenAction
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+comment|// PDFBOX-4223
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Invalid OpenAction ignored"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
 name|PDDestination
 name|openActionDestination
 init|=
