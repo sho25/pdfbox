@@ -6876,9 +6876,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDDocument
-name|document
-decl_stmt|;
 while|while
 condition|(
 literal|true
@@ -6886,11 +6883,10 @@ condition|)
 block|{
 try|try
 block|{
-name|document
-operator|=
+return|return
 name|open
 argument_list|()
-expr_stmt|;
+return|;
 block|}
 catch|catch
 parameter_list|(
@@ -7003,11 +6999,7 @@ throw|throw
 name|ipe
 throw|;
 block|}
-break|break;
 block|}
-return|return
-name|document
-return|;
 block|}
 block|}
 specifier|private
