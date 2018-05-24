@@ -224,6 +224,11 @@ argument_list|,
 name|Integer
 argument_list|>
 name|characterCodeToGlyphId
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
 decl_stmt|;
 comment|/**      * This will read the required data from the stream.      *       * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
 specifier|public
