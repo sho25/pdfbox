@@ -314,8 +314,6 @@ name|getLineWidth
 argument_list|()
 decl_stmt|;
 try|try
-block|{
-try|try
 init|(
 name|PDAppearanceContentStream
 name|contentStream
@@ -847,7 +845,6 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(

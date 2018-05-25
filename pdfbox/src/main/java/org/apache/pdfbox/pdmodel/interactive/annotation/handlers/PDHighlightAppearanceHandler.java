@@ -712,8 +712,6 @@ name|rect
 argument_list|)
 expr_stmt|;
 try|try
-block|{
-try|try
 init|(
 name|PDAppearanceContentStream
 name|cs
@@ -1589,7 +1587,6 @@ name|of
 operator|+=
 literal|8
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

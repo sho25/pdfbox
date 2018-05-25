@@ -255,8 +255,6 @@ block|{
 return|return;
 block|}
 try|try
-block|{
-try|try
 init|(
 name|PDAppearanceContentStream
 name|cs
@@ -407,7 +405,6 @@ operator|.
 name|stroke
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 catch|catch

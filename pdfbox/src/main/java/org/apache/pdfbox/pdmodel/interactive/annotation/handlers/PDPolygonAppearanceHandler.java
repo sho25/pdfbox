@@ -557,8 +557,6 @@ name|rect
 argument_list|)
 expr_stmt|;
 try|try
-block|{
-try|try
 init|(
 name|PDAppearanceContentStream
 name|contentStream
@@ -922,7 +920,6 @@ argument_list|,
 name|hasBackground
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(

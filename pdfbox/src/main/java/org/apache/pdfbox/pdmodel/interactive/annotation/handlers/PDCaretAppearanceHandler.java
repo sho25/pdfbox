@@ -194,8 +194,6 @@ comment|// values and used in the translation values in the matrix and also for 
 comment|// (not used here because it has no effect).
 comment|// Currently, the rendering difference between our content stream and the one from Adobe
 comment|// is minimal, about one pixel line at the bottom.
-try|try
-block|{
 name|PDAnnotationCaret
 name|annotation
 init|=
@@ -354,7 +352,6 @@ argument_list|()
 expr_stmt|;
 comment|// Adobe has an additional stroke, but it has no effect
 comment|// because fill "consumes" the path.
-block|}
 block|}
 catch|catch
 parameter_list|(

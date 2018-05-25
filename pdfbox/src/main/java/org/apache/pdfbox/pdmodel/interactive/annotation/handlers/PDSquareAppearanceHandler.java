@@ -302,8 +302,6 @@ init|=
 name|getLineWidth
 argument_list|()
 decl_stmt|;
-try|try
-block|{
 name|PDAnnotationSquare
 name|annotation
 init|=
@@ -651,7 +649,6 @@ argument_list|,
 name|hasBackground
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
