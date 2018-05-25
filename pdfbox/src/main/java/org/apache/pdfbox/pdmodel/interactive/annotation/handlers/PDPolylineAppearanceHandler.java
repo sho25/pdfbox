@@ -656,13 +656,6 @@ argument_list|(
 name|color
 argument_list|)
 decl_stmt|;
-name|cs
-operator|.
-name|setStrokingColor
-argument_list|(
-name|color
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ab
