@@ -947,6 +947,7 @@ break|break;
 block|}
 if|if
 condition|(
+operator|!
 name|line
 operator|.
 name|startsWith
@@ -955,8 +956,6 @@ literal|"#"
 argument_list|)
 condition|)
 block|{
-continue|continue;
-block|}
 name|lines
 operator|.
 name|add
@@ -964,6 +963,7 @@ argument_list|(
 name|line
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 return|return
