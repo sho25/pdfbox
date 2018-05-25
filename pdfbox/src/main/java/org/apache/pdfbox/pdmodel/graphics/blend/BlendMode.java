@@ -196,7 +196,7 @@ block|}
 return|return
 name|BlendMode
 operator|.
-name|COMPATIBLE
+name|NORMAL
 return|;
 block|}
 comment|/**      * Determines the blend mode name from the BM object.      *      * @param bm Blend mode.      * @return name of blend mode.      */
@@ -999,6 +999,9 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
+name|BlendMode
+parameter_list|()
+block|{     }
 specifier|private
 specifier|static
 name|int
@@ -1954,7 +1957,7 @@ operator|/
 literal|255.0f
 expr_stmt|;
 block|}
-comment|// these maps *must* come after the declarations above, otherwise its values will be null
+comment|// these maps *must* come after the BlendMode.* constant declarations, otherwise their values would be null
 specifier|private
 specifier|static
 specifier|final
@@ -2022,6 +2025,7 @@ operator|.
 name|NORMAL
 argument_list|)
 expr_stmt|;
+comment|// BlendMode.COMPATIBLE should not be used
 name|map
 operator|.
 name|put
@@ -2032,7 +2036,7 @@ name|COMPATIBLE
 argument_list|,
 name|BlendMode
 operator|.
-name|COMPATIBLE
+name|NORMAL
 argument_list|)
 expr_stmt|;
 name|map
@@ -2273,6 +2277,7 @@ operator|.
 name|NORMAL
 argument_list|)
 expr_stmt|;
+comment|// BlendMode.COMPATIBLE should not be used
 name|map
 operator|.
 name|put
@@ -2283,7 +2288,7 @@ name|COMPATIBLE
 argument_list|,
 name|COSName
 operator|.
-name|COMPATIBLE
+name|NORMAL
 argument_list|)
 expr_stmt|;
 name|map
@@ -2485,9 +2490,6 @@ return|return
 name|map
 return|;
 block|}
-name|BlendMode
-parameter_list|()
-block|{     }
 block|}
 end_class
 
