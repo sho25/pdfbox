@@ -2564,6 +2564,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|PDStream
 name|newStream
 init|=
@@ -2625,6 +2627,24 @@ argument_list|,
 name|newStream
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+comment|// PDFBOX-4227 cleartext XMP stream with /Flate
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Metadata skipped because it could not be read"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|COSDictionary
 name|destOCP
