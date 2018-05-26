@@ -124,7 +124,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents a rectangular or elliptical annotation introduced in PDF 1.3 specification .  *  * @author Paul King  */
+comment|/**  * This is the class that represents a rectangular or elliptical annotation introduced in PDF 1.3  * specification .  *  * @author Paul King  */
 end_comment
 
 begin_class
@@ -211,7 +211,7 @@ name|IC
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the border effect dictionary, specifying effects to be applied when drawing the line.      *      * @param be The border effect dictionary to set.      *      */
+comment|/**      * This will set the border effect dictionary, specifying effects to be applied when drawing the      * line.      *      * @param be The border effect dictionary to set.      *      */
 specifier|public
 name|void
 name|setBorderEffect
@@ -233,18 +233,15 @@ name|be
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border effect dictionary, specifying effects to be applied used in drawing the line.      *      * @return The border effect dictionary      */
+comment|/**      * This will retrieve the border effect dictionary, specifying effects to be applied used in      * drawing the line.      *      * @return The border effect dictionary      */
 specifier|public
 name|PDBorderEffectDictionary
 name|getBorderEffect
 parameter_list|()
 block|{
-name|COSDictionary
-name|be
+name|COSBase
+name|base
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|getCOSObject
 argument_list|()
 operator|.
@@ -257,27 +254,27 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|be
-operator|!=
-literal|null
+name|base
+operator|instanceof
+name|COSDictionary
 condition|)
 block|{
 return|return
 operator|new
 name|PDBorderEffectDictionary
 argument_list|(
-name|be
+operator|(
+name|COSDictionary
+operator|)
+name|base
 argument_list|)
 return|;
 block|}
-else|else
-block|{
 return|return
 literal|null
 return|;
 block|}
-block|}
-comment|/**      * This will set the rectangle difference rectangle. Giving the difference between the annotations rectangle and      * where the drawing occurs. (To take account of any effects applied through the BE entry forexample)      *      * @param rd the rectangle difference      *      */
+comment|/**      * This will set the rectangle difference rectangle. Giving the difference between the      * annotations rectangle and where the drawing occurs. (To take account of any effects applied      * through the BE entry for example)      *      * @param rd the rectangle difference      *      */
 specifier|public
 name|void
 name|setRectDifference
@@ -299,18 +296,15 @@ name|rd
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the rectangle difference rectangle. Giving the difference between the annotations rectangle and      * where the drawing occurs. (To take account of any effects applied through the BE entry forexample)      *      * @return the rectangle difference      */
+comment|/**      * This will get the rectangle difference rectangle. Giving the difference between the      * annotations rectangle and where the drawing occurs. (To take account of any effects applied      * through the BE entry for example)      *      * @return the rectangle difference      */
 specifier|public
 name|PDRectangle
 name|getRectDifference
 parameter_list|()
 block|{
-name|COSArray
-name|rd
+name|COSBase
+name|base
 init|=
-operator|(
-name|COSArray
-operator|)
 name|getCOSObject
 argument_list|()
 operator|.
@@ -323,27 +317,27 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|rd
-operator|!=
-literal|null
+name|base
+operator|instanceof
+name|COSArray
 condition|)
 block|{
 return|return
 operator|new
 name|PDRectangle
 argument_list|(
-name|rd
+operator|(
+name|COSArray
+operator|)
+name|base
 argument_list|)
 return|;
 block|}
-else|else
-block|{
 return|return
 literal|null
 return|;
 block|}
-block|}
-comment|/**      * This will set the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @param bs the border style dictionary to set. TODO not all annotations may have a BS entry      *      */
+comment|/**      * This will set the border style dictionary, specifying the width and dash pattern used in      * drawing the line.      *      * @param bs the border style dictionary to set. TODO not all annotations may have a BS entry      *      */
 annotation|@
 name|Override
 specifier|public
@@ -369,7 +363,7 @@ name|bs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the border style dictionary, specifying the width and dash pattern used in drawing the line.      *      * @return the border style dictionary. TODO not all annotations may have a BS entry      */
+comment|/**      * This will retrieve the border style dictionary, specifying the width and dash pattern used in      * drawing the line.      *      * @return the border style dictionary. TODO not all annotations may have a BS entry      */
 annotation|@
 name|Override
 specifier|public
@@ -412,7 +406,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * This will set the difference between the annotations "outer" rectangle defined by      * /Rect and the border.      *       *<p>This will set an equal difference for all sides</p>      *       * @param difference from the annotations /Rect entry      */
+comment|/**      * This will set the difference between the annotations "outer" rectangle defined by /Rect and      * the border.      *      *<p>      * This will set an equal difference for all sides</p>      *      * @param difference from the annotations /Rect entry      */
 specifier|public
 name|void
 name|setRectDifferences
