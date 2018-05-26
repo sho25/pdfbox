@@ -483,8 +483,6 @@ comment|// - if /RD is not set the border box is defined by the /Rect entry. The
 comment|//   be set to be the line width and the /Rect is enlarged by the /RD amount
 name|PDRectangle
 name|borderBox
-init|=
-literal|null
 decl_stmt|;
 name|float
 index|[]
