@@ -208,7 +208,6 @@ comment|/**  * Utility class used to clone PDF objects. It keeps track of object
 end_comment
 
 begin_class
-specifier|public
 class|class
 name|PDFCloneUtility
 block|{
