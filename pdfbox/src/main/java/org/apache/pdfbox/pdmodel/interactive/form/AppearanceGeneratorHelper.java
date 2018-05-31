@@ -1857,7 +1857,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalStateException
+name|IllegalArgumentException
 argument_list|(
 literal|"font is null, check whether /DA entry is incomplete or incorrect"
 argument_list|)
