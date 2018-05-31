@@ -1848,6 +1848,21 @@ operator|.
 name|getFont
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|font
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"font is null, check whether /DA entry is incomplete or incorrect"
+argument_list|)
+throw|;
+block|}
 comment|// calculate the fontSize (because 0 = autosize)
 name|float
 name|fontSize
