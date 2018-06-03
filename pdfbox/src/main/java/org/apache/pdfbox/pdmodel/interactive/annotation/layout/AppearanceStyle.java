@@ -42,6 +42,7 @@ comment|/**  * Define styling attributes to be used for text formatting.  *   */
 end_comment
 
 begin_class
+specifier|public
 class|class
 name|AppearanceStyle
 block|{
@@ -73,6 +74,7 @@ name|font
 return|;
 block|}
 comment|/**      * Set the font to be used for text formatting.      *       * @param font the font to be used.      */
+specifier|public
 name|void
 name|setFont
 parameter_list|(
@@ -97,6 +99,7 @@ name|fontSize
 return|;
 block|}
 comment|/**      * Set the font size to be used for formatting.      *       * @param fontSize the font size.      */
+specifier|public
 name|void
 name|setFontSize
 parameter_list|(

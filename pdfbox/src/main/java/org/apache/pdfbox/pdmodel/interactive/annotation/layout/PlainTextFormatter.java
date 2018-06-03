@@ -144,10 +144,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * TextFormatter to handle plain text formatting.  *   * The text formatter will take a single value or an array of values which  * are treated as paragraphs.  */
+comment|/**  * TextFormatter to handle plain text formatting for annotation rectangles.  *   * The text formatter will take a single value or an array of values which  * are treated as paragraphs.  */
 end_comment
 
 begin_class
+specifier|public
 class|class
 name|PlainTextFormatter
 block|{
@@ -290,6 +291,7 @@ specifier|private
 name|float
 name|verticalOffset
 decl_stmt|;
+specifier|public
 specifier|static
 class|class
 name|Builder
@@ -341,6 +343,7 @@ name|verticalOffset
 init|=
 literal|0f
 decl_stmt|;
+specifier|public
 name|Builder
 parameter_list|(
 name|PDAppearanceContentStream
@@ -354,6 +357,7 @@ operator|=
 name|contents
 expr_stmt|;
 block|}
+specifier|public
 name|Builder
 name|style
 parameter_list|(
@@ -371,6 +375,7 @@ return|return
 name|this
 return|;
 block|}
+specifier|public
 name|Builder
 name|wrapLines
 parameter_list|(
@@ -388,6 +393,7 @@ return|return
 name|this
 return|;
 block|}
+specifier|public
 name|Builder
 name|width
 parameter_list|(
@@ -405,6 +411,7 @@ return|return
 name|this
 return|;
 block|}
+specifier|public
 name|Builder
 name|textAlign
 parameter_list|(
@@ -427,6 +434,7 @@ return|return
 name|this
 return|;
 block|}
+specifier|public
 name|Builder
 name|textAlign
 parameter_list|(
@@ -444,6 +452,7 @@ return|return
 name|this
 return|;
 block|}
+specifier|public
 name|Builder
 name|text
 parameter_list|(
@@ -461,6 +470,7 @@ return|return
 name|this
 return|;
 block|}
+specifier|public
 name|Builder
 name|initialOffset
 parameter_list|(
@@ -487,6 +497,7 @@ return|return
 name|this
 return|;
 block|}
+specifier|public
 name|PlainTextFormatter
 name|build
 parameter_list|()

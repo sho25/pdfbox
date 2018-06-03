@@ -114,6 +114,7 @@ comment|/**  * A block of text.  *<p>  * A block of text can contain multiple pa
 end_comment
 
 begin_class
+specifier|public
 class|class
 name|PlainText
 block|{
@@ -134,6 +135,7 @@ argument_list|>
 name|paragraphs
 decl_stmt|;
 comment|/**      * Construct the text block from a single value.      *       * Constructs the text block from a single value splitting      * into individual {@link Paragraph} when a new line character is       * encountered.      *       * @param textValue the text block string.      */
+specifier|public
 name|PlainText
 parameter_list|(
 name|String
@@ -210,6 +212,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Construct the text block from a list of values.      *       * Constructs the text block from a list of values treating each      * entry as an individual {@link Paragraph}.      *       * @param listValue the text block string.      */
+specifier|public
 name|PlainText
 parameter_list|(
 name|List
