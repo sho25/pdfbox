@@ -17,7 +17,7 @@ name|interactive
 operator|.
 name|annotation
 operator|.
-name|text
+name|layout
 package|;
 end_package
 
