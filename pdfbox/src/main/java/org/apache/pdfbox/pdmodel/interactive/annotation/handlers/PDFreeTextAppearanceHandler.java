@@ -529,31 +529,6 @@ name|getBorderStyle
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// width 0 = no border
-comment|// pdf_commenting_new.pdf page 3
-comment|// Root/Pages/Kids/[2]/Kids/[0]/Annots/[5]/BS/W
-if|if
-condition|(
-name|Float
-operator|.
-name|compare
-argument_list|(
-name|ab
-operator|.
-name|width
-argument_list|,
-literal|0
-argument_list|)
-operator|==
-literal|0
-condition|)
-block|{
-comment|//TODO what happens if there is a callout?
-comment|//TODO skip, don't return when we know how to make text
-comment|// (maybe refactor the rectangle drawing segment)
-return|return;
-block|}
-comment|//TODO how to set the text color? Apparently red is the default????
 try|try
 init|(
 name|PDAppearanceContentStream
