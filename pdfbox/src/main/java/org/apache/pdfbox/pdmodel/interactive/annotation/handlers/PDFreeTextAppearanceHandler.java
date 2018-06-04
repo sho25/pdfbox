@@ -906,9 +906,6 @@ operator|.
 name|stroke
 argument_list|()
 expr_stmt|;
-comment|// do a transform so that first "arm" is imagined flat, like in line handler
-comment|// the alternative would be to apply the transform to the LE shapes directly,
-comment|// which would be more work and produce code difficult to understand
 comment|// paint the styles here and after line(s) draw, to avoid line crossing a filled shape
 if|if
 condition|(
@@ -921,6 +918,7 @@ operator|.
 name|getIntent
 argument_list|()
 argument_list|)
+comment|// check only needed to avoid q cm Q if LE_NONE
 operator|&&
 operator|!
 name|LE_NONE
@@ -940,7 +938,6 @@ operator|>=
 literal|4
 condition|)
 block|{
-comment|// check only needed to avoid q cm Q if LE_NONE
 name|float
 name|x2
 init|=
@@ -973,6 +970,29 @@ index|[
 literal|1
 index|]
 decl_stmt|;
+name|cs
+operator|.
+name|saveGraphicsState
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|ANGLED_STYLES
+operator|.
+name|contains
+argument_list|(
+name|annotation
+operator|.
+name|getLineEndingStyle
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// do a transform so that first "arm" is imagined flat,
+comment|// like in line handler.
+comment|// The alternative would be to apply the transform to the
+comment|// LE shape coordinates directly, which would be more work
+comment|// and produce code difficult to understand
 name|double
 name|angle
 init|=
@@ -991,11 +1011,6 @@ argument_list|)
 decl_stmt|;
 name|cs
 operator|.
-name|saveGraphicsState
-argument_list|()
-expr_stmt|;
-name|cs
-operator|.
 name|transform
 argument_list|(
 name|Matrix
@@ -1010,6 +1025,24 @@ name|y1
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|cs
+operator|.
+name|transform
+argument_list|(
+name|Matrix
+operator|.
+name|getTranslateInstance
+argument_list|(
+name|x1
+argument_list|,
+name|y1
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|drawStyle
 argument_list|(
 name|annotation
