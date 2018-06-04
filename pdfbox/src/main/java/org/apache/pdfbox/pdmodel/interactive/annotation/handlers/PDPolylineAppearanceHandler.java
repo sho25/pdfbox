@@ -1054,6 +1054,19 @@ operator|.
 name|saveGraphicsState
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|ANGLED_STYLES
+operator|.
+name|contains
+argument_list|(
+name|annotation
+operator|.
+name|getStartPointEndingStyle
+argument_list|()
+argument_list|)
+condition|)
+block|{
 name|double
 name|angle
 init|=
@@ -1086,6 +1099,24 @@ name|y1
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|cs
+operator|.
+name|transform
+argument_list|(
+name|Matrix
+operator|.
+name|getTranslateInstance
+argument_list|(
+name|x1
+argument_list|,
+name|y1
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|drawStyle
 argument_list|(
 name|annotation
@@ -1178,6 +1209,25 @@ literal|1
 index|]
 decl_stmt|;
 comment|// save / restore not needed because it's the last one
+if|if
+condition|(
+name|ANGLED_STYLES
+operator|.
+name|contains
+argument_list|(
+name|annotation
+operator|.
+name|getEndPointEndingStyle
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// we're transforming to (x1,y1) instead of to (x2,y2) position
+comment|// because drawStyle needs to be aware
+comment|// by the non zero x parameter that this is "right ending" side
+comment|// of a line. This is important for arrows styles.
+comment|//TODO this is not really good and should be improved,
+comment|// maybe by an additional parameter for drawStyle?
 name|double
 name|angle
 init|=
@@ -1271,6 +1321,46 @@ argument_list|,
 name|hasBackground
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|cs
+operator|.
+name|transform
+argument_list|(
+name|Matrix
+operator|.
+name|getTranslateInstance
+argument_list|(
+name|x2
+argument_list|,
+name|y2
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|drawStyle
+argument_list|(
+name|annotation
+operator|.
+name|getEndPointEndingStyle
+argument_list|()
+argument_list|,
+name|cs
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+name|ab
+operator|.
+name|width
+argument_list|,
+name|hasStroke
+argument_list|,
+name|hasBackground
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
