@@ -195,6 +195,9 @@ operator|new
 name|PDFStreamParser
 argument_list|(
 name|page
+operator|.
+name|getContents
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|parser
@@ -384,6 +387,9 @@ operator|new
 name|PDFStreamParser
 argument_list|(
 name|page
+operator|.
+name|getContents
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|parser
@@ -528,6 +534,9 @@ operator|new
 name|PDFStreamParser
 argument_list|(
 name|page
+operator|.
+name|getContents
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|parser

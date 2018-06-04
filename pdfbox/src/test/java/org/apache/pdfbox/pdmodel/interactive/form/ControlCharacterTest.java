@@ -762,6 +762,9 @@ name|widget
 operator|.
 name|getNormalAppearanceStream
 argument_list|()
+operator|.
+name|getContents
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Object

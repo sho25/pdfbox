@@ -382,7 +382,8 @@ init|=
 operator|new
 name|PDFStreamParser
 argument_list|(
-name|this
+name|getContents
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Object
@@ -658,7 +659,8 @@ init|=
 operator|new
 name|PDFStreamParser
 argument_list|(
-name|this
+name|getContents
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Object

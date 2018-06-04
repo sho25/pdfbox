@@ -361,6 +361,9 @@ operator|new
 name|PDFStreamParser
 argument_list|(
 name|appearanceContentStream
+operator|.
+name|getContents
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|streamParser
@@ -410,6 +413,9 @@ operator|new
 name|PDFStreamParser
 argument_list|(
 name|appearanceContentStream
+operator|.
+name|getContents
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|streamParser
