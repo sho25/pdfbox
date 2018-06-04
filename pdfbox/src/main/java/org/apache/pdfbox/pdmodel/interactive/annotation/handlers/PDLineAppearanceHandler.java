@@ -1363,6 +1363,9 @@ name|getInteriorColor
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|//TODO support non-angled styles. This is more difficult than in the other handlers
+comment|// because the lines do not always go from (x1,y1) to (x2,y2) due to the leader lines
+comment|// when the "y" value above is not 0.
 name|drawStyle
 argument_list|(
 name|annotation
