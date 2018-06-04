@@ -746,8 +746,6 @@ name|IOException
 block|{
 name|float
 name|wordWidth
-init|=
-literal|0f
 decl_stmt|;
 name|float
 name|lastPos
