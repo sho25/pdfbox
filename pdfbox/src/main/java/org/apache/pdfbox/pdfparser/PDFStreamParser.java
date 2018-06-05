@@ -279,7 +279,7 @@ index|[
 name|MAX_BIN_CHAR_TEST_LENGTH
 index|]
 decl_stmt|;
-comment|/**      * Constructor.      *      * @param contentStream The content stream to parse.      * @throws IOException If there is an error initializing the stream.      */
+comment|/**      * Constructor.      *      * @param stream The content stream to parse.      * @throws IOException If there is an error initializing the stream.      */
 specifier|public
 name|PDFStreamParser
 parameter_list|(
