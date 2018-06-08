@@ -280,7 +280,9 @@ argument_list|()
 argument_list|)
 operator|&&
 operator|!
-literal|"Circle"
+name|PDAnnotationText
+operator|.
+name|NAME_CIRCLE
 operator|.
 name|equals
 argument_list|(
@@ -392,9 +394,10 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-literal|"Circle"
+name|PDAnnotationText
+operator|.
+name|NAME_CIRCLE
 case|:
-comment|//TODO constant
 name|drawCircles
 argument_list|(
 name|contentStream

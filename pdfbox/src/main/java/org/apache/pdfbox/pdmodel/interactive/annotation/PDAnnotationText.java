@@ -166,6 +166,15 @@ name|NAME_INSERT
 init|=
 literal|"Insert"
 decl_stmt|;
+comment|/**      * Constant for the name of a circle annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME_CIRCLE
+init|=
+literal|"Circle"
+decl_stmt|;
 comment|/**      * The type of annotation.      */
 specifier|public
 specifier|static
