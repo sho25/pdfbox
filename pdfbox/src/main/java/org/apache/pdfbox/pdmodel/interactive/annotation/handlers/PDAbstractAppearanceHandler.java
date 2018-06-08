@@ -1069,7 +1069,7 @@ name|PDAnnotationLine
 operator|.
 name|LE_CIRCLE
 case|:
-name|addCircle
+name|drawCircle
 argument_list|(
 name|cs
 argument_list|,
@@ -1484,7 +1484,7 @@ expr_stmt|;
 block|}
 comment|/**      * Add a circle shape to the path in clockwise direction.      *      * @param cs Content stream      * @param x      * @param y      * @param r Radius      *       * @throws IOException If the content stream could not be written.      */
 name|void
-name|addCircle
+name|drawCircle
 parameter_list|(
 name|PDAppearanceContentStream
 name|cs
@@ -1636,7 +1636,7 @@ expr_stmt|;
 block|}
 comment|/**      * Add a circle shape to the path in counterclockwise direction. You'll need this e.g. when      * drawing a doughnut shape. See "Nonzero Winding Number Rule" for more information.      *      * @param cs Content stream      * @param x      * @param y      * @param r Radius      *      * @throws IOException If the content stream could not be written.      */
 name|void
-name|addCircle2
+name|drawCircle2
 parameter_list|(
 name|PDAppearanceContentStream
 name|cs

@@ -823,7 +823,7 @@ argument_list|(
 literal|1f
 argument_list|)
 expr_stmt|;
-name|addCircle
+name|drawCircle
 argument_list|(
 name|contentStream
 argument_list|,
@@ -862,7 +862,7 @@ literal|0.59f
 argument_list|)
 expr_stmt|;
 comment|// value from Adobe
-name|addCircle
+name|drawCircle
 argument_list|(
 name|contentStream
 argument_list|,
@@ -883,7 +883,7 @@ argument_list|,
 name|smallR
 argument_list|)
 expr_stmt|;
-name|addCircle2
+name|drawCircle2
 argument_list|(
 name|contentStream
 argument_list|,
