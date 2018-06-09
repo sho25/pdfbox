@@ -175,6 +175,15 @@ name|NAME_CIRCLE
 init|=
 literal|"Circle"
 decl_stmt|;
+comment|/**      * Constant for the name of a cross annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME_CROSS
+init|=
+literal|"Cross"
+decl_stmt|;
 comment|/**      * The type of annotation.      */
 specifier|public
 specifier|static
