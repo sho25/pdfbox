@@ -881,7 +881,7 @@ condition|(
 name|closeTTF
 condition|)
 block|{
-comment|// the TTF is fully loaded and it is save to close the underlying data source
+comment|// the TTF is fully loaded and it is safe to close the underlying data source
 name|ttf
 operator|.
 name|close
