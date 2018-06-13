@@ -352,7 +352,7 @@ name|commandLine
 operator|.
 name|getOptionValue
 argument_list|(
-name|ALIAS
+name|PASSWORD
 argument_list|,
 literal|""
 argument_list|)
