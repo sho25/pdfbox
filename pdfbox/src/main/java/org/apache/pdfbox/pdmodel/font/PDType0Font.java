@@ -1992,7 +1992,7 @@ literal|"/"
 operator|+
 name|descendant
 operator|+
-literal|" "
+literal|", PostScript name: "
 operator|+
 name|getBaseFont
 argument_list|()
