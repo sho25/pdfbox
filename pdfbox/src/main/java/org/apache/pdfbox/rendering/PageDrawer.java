@@ -7097,7 +7097,6 @@ name|size
 argument_list|)
 expr_stmt|;
 comment|// Flip y
-comment|// PDFBOX-4245 also consider translation in xform
 return|return
 operator|new
 name|Rectangle2D
@@ -7114,11 +7113,6 @@ operator|*
 name|m
 operator|.
 name|getScalingFactorX
-argument_list|()
-operator|+
-name|xform
-operator|.
-name|getTranslateX
 argument_list|()
 argument_list|,
 name|size
@@ -7138,11 +7132,6 @@ operator|*
 name|m
 operator|.
 name|getScalingFactorY
-argument_list|()
-operator|+
-name|xform
-operator|.
-name|getTranslateY
 argument_list|()
 argument_list|,
 name|width
