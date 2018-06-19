@@ -469,7 +469,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Couldn't read system properties - using defauults"
+literal|"Couldn't read system properties - using defaults"
 argument_list|,
 name|e
 argument_list|)
