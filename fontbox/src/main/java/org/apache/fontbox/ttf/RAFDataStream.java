@@ -192,6 +192,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|raf
+operator|!=
+literal|null
+condition|)
+block|{
 name|raf
 operator|.
 name|close
@@ -201,6 +208,7 @@ name|raf
 operator|=
 literal|null
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Read an unsigned byte.      * @return An unsigned byte.      * @throws IOException If there is an error reading the data.      * @see RandomAccessFile#read()      */
 annotation|@
