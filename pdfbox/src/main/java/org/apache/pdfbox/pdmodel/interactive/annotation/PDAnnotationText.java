@@ -184,6 +184,42 @@ name|NAME_CROSS
 init|=
 literal|"Cross"
 decl_stmt|;
+comment|/**      * Constant for the name of a star annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME_STAR
+init|=
+literal|"Star"
+decl_stmt|;
+comment|/**      * Constant for the name of a check annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME_CHECK
+init|=
+literal|"Check"
+decl_stmt|;
+comment|/**      * Constant for the name of a right arrow annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME_RIGHT_ARROW
+init|=
+literal|"RightArrow"
+decl_stmt|;
+comment|/**      * Constant for the name of a right pointer annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME_RIGHT_POINTER
+init|=
+literal|"RightPointer"
+decl_stmt|;
 comment|/**      * The type of annotation.      */
 specifier|public
 specifier|static
