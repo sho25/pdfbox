@@ -1788,14 +1788,14 @@ literal|375
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// we get the shape of an Helvetica "?" and use that one.
+comment|// we get the shape of an Helvetica bold "?" and use that one.
 comment|// Adobe uses a different font (which one?), or created the shape from scratch.
 name|GeneralPath
 name|path
 init|=
 name|PDType1Font
 operator|.
-name|HELVETICA
+name|HELVETICA_BOLD
 operator|.
 name|getPath
 argument_list|(
