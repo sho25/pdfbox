@@ -220,6 +220,33 @@ name|NAME_RIGHT_POINTER
 init|=
 literal|"RightPointer"
 decl_stmt|;
+comment|/**      * Constant for the name of a crosshairs annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME_UP_ARROW
+init|=
+literal|"UpArrow"
+decl_stmt|;
+comment|/**      * Constant for the name of a crosshairs annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME_UP_LEFT_ARROW
+init|=
+literal|"UpLeftArrow"
+decl_stmt|;
+comment|/**      * Constant for the name of a crosshairs annotation.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME_CROSS_HAIRS
+init|=
+literal|"CrossHairs"
+decl_stmt|;
 comment|/**      * The type of annotation.      */
 specifier|public
 specifier|static
