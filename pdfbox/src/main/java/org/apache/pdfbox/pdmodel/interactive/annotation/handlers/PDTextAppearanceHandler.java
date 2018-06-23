@@ -2504,6 +2504,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|//TODO this is mostly identical to drawStar, except for scale, translation and symbol
+comment|// maybe use a table with all values and draw from there
+comment|// this could also optionally use outer circle
 specifier|private
 name|void
 name|drawCheck
@@ -2886,7 +2888,7 @@ literal|50
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// we get the shape of a Zapf Dingbats right pointer (0x27A4) and use that one.
+comment|// we get the shape of a Symbol crosshair (0x2295) and use that one.
 comment|// Adobe uses a different font (which one?), or created the shape from scratch.
 name|GeneralPath
 name|path
@@ -3122,7 +3124,7 @@ literal|300
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// we get the shape of a Zapf Dingbats right arrow and use that one.
+comment|// we get the shape of a Zapf Dingbats right arrow (0x2794) and use that one.
 comment|// Adobe uses a different font (which one?), or created the shape from scratch.
 name|GeneralPath
 name|path
