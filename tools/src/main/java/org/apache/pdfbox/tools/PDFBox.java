@@ -312,8 +312,6 @@ literal|"\nUsage: java -jar pdfbox-app-x.y.z.jar<command><args..>\n"
 operator|+
 literal|"\nPossible commands are:\n"
 operator|+
-literal|"  ConvertColorspace\n"
-operator|+
 literal|"  Decrypt\n"
 operator|+
 literal|"  Encrypt\n"
