@@ -1083,7 +1083,7 @@ comment|// you can write the ascii hex signature at a later time even if you don
 comment|// PDDocument object anymore, with classic java file random access methods.
 comment|// If you can't remember the offset value from ByteRange because your context has changed,
 comment|// then open the file with PDFBox, find the field with findExistingSignature() or
-comment|// PODDocument.getLastSignatureDictionary() and get the ByteRange from there.
+comment|// PDDocument.getLastSignatureDictionary() and get the ByteRange from there.
 comment|// Close the file and then write the signature as explained earlier in this comment.
 if|if
 condition|(
