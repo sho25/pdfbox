@@ -80,6 +80,7 @@ operator|new
 name|UnsupportedOperationException
 argument_list|()
 throw|;
+comment|//TODO this is a violation of the interface segregation principle
 block|}
 annotation|@
 name|Override
