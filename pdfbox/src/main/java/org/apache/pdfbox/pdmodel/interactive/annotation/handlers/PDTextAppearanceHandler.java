@@ -1996,7 +1996,6 @@ name|fillAndStroke
 argument_list|()
 expr_stmt|;
 block|}
-comment|//TODO this is mostly identical to drawHelp, except for scale, translation and symbol
 specifier|private
 name|void
 name|drawParagraph
@@ -2232,8 +2231,12 @@ operator|.
 name|restoreGraphicsState
 argument_list|()
 expr_stmt|;
-comment|// draw the outer circle counterclockwise to fill area between circle and "?"
-name|drawCircle2
+name|contentStream
+operator|.
+name|fillAndStroke
+argument_list|()
+expr_stmt|;
+name|drawCircle
 argument_list|(
 name|contentStream
 argument_list|,
@@ -2254,7 +2257,7 @@ argument_list|)
 expr_stmt|;
 name|contentStream
 operator|.
-name|fillAndStroke
+name|stroke
 argument_list|()
 expr_stmt|;
 block|}
