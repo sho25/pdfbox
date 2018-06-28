@@ -413,7 +413,7 @@ return|;
 block|}
 block|}
 return|return
-literal|null
+name|initialException
 return|;
 block|}
 block|}
