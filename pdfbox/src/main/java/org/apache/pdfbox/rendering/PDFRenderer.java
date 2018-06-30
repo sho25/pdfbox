@@ -247,6 +247,10 @@ name|subsamplingAllowed
 init|=
 literal|false
 decl_stmt|;
+specifier|private
+name|BufferedImage
+name|pageImage
+decl_stmt|;
 comment|/**      * Creates a new PDFRenderer.      * @param document the document to render      */
 specifier|public
 name|PDFRenderer
@@ -579,6 +583,10 @@ name|bimType
 argument_list|)
 expr_stmt|;
 block|}
+name|pageImage
+operator|=
+name|image
+expr_stmt|;
 comment|// use a transparent background if the image type supports alpha
 name|Graphics2D
 name|g
@@ -1208,6 +1216,15 @@ block|}
 block|}
 return|return
 literal|false
+return|;
+block|}
+comment|/**      * Returns the image to which the current page is being rendered.      * May be null if the page is rendered to a Graphics2D object      * instead of a BufferedImage.      */
+name|BufferedImage
+name|getPageImage
+parameter_list|()
+block|{
+return|return
+name|pageImage
 return|;
 block|}
 block|}
