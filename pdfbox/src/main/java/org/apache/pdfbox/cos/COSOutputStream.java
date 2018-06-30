@@ -333,14 +333,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// flush the entire stream
-name|out
-operator|.
-name|write
-argument_list|(
 name|buffer
 operator|.
-name|toByteArray
-argument_list|()
+name|writeTo
+argument_list|(
+name|out
 argument_list|)
 expr_stmt|;
 name|super
