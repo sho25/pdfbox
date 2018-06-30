@@ -604,6 +604,8 @@ argument_list|(
 name|page
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|PDPageContentStream
 name|contentStream
 init|=
@@ -620,7 +622,8 @@ name|APPEND
 argument_list|,
 literal|false
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|contentStream
 operator|.
 name|drawImage
@@ -643,11 +646,7 @@ argument_list|,
 literal|350
 argument_list|)
 expr_stmt|;
-name|contentStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 comment|// check that the resource map is up-to-date
 name|assertEquals
 argument_list|(
@@ -873,7 +872,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"(%d,%d) %08X != %08X"
+literal|"(%d,%d) expected:<%08X> but was:<%08X>; "
 argument_list|,
 name|x
 argument_list|,
