@@ -3698,7 +3698,8 @@ literal|300
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// outer shape from Font Awesome by "printing" comment.svg into a PDF
+comment|// outer shape was gathered from Font Awesome by "printing" comment.svg
+comment|// into a PDF and looking at the content stream
 name|contentStream
 operator|.
 name|moveTo
@@ -4044,7 +4045,8 @@ literal|800
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// shape from Font Awesome by "printing" key.svg into a PDF
+comment|// shape was gathered from Font Awesome by "printing" key.svg into a PDF
+comment|// and looking at the content stream
 name|contentStream
 operator|.
 name|moveTo
