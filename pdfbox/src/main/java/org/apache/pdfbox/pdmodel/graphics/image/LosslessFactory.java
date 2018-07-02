@@ -1700,11 +1700,12 @@ specifier|final
 name|int
 name|elementsInRowPerPixel
 decl_stmt|;
-comment|// This variable store a row of the image each, the exact type depends
+comment|// These variables store a row of the image each, the exact type depends
 comment|// on the image encoding. Can be a int[], short[] or byte[]
 name|Object
 name|prevRow
-decl_stmt|,
+decl_stmt|;
+name|Object
 name|transferRow
 decl_stmt|;
 switch|switch
@@ -2431,7 +2432,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-block|{
 comment|// We swap prev and transfer row, so that we have the prev row for the next row.
 name|Object
 name|temp
@@ -2446,7 +2446,6 @@ name|transferRow
 operator|=
 name|temp
 expr_stmt|;
-block|}
 block|}
 name|zip
 operator|.
@@ -2507,11 +2506,9 @@ call|(
 name|byte
 call|)
 argument_list|(
-operator|(
 name|val
 operator|&
 literal|0xFF
-operator|)
 argument_list|)
 decl_stmt|;
 name|byte
@@ -2556,7 +2553,6 @@ name|BufferedImage
 operator|.
 name|TYPE_INT_BGR
 case|:
-block|{
 name|targetValues
 index|[
 literal|0
@@ -2579,13 +2575,11 @@ operator|=
 name|b2
 expr_stmt|;
 break|break;
-block|}
 case|case
 name|BufferedImage
 operator|.
 name|TYPE_INT_ARGB
 case|:
-block|{
 name|targetValues
 index|[
 literal|0
@@ -2639,7 +2633,6 @@ name|b3
 expr_stmt|;
 block|}
 break|break;
-block|}
 case|case
 name|BufferedImage
 operator|.
@@ -2756,6 +2749,11 @@ name|int
 name|alphaPtr
 parameter_list|)
 block|{
+name|int
+name|itr
+init|=
+name|indexInTranferRow
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -2769,6 +2767,9 @@ name|targetValues
 operator|.
 name|length
 condition|;
+name|i
+operator|+=
+literal|2
 control|)
 block|{
 name|short
@@ -2776,14 +2777,13 @@ name|val
 init|=
 name|transferRow
 index|[
-name|indexInTranferRow
+name|itr
 operator|++
 index|]
 decl_stmt|;
 name|targetValues
 index|[
 name|i
-operator|++
 index|]
 operator|=
 call|(
@@ -2802,7 +2802,8 @@ expr_stmt|;
 name|targetValues
 index|[
 name|i
-operator|++
+operator|+
+literal|1
 index|]
 operator|=
 call|(
@@ -2827,7 +2828,7 @@ name|alpha
 init|=
 name|transferRow
 index|[
-name|indexInTranferRow
+name|itr
 index|]
 decl_stmt|;
 name|alphaImageData
@@ -2934,18 +2935,15 @@ operator|instanceof
 name|ICC_ColorSpace
 condition|)
 block|{
-name|ICC_ColorSpace
-name|icc_colorSpace
+name|ICC_Profile
+name|profile
 init|=
+operator|(
 operator|(
 name|ICC_ColorSpace
 operator|)
 name|srcCspace
-decl_stmt|;
-name|ICC_Profile
-name|profile
-init|=
-name|icc_colorSpace
+operator|)
 operator|.
 name|getProfile
 argument_list|()
@@ -2974,6 +2972,8 @@ argument_list|(
 name|document
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|OutputStream
 name|outputStream
 init|=
@@ -2988,7 +2988,8 @@ name|COSName
 operator|.
 name|FLATE_DECODE
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|outputStream
 operator|.
 name|write
@@ -2999,11 +3000,7 @@ name|getData
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|outputStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|pdProfile
 operator|.
 name|getPDStream
@@ -3473,7 +3470,7 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|int
-name|Pr
+name|pr
 decl_stmt|;
 if|if
 condition|(
@@ -3486,7 +3483,7 @@ operator|<=
 name|pc
 condition|)
 block|{
-name|Pr
+name|pr
 operator|=
 name|a
 expr_stmt|;
@@ -3499,14 +3496,14 @@ operator|<=
 name|pc
 condition|)
 block|{
-name|Pr
+name|pr
 operator|=
 name|b
 expr_stmt|;
 block|}
 else|else
 block|{
-name|Pr
+name|pr
 operator|=
 name|c
 expr_stmt|;
@@ -3516,7 +3513,7 @@ name|r
 init|=
 name|x
 operator|-
-name|Pr
+name|pr
 decl_stmt|;
 return|return
 call|(
