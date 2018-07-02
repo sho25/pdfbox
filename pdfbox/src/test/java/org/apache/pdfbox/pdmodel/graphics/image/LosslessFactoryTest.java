@@ -1906,6 +1906,17 @@ name|getImage
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|doWritePDF
+argument_list|(
+name|document
+argument_list|,
+name|ximage
+argument_list|,
+name|testResultsDir
+argument_list|,
+literal|"PDFBOX-4184-032163.pdf"
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Check whether the RGB part of images are identical.      *      * @param expectedImage      * @param actualImage      */
 specifier|private
