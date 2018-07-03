@@ -482,6 +482,8 @@ operator|+
 name|ab
 operator|.
 name|width
+operator|/
+literal|2
 argument_list|,
 name|rect
 operator|.
@@ -503,6 +505,8 @@ operator|+
 name|ab
 operator|.
 name|width
+operator|/
+literal|2
 argument_list|,
 name|rect
 operator|.
