@@ -480,8 +480,6 @@ argument_list|(
 name|minX
 operator|-
 name|lineWidth
-operator|/
-literal|2
 argument_list|,
 name|rect
 operator|.
@@ -501,8 +499,6 @@ argument_list|(
 name|minY
 operator|-
 name|lineWidth
-operator|/
-literal|2
 argument_list|,
 name|rect
 operator|.
@@ -908,6 +904,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|contentStream
+operator|.
+name|closePath
+argument_list|()
+expr_stmt|;
 block|}
 name|contentStream
 operator|.
