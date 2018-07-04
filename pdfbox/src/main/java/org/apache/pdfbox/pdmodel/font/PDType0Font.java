@@ -499,7 +499,7 @@ name|fetchCMapUCS2
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**     * Private. Creates a new TrueType font for embedding.     */
+comment|/**      * Private. Creates a new PDType0Font font for embedding.      *      * @param document      * @param ttf      * @param embedSubset      * @param closeTTF whether to close the ttf parameter after embedding. Must be true when the ttf      * parameter was created in the load() method, false when the ttf parameter was passed to the      * load() method.      * @param vertical      * @throws IOException      */
 specifier|private
 name|PDType0Font
 parameter_list|(
@@ -513,7 +513,7 @@ name|boolean
 name|embedSubset
 parameter_list|,
 name|boolean
-name|closeOnSubset
+name|closeTTF
 parameter_list|,
 name|boolean
 name|vertical
@@ -579,7 +579,7 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|closeOnSubset
+name|closeTTF
 condition|)
 block|{
 if|if
@@ -592,6 +592,13 @@ operator|.
 name|ttf
 operator|=
 name|ttf
+expr_stmt|;
+name|document
+operator|.
+name|registerTrueTypeFont
+argument_list|(
+name|ttf
+argument_list|)
 expr_stmt|;
 block|}
 else|else

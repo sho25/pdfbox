@@ -225,6 +225,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|fontbox
+operator|.
+name|ttf
+operator|.
+name|TrueTypeFont
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|cos
@@ -960,6 +974,20 @@ argument_list|<
 name|PDFont
 argument_list|>
 name|fontsToSubset
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+decl_stmt|;
+comment|// fonts to close when closing document
+specifier|private
+specifier|final
+name|Set
+argument_list|<
+name|TrueTypeFont
+argument_list|>
+name|fontsToClose
 init|=
 operator|new
 name|HashSet
@@ -3450,6 +3478,23 @@ return|return
 name|signatures
 return|;
 block|}
+comment|/**      * For internal PDFBox use when creating PDF documents: register a TrueTypeFont to make sure it      * is closed when the PDDocument is closed to avoid memory leaks. Users don't have to call this      * method, it is done by the appropriate PDFont classes.      *      * @param ttf      */
+specifier|public
+name|void
+name|registerTrueTypeFont
+parameter_list|(
+name|TrueTypeFont
+name|ttf
+parameter_list|)
+block|{
+name|fontsToClose
+operator|.
+name|add
+argument_list|(
+name|ttf
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Returns the list of fonts which will be subset before the document is saved.      */
 name|Set
 argument_list|<
@@ -4618,6 +4663,31 @@ argument_list|,
 name|LOG
 argument_list|,
 literal|"RandomAccessRead pdfSource"
+argument_list|,
+name|firstException
+argument_list|)
+expr_stmt|;
+block|}
+comment|// close fonts
+for|for
+control|(
+name|TrueTypeFont
+name|ttf
+range|:
+name|fontsToClose
+control|)
+block|{
+name|firstException
+operator|=
+name|IOUtils
+operator|.
+name|closeAndLogException
+argument_list|(
+name|ttf
+argument_list|,
+name|LOG
+argument_list|,
+literal|"TrueTypeFont"
 argument_list|,
 name|firstException
 argument_list|)
