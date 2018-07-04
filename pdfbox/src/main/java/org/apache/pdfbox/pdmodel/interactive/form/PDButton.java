@@ -437,8 +437,10 @@ return|;
 block|}
 else|else
 block|{
+comment|// Off is the default value if there is nothing else set.
+comment|// See PDF Spec.
 return|return
-literal|""
+literal|"Off"
 return|;
 block|}
 block|}

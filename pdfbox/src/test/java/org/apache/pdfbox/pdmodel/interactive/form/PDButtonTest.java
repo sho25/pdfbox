@@ -892,7 +892,7 @@ operator|.
 name|getValue
 argument_list|()
 argument_list|,
-literal|""
+literal|"Off"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1245,7 +1245,7 @@ operator|.
 name|getValue
 argument_list|()
 argument_list|,
-literal|""
+literal|"Off"
 argument_list|)
 expr_stmt|;
 name|assertEquals
