@@ -293,6 +293,8 @@ break|break;
 default|default:
 break|break;
 block|}
+comment|//TODO shouldn't we set the stack?
+comment|//Or call the appropriate setStrokingColor() method from the base class?
 block|}
 comment|/**      * Set the non stroking color.      *       *<p>      * The command is only emitted if the color is not null and the number of      * components is&gt; 0.      *       * @param color The colorspace to write.      * @throws IOException If there is an error writing to the content stream.      * @see PDAbstractContentStream#setNonStrokingColor(PDColor)      */
 specifier|public
@@ -412,6 +414,8 @@ break|break;
 default|default:
 break|break;
 block|}
+comment|//TODO shouldn't we set the stack?
+comment|//Or call the appropriate setNonStrokingColor() method from the base class?
 block|}
 specifier|public
 name|void
