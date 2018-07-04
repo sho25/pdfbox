@@ -114,7 +114,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides the ability to write to a page content stream.  *  * @author Ben Litchfield  */
+comment|/**  * Provides the ability to write to an appearance content stream.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -127,7 +127,7 @@ name|PDAbstractContentStream
 implements|implements
 name|Closeable
 block|{
-comment|/**      * Create a new appearance stream.      *      * @param appearance      *            The appearance stream to write to.      * @throws IOException      *             If there is an error writing to the page contents.      */
+comment|/**      * Create a new appearance stream.      *      * @param appearance      *            The appearance stream to write to.      * @throws IOException If there is an error writing to the content stream.      */
 specifier|public
 name|PDAppearanceContentStream
 parameter_list|(
@@ -151,7 +151,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a new appearance stream. Note that this is not actually a "page"      * content stream.      *      * @param appearance      *            The appearance stream to add to.      * @param outputStream      *            The appearances output stream to write to.      */
+comment|/**      * Create a new appearance stream.      *      * @param appearance      *            The appearance stream to add to.      * @param outputStream      *            The appearances output stream to write to.      */
 specifier|public
 name|PDAppearanceContentStream
 parameter_list|(
@@ -175,7 +175,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color.      *       *<p>      * The command is only emitted if the color is not null and the number of      * components is gt 0.      *       * @see PDAbstractContentStream#setStrokingColor(PDColor)      */
+comment|/**      * Set the stroking color.      *       *<p>      * The command is only emitted if the color is not null and the number of      * components is&gt; 0.      *       * @param color The colorspace to write.      * @throws IOException If there is an error writing to the content stream.      * @see PDAbstractContentStream#setStrokingColor(PDColor)      */
 specifier|public
 name|boolean
 name|setStrokingColorOnDemand
@@ -225,7 +225,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Set the stroking color.      *       * @see PDAbstractContentStream#setStrokingColor(java.awt.Color)      * @param components      *            the color components dependent on the color space being used.      * @throws IOException      *             if an IO error occurs while writing to the stream.      */
+comment|/**      * Set the stroking color.      *       * @see PDAbstractContentStream#setStrokingColor(java.awt.Color)      * @param components      *            the color components dependent on the color space being used.      * @throws IOException If there is an error writing to the content stream.      */
 specifier|public
 name|void
 name|setStrokingColor
@@ -294,7 +294,7 @@ default|default:
 break|break;
 block|}
 block|}
-comment|/**      * Set the non stroking color.      *       *<p>      * The command is only emitted if the color is not null and the number of      * components is gt 0.      *       * @see PDAbstractContentStream#setNonStrokingColor(PDColor)      */
+comment|/**      * Set the non stroking color.      *       *<p>      * The command is only emitted if the color is not null and the number of      * components is&gt; 0.      *       * @param color The colorspace to write.      * @throws IOException If there is an error writing to the content stream.      * @see PDAbstractContentStream#setNonStrokingColor(PDColor)      */
 specifier|public
 name|boolean
 name|setNonStrokingColorOnDemand
@@ -344,7 +344,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Set the non stroking color.      *       * @see PDAbstractContentStream#setNonStrokingColor(java.awt.Color)      * @param components      *            the color components dependent on the color space being used.      * @throws IOException      *             if an IO error occurs while writing to the stream.      */
+comment|/**      * Set the non stroking color.      *       * @see PDAbstractContentStream#setNonStrokingColor(java.awt.Color)      * @param components      *            the color components dependent on the color space being used.      * @throws IOException If there is an error writing to the content stream.      */
 specifier|public
 name|void
 name|setNonStrokingColor
@@ -479,7 +479,7 @@ name|lineWidth
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the line width. The command is only emitted if the lineWidth is      * different to 1.      *       * @param lineWidth the line width of the path.      * @throws java.io.IOException      * @see PDAbstractContentStream#setLineWidth(float)      */
+comment|/**      * Sets the line width. The command is only emitted if the lineWidth is      * different to 1.      *       * @param lineWidth the line width of the path.      * @throws IOException If there is an error writing to the content stream.      * @see PDAbstractContentStream#setLineWidth(float)      */
 specifier|public
 name|void
 name|setLineWidthOnDemand
@@ -517,7 +517,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Draw a shape.      *      *<p>      * Dependent on the lineWidth and whether or not there is a background to be generated there are      * different commands to be used for draw a shape.      *      * @param lineWidth the line width of the path.      * @param hasStroke shall there be a stroking color.      * @param hasFill shall there be a fill color.      * @throws IOException if an IO error occurs while writing to the stream.      */
+comment|/**      * Draw a shape.      *      *<p>      * Dependent on the lineWidth and whether or not there is a background to be generated there are      * different commands to be used for draw a shape.      *      * @param lineWidth the line width of the path.      * @param hasStroke shall there be a stroking color.      * @param hasFill shall there be a fill color.      * @throws IOException If there is an error writing to the content stream.      */
 specifier|public
 name|void
 name|drawShape
