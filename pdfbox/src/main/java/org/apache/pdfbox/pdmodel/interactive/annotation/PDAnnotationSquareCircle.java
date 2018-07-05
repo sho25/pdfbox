@@ -211,7 +211,7 @@ name|IC
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the border effect dictionary, specifying effects to be applied when drawing the      * line.      *      * @param be The border effect dictionary to set.      *      */
+comment|/**      * This will set the border effect dictionary, specifying effects to be applied when drawing the      * line. This is supported by PDF 1.5 and higher.      *      * @param be The border effect dictionary to set.      *      */
 specifier|public
 name|void
 name|setBorderEffect
