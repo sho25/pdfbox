@@ -109,7 +109,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * COSWriterXRefEntry constructor comment.      *      * @param start The start attribute.      * @param obj The COS object that this entry represents.      * @param keyValue The key to the COS object.      */
+comment|/**      * Constructor.      *      * @param start The start attribute.      * @param obj The COS object that this entry represents.      * @param keyValue The key to the COS object.      */
 specifier|public
 name|COSWriterXRefEntry
 parameter_list|(

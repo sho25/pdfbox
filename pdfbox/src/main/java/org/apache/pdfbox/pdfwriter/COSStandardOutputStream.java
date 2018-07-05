@@ -108,7 +108,7 @@ name|onNewLine
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * COSOutputStream constructor comment.      *      * @param out The underlying stream to write to.      */
+comment|/**      * Constructor.      *      * @param out The underlying stream to write to.      */
 specifier|public
 name|COSStandardOutputStream
 parameter_list|(
@@ -122,7 +122,7 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * COSOutputStream constructor comment.      *      * @param out The underlying stream to write to.      * @param position The current position of output stream.      */
+comment|/**      * Constructor.      *      * @param out The underlying stream to write to.      * @param position The current position of output stream.      */
 specifier|public
 name|COSStandardOutputStream
 parameter_list|(

@@ -38,7 +38,7 @@ specifier|private
 name|int
 name|generation
 decl_stmt|;
-comment|/**      * PDFObjectKey constructor comment.      *      * @param object The object that this key will represent.      */
+comment|/**      * Constructor.      *      * @param object The object that this key will represent.      */
 specifier|public
 name|COSObjectKey
 parameter_list|(
@@ -60,7 +60,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * PDFObjectKey constructor comment.      *      * @param num The object number.      * @param gen The object generation number.      */
+comment|/**      * Constructor.      *      * @param num The object number.      * @param gen The object generation number.      */
 specifier|public
 name|COSObjectKey
 parameter_list|(
