@@ -3481,7 +3481,7 @@ block|}
 comment|/**      * For internal PDFBox use when creating PDF documents: register a TrueTypeFont to make sure it      * is closed when the PDDocument is closed to avoid memory leaks. Users don't have to call this      * method, it is done by the appropriate PDFont classes.      *      * @param ttf      */
 specifier|public
 name|void
-name|registerTrueTypeFont
+name|registerTrueTypeFontForClosing
 parameter_list|(
 name|TrueTypeFont
 name|ttf

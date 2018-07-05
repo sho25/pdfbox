@@ -595,7 +595,7 @@ name|ttf
 expr_stmt|;
 name|document
 operator|.
-name|registerTrueTypeFont
+name|registerTrueTypeFontForClosing
 argument_list|(
 name|ttf
 argument_list|)
