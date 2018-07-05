@@ -449,29 +449,21 @@ return|return
 name|appearanceDictionary
 return|;
 block|}
-comment|/**      * Get the annotations normal appearance content stream.      *       *<p>      * This will get the annotations normal appearance content stream,      * to 'draw' to.      *       * @return the appearance entry representing the normal appearance.      * @throws IOException       */
+comment|/**      * Get the annotations normal appearance content stream.      *       *<p>      * This will get the annotations normal appearance content stream, to 'draw' to. It will be      * uncompressed.      *      * @return the appearance entry representing the normal appearance.      * @throws IOException       */
 name|PDAppearanceContentStream
 name|getNormalAppearanceAsContentStream
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDAppearanceEntry
-name|appearanceEntry
-init|=
-name|getNormalAppearance
-argument_list|()
-decl_stmt|;
 return|return
-name|getAppearanceEntryAsContentStream
+name|getNormalAppearanceAsContentStream
 argument_list|(
-name|appearanceEntry
-argument_list|,
 literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the annotations normal appearance content stream.      *       *<p>      * This will get the annotations normal appearance content stream,      * to 'draw' to.      *       * @param compress whether the content stream is to be compressed. Set this to true when      * creating long content streams.      * @return the appearance entry representing the normal appearance.      * @throws IOException      */
+comment|/**      * Get the annotations normal appearance content stream.      *       *<p>      * This will get the annotations normal appearance content stream, to 'draw' to.      *       * @param compress whether the content stream is to be compressed. Set this to true when      * creating long content streams.      * @return the appearance entry representing the normal appearance.      * @throws IOException      */
 name|PDAppearanceContentStream
 name|getNormalAppearanceAsContentStream
 parameter_list|(
