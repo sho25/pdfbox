@@ -643,7 +643,9 @@ name|PDAppearanceContentStream
 name|cs
 init|=
 name|getNormalAppearanceAsContentStream
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 init|)
 block|{
 comment|// The fill color is the /C entry, there is no /IC entry defined

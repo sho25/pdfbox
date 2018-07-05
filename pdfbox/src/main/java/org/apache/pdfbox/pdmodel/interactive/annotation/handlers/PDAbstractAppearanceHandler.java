@@ -466,6 +466,33 @@ return|return
 name|getAppearanceEntryAsContentStream
 argument_list|(
 name|appearanceEntry
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * Get the annotations normal appearance content stream.      *       *<p>      * This will get the annotations normal appearance content stream,      * to 'draw' to.      *       * @param compress whether the content stream is to be compressed. Set this to true when      * creating long content streams.      * @return the appearance entry representing the normal appearance.      * @throws IOException      */
+name|PDAppearanceContentStream
+name|getNormalAppearanceAsContentStream
+parameter_list|(
+name|boolean
+name|compress
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|PDAppearanceEntry
+name|appearanceEntry
+init|=
+name|getNormalAppearance
+argument_list|()
+decl_stmt|;
+return|return
+name|getAppearanceEntryAsContentStream
+argument_list|(
+name|appearanceEntry
+argument_list|,
+name|compress
 argument_list|)
 return|;
 block|}
@@ -670,7 +697,7 @@ name|padding
 argument_list|)
 return|;
 block|}
-comment|/**      * Get a rectangle enlarged by the differences.      *       *<p>Creates a new rectangle with differences added to each side.      * .      * @param rectangle the rectangle.      * @param differences the differences to apply.      * @return the padded rectangle.      */
+comment|/**      * Get a rectangle enlarged by the differences.      *      *<p>      * Creates a new rectangle with differences added to each side. If there are no valid      * differences, then the original rectangle is returned.      *      * @param rectangle the rectangle.      * @param differences the differences to apply.      * @return the padded rectangle.      */
 name|PDRectangle
 name|addRectDifferences
 parameter_list|(
@@ -755,7 +782,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**      * Get a rectangle with the differences applied to each side.      *       *<p>Creates a new rectangle with differences added to each side.      * .      * @param rectangle the rectangle.      * @param differences the differences to apply.      * @return the padded rectangle.      */
+comment|/**      * Get a rectangle with the differences applied to each side.      *      *<p>      * Creates a new rectangle with differences added to each side. If there are no valid      * differences, then the original rectangle is returned.      *      * @param rectangle the rectangle.      * @param differences the differences to apply.      * @return the padded rectangle.      */
 name|PDRectangle
 name|applyRectDifferences
 parameter_list|(
@@ -2074,6 +2101,9 @@ name|getAppearanceEntryAsContentStream
 parameter_list|(
 name|PDAppearanceEntry
 name|appearanceEntry
+parameter_list|,
+name|boolean
+name|compress
 parameter_list|)
 throws|throws
 name|IOException
@@ -2126,6 +2156,8 @@ operator|new
 name|PDAppearanceContentStream
 argument_list|(
 name|appearanceStream
+argument_list|,
+name|compress
 argument_list|)
 return|;
 block|}
