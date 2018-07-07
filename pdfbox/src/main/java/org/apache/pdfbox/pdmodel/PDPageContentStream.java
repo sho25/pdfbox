@@ -2484,7 +2484,7 @@ name|endMarkedContent
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will append raw commands to the content stream.      *      * @param commands The commands to append to the stream.      * @throws IOException If an error occurs while writing to the stream.      * @deprecated This method will be removed in a future release.      */
+comment|/**      * This will append raw commands to the content stream.      *      * @param commands The commands to append to the stream.      * @throws IOException If an error occurs while writing to the stream.      * @deprecated Usage of this method is discouraged.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -2503,7 +2503,7 @@ name|commands
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will append raw commands to the content stream.      *      * @param commands The commands to append to the stream.      * @throws IOException If an error occurs while writing to the stream.      * @deprecated This method will be removed in a future release.      */
+comment|/**      * This will append raw commands to the content stream.      *      * @param commands The commands to append to the stream.      * @throws IOException If an error occurs while writing to the stream.      * @deprecated Usage of this method is discouraged.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -2523,7 +2523,7 @@ name|commands
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will append raw commands to the content stream.      *      * @param data Append a raw byte to the stream.      * @throws IOException If an error occurs while writing to the stream.      * @deprecated This method will be removed in a future release.      */
+comment|/**      * This will append raw commands to the content stream.      *      * @param data Append a raw byte to the stream.      * @throws IOException If an error occurs while writing to the stream.      * @deprecated Usage of this method is discouraged.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -2542,7 +2542,7 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will append raw commands to the content stream.      *      * @param data Append a formatted double value to the stream.      * @throws IOException If an error occurs while writing to the stream.      * @deprecated This method will be removed in a future release.      */
+comment|/**      * This will append raw commands to the content stream.      *      * @param data Append a formatted double value to the stream.      * @throws IOException If an error occurs while writing to the stream.      * @deprecated Usage of this method is discouraged.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -2564,7 +2564,7 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will append raw commands to the content stream.      *      * @param data Append a formatted float value to the stream.      * @throws IOException If an error occurs while writing to the stream.      * @deprecated This method will be removed in a future release.      */
+comment|/**      * This will append raw commands to the content stream.      *      * @param data Append a formatted float value to the stream.      * @throws IOException If an error occurs while writing to the stream.      * @deprecated Usage of this method is discouraged.      */
 annotation|@
 name|Deprecated
 specifier|public
@@ -2583,7 +2583,7 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will append a {@link COSName} to the content stream.      *      * @param name the name      * @throws IOException If an error occurs while writing to the stream.      * @deprecated This method will be removed in a future release.      */
+comment|/**      * This will append a {@link COSName} to the content stream.      *      * @param name the name      * @throws IOException If an error occurs while writing to the stream.      * @deprecated Usage of this method is discouraged.      */
 annotation|@
 name|Deprecated
 specifier|public
