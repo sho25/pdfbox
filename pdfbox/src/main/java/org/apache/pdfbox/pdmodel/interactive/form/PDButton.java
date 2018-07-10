@@ -400,7 +400,7 @@ name|radiobutton
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the selected value. May be empty if NoToggleToOff is set but there is no value      * selected.      *       * @return A non-null string.      */
+comment|/**      * Returns the selected value.      *       *<p>Off is the default value which will also be returned if the      * value hasn't been set at all.      *       * @return A non-null string.      */
 specifier|public
 name|String
 name|getValue
