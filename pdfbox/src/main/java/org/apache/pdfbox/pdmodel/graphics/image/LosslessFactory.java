@@ -3547,11 +3547,15 @@ range|:
 name|dataRawRowSub
 control|)
 block|{
+comment|// https://www.w3.org/TR/PNG-Encoders.html#E.Filter-selection
 name|sum
 operator|+=
+name|Math
+operator|.
+name|abs
+argument_list|(
 name|aDataRawRowSub
-operator|&
-literal|0xFF
+argument_list|)
 expr_stmt|;
 block|}
 return|return
