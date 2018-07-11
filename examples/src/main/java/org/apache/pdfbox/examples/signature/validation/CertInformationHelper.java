@@ -279,11 +279,11 @@ name|org
 operator|.
 name|bouncycastle
 operator|.
-name|x509
+name|cert
 operator|.
-name|extension
+name|jcajce
 operator|.
-name|X509ExtensionUtil
+name|JcaX509ExtensionUtils
 import|;
 end_import
 
@@ -557,9 +557,9 @@ init|=
 operator|(
 name|ASN1Sequence
 operator|)
-name|X509ExtensionUtil
+name|JcaX509ExtensionUtils
 operator|.
-name|fromExtensionValue
+name|parseExtensionValue
 argument_list|(
 name|extensionValue
 argument_list|)
@@ -729,9 +729,9 @@ init|=
 operator|(
 name|ASN1Sequence
 operator|)
-name|X509ExtensionUtil
+name|JcaX509ExtensionUtils
 operator|.
-name|fromExtensionValue
+name|parseExtensionValue
 argument_list|(
 name|extensionValue
 argument_list|)
