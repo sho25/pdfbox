@@ -452,6 +452,9 @@ decl_stmt|;
 for|for
 control|(
 name|PDNameTreeNode
+argument_list|<
+name|PDComplexFileSpecification
+argument_list|>
 name|kid
 range|:
 name|kids
