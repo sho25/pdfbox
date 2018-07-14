@@ -1445,6 +1445,11 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|Collection
 argument_list|<
 name|X509CertificateHolder
