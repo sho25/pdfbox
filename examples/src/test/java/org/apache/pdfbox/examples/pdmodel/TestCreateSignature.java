@@ -1843,6 +1843,11 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 name|Collection
 name|matches
 init|=
