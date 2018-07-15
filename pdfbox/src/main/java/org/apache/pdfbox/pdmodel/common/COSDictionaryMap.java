@@ -560,6 +560,11 @@ name|other
 init|=
 operator|(
 name|COSDictionaryMap
+argument_list|<
+name|K
+argument_list|,
+name|V
+argument_list|>
 operator|)
 name|o
 decl_stmt|;
