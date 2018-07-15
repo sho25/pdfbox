@@ -344,6 +344,7 @@ name|tilingPaintParameter
 argument_list|,
 operator|new
 name|WeakReference
+argument_list|<>
 argument_list|(
 name|paint
 argument_list|)
