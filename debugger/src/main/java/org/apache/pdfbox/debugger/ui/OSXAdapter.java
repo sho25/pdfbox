@@ -341,22 +341,17 @@ name|Throwable
 block|{
 if|if
 condition|(
-operator|!
+literal|"handleQuitRequestWith"
+operator|.
+name|equals
+argument_list|(
 name|method
 operator|.
 name|getName
 argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"handleQuitRequestWith"
 argument_list|)
 condition|)
 block|{
-return|return
-literal|null
-return|;
-block|}
 comment|// We just call our own quit handler
 name|quitHandler
 operator|.
@@ -365,6 +360,7 @@ argument_list|(
 name|target
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|null
 return|;
@@ -709,6 +705,8 @@ argument_list|)
 block|{
 comment|// Override OSXAdapter.callTarget to send information on the
 comment|// file to be opened
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|callTarget
@@ -858,6 +856,8 @@ argument_list|)
 block|{
 comment|// Override OSXAdapter.callTarget to send information on the
 comment|// file to be opened
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|callTarget
