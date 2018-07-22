@@ -502,6 +502,15 @@ if|if
 condition|(
 name|pdImageXObject
 operator|.
+name|getColorSpace
+argument_list|()
+operator|==
+name|PDDeviceRGB
+operator|.
+name|INSTANCE
+operator|&&
+name|pdImageXObject
+operator|.
 name|getBitsPerComponent
 argument_list|()
 operator|<
