@@ -73,7 +73,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|TRANPARENCY_DICTIONARY_KEY_EXTGSTATE
+name|TRANSPARENCY_DICTIONARY_KEY_EXTGSTATE
 import|;
 end_import
 
@@ -593,7 +593,7 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-name|TRANPARENCY_DICTIONARY_KEY_EXTGSTATE
+name|TRANSPARENCY_DICTIONARY_KEY_EXTGSTATE
 argument_list|)
 decl_stmt|;
 if|if

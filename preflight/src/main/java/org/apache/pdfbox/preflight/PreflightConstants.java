@@ -179,12 +179,12 @@ init|=
 literal|"Custom"
 decl_stmt|;
 name|String
-name|TRANPARENCY_DICTIONARY_KEY_EXTGSTATE
+name|TRANSPARENCY_DICTIONARY_KEY_EXTGSTATE
 init|=
 literal|"ExtGState"
 decl_stmt|;
 name|String
-name|TRANPARENCY_DICTIONARY_KEY_EXTGSTATE_ENTRY_REGEX
+name|TRANSPARENCY_DICTIONARY_KEY_EXTGSTATE_ENTRY_REGEX
 init|=
 literal|"(GS|gs)([0-9])+"
 decl_stmt|;

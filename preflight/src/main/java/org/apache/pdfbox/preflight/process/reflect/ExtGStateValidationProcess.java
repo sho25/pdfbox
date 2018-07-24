@@ -157,7 +157,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|TRANPARENCY_DICTIONARY_KEY_EXTGSTATE_ENTRY_REGEX
+name|TRANSPARENCY_DICTIONARY_KEY_EXTGSTATE_ENTRY_REGEX
 import|;
 end_import
 
@@ -770,7 +770,7 @@ argument_list|()
 operator|.
 name|matches
 argument_list|(
-name|TRANPARENCY_DICTIONARY_KEY_EXTGSTATE_ENTRY_REGEX
+name|TRANSPARENCY_DICTIONARY_KEY_EXTGSTATE_ENTRY_REGEX
 argument_list|)
 condition|)
 block|{
