@@ -761,19 +761,6 @@ name|COSName
 operator|)
 name|object
 decl_stmt|;
-if|if
-condition|(
-name|key
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|matches
-argument_list|(
-name|TRANSPARENCY_DICTIONARY_KEY_EXTGSTATE_ENTRY_REGEX
-argument_list|)
-condition|)
-block|{
 name|COSBase
 name|gsBase
 init|=
@@ -818,7 +805,6 @@ argument_list|(
 name|gsDict
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
