@@ -393,11 +393,34 @@ index|[]
 name|getComponents
 parameter_list|()
 block|{
+if|if
+condition|(
+name|colorSpace
+operator|instanceof
+name|PDPattern
+condition|)
+block|{
+comment|// colorspace of the pattern color isn't known, so just clone
 return|return
 name|components
 operator|.
 name|clone
 argument_list|()
+return|;
+block|}
+comment|// PDFBOX-4279: copyOf instead of clone in case array is too small
+return|return
+name|Arrays
+operator|.
+name|copyOf
+argument_list|(
+name|components
+argument_list|,
+name|colorSpace
+operator|.
+name|getNumberOfComponents
+argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * Returns the pattern name from this color value.      * @return the pattern name from this color value      */
