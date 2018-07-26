@@ -398,9 +398,15 @@ condition|(
 name|colorSpace
 operator|instanceof
 name|PDPattern
+operator|||
+name|colorSpace
+operator|==
+literal|null
 condition|)
 block|{
 comment|// colorspace of the pattern color isn't known, so just clone
+comment|// null colorspace can happen with empty annotation color
+comment|// see PDFBOX-3351-538928-p4.pdf
 return|return
 name|components
 operator|.
@@ -608,7 +614,11 @@ literal|", patternName="
 operator|+
 name|patternName
 operator|+
-literal|"}"
+literal|", colorSpace="
+operator|+
+name|colorSpace
+operator|+
+literal|'}'
 return|;
 block|}
 block|}
