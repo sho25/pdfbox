@@ -134,7 +134,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents a widget.  *  * @author Ben Litchfield  */
+comment|/**  * This is the class that represents a widget annotation. This represents the  * appearance of a field and manages user interactions. A field may have several  * widget annotations, which may be on several pages.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
