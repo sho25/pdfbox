@@ -520,6 +520,26 @@ operator|-
 name|lle
 expr_stmt|;
 block|}
+comment|// observed with diagonal line of AnnotationSample.Standard.pdf
+comment|// for line endings, very small widths must be treated as size 1.
+comment|// However the border of the line ending shapes is not drawn.
+name|float
+name|lineEndingSize
+init|=
+operator|(
+name|ab
+operator|.
+name|width
+operator|<
+literal|1e-5
+operator|)
+condition|?
+literal|1
+else|:
+name|ab
+operator|.
+name|width
+decl_stmt|;
 comment|// add/substract with, font height, and arrows
 comment|// arrow length is 9 * width at about 30° => 10 * width seems to be enough
 comment|// but need to consider /LL, /LLE and /LLO too
@@ -538,9 +558,7 @@ name|Math
 operator|.
 name|max
 argument_list|(
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 operator|*
 literal|10
 argument_list|,
@@ -577,9 +595,7 @@ name|Math
 operator|.
 name|max
 argument_list|(
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 operator|*
 literal|10
 argument_list|,
@@ -616,9 +632,7 @@ name|Math
 operator|.
 name|max
 argument_list|(
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 operator|*
 literal|10
 argument_list|,
@@ -655,9 +669,7 @@ name|Math
 operator|.
 name|max
 argument_list|(
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 operator|*
 literal|10
 argument_list|,
@@ -1052,9 +1064,7 @@ name|cs
 operator|.
 name|moveTo
 argument_list|(
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 argument_list|,
 name|y
 argument_list|)
@@ -1103,9 +1113,7 @@ name|lineTo
 argument_list|(
 name|xOffset
 operator|-
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 argument_list|,
 name|y
 argument_list|)
@@ -1118,9 +1126,7 @@ name|lineLength
 operator|-
 name|xOffset
 operator|+
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 argument_list|,
 name|y
 argument_list|)
@@ -1145,9 +1151,7 @@ name|lineTo
 argument_list|(
 name|lineLength
 operator|-
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 argument_list|,
 name|y
 argument_list|)
@@ -1169,9 +1173,7 @@ name|cs
 operator|.
 name|drawShape
 argument_list|(
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 argument_list|,
 name|hasStroke
 argument_list|,
@@ -1295,9 +1297,7 @@ name|cs
 operator|.
 name|drawShape
 argument_list|(
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 argument_list|,
 name|hasStroke
 argument_list|,
@@ -1325,9 +1325,7 @@ name|cs
 operator|.
 name|moveTo
 argument_list|(
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 argument_list|,
 name|y
 argument_list|)
@@ -1364,9 +1362,7 @@ name|lineTo
 argument_list|(
 name|lineLength
 operator|-
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 argument_list|,
 name|y
 argument_list|)
@@ -1388,9 +1384,7 @@ name|cs
 operator|.
 name|drawShape
 argument_list|(
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 argument_list|,
 name|hasStroke
 argument_list|,
@@ -1418,6 +1412,23 @@ name|getInteriorColor
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// observed with diagonal line of file AnnotationSample.Standard.pdf
+comment|// when width is very small, the border of the line ending shapes
+comment|// is not drawn.
+if|if
+condition|(
+name|ab
+operator|.
+name|width
+operator|<
+literal|1e-5
+condition|)
+block|{
+name|hasStroke
+operator|=
+literal|false
+expr_stmt|;
+block|}
 comment|// check for LE_NONE only needed to avoid q cm Q for that case
 if|if
 condition|(
@@ -1480,9 +1491,7 @@ literal|0
 argument_list|,
 name|y
 argument_list|,
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 argument_list|,
 name|hasStroke
 argument_list|,
@@ -1561,9 +1570,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 argument_list|,
 name|hasStroke
 argument_list|,
@@ -1639,9 +1646,7 @@ name|lineLength
 argument_list|,
 name|y
 argument_list|,
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 argument_list|,
 name|hasStroke
 argument_list|,
@@ -1720,9 +1725,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-name|ab
-operator|.
-name|width
+name|lineEndingSize
 argument_list|,
 name|hasStroke
 argument_list|,
