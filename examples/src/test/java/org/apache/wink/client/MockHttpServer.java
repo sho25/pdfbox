@@ -187,20 +187,6 @@ name|rs
 operator|.
 name|core
 operator|.
-name|MultivaluedMap
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|ws
-operator|.
-name|rs
-operator|.
-name|core
-operator|.
 name|Response
 import|;
 end_import
@@ -267,9 +253,7 @@ name|byte
 index|[]
 name|mockResponseContent
 init|=
-name|BaseTest
-operator|.
-name|RECEIVED_MESSAGE
+literal|"received message"
 operator|.
 name|getBytes
 argument_list|()
@@ -1150,15 +1134,6 @@ name|is
 argument_list|)
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|requestMethodHeader
-operator|==
-literal|null
-condition|)
-block|{
-return|return;
-block|}
 name|processRequestMethod
 argument_list|(
 name|requestMethodHeader
@@ -1244,8 +1219,6 @@ expr_stmt|;
 name|byte
 index|[]
 name|line
-init|=
-literal|null
 decl_stmt|;
 while|while
 condition|(
@@ -1805,8 +1778,6 @@ argument_list|()
 decl_stmt|;
 name|int
 name|read
-init|=
-literal|0
 decl_stmt|;
 name|int
 name|totalRead
@@ -2411,74 +2382,6 @@ block|{
 return|return
 name|requestUrl
 return|;
-block|}
-specifier|public
-specifier|static
-name|void
-name|main
-parameter_list|(
-name|String
-index|[]
-name|args
-parameter_list|)
-block|{
-name|MockHttpServer
-name|server
-init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-comment|/*              * StringReader reader = new StringReader("lalalalala\r\n");              * BufferedReader r = new BufferedReader(reader); String a =              * r.readLine(); String b = r.readLine(); System.out.println(a);              * System.out.println(b); server = new MockHttpServer(3334);              * server.setMockResponseContent("Howdee!");              * server.setMockResponseContentType("text/plain;charset=UTF-8");              * //Map<String,String> maps = new HashMap<String,String>();              * //maps.put("Location", "http://localhost:3333/lalala");              * //server.setMockResponseHeaders(maps); server.startServer(); URL              * u = new              * URL("http://localhost:3334/qadefect-service/rest/defects/2");              * HttpURLConnection huc = (HttpURLConnection)u.openConnection();              * huc.setRequestMethod("PUT"); huc.setDoOutput(true);              * huc.setChunkedStreamingMode(40);              * huc.addRequestProperty("Content-Type", "application/xml");              * huc.connect(); OutputStream os = huc.getOutputStream();              * os.write("martinmartinartinmartinmartin".getBytes());              * //os.flush();              * os.write("martinmartinartinmartinmartin".getBytes()); os.flush();              * os.close(); huc.getResponseCode(); huc.getHeaderField("Server");              * InputStream is = huc.getInputStream(); byte[] by = new byte[0];              * byte[] by1 = new byte[5]; int readdd = is.read(by);              * System.out.println("readdd = " + readdd); readdd = is.read(by1);              * System.out.println("readdd = " + readdd); readdd = is.read(by);              * System.out.println("readdd = " + readdd); readdd = is.read(by1);              * System.out.println("readdd = " + readdd); readdd = is.read(by);              * System.out.println("readdd = " + readdd); huc.disconnect();              */
-comment|// RestClient client = new RestClient();
-comment|//
-comment|// // init the resource
-comment|// String url =
-comment|// "http://localhost:3333/qadefect-service/rest/defects/2";
-comment|// Resource resource = client.newResource(url);
-comment|//
-comment|// // get defect
-comment|// Response<TextEntity> response = resource.doGet(TextEntity.class);
-comment|// TextEntity d = response.getEntity();
-comment|// System.out.println("GET returned content: " + d.getText());
-comment|//
-comment|// TextEntity text = new TextEntity();
-comment|// text.setText("Hello");
-comment|// response = resource.doPut(text, TextEntity.class);
-comment|// d = response.getEntity();
-comment|// System.out.println("PUT sent content: " +
-comment|// server.getRequestContent());
-comment|// System.out.println("PUT returned content: " + d.getText());
-comment|// System.out.println(server.getRequestUrl());
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e1
-parameter_list|)
-block|{
-name|e1
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|server
-operator|!=
-literal|null
-condition|)
-block|{
-name|server
-operator|.
-name|stopServer
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 block|}
 specifier|public
 name|void
