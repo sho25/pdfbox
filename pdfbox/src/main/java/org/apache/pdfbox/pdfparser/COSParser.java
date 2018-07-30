@@ -1866,7 +1866,6 @@ return|;
 block|}
 comment|/**      * Looks for and parses startxref. We first look for last '%%EOF' marker (within last      * {@link #DEFAULT_TRAIL_BYTECOUNT} bytes (or range set via {@link #setEOFLookupRange(int)}) and go back to find      *<code>startxref</code>.      *       * @return the offset of StartXref      * @throws IOException If something went wrong.      */
 specifier|private
-specifier|final
 name|long
 name|getStartxrefOffset
 parameter_list|()
@@ -8484,7 +8483,6 @@ block|}
 block|}
 comment|/**      * Rebuild the trailer dictionary if startxref can't be found.      *        * @return the rebuild trailer dictionary      *       * @throws IOException if something went wrong      */
 specifier|private
-specifier|final
 name|COSDictionary
 name|rebuildTrailer
 parameter_list|()
