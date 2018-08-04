@@ -3435,7 +3435,7 @@ operator|=
 name|flag
 expr_stmt|;
 block|}
-comment|/**      * This will add all of the dictionarys keys/values to this dictionary. Only called when adding keys to a trailer      * that already exists.      *      * @param dic The dic to get the keys from.      */
+comment|/**      * This will add all of the dictionaries keys/values to this dictionary.      * Only called when adding keys to a trailer that already exists.      *      * @param dic The dictionaries to get the keys from.      */
 specifier|public
 name|void
 name|addAll
