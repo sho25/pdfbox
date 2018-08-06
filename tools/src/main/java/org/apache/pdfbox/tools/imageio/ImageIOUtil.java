@@ -517,7 +517,7 @@ name|output
 argument_list|,
 name|dpi
 argument_list|,
-literal|1.0f
+name|quality
 argument_list|,
 literal|""
 argument_list|)
