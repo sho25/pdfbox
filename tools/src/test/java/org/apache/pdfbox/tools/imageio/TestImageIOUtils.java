@@ -1779,6 +1779,8 @@ name|imageFormat
 argument_list|)
 expr_stmt|;
 comment|// for Maven (keep me!)
+try|try
+init|(
 name|OutputStream
 name|os
 init|=
@@ -1791,7 +1793,8 @@ literal|"."
 operator|+
 name|imageFormat
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|boolean
 name|res
 init|=
@@ -1817,11 +1820,6 @@ argument_list|,
 name|compressionType
 argument_list|)
 decl_stmt|;
-name|os
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"ImageIOUtil.writeImage() failed for file "
@@ -1831,6 +1829,7 @@ argument_list|,
 name|res
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 literal|"jpg"
