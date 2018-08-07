@@ -2317,7 +2317,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Adds newObject to toBeParsedList if it is not an COSObject or we didn't      * add this COSObject already (checked via addedObjects).      */
+comment|/**      * Adds newObject to toBeParsedList if it is not an COSObject or we didn't      * add this COSObject already (checked via addedObjects). Simple objects are      * not added because nothing is done with them when toBeParsedList is      * processed.      */
 specifier|private
 name|void
 name|addNewToList
@@ -2373,7 +2373,6 @@ condition|)
 block|{
 return|return;
 block|}
-block|}
 name|toBeParsedList
 operator|.
 name|add
@@ -2381,6 +2380,27 @@ argument_list|(
 name|newObject
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|newObject
+operator|instanceof
+name|COSDictionary
+operator|||
+name|newObject
+operator|instanceof
+name|COSArray
+condition|)
+block|{
+name|toBeParsedList
+operator|.
+name|add
+argument_list|(
+name|newObject
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Will parse every object necessary to load a single page from the pdf document. We try our      * best to order objects according to offset in file before reading to minimize seek operations.      *      * @param dict the COSObject from the parent pages.      * @param excludeObjects dictionary object reference entries with these names will not be parsed      *      * @throws IOException if something went wrong      */
 specifier|protected
