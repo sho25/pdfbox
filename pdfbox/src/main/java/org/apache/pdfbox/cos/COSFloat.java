@@ -136,6 +136,28 @@ if|if
 condition|(
 name|aFloat
 operator|.
+name|startsWith
+argument_list|(
+literal|"--"
+argument_list|)
+condition|)
+block|{
+comment|// PDFBOX-4289 has --16.33
+name|valueAsString
+operator|=
+name|aFloat
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|aFloat
+operator|.
 name|matches
 argument_list|(
 literal|"^0\\.0*\\-\\d+"
@@ -145,8 +167,6 @@ block|{
 comment|// PDFBOX-2990 has 0.00000-33917698
 comment|// PDFBOX-3369 has 0.00-35095424
 comment|// PDFBOX-3500 has 0.-262
-try|try
-block|{
 name|valueAsString
 operator|=
 literal|"-"
@@ -160,6 +180,25 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error expected floating point number actual='"
+operator|+
+name|aFloat
+operator|+
+literal|"'"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+try|try
+block|{
 name|value
 operator|=
 operator|new
@@ -189,23 +228,6 @@ operator|+
 literal|"'"
 argument_list|,
 name|e2
-argument_list|)
-throw|;
-block|}
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Error expected floating point number actual='"
-operator|+
-name|aFloat
-operator|+
-literal|"'"
-argument_list|,
-name|e
 argument_list|)
 throw|;
 block|}
