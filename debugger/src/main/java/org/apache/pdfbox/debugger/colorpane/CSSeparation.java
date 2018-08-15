@@ -426,10 +426,16 @@ literal|true
 argument_list|)
 expr_stmt|;
 name|Dictionary
+argument_list|<
+name|Integer
+argument_list|,
+name|JLabel
+argument_list|>
 name|labelTable
 init|=
 operator|new
 name|Hashtable
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|JLabel
