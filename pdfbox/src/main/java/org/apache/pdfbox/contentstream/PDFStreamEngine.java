@@ -813,7 +813,7 @@ name|op
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Initialises the stream engine for the given page.      */
+comment|/**      * Initializes the stream engine for the given page.      */
 specifier|private
 name|void
 name|initPage
@@ -880,7 +880,7 @@ name|getMatrix
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This will initialise and process the contents of the stream.      *      * @param page the page to process      * @throws IOException if there is an error accessing the stream      */
+comment|/**      * This will initialize and process the contents of the stream.      *      * @param page the page to process      * @throws IOException if there is an error accessing the stream      */
 specifier|public
 name|void
 name|processPage

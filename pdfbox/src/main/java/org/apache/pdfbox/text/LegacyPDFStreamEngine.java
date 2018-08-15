@@ -963,7 +963,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will initialise and process the contents of the stream.      *      * @param page the page to process      * @throws java.io.IOException if there is an error accessing the stream.      */
+comment|/**      * This will initialize and process the contents of the stream.      *      * @param page the page to process      * @throws java.io.IOException if there is an error accessing the stream.      */
 annotation|@
 name|Override
 specifier|public

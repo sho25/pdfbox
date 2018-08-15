@@ -2706,7 +2706,7 @@ name|initGlobalEventHandlers
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Initialise application global event handlers.      * Protected to allow subclasses to override this method if they      * don't want the global event handler overridden.      */
+comment|/**      * Initialize application global event handlers.      * Protected to allow subclasses to override this method if they      * don't want the global event handler overridden.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
