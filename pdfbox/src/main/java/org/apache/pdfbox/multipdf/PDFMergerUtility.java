@@ -1133,6 +1133,8 @@ name|sourceDoc
 init|=
 literal|null
 decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|sourceObject
@@ -1248,7 +1250,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// this is smart enough to just create references for resources that are used on multiple pages
+comment|// this is smart enough to just create references for resources that are used on multiple
+comment|// pages
 name|newPage
 operator|.
 name|setResources
@@ -1289,11 +1292,17 @@ name|newPage
 argument_list|)
 expr_stmt|;
 block|}
-name|sourceDoc
+block|}
+finally|finally
+block|{
+name|IOUtils
 operator|.
-name|close
-argument_list|()
+name|closeQuietly
+argument_list|(
+name|sourceDoc
+argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
