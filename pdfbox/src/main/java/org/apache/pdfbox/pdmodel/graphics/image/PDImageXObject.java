@@ -1881,8 +1881,6 @@ expr_stmt|;
 comment|// convert to RGB
 name|matte
 operator|=
-name|softMask
-operator|.
 name|getColorSpace
 argument_list|()
 operator|.
