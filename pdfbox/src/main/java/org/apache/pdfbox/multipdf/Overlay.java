@@ -1447,8 +1447,15 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Contents are unknown type:"
+literal|"Unknown content type: "
 operator|+
+operator|(
+name|contents
+operator|==
+literal|null
+condition|?
+literal|"(null)"
+else|:
 name|contents
 operator|.
 name|getClass
@@ -1456,6 +1463,7 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+operator|)
 argument_list|)
 throw|;
 block|}
@@ -1679,8 +1687,15 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Unknown content type:"
+literal|"Unknown content type: "
 operator|+
+operator|(
+name|contents
+operator|==
+literal|null
+condition|?
+literal|"(null)"
+else|:
 name|contents
 operator|.
 name|getClass
@@ -1688,6 +1703,7 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+operator|)
 argument_list|)
 throw|;
 block|}
