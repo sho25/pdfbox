@@ -204,7 +204,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class used to clone PDF objects. It keeps track of objects it has already cloned.  *  */
+comment|/**  * Utility class used to clone PDF objects. It keeps track of objects it has  * already cloned.  *  */
 end_comment
 
 begin_class
@@ -232,7 +232,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Creates a new instance for the given target document.      * @param dest the destination PDF document that will receive the clones      */
-specifier|public
 name|PDFCloneUtility
 parameter_list|(
 name|PDDocument
@@ -247,7 +246,6 @@ name|dest
 expr_stmt|;
 block|}
 comment|/**      * Returns the destination PDF document this cloner instance is set up for.      * @return the destination PDF document      */
-specifier|public
 name|PDDocument
 name|getDestination
 parameter_list|()
@@ -259,7 +257,6 @@ name|destination
 return|;
 block|}
 comment|/**      * Deep-clones the given object for inclusion into a different PDF document identified by      * the destination parameter.      * @param base the initial object as the root of the deep-clone operation      * @return the cloned instance of the base object      * @throws IOException if an I/O error occurs      */
-specifier|public
 name|COSBase
 name|cloneForNewDocument
 parameter_list|(
@@ -703,7 +700,6 @@ comment|/**        * Merges two objects of the same type by deep-cloning its mem
 end_comment
 
 begin_function
-specifier|public
 name|void
 name|cloneMerge
 parameter_list|(
