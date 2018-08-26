@@ -874,6 +874,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// PDFBOX-4219: synchronize on data because it is accessed by several threads
+comment|// when PDFBox is accessing a standard 14 font for the first time
+synchronized|synchronized
+init|(
+name|data
+init|)
+block|{
 comment|// save current position
 name|long
 name|currentPosition
@@ -910,6 +917,7 @@ argument_list|(
 name|currentPosition
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Returns the number of glyphs (MaximumProfile.numGlyphs).      *       * @return the number of glyphs      * @throws IOException if there was an error reading the table.      */
 specifier|public

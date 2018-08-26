@@ -167,9 +167,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// PDFBOX-4219: synchronize on data because it is accessed by several threads
+comment|// when PDFBox is accessing a standard 14 font for the first time
 synchronized|synchronized
 init|(
-name|font
+name|data
 init|)
 block|{
 comment|// the glyph offsets
@@ -388,9 +390,11 @@ name|gid
 index|]
 return|;
 block|}
+comment|// PDFBOX-4219: synchronize on data because it is accessed by several threads
+comment|// when PDFBox is accessing a standard 14 font for the first time
 synchronized|synchronized
 init|(
-name|font
+name|data
 init|)
 block|{
 comment|// read a single glyph
