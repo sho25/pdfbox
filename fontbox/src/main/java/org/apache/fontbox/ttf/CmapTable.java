@@ -217,6 +217,8 @@ annotation|@
 name|SuppressWarnings
 argument_list|(
 block|{
+literal|"unused"
+block|,
 literal|"squid:S1854"
 block|,
 literal|"squid:S1481"
