@@ -158,7 +158,7 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-comment|/**      * Returns all glyphs. This method can be very slow.      */
+comment|/**      * Returns all glyphs. This method can be very slow.      *      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|GlyphData
 index|[]
