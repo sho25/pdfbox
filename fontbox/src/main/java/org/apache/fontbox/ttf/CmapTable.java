@@ -218,6 +218,8 @@ name|SuppressWarnings
 argument_list|(
 block|{
 literal|"squid:S1854"
+block|,
+literal|"squid:S1481"
 block|}
 argument_list|)
 name|int
