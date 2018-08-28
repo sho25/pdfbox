@@ -207,6 +207,16 @@ name|javax
 operator|.
 name|imageio
 operator|.
+name|ImageWriteParam
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|imageio
+operator|.
 name|ImageWriter
 import|;
 end_import
@@ -839,7 +849,7 @@ literal|0.75f
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new JPEG PDImageXObject from a BufferedImage and a given quality.      *<p>      * Do not read a JPEG image from a stream/file and call this method; you'll get more speed and      * quality by calling {@link #createFromStream(org.apache.pdfbox.pdmodel.PDDocument,      * java.io.InputStream) createFromStream()} instead.      *       * The image will be created with a dpi value of 72 to be stored in metadata.      * @param document the document where the image will be created      * @param image the BufferedImage to embed      * @param quality the desired JPEG compression quality      * @return a new Image XObject      * @throws IOException if the JPEG data cannot be written      */
+comment|/**      * Creates a new JPEG PDImageXObject from a BufferedImage and a given quality.      *<p>      * Do not read a JPEG image from a stream/file and call this method; you'll get more speed and      * quality by calling {@link #createFromStream(org.apache.pdfbox.pdmodel.PDDocument,      * java.io.InputStream) createFromStream()} instead.      *       * The image will be created with a dpi value of 72 to be stored in metadata.      * @param document the document where the image will be created      * @param image the BufferedImage to embed      * @param quality The desired JPEG compression quality; between 0 (best      * compression) and 1 (best image quality). See      * {@link ImageWriteParam#setCompressionQuality(float)} for more details.      * @return a new Image XObject      * @throws IOException if the JPEG data cannot be written      */
 specifier|public
 specifier|static
 name|PDImageXObject
@@ -870,7 +880,7 @@ literal|72
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new JPEG Image XObject from a BufferedImage, a given quality and dpi metadata.      *<p>      * Do not read a JPEG image from a stream/file and call this method; you'll get more speed and      * quality by calling {@link #createFromStream(org.apache.pdfbox.pdmodel.PDDocument,      * java.io.InputStream) createFromStream()} instead.      *       * @param document the document where the image will be created      * @param image the BufferedImage to embed      * @param quality the desired JPEG compression quality      * @param dpi the desired dpi (resolution) value of the JPEG to be stored in metadata. This      * value has no influence on image content or size.      * @return a new Image XObject      * @throws IOException if the JPEG data cannot be written      */
+comment|/**      * Creates a new JPEG Image XObject from a BufferedImage, a given quality and dpi metadata.      *<p>      * Do not read a JPEG image from a stream/file and call this method; you'll get more speed and      * quality by calling {@link #createFromStream(org.apache.pdfbox.pdmodel.PDDocument,      * java.io.InputStream) createFromStream()} instead.      *       * @param document the document where the image will be created      * @param image the BufferedImage to embed      * @param quality The desired JPEG compression quality; between 0 (best      * compression) and 1 (best image quality). See      * {@link ImageWriteParam#setCompressionQuality(float)} for more details.      * @param dpi the desired dpi (resolution) value of the JPEG to be stored in metadata. This      * value has no influence on image content or size.      * @return a new Image XObject      * @throws IOException if the JPEG data cannot be written      */
 specifier|public
 specifier|static
 name|PDImageXObject
