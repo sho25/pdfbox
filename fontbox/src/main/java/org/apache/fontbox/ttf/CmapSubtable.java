@@ -2313,13 +2313,7 @@ literal|0
 condition|)
 block|{
 name|p
-operator|=
-operator|(
-name|p
-operator|+
-literal|65536
-operator|)
-operator|%
+operator|+=
 literal|65536
 expr_stmt|;
 block|}
