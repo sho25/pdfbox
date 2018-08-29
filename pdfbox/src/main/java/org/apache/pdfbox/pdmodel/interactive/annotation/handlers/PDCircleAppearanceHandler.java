@@ -352,6 +352,11 @@ name|annotation
 operator|.
 name|getBorderStyle
 argument_list|()
+argument_list|,
+name|annotation
+operator|.
+name|getBorder
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|PDBorderEffectDictionary
