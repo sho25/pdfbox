@@ -629,8 +629,10 @@ name|srcFrom
 operator|.
 name|size
 argument_list|()
-operator|%
+operator|-
 literal|100
+operator|*
+name|batch
 else|:
 literal|100
 decl_stmt|;
