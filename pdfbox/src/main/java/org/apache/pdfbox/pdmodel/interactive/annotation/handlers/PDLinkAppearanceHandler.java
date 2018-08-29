@@ -862,8 +862,6 @@ name|getWidth
 argument_list|()
 return|;
 block|}
-else|else
-block|{
 name|COSArray
 name|borderCharacteristics
 init|=
@@ -910,7 +908,6 @@ operator|.
 name|floatValue
 argument_list|()
 return|;
-block|}
 block|}
 block|}
 return|return
