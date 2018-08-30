@@ -724,12 +724,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// the differences rectangle
-name|setRectDifference
-argument_list|(
-name|lineWidth
-argument_list|)
-expr_stmt|;
 comment|// Acrobat applies a padding to each side of the bbox so the line is
 comment|// completely within the bbox.
 for|for
