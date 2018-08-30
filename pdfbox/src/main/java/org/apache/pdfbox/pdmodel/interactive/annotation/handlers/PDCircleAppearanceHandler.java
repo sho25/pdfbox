@@ -507,11 +507,23 @@ block|}
 else|else
 block|{
 comment|// the differences rectangle
-name|setRectDifference
+if|if
+condition|(
+name|lineWidth
+operator|>
+literal|0
+condition|)
+block|{
+name|annotation
+operator|.
+name|setRectDifferences
 argument_list|(
 name|lineWidth
+operator|/
+literal|2
 argument_list|)
 expr_stmt|;
+block|}
 comment|// lower left corner
 name|float
 name|x0
