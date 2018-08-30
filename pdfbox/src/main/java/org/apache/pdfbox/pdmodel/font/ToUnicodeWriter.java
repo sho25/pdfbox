@@ -153,6 +153,14 @@ specifier|private
 name|int
 name|wMode
 decl_stmt|;
+comment|/**      * To test corner case of PDFBOX-4302.      */
+specifier|static
+specifier|final
+name|int
+name|MAX_ENTRIES_PER_OPERATOR
+init|=
+literal|100
+decl_stmt|;
 comment|/**      * Creates a new ToUnicode CMap writer.      */
 name|ToUnicodeWriter
 parameter_list|()
@@ -582,7 +590,7 @@ operator|=
 name|text
 expr_stmt|;
 block|}
-comment|// limit of 100 entries per operator
+comment|// limit entries per operator
 name|int
 name|batchCount
 init|=
@@ -598,7 +606,10 @@ operator|.
 name|size
 argument_list|()
 operator|/
-literal|100.0
+operator|(
+name|double
+operator|)
+name|MAX_ENTRIES_PER_OPERATOR
 argument_list|)
 decl_stmt|;
 for|for
@@ -630,11 +641,11 @@ operator|.
 name|size
 argument_list|()
 operator|-
-literal|100
+name|MAX_ENTRIES_PER_OPERATOR
 operator|*
 name|batch
 else|:
-literal|100
+name|MAX_ENTRIES_PER_OPERATOR
 decl_stmt|;
 name|writer
 operator|.
@@ -665,7 +676,7 @@ name|index
 init|=
 name|batch
 operator|*
-literal|100
+name|MAX_ENTRIES_PER_OPERATOR
 operator|+
 name|j
 decl_stmt|;
