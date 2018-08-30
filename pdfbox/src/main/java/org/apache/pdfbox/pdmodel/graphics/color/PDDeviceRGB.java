@@ -436,7 +436,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"To get higher rendering speed on java 8 oder 9,"
+literal|"To get higher rendering speed on java 8 or 9,"
 argument_list|)
 expr_stmt|;
 name|LOG
