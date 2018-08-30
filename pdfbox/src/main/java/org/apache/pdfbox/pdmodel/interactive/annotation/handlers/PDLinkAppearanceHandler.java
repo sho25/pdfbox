@@ -383,13 +383,6 @@ name|getBorder
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the differences rectangle
-comment|// TODO: this only works for border effect solid. Cloudy needs a different approach.
-name|setRectDifference
-argument_list|(
-name|lineWidth
-argument_list|)
-expr_stmt|;
 comment|// Acrobat applies a padding to each side of the bbox so the line is completely within
 comment|// the bbox.
 name|PDRectangle
