@@ -25,6 +25,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|awt
+operator|.
+name|geom
+operator|.
+name|AffineTransform
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|io
 operator|.
 name|IOException
@@ -385,28 +397,6 @@ operator|.
 name|getBorderEffect
 argument_list|()
 decl_stmt|;
-comment|// Acrobat applies a padding to each side of the bbox so the line is completely within
-comment|// the bbox.
-comment|// TODO: Needs validation for Circles as Adobe Reader seems to extend the bbox bei the rect differenve
-comment|// for circle annotations.
-name|PDRectangle
-name|bbox
-init|=
-name|getRectangle
-argument_list|()
-decl_stmt|;
-name|PDRectangle
-name|borderEdge
-init|=
-name|getPaddedRectangle
-argument_list|(
-name|bbox
-argument_list|,
-name|lineWidth
-operator|/
-literal|2
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|borderEffect
@@ -506,18 +496,140 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// the differences rectangle
+comment|// Acrobat applies a padding to each side of the bbox so the line is completely within
+comment|// the bbox.
+comment|// handle the border box
+comment|//
+comment|// There are two options. The handling is not part of the PDF specification but
+comment|// implementation specific to Adobe Reader
+comment|// - if /RD is set the border box is the /Rect entry inset by the respective
+comment|//   border difference.
+comment|// - if /RD is not set the border box is defined by the /Rect entry. The /RD entry will
+comment|//   be set to be the line width and the /Rect is enlarged by the /RD amount
+name|PDRectangle
+name|borderBox
+decl_stmt|;
+name|float
+index|[]
+name|rectDifferences
+init|=
+name|annotation
+operator|.
+name|getRectDifferences
+argument_list|()
+decl_stmt|;
+comment|//TODO DRY refactor, this block was been copied from the square handler.
 if|if
 condition|(
-name|lineWidth
-operator|>
+name|rectDifferences
+operator|.
+name|length
+operator|==
 literal|0
 condition|)
 block|{
+name|borderBox
+operator|=
+name|getPaddedRectangle
+argument_list|(
+name|getRectangle
+argument_list|()
+argument_list|,
+name|lineWidth
+operator|/
+literal|2
+argument_list|)
+expr_stmt|;
+comment|// the differences rectangle
 name|annotation
 operator|.
 name|setRectDifferences
 argument_list|(
+name|lineWidth
+operator|/
+literal|2
+argument_list|)
+expr_stmt|;
+name|annotation
+operator|.
+name|setRectangle
+argument_list|(
+name|addRectDifferences
+argument_list|(
+name|getRectangle
+argument_list|()
+argument_list|,
+name|annotation
+operator|.
+name|getRectDifferences
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// when the normal appearance stream was generated BBox and Matrix have been set to the
+comment|// values of the original /Rect. As the /Rect was changed that needs to be adjusted too.
+name|annotation
+operator|.
+name|getNormalAppearanceStream
+argument_list|()
+operator|.
+name|setBBox
+argument_list|(
+name|getRectangle
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|AffineTransform
+name|transform
+init|=
+name|AffineTransform
+operator|.
+name|getTranslateInstance
+argument_list|(
+operator|-
+name|getRectangle
+argument_list|()
+operator|.
+name|getLowerLeftX
+argument_list|()
+argument_list|,
+operator|-
+name|getRectangle
+argument_list|()
+operator|.
+name|getLowerLeftY
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|annotation
+operator|.
+name|getNormalAppearanceStream
+argument_list|()
+operator|.
+name|setMatrix
+argument_list|(
+name|transform
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|borderBox
+operator|=
+name|applyRectDifferences
+argument_list|(
+name|getRectangle
+argument_list|()
+argument_list|,
+name|rectDifferences
+argument_list|)
+expr_stmt|;
+name|borderBox
+operator|=
+name|getPaddedRectangle
+argument_list|(
+name|borderBox
+argument_list|,
 name|lineWidth
 operator|/
 literal|2
@@ -528,7 +640,7 @@ comment|// lower left corner
 name|float
 name|x0
 init|=
-name|borderEdge
+name|borderBox
 operator|.
 name|getLowerLeftX
 argument_list|()
@@ -536,7 +648,7 @@ decl_stmt|;
 name|float
 name|y0
 init|=
-name|borderEdge
+name|borderBox
 operator|.
 name|getLowerLeftY
 argument_list|()
@@ -545,7 +657,7 @@ comment|// upper right corner
 name|float
 name|x1
 init|=
-name|borderEdge
+name|borderBox
 operator|.
 name|getUpperRightX
 argument_list|()
@@ -553,7 +665,7 @@ decl_stmt|;
 name|float
 name|y1
 init|=
-name|borderEdge
+name|borderBox
 operator|.
 name|getUpperRightY
 argument_list|()
@@ -564,7 +676,7 @@ name|xm
 init|=
 name|x0
 operator|+
-name|borderEdge
+name|borderBox
 operator|.
 name|getWidth
 argument_list|()
@@ -576,7 +688,7 @@ name|ym
 init|=
 name|y0
 operator|+
-name|borderEdge
+name|borderBox
 operator|.
 name|getHeight
 argument_list|()
@@ -595,7 +707,7 @@ comment|// control point offsets
 name|float
 name|vOffset
 init|=
-name|borderEdge
+name|borderBox
 operator|.
 name|getHeight
 argument_list|()
@@ -607,7 +719,7 @@ decl_stmt|;
 name|float
 name|hOffset
 init|=
-name|borderEdge
+name|borderBox
 operator|.
 name|getWidth
 argument_list|()
