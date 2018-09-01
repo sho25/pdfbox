@@ -1496,6 +1496,8 @@ argument_list|,
 name|hasStroke
 argument_list|,
 name|hasBackground
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1543,20 +1545,6 @@ name|angle
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|cs
-operator|.
-name|transform
-argument_list|(
-name|Matrix
-operator|.
-name|getTranslateInstance
-argument_list|(
-name|xx1
-argument_list|,
-name|yy1
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|drawStyle
 argument_list|(
 name|annotation
@@ -1566,15 +1554,17 @@ argument_list|()
 argument_list|,
 name|cs
 argument_list|,
-literal|0
+name|xx1
 argument_list|,
-literal|0
+name|yy1
 argument_list|,
 name|lineEndingSize
 argument_list|,
 name|hasStroke
 argument_list|,
 name|hasBackground
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1613,10 +1603,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// we're transforming to (x1,y1) instead of to (x2,y2) position
-comment|// because drawStyle needs to be aware
-comment|// by the non zero x parameter that this is "right ending" side
-comment|// of a line. This is important for arrows styles.
 name|cs
 operator|.
 name|transform
@@ -1627,9 +1613,9 @@ name|getRotateInstance
 argument_list|(
 name|angle
 argument_list|,
-name|x1
+name|x2
 argument_list|,
-name|y1
+name|y2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1642,7 +1628,7 @@ argument_list|()
 argument_list|,
 name|cs
 argument_list|,
-name|lineLength
+literal|0
 argument_list|,
 name|y
 argument_list|,
@@ -1651,6 +1637,8 @@ argument_list|,
 name|hasStroke
 argument_list|,
 name|hasBackground
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1698,20 +1686,6 @@ name|angle
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|cs
-operator|.
-name|transform
-argument_list|(
-name|Matrix
-operator|.
-name|getTranslateInstance
-argument_list|(
-name|xx2
-argument_list|,
-name|yy2
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|drawStyle
 argument_list|(
 name|annotation
@@ -1721,15 +1695,17 @@ argument_list|()
 argument_list|,
 name|cs
 argument_list|,
-literal|0
+name|xx2
 argument_list|,
-literal|0
+name|yy2
 argument_list|,
 name|lineEndingSize
 argument_list|,
 name|hasStroke
 argument_list|,
 name|hasBackground
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

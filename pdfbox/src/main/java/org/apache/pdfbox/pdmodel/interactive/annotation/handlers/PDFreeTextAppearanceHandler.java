@@ -1077,6 +1077,8 @@ argument_list|,
 name|hasStroke
 argument_list|,
 name|hasBackground
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|cs

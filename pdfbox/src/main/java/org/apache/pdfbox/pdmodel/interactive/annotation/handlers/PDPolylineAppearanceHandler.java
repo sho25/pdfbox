@@ -1155,6 +1155,8 @@ argument_list|,
 name|hasStroke
 argument_list|,
 name|hasBackground
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|cs
@@ -1240,12 +1242,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// we're transforming to (x1,y1) instead of to (x2,y2) position
-comment|// because drawStyle needs to be aware
-comment|// by the non zero x parameter that this is "right ending" side
-comment|// of a line. This is important for arrows styles.
-comment|//TODO this is not really good and should be improved,
-comment|// maybe by an additional parameter for drawStyle?
 name|double
 name|angle
 init|=
@@ -1272,71 +1268,10 @@ name|getRotateInstance
 argument_list|(
 name|angle
 argument_list|,
-name|x1
-argument_list|,
-name|y1
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|float
-name|lineLength
-init|=
-operator|(
-name|float
-operator|)
-name|Math
-operator|.
-name|sqrt
-argument_list|(
-operator|(
-operator|(
 name|x2
-operator|-
-name|x1
-operator|)
-operator|*
-operator|(
-name|x2
-operator|-
-name|x1
-operator|)
-operator|)
-operator|+
-operator|(
-operator|(
+argument_list|,
 name|y2
-operator|-
-name|y1
-operator|)
-operator|*
-operator|(
-name|y2
-operator|-
-name|y1
-operator|)
-operator|)
 argument_list|)
-decl_stmt|;
-name|drawStyle
-argument_list|(
-name|annotation
-operator|.
-name|getEndPointEndingStyle
-argument_list|()
-argument_list|,
-name|cs
-argument_list|,
-name|lineLength
-argument_list|,
-literal|0
-argument_list|,
-name|ab
-operator|.
-name|width
-argument_list|,
-name|hasStroke
-argument_list|,
-name|hasBackground
 argument_list|)
 expr_stmt|;
 block|}
@@ -1356,6 +1291,7 @@ name|y2
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|drawStyle
 argument_list|(
 name|annotation
@@ -1376,9 +1312,10 @@ argument_list|,
 name|hasStroke
 argument_list|,
 name|hasBackground
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 catch|catch
