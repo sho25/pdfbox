@@ -3849,6 +3849,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|willEncrypt
+operator|||
 name|incrementalUpdate
 operator|||
 name|subValue
@@ -3860,6 +3862,10 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// PDFBOX-4308: added willEncrypt to prevent an object
+comment|// that is referenced several times from being written
+comment|// direct and indirect, thus getting encrypted
+comment|// with wrong object number or getting encrypted twice
 name|addObjectToWrite
 argument_list|(
 name|current
@@ -4270,6 +4276,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|willEncrypt
+operator|||
 name|incrementalUpdate
 operator|||
 name|subValue
@@ -4281,6 +4289,10 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// PDFBOX-4308: added willEncrypt to prevent an object
+comment|// that is referenced several times from being written
+comment|// direct and indirect, thus getting encrypted
+comment|// with wrong object number or getting encrypted twice
 name|addObjectToWrite
 argument_list|(
 name|value
