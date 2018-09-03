@@ -2158,7 +2158,7 @@ argument_list|,
 name|buffer
 argument_list|,
 literal|false
-comment|/* decrypt */
+comment|/* encrypt */
 argument_list|)
 expr_stmt|;
 name|string
