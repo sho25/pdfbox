@@ -205,18 +205,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|DatatypeConverter
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -376,6 +364,20 @@ operator|.
 name|digitalsignature
 operator|.
 name|PDSignature
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Hex
 import|;
 end_import
 
@@ -1956,9 +1958,9 @@ literal|"SHA-256"
 argument_list|)
 decl_stmt|;
 return|return
-name|DatatypeConverter
+name|Hex
 operator|.
-name|printHexBinary
+name|getString
 argument_list|(
 name|md
 operator|.
