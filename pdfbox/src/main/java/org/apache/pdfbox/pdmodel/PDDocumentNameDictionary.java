@@ -192,7 +192,7 @@ return|return
 name|nameDictionary
 return|;
 block|}
-comment|/**      * Get the destination named tree node.  The value in this name tree will be PDDestination      * objects.      *      * @return The destination name tree node.      */
+comment|/**      * Get the destination named tree node. The values in this name tree will be      * PDPageDestination objects.      *      * @return The destination name tree node.      */
 specifier|public
 name|PDDestinationNameTreeNode
 name|getDests
@@ -308,7 +308,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the embedded files named tree node.  The value in this name tree will be PDComplexFileSpecification      * objects.      *      * @return The embedded files name tree node.      */
+comment|/**      * Get the embedded files named tree node. The values in this name tree will      * be PDComplexFileSpecification objects.      *      * @return The embedded files name tree node.      */
 specifier|public
 name|PDEmbeddedFilesNameTreeNode
 name|getEmbeddedFiles
@@ -375,7 +375,7 @@ name|ef
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get the document level javascript entries.  The value in this name tree will be PDTextStream.      *      * @return The document level named javascript.      */
+comment|/**      * Get the document level javascript entries. The values in this name tree      * will be PDTextStream objects.      *      * @return The document level named javascript.      */
 specifier|public
 name|PDJavascriptNameTreeNode
 name|getJavaScript
