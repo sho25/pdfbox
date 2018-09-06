@@ -966,7 +966,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * This will return a map of names. The key will be a string, and the      * value will depend on where this class is being used.      *      * @return ordered map of cos objects or<code>null</code> if dictionary      *         contains no 'Names' entry      * @throws IOException If there is an error while creating the sub types.      */
+comment|/**      * This will return a map of names on this level. The key will be a string,      * and the value will depend on where this class is being used.      *      * @return ordered map of COS objects or<code>null</code> if the dictionary      * contains no 'Names' entry on this level.      *      * @throws IOException If there is an error while creating the sub types.      * @see #getKids()      */
 specifier|public
 name|Map
 argument_list|<
