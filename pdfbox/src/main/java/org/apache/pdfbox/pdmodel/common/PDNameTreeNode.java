@@ -186,7 +186,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents a node in a name tree.  *  * @author Ben Litchfield  */
+comment|/**  * This class represents a node in a name tree.  *  * @author Ben Litchfield  *  * @param<T> The type of the values in this name tree.  */
 end_comment
 
 begin_class
