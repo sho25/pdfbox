@@ -1110,7 +1110,7 @@ operator|.
 name|getMediaBox
 argument_list|()
 argument_list|,
-name|createContentStream
+name|createCombinedContentStream
 argument_list|(
 name|contents
 argument_list|)
@@ -1236,7 +1236,7 @@ operator|.
 name|getMediaBox
 argument_list|()
 argument_list|,
-name|createContentStream
+name|createCombinedContentStream
 argument_list|(
 name|contents
 argument_list|)
@@ -1255,7 +1255,7 @@ return|;
 block|}
 specifier|private
 name|COSStream
-name|createContentStream
+name|createCombinedContentStream
 parameter_list|(
 name|COSBase
 name|contents
@@ -1341,6 +1341,7 @@ return|return
 name|concatStream
 return|;
 block|}
+comment|// get the content streams as a list
 specifier|private
 name|List
 argument_list|<
@@ -1365,6 +1366,18 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|contents
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|contentStreams
+return|;
+block|}
+elseif|else
 if|if
 condition|(
 name|contents
@@ -1449,13 +1462,6 @@ name|IOException
 argument_list|(
 literal|"Unknown content type: "
 operator|+
-operator|(
-name|contents
-operator|==
-literal|null
-condition|?
-literal|"(null)"
-else|:
 name|contents
 operator|.
 name|getClass
@@ -1463,7 +1469,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|)
 argument_list|)
 throw|;
 block|}
@@ -1658,6 +1663,15 @@ block|{
 if|if
 condition|(
 name|contents
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
+if|if
+condition|(
+name|contents
 operator|instanceof
 name|COSStream
 condition|)
@@ -1697,13 +1711,6 @@ name|IOException
 argument_list|(
 literal|"Unknown content type: "
 operator|+
-operator|(
-name|contents
-operator|==
-literal|null
-condition|?
-literal|"(null)"
-else|:
 name|contents
 operator|.
 name|getClass
@@ -1711,7 +1718,6 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
-operator|)
 argument_list|)
 throw|;
 block|}
