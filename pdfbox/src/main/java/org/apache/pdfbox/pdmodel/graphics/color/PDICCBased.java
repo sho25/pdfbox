@@ -422,6 +422,15 @@ name|isRGB
 init|=
 literal|false
 decl_stmt|;
+comment|// allows to force using alternate color space instead of ICC color space for performance
+comment|// reasons with LittleCMS (LCMS), see PDFBOX-4309
+comment|// WARNING: do not activate this in a conforming reader
+specifier|private
+name|boolean
+name|useOnlyAlternateColorSpace
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Creates a new ICC color space with an empty stream.      * @param doc the document to store the ICC data      */
 specifier|public
 name|PDICCBased
@@ -512,6 +521,17 @@ literal|"ICCBased colorspace array must have a stream as second element"
 argument_list|)
 throw|;
 block|}
+name|useOnlyAlternateColorSpace
+operator|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"org.apache.pdfbox.rendering.UseAlternateInsteadOfICCColorSpace"
+argument_list|)
+operator|!=
+literal|null
+expr_stmt|;
 name|array
 operator|=
 name|iccArray
@@ -570,6 +590,40 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|useOnlyAlternateColorSpace
+condition|)
+block|{
+try|try
+block|{
+name|fallbackToAlternateColorSpace
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Error initializing alternate color space: "
+operator|+
+name|e
+operator|.
+name|getLocalizedMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 try|try
 init|(
 name|InputStream
@@ -828,6 +882,13 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|e
+operator|!=
+literal|null
+condition|)
+block|{
 name|LOG
 operator|.
 name|warn
@@ -847,6 +908,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|initialColor
 operator|=
 name|alternateColorSpace
