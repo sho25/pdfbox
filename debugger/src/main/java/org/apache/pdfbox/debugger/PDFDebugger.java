@@ -341,34 +341,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|Log
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|logging
-operator|.
-name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|print
@@ -1389,21 +1361,6 @@ block|{
 specifier|private
 specifier|static
 specifier|final
-name|Log
-name|LOG
-init|=
-name|LogFactory
-operator|.
-name|getLog
-argument_list|(
-name|PDFDebugger
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-specifier|private
-specifier|static
-specifier|final
 name|Set
 argument_list|<
 name|COSName
@@ -1669,6 +1626,7 @@ name|initComponents
 argument_list|()
 expr_stmt|;
 comment|// use our custom logger
+comment|// this works only if there is no "LogFactory.getLog()" in this class!
 name|LogDialog
 operator|.
 name|init
@@ -1730,15 +1688,8 @@ name|ClassNotFoundException
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"KCMS service not found - using LCMS"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
+comment|// jdk7 or lower (KCMS has different name),
+comment|// or jdk10 and higher (KCMS no longer available)
 block|}
 name|UIManager
 operator|.
