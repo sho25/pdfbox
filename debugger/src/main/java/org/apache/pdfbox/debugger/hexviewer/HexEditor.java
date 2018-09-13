@@ -246,7 +246,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Khyrul Bashar  *  * This class hosts all the UI components of Hex view and cordinate among them.  */
+comment|/**  * @author Khyrul Bashar  *  * This class hosts all the UI components of Hex view and coordinates among them.  */
 end_comment
 
 begin_class

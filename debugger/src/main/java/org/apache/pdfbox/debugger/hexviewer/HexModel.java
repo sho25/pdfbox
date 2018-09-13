@@ -38,7 +38,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Khyrul Bashar  *  * A class that acts as a model for the hex viewer. It holds the data and provide the data as ncessary.  * It'll let listen for any underlying data changes.  */
+comment|/**  * @author Khyrul Bashar  *  * A class that acts as a model for the hex viewer. It holds the data and provide the data as necessary.  * It'll let listen for any underlying data changes.  */
 end_comment
 
 begin_class
