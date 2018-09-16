@@ -600,7 +600,7 @@ operator|++
 name|i
 control|)
 block|{
-comment|// Adobe deoesn't use the lower coordinate for the line, it uses lower + delta / 7.
+comment|// Adobe doesn't use the lower coordinate for the line, it uses lower + delta / 7.
 comment|// do the math for diagonal annotations with this weird old trick:
 comment|// https://stackoverflow.com/questions/7740507/extend-a-line-segment-a-specific-distance
 name|float
