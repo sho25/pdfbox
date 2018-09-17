@@ -2202,7 +2202,7 @@ name|codeToBytesMap
 operator|.
 name|put
 argument_list|(
-name|code
+name|unicode
 argument_list|,
 name|bytes
 argument_list|)
