@@ -3005,12 +3005,7 @@ argument_list|()
 argument_list|,
 literal|"png"
 argument_list|,
-name|PDDeviceCMYK
-operator|.
-name|INSTANCE
-operator|.
-name|getName
-argument_list|()
+literal|"ICCBased"
 argument_list|)
 expr_stmt|;
 name|doWritePDF
@@ -3024,17 +3019,8 @@ argument_list|,
 literal|"cmyk.pdf"
 argument_list|)
 expr_stmt|;
-comment|// The image in CMYK got color-truncated because the ISO_Coated colorspace is way smaller
-comment|// than the sRGB colorspace. The image is converted back to sRGB when calling PDImageXObject.getImage().
-comment|// So to be able to check the image data we must also convert our CMYK Image back to sRGB
-comment|//BufferedImage compareImageRGB = new BufferedImage(imageCMYK.getWidth(), imageCMYK.getHeight(),
-comment|//BufferedImage.TYPE_INT_BGR);
-comment|//Graphics2D graphics = compareImageRGB.createGraphics();
-comment|//graphics.drawImage(imageCMYK, 0, 0, null);
-comment|//graphics.dispose();
-comment|//ImageIO.write(compareImageRGB, "TIFF", new File("/tmp/compare.tiff"));
-comment|//ImageIO.write(ximage.getImage(), "TIFF", new File("/tmp/compare2.tiff"));
-comment|//checkIdent(compareImageRGB, ximage.getImage());
+comment|// still slight difference of 1 color level
+comment|//checkIdent(imageCMYK, ximage.getImage());
 block|}
 specifier|public
 name|void
