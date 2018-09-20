@@ -4522,7 +4522,7 @@ return|return
 name|signingSupport
 return|;
 block|}
-comment|/**      * Returns the page at the given index.      *      * @param pageIndex the page index      * @return the page at the given index.      */
+comment|/**      * Returns the page at the given 0-based index.      *<p>      * This method is too slow to get all the pages from a large PDF document      * (1000 pages or more). For such documents, use the iterator of      * {@link PDDocument#getPages()} instead.      *      * @param pageIndex the 0-based page index      * @return the page at the given index.      */
 specifier|public
 name|PDPage
 name|getPage
