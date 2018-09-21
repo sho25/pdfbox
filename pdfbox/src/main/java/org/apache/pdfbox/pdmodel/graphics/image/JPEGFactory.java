@@ -897,6 +897,8 @@ name|IOException
 block|{
 comment|// Metadata format:
 comment|// https://docs.oracle.com/javase/10/docs/api/javax/imageio/metadata/doc-files/jpeg_metadata.html
+try|try
+block|{
 name|IIOMetadata
 name|imageMetadata
 init|=
@@ -1010,6 +1012,23 @@ literal|"please check whether your PDF displays."
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"error reading metadata"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Creates a new JPEG PDImageXObject from a BufferedImage.      *<p>      * Do not read a JPEG image from a stream/file and call this method; you'll get more speed and      * quality by calling {@link #createFromStream(org.apache.pdfbox.pdmodel.PDDocument,      * java.io.InputStream) createFromStream()} instead.      *      * @param document the document where the image will be created      * @param image the BufferedImage to embed      * @return a new Image XObject      * @throws IOException if the JPEG data cannot be written      */
