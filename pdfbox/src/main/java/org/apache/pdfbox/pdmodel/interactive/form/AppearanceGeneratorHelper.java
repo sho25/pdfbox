@@ -1908,7 +1908,7 @@ operator|instanceof
 name|PDListBox
 condition|)
 block|{
-name|insertGeneratedSelectionHighlight
+name|insertGeneratedListboxSelectionHighlight
 argument_list|(
 name|contents
 argument_list|,
@@ -2687,7 +2687,7 @@ block|}
 block|}
 specifier|private
 name|void
-name|insertGeneratedSelectionHighlight
+name|insertGeneratedListboxSelectionHighlight
 parameter_list|(
 name|PDAppearanceContentStream
 name|contents
