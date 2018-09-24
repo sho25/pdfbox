@@ -303,15 +303,15 @@ name|arg
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will test the radio button PDModel.      *      * @throws IOException If there is an error creating the field.      */
+comment|/**      * This will test the list box PDModel.      *      * @throws IOException If there is an error creating the field.      */
 specifier|public
 name|void
-name|testChoicePDModel
+name|testListboxPDModel
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|/*          * Set up two data list which will be used for the tests          */
+comment|/*          * Set up two data lists which will be used for the tests          */
 comment|// export values
 name|List
 argument_list|<
@@ -468,7 +468,7 @@ argument_list|(
 name|defaultAppearanceString
 argument_list|)
 expr_stmt|;
-name|PDChoice
+name|PDListBox
 name|choice
 init|=
 operator|new
@@ -585,6 +585,54 @@ name|getOptionsExportValues
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Test bug 1 of PDFBOX-4252 when top index is not null
+name|choice
+operator|.
+name|setTopIndex
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|choice
+operator|.
+name|setValue
+argument_list|(
+name|exportValues
+operator|.
+name|get
+argument_list|(
+literal|2
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|exportValues
+operator|.
+name|get
+argument_list|(
+literal|2
+argument_list|)
+argument_list|,
+name|choice
+operator|.
+name|getValue
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|choice
+operator|.
+name|setTopIndex
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// reset
 comment|// assert that the option values have been correctly set
 name|COSArray
 name|optItem
