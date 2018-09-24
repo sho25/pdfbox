@@ -1614,6 +1614,7 @@ argument_list|(
 literal|"Identity-"
 argument_list|)
 operator|&&
+operator|(
 name|dict
 operator|.
 name|getDictionaryObject
@@ -1624,12 +1625,20 @@ name|TO_UNICODE
 argument_list|)
 operator|instanceof
 name|COSName
+operator|||
+operator|!
+name|toUnicodeCMap
+operator|.
+name|hasUnicodeMappings
+argument_list|()
+operator|)
 condition|)
 block|{
 comment|// handle the undocumented case of using Identity-H/V as a ToUnicode CMap, this
 comment|// isn't actually valid as the Identity-x CMaps are code->CID maps, not
 comment|// code->Unicode maps. See sample_fonts_solidconvertor.pdf for an example.
 comment|// PDFBOX-3123: do this only if the /ToUnicode entry is a name
+comment|// PDFBOX-4322: identity streams are OK too
 return|return
 operator|new
 name|String
