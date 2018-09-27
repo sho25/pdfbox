@@ -616,6 +616,12 @@ name|String
 name|message
 init|=
 name|o
+operator|==
+literal|null
+condition|?
+literal|"(null)"
+else|:
+name|o
 operator|.
 name|toString
 argument_list|()
