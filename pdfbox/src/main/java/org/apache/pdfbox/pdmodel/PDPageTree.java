@@ -982,7 +982,11 @@ block|}
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+literal|"Index not found: "
+operator|+
+name|pageNum
+argument_list|)
 throw|;
 block|}
 else|else
@@ -1016,7 +1020,11 @@ block|{
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+literal|"Index not found: "
+operator|+
+name|pageNum
+argument_list|)
 throw|;
 block|}
 block|}
