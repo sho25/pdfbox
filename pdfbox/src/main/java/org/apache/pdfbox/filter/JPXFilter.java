@@ -107,7 +107,7 @@ name|awt
 operator|.
 name|image
 operator|.
-name|WritableRaster
+name|Raster
 import|;
 end_import
 
@@ -301,7 +301,7 @@ argument_list|,
 name|result
 argument_list|)
 decl_stmt|;
-name|WritableRaster
+name|Raster
 name|raster
 init|=
 name|image
