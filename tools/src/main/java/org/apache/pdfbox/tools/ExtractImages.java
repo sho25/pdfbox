@@ -1070,6 +1070,20 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// PDFBOX-4327: without this line NPEs will occur
+name|res
+operator|.
+name|getExtGState
+argument_list|(
+name|name
+argument_list|)
+operator|.
+name|copyIntoGraphicsState
+argument_list|(
+name|getGraphicsState
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|processSoftMask
 argument_list|(
 name|group
