@@ -3259,7 +3259,7 @@ name|pop
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Saves the entire graphics stack.      */
+comment|/**      * Saves the entire graphics stack.      *       * @return the saved graphics state stack.      */
 specifier|protected
 specifier|final
 name|Stack
