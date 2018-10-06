@@ -1308,7 +1308,7 @@ annotation|@
 name|Test
 specifier|public
 name|void
-name|testAllInfoSynhcronized
+name|testAllInfoSynchronized
 parameter_list|()
 throws|throws
 name|Exception
