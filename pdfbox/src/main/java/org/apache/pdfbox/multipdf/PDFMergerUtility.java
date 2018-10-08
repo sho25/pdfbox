@@ -780,7 +780,7 @@ name|AcroFormMergeMode
 operator|.
 name|PDFBOX_LEGACY_MODE
 decl_stmt|;
-comment|/**      * The mode to use when merging documents.      *       *<p><ul>      *<li>{@link DocumentMergeMode#OPTIMIZE_RESOURCES_MODE} Optimizes resource handling such as      *      closing documents early.<strong>Not all document elements are merged</strong> compared to      *      the PDFBOX_LEGACY_MODE. Currently supported are:      *<ul>      *<li>Page content and resources      *</ul>        *<li>{@link DocumentMergeMode#PDFBOX_LEGACY_MODE} Keeps all files open until the      *      merge has been completed. This is  currently necessary to merge documents      *      containing a Structure Tree.      *</ul>      */
+comment|/**      * The mode to use when merging documents:      *       *<ul>      *<li>{@link DocumentMergeMode#OPTIMIZE_RESOURCES_MODE} Optimizes resource handling such as      *      closing documents early.<strong>Not all document elements are merged</strong> compared to      *      the PDFBOX_LEGACY_MODE. Currently supported are:      *<ul>      *<li>Page content and resources      *</ul>        *<li>{@link DocumentMergeMode#PDFBOX_LEGACY_MODE} Keeps all files open until the      *      merge has been completed. This is  currently necessary to merge documents      *      containing a Structure Tree.      *</ul>      */
 specifier|public
 enum|enum
 name|DocumentMergeMode
@@ -789,7 +789,7 @@ name|OPTIMIZE_RESOURCES_MODE
 block|,
 name|PDFBOX_LEGACY_MODE
 block|}
-comment|/**      * The mode to use when merging AcroForm between documents.      *       *<p><ul>      *<li>{@link AcroFormMergeMode#JOIN_FORM_FIELDS_MODE} fields with the same fully qualified name      *      will be merged into one with the widget annotations of the merged fields       *      becoming part of the same field.      *<li>{@link AcroFormMergeMode#PDFBOX_LEGACY_MODE} fields with the same fully qualified name      *      will be renamed and treated as independent. This mode was used in versions      *      of PDFBox up to 2.x.      *</ul>      */
+comment|/**      * The mode to use when merging AcroForm between documents:      *       *<ul>      *<li>{@link AcroFormMergeMode#JOIN_FORM_FIELDS_MODE} fields with the same fully qualified name      *      will be merged into one with the widget annotations of the merged fields       *      becoming part of the same field.      *<li>{@link AcroFormMergeMode#PDFBOX_LEGACY_MODE} fields with the same fully qualified name      *      will be renamed and treated as independent. This mode was used in versions      *      of PDFBox up to 2.x.      *</ul>      */
 specifier|public
 enum|enum
 name|AcroFormMergeMode
