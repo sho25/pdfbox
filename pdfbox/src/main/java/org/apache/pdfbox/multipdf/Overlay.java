@@ -33,6 +33,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|File
 import|;
 end_import
@@ -299,6 +309,8 @@ begin_class
 specifier|public
 class|class
 name|Overlay
+implements|implements
+name|Closeable
 block|{
 comment|/**      * Possible location of the overlayed pages: foreground or background.      */
 specifier|public
