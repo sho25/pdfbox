@@ -632,6 +632,8 @@ name|inputPDFDocument
 return|;
 block|}
 comment|/**      * Close all input pdfs which were used for the overlay.      *       * @throws IOException if something went wrong      */
+annotation|@
+name|Override
 specifier|public
 name|void
 name|close
