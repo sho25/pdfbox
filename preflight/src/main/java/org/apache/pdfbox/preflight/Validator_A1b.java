@@ -969,6 +969,8 @@ operator|.
 name|parse
 argument_list|()
 expr_stmt|;
+try|try
+init|(
 name|PreflightDocument
 name|document
 init|=
@@ -976,7 +978,8 @@ name|parser
 operator|.
 name|getPreflightDocument
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|document
 operator|.
 name|validate
@@ -989,11 +992,7 @@ operator|.
 name|getResult
 argument_list|()
 expr_stmt|;
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

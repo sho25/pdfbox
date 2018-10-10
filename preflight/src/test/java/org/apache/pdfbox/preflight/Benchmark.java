@@ -377,6 +377,8 @@ operator|.
 name|parse
 argument_list|()
 expr_stmt|;
+try|try
+init|(
 name|PreflightDocument
 name|document
 init|=
@@ -384,7 +386,8 @@ name|parser
 operator|.
 name|getPreflightDocument
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|document
 operator|.
 name|validate
@@ -451,11 +454,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|long
 name|endLTime
 init|=

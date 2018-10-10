@@ -123,6 +123,11 @@ operator|.
 name|parse
 argument_list|()
 expr_stmt|;
+name|ValidationResult
+name|result
+decl_stmt|;
+try|try
+init|(
 name|PreflightDocument
 name|document
 init|=
@@ -130,25 +135,21 @@ name|parser
 operator|.
 name|getPreflightDocument
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|document
 operator|.
 name|validate
 argument_list|()
 expr_stmt|;
-name|ValidationResult
 name|result
-init|=
+operator|=
 name|document
 operator|.
 name|getResult
 argument_list|()
-decl_stmt|;
-name|document
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
+block|}
 comment|// Error should be:
 comment|// 2.4.3: Invalid Color space, /DeviceGray default for operator "Tj" can't be used without Color Profile
 name|Assert
