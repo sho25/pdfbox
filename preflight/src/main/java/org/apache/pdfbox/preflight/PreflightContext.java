@@ -207,7 +207,7 @@ decl_stmt|;
 comment|/**      * The datasource to load the document from. Needed by StreamValidationProcess.      */
 specifier|private
 name|DataSource
-name|source
+name|dataSource
 init|=
 literal|null
 decl_stmt|;
@@ -261,26 +261,26 @@ specifier|private
 name|long
 name|fileLen
 decl_stmt|;
-comment|/**      * Create the DocumentHandler using the DataSource which represent the PDF file to check.      *       * @param source      */
+comment|/**      * Create the DocumentHandler using the DataSource which represent the PDF file to check.      *       * @param dataSource      */
 specifier|public
 name|PreflightContext
 parameter_list|(
 name|DataSource
-name|source
+name|dataSource
 parameter_list|)
 block|{
 name|this
 operator|.
-name|source
+name|dataSource
 operator|=
-name|source
+name|dataSource
 expr_stmt|;
 block|}
 specifier|public
 name|PreflightContext
 parameter_list|(
 name|DataSource
-name|source
+name|dataSource
 parameter_list|,
 name|PreflightConfiguration
 name|configuration
@@ -288,9 +288,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|source
+name|dataSource
 operator|=
-name|source
+name|dataSource
 expr_stmt|;
 name|this
 operator|.
@@ -382,7 +382,7 @@ name|getSource
 parameter_list|()
 block|{
 return|return
-name|source
+name|dataSource
 return|;
 block|}
 specifier|public
@@ -398,7 +398,7 @@ literal|null
 operator|)
 operator|&&
 operator|(
-name|source
+name|dataSource
 operator|!=
 literal|null
 operator|)
