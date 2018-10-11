@@ -9159,6 +9159,10 @@ comment|// object wasn't dereferenced -> remove it
 if|if
 condition|(
 name|kidBaseobject
+operator|==
+literal|null
+operator|||
+name|kidBaseobject
 operator|.
 name|equals
 argument_list|(
