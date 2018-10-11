@@ -2300,6 +2300,13 @@ if|if
 condition|(
 name|po
 operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+operator|&&
+name|po
+operator|.
 name|get
 argument_list|(
 name|po
@@ -2333,6 +2340,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|po
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+operator|&&
 name|po
 operator|.
 name|get
