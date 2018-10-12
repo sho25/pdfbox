@@ -2237,6 +2237,14 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|long
+name|startPosition
+init|=
+name|seqSource
+operator|.
+name|getPosition
+argument_list|()
+decl_stmt|;
 name|readExpectedChar
 argument_list|(
 literal|'['
@@ -2450,6 +2458,10 @@ name|seqSource
 operator|.
 name|getPosition
 argument_list|()
+operator|+
+literal|", start offset: "
+operator|+
+name|startPosition
 argument_list|)
 expr_stmt|;
 comment|// This could also be an "endobj" or "endstream" which means we can assume that
