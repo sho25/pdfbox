@@ -57,16 +57,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|activation
-operator|.
-name|DataSource
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -156,6 +146,22 @@ operator|.
 name|utils
 operator|.
 name|COSUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|utils
+operator|.
+name|DataSource
 import|;
 end_import
 
