@@ -172,6 +172,9 @@ argument_list|(
 name|page
 argument_list|)
 expr_stmt|;
+comment|// fill the entire background with cyan
+try|try
+init|(
 name|PDPageContentStream
 name|contents
 init|=
@@ -182,7 +185,8 @@ name|doc
 argument_list|,
 name|page
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 comment|// fill the entire background with cyan
 name|contents
 operator|.
@@ -251,11 +255,7 @@ operator|.
 name|fill
 argument_list|()
 expr_stmt|;
-name|contents
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|doc
 operator|.
 name|save
