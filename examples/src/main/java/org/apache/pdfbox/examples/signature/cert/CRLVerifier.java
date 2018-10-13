@@ -269,7 +269,7 @@ name|bouncycastle
 operator|.
 name|asn1
 operator|.
-name|DERIA5String
+name|ASN1Primitive
 import|;
 end_import
 
@@ -281,7 +281,7 @@ name|bouncycastle
 operator|.
 name|asn1
 operator|.
-name|DERObject
+name|DERIA5String
 import|;
 end_import
 
@@ -349,6 +349,20 @@ name|asn1
 operator|.
 name|x509
 operator|.
+name|Extension
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
+name|asn1
+operator|.
+name|x509
+operator|.
 name|GeneralName
 import|;
 end_import
@@ -364,20 +378,6 @@ operator|.
 name|x509
 operator|.
 name|GeneralNames
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|bouncycastle
-operator|.
-name|asn1
-operator|.
-name|x509
-operator|.
-name|X509Extensions
 import|;
 end_import
 
@@ -835,9 +835,9 @@ name|cert
 operator|.
 name|getExtensionValue
 argument_list|(
-name|X509Extensions
+name|Extension
 operator|.
-name|CRLDistributionPoints
+name|cRLDistributionPoints
 operator|.
 name|getId
 argument_list|()
@@ -872,7 +872,7 @@ name|crldpExt
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|DERObject
+name|ASN1Primitive
 name|derObjCrlDP
 init|=
 name|oAsnInStream
@@ -910,7 +910,7 @@ name|crldpExtOctets
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|DERObject
+name|ASN1Primitive
 name|derObj2
 init|=
 name|oAsnInStream2
