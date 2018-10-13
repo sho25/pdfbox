@@ -227,20 +227,6 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSObject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
 name|COSString
 import|;
 end_import
@@ -1643,10 +1629,6 @@ block|{
 comment|// get string representation of pages COSObject
 name|origPageKey
 operator|=
-operator|(
-operator|(
-name|COSObject
-operator|)
 name|document
 operator|.
 name|getDocumentCatalog
@@ -1661,7 +1643,6 @@ name|COSName
 operator|.
 name|PAGES
 argument_list|)
-operator|)
 operator|.
 name|toString
 argument_list|()
