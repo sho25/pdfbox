@@ -381,6 +381,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// check the XMP metadata
+try|try
+init|(
 name|PDDocument
 name|document
 init|=
@@ -394,7 +396,8 @@ argument_list|(
 name|pdfaFilename
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|PDDocumentCatalog
 name|catalog
 init|=
@@ -449,11 +452,7 @@ name|getTitle
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|document
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 block|}
 block|}
 end_class
