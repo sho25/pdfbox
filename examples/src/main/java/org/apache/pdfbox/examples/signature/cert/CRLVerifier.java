@@ -490,6 +490,8 @@ name|cert
 operator|.
 name|getSubjectX500Principal
 argument_list|()
+argument_list|,
+name|ex
 argument_list|)
 throw|;
 block|}
