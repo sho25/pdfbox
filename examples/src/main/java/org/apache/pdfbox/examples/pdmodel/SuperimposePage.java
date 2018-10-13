@@ -282,6 +282,8 @@ name|page
 argument_list|)
 expr_stmt|;
 comment|// write some sample text to the new page
+try|try
+init|(
 name|PDPageContentStream
 name|contents
 init|=
@@ -292,7 +294,8 @@ name|doc
 argument_list|,
 name|page
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|contents
 operator|.
 name|beginText
@@ -443,11 +446,7 @@ operator|.
 name|restoreGraphicsState
 argument_list|()
 expr_stmt|;
-name|contents
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|doc
 operator|.
 name|save
