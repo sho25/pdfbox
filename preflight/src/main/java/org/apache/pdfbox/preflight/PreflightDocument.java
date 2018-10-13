@@ -426,7 +426,7 @@ throws|throws
 name|ValidationException
 block|{
 comment|// force early class loading to check if people forgot to use --add-modules javax.xml.bind
-comment|// on java 9 or later
+comment|// on java 9& 10, or to add jaxb-api on java 11 and later
 name|javax
 operator|.
 name|xml
