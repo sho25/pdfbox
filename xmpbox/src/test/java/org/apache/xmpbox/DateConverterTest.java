@@ -86,23 +86,18 @@ argument_list|)
 decl_stmt|;
 name|Calendar
 name|jaxbCal
-init|=
-literal|null
-decl_stmt|,
-name|convDate
-init|=
-literal|null
 decl_stmt|;
 comment|// Test partial dates
+name|Calendar
 name|convDate
-operator|=
+init|=
 name|DateConverter
 operator|.
 name|toCalendar
 argument_list|(
 literal|"2015-02-02"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertEquals
 argument_list|(
 literal|2015
