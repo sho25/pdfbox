@@ -353,6 +353,42 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|examples
+operator|.
+name|signature
+operator|.
+name|cert
+operator|.
+name|CertificateVerificationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|examples
+operator|.
+name|signature
+operator|.
+name|cert
+operator|.
+name|CertificateVerifier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|io
 operator|.
 name|IOUtils
@@ -631,7 +667,7 @@ specifier|private
 name|ShowSignature
 parameter_list|()
 block|{     }
-comment|/**      * This is the entry point for the application.      *      * @param args The command-line arguments.      *      * @throws IOException If there is an error reading the file.      * @throws CertificateException      * @throws java.security.NoSuchAlgorithmException      * @throws java.security.NoSuchProviderException      * @throws org.bouncycastle.tsp.TSPException      */
+comment|/**      * This is the entry point for the application.      *      * @param args The command-line arguments.      *      * @throws IOException If there is an error reading the file.      * @throws CertificateException      * @throws java.security.NoSuchAlgorithmException      * @throws java.security.NoSuchProviderException      * @throws org.bouncycastle.tsp.TSPException      * @throws org.apache.pdfbox.examples.signature.cert.CertificateVerificationException      */
 specifier|public
 specifier|static
 name|void
@@ -651,6 +687,8 @@ throws|,
 name|NoSuchProviderException
 throws|,
 name|TSPException
+throws|,
+name|CertificateVerificationException
 block|{
 name|ShowSignature
 name|show
@@ -685,6 +723,8 @@ throws|,
 name|NoSuchProviderException
 throws|,
 name|TSPException
+throws|,
+name|CertificateVerificationException
 block|{
 if|if
 condition|(
@@ -1402,6 +1442,8 @@ throws|,
 name|NoSuchAlgorithmException
 throws|,
 name|NoSuchProviderException
+throws|,
+name|CertificateVerificationException
 block|{
 comment|// inspiration:
 comment|// http://stackoverflow.com/a/26702631/535646
