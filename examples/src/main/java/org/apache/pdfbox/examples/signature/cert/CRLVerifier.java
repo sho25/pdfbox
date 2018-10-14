@@ -865,8 +865,6 @@ name|X509Certificate
 name|cert
 parameter_list|)
 throws|throws
-name|CertificateParsingException
-throws|,
 name|IOException
 block|{
 name|byte
