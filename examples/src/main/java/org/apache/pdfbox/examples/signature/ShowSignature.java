@@ -93,6 +93,16 @@ name|java
 operator|.
 name|security
 operator|.
+name|KeyStoreException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
 name|MessageDigest
 import|;
 end_import
@@ -1990,10 +2000,12 @@ block|}
 catch|catch
 parameter_list|(
 name|InvalidAlgorithmParameterException
+decl||
+name|KeyStoreException
 name|ex
 parameter_list|)
 block|{
-comment|// not on windows
+comment|// empty or not windows
 block|}
 return|return
 name|rootCertificates
