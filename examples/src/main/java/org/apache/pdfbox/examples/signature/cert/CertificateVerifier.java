@@ -464,7 +464,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Checks whether given X.509 certificate is self-signed.      */
+comment|/**      * Checks whether given X.509 certificate is self-signed.      * @param cert The X.509 certificate to check.      * @return true if the certificate is self-signed, false if not.      * @throws java.security.GeneralSecurityException       */
 specifier|public
 specifier|static
 name|boolean
@@ -474,11 +474,7 @@ name|X509Certificate
 name|cert
 parameter_list|)
 throws|throws
-name|CertificateException
-throws|,
-name|NoSuchAlgorithmException
-throws|,
-name|NoSuchProviderException
+name|GeneralSecurityException
 block|{
 try|try
 block|{
