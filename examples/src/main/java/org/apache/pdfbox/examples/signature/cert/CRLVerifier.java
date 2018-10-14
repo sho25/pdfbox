@@ -103,18 +103,6 @@ name|security
 operator|.
 name|cert
 operator|.
-name|CertificateParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|cert
-operator|.
 name|X509CRL
 import|;
 end_import
@@ -852,7 +840,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Extracts all CRL distribution point URLs from the "CRL Distribution      * Point" extension in a X.509 certificate. If CRL distribution point      * extension is unavailable, returns an empty list.      */
+comment|/**      * Extracts all CRL distribution point URLs from the "CRL Distribution      * Point" extension in a X.509 certificate. If CRL distribution point      * extension is unavailable, returns an empty list.      * @param cert      * @return List of CRL distribution point URLs.      * @throws java.io.IOException      */
 specifier|public
 specifier|static
 name|List
