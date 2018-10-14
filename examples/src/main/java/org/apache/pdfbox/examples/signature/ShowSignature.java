@@ -113,41 +113,9 @@ name|java
 operator|.
 name|security
 operator|.
-name|NoSuchAlgorithmException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|NoSuchProviderException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
 name|cert
 operator|.
 name|Certificate
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|cert
-operator|.
-name|CertificateException
 import|;
 end_import
 
@@ -725,7 +693,7 @@ specifier|private
 name|ShowSignature
 parameter_list|()
 block|{     }
-comment|/**      * This is the entry point for the application.      *      * @param args The command-line arguments.      *      * @throws IOException If there is an error reading the file.      * @throws CertificateException      * @throws java.security.NoSuchAlgorithmException      * @throws java.security.NoSuchProviderException      * @throws org.bouncycastle.tsp.TSPException      * @throws org.apache.pdfbox.examples.signature.cert.CertificateVerificationException      */
+comment|/**      * This is the entry point for the application.      *      * @param args The command-line arguments.      *      * @throws IOException If there is an error reading the file.      * @throws org.bouncycastle.tsp.TSPException      * @throws org.apache.pdfbox.examples.signature.cert.CertificateVerificationException      * @throws java.security.GeneralSecurityException      */
 specifier|public
 specifier|static
 name|void
@@ -738,15 +706,11 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|CertificateException
-throws|,
-name|NoSuchAlgorithmException
-throws|,
-name|NoSuchProviderException
-throws|,
 name|TSPException
 throws|,
 name|CertificateVerificationException
+throws|,
+name|GeneralSecurityException
 block|{
 name|ShowSignature
 name|show
@@ -774,11 +738,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|CertificateException
-throws|,
-name|NoSuchAlgorithmException
-throws|,
-name|NoSuchProviderException
+name|GeneralSecurityException
 throws|,
 name|TSPException
 throws|,
@@ -1473,7 +1433,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Verify a PKCS7 signature.      *      * @param byteArray the byte sequence that has been signed      * @param contents the /Contents field as a COSString      * @param sig the PDF signature (the /V dictionary)      * @throws CertificateException      * @throws CMSException      * @throws StoreException      * @throws OperatorCreationException      */
+comment|/**      * Verify a PKCS7 signature.      *      * @param byteArray the byte sequence that has been signed      * @param contents the /Contents field as a COSString      * @param sig the PDF signature (the /V dictionary)      * @throws CMSException      * @throws StoreException      * @throws OperatorCreationException      * @throws GeneralSecurityException      * @throws CertificateVerificationException      */
 specifier|private
 name|void
 name|verifyPKCS7
@@ -1491,17 +1451,13 @@ parameter_list|)
 throws|throws
 name|CMSException
 throws|,
-name|CertificateException
-throws|,
 name|StoreException
 throws|,
 name|OperatorCreationException
 throws|,
-name|NoSuchAlgorithmException
-throws|,
-name|NoSuchProviderException
-throws|,
 name|CertificateVerificationException
+throws|,
+name|GeneralSecurityException
 block|{
 comment|// inspiration:
 comment|// http://stackoverflow.com/a/26702631/535646
