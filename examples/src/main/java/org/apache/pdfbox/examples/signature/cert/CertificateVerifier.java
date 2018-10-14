@@ -617,9 +617,7 @@ argument_list|(
 literal|"PKIX"
 argument_list|)
 decl_stmt|;
-name|PKIXCertPathBuilderResult
-name|result
-init|=
+return|return
 operator|(
 name|PKIXCertPathBuilderResult
 operator|)
@@ -629,9 +627,6 @@ name|build
 argument_list|(
 name|pkixParams
 argument_list|)
-decl_stmt|;
-return|return
-name|result
 return|;
 block|}
 block|}
