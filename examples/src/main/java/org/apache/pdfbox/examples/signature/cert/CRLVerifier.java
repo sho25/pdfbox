@@ -55,16 +55,6 @@ name|java
 operator|.
 name|net
 operator|.
-name|MalformedURLException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
 name|URL
 import|;
 end_import
@@ -806,8 +796,6 @@ name|String
 name|crlURL
 parameter_list|)
 throws|throws
-name|MalformedURLException
-throws|,
 name|IOException
 throws|,
 name|CertificateException
