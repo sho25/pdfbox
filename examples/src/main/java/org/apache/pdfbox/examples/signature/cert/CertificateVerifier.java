@@ -173,6 +173,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -244,7 +254,7 @@ specifier|private
 name|CertificateVerifier
 parameter_list|()
 block|{      }
-comment|/**      * Attempts to build a certification chain for given certificate and to      * verify it. Relies on a set of root CA certificates and intermediate      * certificates that will be used for building the certification chain. The      * verification process assumes that all self-signed certificates in the set      * are trusted root CA certificates and all other certificates in the set      * are intermediate certificates.      *      * @param cert - certificate for validation      * @param additionalCerts - set of trusted root CA certificates that will be      * used as "trust anchors" and intermediate CA certificates that will be      * used as part of the certification chain. All self-signed certificates are      * considered to be trusted root CA certificates. All the rest are      * considered to be intermediate CA certificates.      * @param verifySelfSignedCert true if a self-signed certificate is accepted, false if not.      * @return the certification chain (if verification is successful)      * @throws CertificateVerificationException - if the certification is not      * successful (e.g. certification path cannot be built or some certificate      * in the chain is expired or CRL checks are failed)      */
+comment|/**      * Attempts to build a certification chain for given certificate and to      * verify it. Relies on a set of root CA certificates and intermediate      * certificates that will be used for building the certification chain. The      * verification process assumes that all self-signed certificates in the set      * are trusted root CA certificates and all other certificates in the set      * are intermediate certificates.      *      * @param cert - certificate for validation      * @param additionalCerts - set of trusted root CA certificates that will be      * used as "trust anchors" and intermediate CA certificates that will be      * used as part of the certification chain. All self-signed certificates are      * considered to be trusted root CA certificates. All the rest are      * considered to be intermediate CA certificates.      * @param verifySelfSignedCert true if a self-signed certificate is accepted, false if not.      * @param signDate the date when the signing took place      * @return the certification chain (if verification is successful)      * @throws CertificateVerificationException - if the certification is not      * successful (e.g. certification path cannot be built or some certificate      * in the chain is expired or CRL checks are failed)      */
 specifier|public
 specifier|static
 name|PKIXCertPathBuilderResult
@@ -261,6 +271,9 @@ name|additionalCerts
 parameter_list|,
 name|boolean
 name|verifySelfSignedCert
+parameter_list|,
+name|Date
+name|signDate
 parameter_list|)
 throws|throws
 name|CertificateVerificationException
@@ -370,6 +383,8 @@ operator|.
 name|verifyCertificateCRLs
 argument_list|(
 name|cert
+argument_list|,
+name|signDate
 argument_list|)
 expr_stmt|;
 comment|// The chain is built and verified. Return it as a result

@@ -115,6 +115,18 @@ name|security
 operator|.
 name|cert
 operator|.
+name|X509CRLEntry
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|cert
+operator|.
 name|X509Certificate
 import|;
 end_import
@@ -126,6 +138,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
 import|;
 end_import
 
@@ -406,7 +428,7 @@ specifier|private
 name|CRLVerifier
 parameter_list|()
 block|{     }
-comment|/**      * Extracts the CRL distribution points from the certificate (if available)      * and checks the certificate revocation status against the CRLs coming from      * the distribution points. Supports HTTP, HTTPS, FTP and LDAP based URLs.      *      * @param cert the certificate to be checked for revocation      * @throws CertificateVerificationException if the certificate is revoked      */
+comment|/**      * Extracts the CRL distribution points from the certificate (if available)      * and checks the certificate revocation status against the CRLs coming from      * the distribution points. Supports HTTP, HTTPS, FTP and LDAP based URLs.      *      * @param cert the certificate to be checked for revocation      * @param signDate the date when the signing took place      * @throws CertificateVerificationException if the certificate is revoked      */
 specifier|public
 specifier|static
 name|void
@@ -414,6 +436,9 @@ name|verifyCertificateCRLs
 parameter_list|(
 name|X509Certificate
 name|cert
+parameter_list|,
+name|Date
+name|signDate
 parameter_list|)
 throws|throws
 name|CertificateVerificationException
@@ -456,23 +481,52 @@ argument_list|(
 name|crlDistributionPointsURL
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+comment|//TODO verify CRL, see wikipedia:
+comment|// "To validate a specific CRL prior to relying on it,
+comment|//  the certificate of its corresponding CA is needed"
+name|X509CRLEntry
+name|revokedCRLEntry
+init|=
 name|crl
 operator|.
-name|isRevoked
+name|getRevokedCertificate
 argument_list|(
 name|cert
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|revokedCRLEntry
+operator|!=
+literal|null
+operator|&&
+name|revokedCRLEntry
+operator|.
+name|getRevocationDate
+argument_list|()
+operator|.
+name|compareTo
+argument_list|(
+name|signDate
+argument_list|)
+operator|<=
+literal|0
 condition|)
 block|{
 throw|throw
 operator|new
 name|CertificateVerificationException
 argument_list|(
-literal|"The certificate is revoked by CRL: "
+literal|"The certificate was revoked by CRL "
 operator|+
 name|crlDistributionPointsURL
+operator|+
+literal|" on "
+operator|+
+name|revokedCRLEntry
+operator|.
+name|getRevocationDate
+argument_list|()
 argument_list|)
 throw|;
 block|}

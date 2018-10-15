@@ -654,7 +654,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will read a document from the filesystem, decrypt it and do something with the signature.  *  * @author Ben Litchfield  */
+comment|/**  * This will get the signature(s) from the document, do some verifications and  * show the signature(s) and the certificates. This is a complex topic - the  * code here is an example and not a production-ready solution.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
@@ -1584,6 +1584,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+comment|//TODO NPE risk
 name|certFromSignedData
 operator|.
 name|checkValidity
@@ -1782,6 +1783,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|//TODO NPE risk (signDate parameter)
 name|CertificateVerifier
 operator|.
 name|verifyCertificate
@@ -1791,6 +1793,14 @@ argument_list|,
 name|additionalCerts
 argument_list|,
 literal|true
+argument_list|,
+name|sig
+operator|.
+name|getSignDate
+argument_list|()
+operator|.
+name|getTime
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
