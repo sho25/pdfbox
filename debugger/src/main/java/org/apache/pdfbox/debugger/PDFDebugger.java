@@ -5031,6 +5031,8 @@ init|=
 operator|new
 name|FlagBitsPane
 argument_list|(
+name|document
+argument_list|,
 operator|(
 name|COSDictionary
 operator|)

@@ -55,6 +55,20 @@ name|COSName
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|PDDocument
+import|;
+end_import
+
 begin_comment
 comment|/**  * @author Khyrul Bashar  *  * A class that displays flag bits in a table in detail.  */
 end_comment
@@ -68,10 +82,18 @@ specifier|private
 name|FlagBitsPaneView
 name|view
 decl_stmt|;
+specifier|private
+specifier|final
+name|PDDocument
+name|document
+decl_stmt|;
 comment|/**      * Constructor.      * @param dictionary COSDictionary instance.      * @param flagType COSName instance.      */
 specifier|public
 name|FlagBitsPane
 parameter_list|(
+name|PDDocument
+name|document
+parameter_list|,
 specifier|final
 name|COSDictionary
 name|dictionary
@@ -80,6 +102,12 @@ name|COSName
 name|flagType
 parameter_list|)
 block|{
+name|this
+operator|.
+name|document
+operator|=
+name|document
+expr_stmt|;
 name|createPane
 argument_list|(
 name|dictionary
@@ -356,6 +384,8 @@ operator|=
 operator|new
 name|SigFlag
 argument_list|(
+name|document
+argument_list|,
 name|dictionary
 argument_list|)
 expr_stmt|;
