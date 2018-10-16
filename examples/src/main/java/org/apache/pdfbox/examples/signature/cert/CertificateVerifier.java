@@ -374,6 +374,8 @@ argument_list|,
 name|trustedRootCerts
 argument_list|,
 name|intermediateCerts
+argument_list|,
+name|signDate
 argument_list|)
 decl_stmt|;
 comment|// Check whether the certificate is revoked by the CRL
@@ -385,6 +387,8 @@ argument_list|(
 name|cert
 argument_list|,
 name|signDate
+argument_list|,
+name|additionalCerts
 argument_list|)
 expr_stmt|;
 comment|// The chain is built and verified. Return it as a result
@@ -502,7 +506,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Attempts to build a certification chain for given certificate and to      * verify it. Relies on a set of root CA certificates (trust anchors) and a      * set of intermediate certificates (to be used as part of the chain).      *      * @param cert - certificate for validation      * @param trustedRootCerts - set of trusted root CA certificates      * @param intermediateCerts - set of intermediate certificates      * @return the certification chain (if verification is successful)      * @throws GeneralSecurityException - if the verification is not successful      * (e.g. certification path cannot be built or some certificate in the chain      * is expired)      */
+comment|/**      * Attempts to build a certification chain for given certificate and to      * verify it. Relies on a set of root CA certificates (trust anchors) and a      * set of intermediate certificates (to be used as part of the chain).      *      * @param cert - certificate for validation      * @param trustedRootCerts - set of trusted root CA certificates      * @param intermediateCerts - set of intermediate certificates      * @param signDate the date when the signing took place      * @return the certification chain (if verification is successful)      * @throws GeneralSecurityException - if the verification is not successful      * (e.g. certification path cannot be built or some certificate in the chain      * is expired)      */
 specifier|private
 specifier|static
 name|PKIXCertPathBuilderResult
@@ -522,6 +526,9 @@ argument_list|<
 name|X509Certificate
 argument_list|>
 name|intermediateCerts
+parameter_list|,
+name|Date
+name|signDate
 parameter_list|)
 throws|throws
 name|GeneralSecurityException
@@ -597,6 +604,13 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|pkixParams
+operator|.
+name|setDate
+argument_list|(
+name|signDate
+argument_list|)
+expr_stmt|;
 comment|// Specify a list of intermediate certificates
 name|CertStore
 name|intermediateCertStore
@@ -622,6 +636,10 @@ name|intermediateCertStore
 argument_list|)
 expr_stmt|;
 comment|// Build and verify the certification chain
+comment|// If this doesn't work although it should, it can be debugged
+comment|// by starting java with -Djava.security.debug=certpath
+comment|// see also
+comment|// https://docs.oracle.com/javase/8/docs/technotes/guides/security/troubleshooting-security.html
 name|CertPathBuilder
 name|builder
 init|=

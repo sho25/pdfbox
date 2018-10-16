@@ -65,6 +65,16 @@ name|java
 operator|.
 name|security
 operator|.
+name|PublicKey
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
 name|cert
 operator|.
 name|CRLException
@@ -168,6 +178,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -428,7 +448,7 @@ specifier|private
 name|CRLVerifier
 parameter_list|()
 block|{     }
-comment|/**      * Extracts the CRL distribution points from the certificate (if available)      * and checks the certificate revocation status against the CRLs coming from      * the distribution points. Supports HTTP, HTTPS, FTP and LDAP based URLs.      *      * @param cert the certificate to be checked for revocation      * @param signDate the date when the signing took place      * @throws CertificateVerificationException if the certificate is revoked      */
+comment|/**      * Extracts the CRL distribution points from the certificate (if available)      * and checks the certificate revocation status against the CRLs coming from      * the distribution points. Supports HTTP, HTTPS, FTP and LDAP based URLs.      *      * @param cert the certificate to be checked for revocation      * @param signDate the date when the signing took place      * @param additionalCerts set of trusted root CA certificates that will be      * used as "trust anchors" and intermediate CA certificates that will be      * used as part of the certification chain.      * @throws CertificateVerificationException if the certificate is revoked      */
 specifier|public
 specifier|static
 name|void
@@ -439,6 +459,12 @@ name|cert
 parameter_list|,
 name|Date
 name|signDate
+parameter_list|,
+name|Set
+argument_list|<
+name|X509Certificate
+argument_list|>
+name|additionalCerts
 parameter_list|)
 throws|throws
 name|CertificateVerificationException
@@ -481,9 +507,80 @@ argument_list|(
 name|crlDistributionPointsURL
 argument_list|)
 decl_stmt|;
-comment|//TODO verify CRL, see wikipedia:
+comment|// Verify CRL, see wikipedia:
 comment|// "To validate a specific CRL prior to relying on it,
 comment|//  the certificate of its corresponding CA is needed"
+name|PublicKey
+name|issuerKey
+init|=
+literal|null
+decl_stmt|;
+for|for
+control|(
+name|X509Certificate
+name|additionalCert
+range|:
+name|additionalCerts
+control|)
+block|{
+if|if
+condition|(
+name|crl
+operator|.
+name|getIssuerX500Principal
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|additionalCert
+operator|.
+name|getSubjectX500Principal
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|issuerKey
+operator|=
+name|additionalCert
+operator|.
+name|getPublicKey
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|issuerKey
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|CertificateVerificationException
+argument_list|(
+literal|"Certificate for "
+operator|+
+name|crl
+operator|.
+name|getIssuerX500Principal
+argument_list|()
+operator|+
+literal|"not found in certificate chain, so the CRL at "
+operator|+
+name|crlDistributionPointsURL
+operator|+
+literal|" could not be verified"
+argument_list|)
+throw|;
+block|}
+name|crl
+operator|.
+name|verify
+argument_list|(
+name|issuerKey
+argument_list|)
+expr_stmt|;
 name|X509CRLEntry
 name|revokedCRLEntry
 init|=
