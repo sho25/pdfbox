@@ -378,6 +378,13 @@ argument_list|,
 name|signDate
 argument_list|)
 decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Certification chain verified successfully"
+argument_list|)
+expr_stmt|;
 comment|// Check whether the certificate is revoked by the CRL
 comment|// given in its CRL distribution point extension
 name|CRLVerifier
