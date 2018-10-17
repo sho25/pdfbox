@@ -1385,7 +1385,8 @@ operator|+
 name|certs
 argument_list|)
 expr_stmt|;
-comment|//TODO verify signature
+comment|// to verify signature, see code at
+comment|// https://stackoverflow.com/questions/43383859/
 break|break;
 block|}
 case|case
