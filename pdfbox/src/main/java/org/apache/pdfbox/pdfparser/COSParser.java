@@ -11118,12 +11118,15 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
 name|dictionaryObject
 operator|.
 name|getObject
 argument_list|()
-operator|==
-literal|null
+operator|instanceof
+name|COSDictionary
+operator|)
 condition|)
 block|{
 comment|// we can't be lenient here, this is called by prepareDecryption()
@@ -11132,11 +11135,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Dictionary object "
-operator|+
-name|dictionaryObject
-operator|+
-literal|" is null at offset "
+literal|"Dictionary object expected at offset "
 operator|+
 name|source
 operator|.
