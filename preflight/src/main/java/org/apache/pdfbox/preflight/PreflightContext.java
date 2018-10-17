@@ -384,7 +384,7 @@ block|}
 comment|/**      *       * @return The datasource of the pdf document      */
 specifier|public
 name|DataSource
-name|getSource
+name|getDataSource
 parameter_list|()
 block|{
 return|return
