@@ -1384,7 +1384,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Expected trailer object at position: "
+literal|"Expected trailer object at offset "
 operator|+
 name|source
 operator|.
@@ -9725,7 +9725,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Expected trailer object at position "
+literal|"Expected trailer object at offset "
 operator|+
 name|trailerOffset
 operator|+
@@ -11116,6 +11116,35 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|dictionaryObject
+operator|.
+name|getObject
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// we can't be lenient here, this is called by prepareDecryption()
+comment|// to get the encryption directory
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Dictionary object "
+operator|+
+name|dictionaryObject
+operator|+
+literal|" is null at offset "
+operator|+
+name|source
+operator|.
+name|getPosition
+argument_list|()
+argument_list|)
+throw|;
+block|}
 name|COSDictionary
 name|dictionary
 init|=
