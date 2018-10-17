@@ -1206,7 +1206,6 @@ argument_list|,
 name|sig
 argument_list|)
 expr_stmt|;
-comment|//TODO check certificate chain, revocation lists, timestamp...
 break|break;
 case|case
 literal|"adbe.pkcs7.sha1"
@@ -1292,7 +1291,6 @@ argument_list|,
 name|sig
 argument_list|)
 expr_stmt|;
-comment|//TODO check certificate chain, revocation lists, timestamp...
 break|break;
 block|}
 case|case
@@ -1996,7 +1994,16 @@ expr_stmt|;
 block|}
 try|try
 block|{
-comment|//TODO NPE risk
+if|if
+condition|(
+name|sig
+operator|.
+name|getSignDate
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|certFromSignedData
 operator|.
 name|checkValidity
@@ -2019,6 +2026,19 @@ argument_list|(
 literal|"Certificate valid at signing time"
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Certificate cannot be verified without signing time"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2203,7 +2223,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|//TODO NPE risk (signDate parameter)
+if|if
+condition|(
+name|sig
+operator|.
+name|getSignDate
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|CertificateVerifier
 operator|.
 name|verifyCertificate
@@ -2223,6 +2252,19 @@ name|getTime
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Certificate cannot be verified without signing time"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 comment|// for later use: get all root certificates. Will be used to check
