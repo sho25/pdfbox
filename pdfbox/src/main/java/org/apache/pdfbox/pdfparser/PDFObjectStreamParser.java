@@ -229,6 +229,22 @@ argument_list|(
 literal|"N"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|numberOfObjects
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"/N entry missing in object stream"
+argument_list|)
+throw|;
+block|}
 name|List
 argument_list|<
 name|Long
