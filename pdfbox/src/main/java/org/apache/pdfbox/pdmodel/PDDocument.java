@@ -1283,7 +1283,7 @@ name|options
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a signature to be created using the instance of given interface.      *       * @param sigObject is the PDSignatureField model      * @param signatureInterface is an interface which provides signing capabilities      * @throws IOException if there is an error creating required fields      */
+comment|/**      * Add a signature to be created using the instance of given interface.      *       * @param sigObject is the PDSignatureField model      * @param signatureInterface is an interface whose implementation provides      * signing capabilities. Can be null if external signing if used.      * @throws IOException if there is an error creating required fields      */
 specifier|public
 name|void
 name|addSignature
@@ -1309,7 +1309,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add a signature to the document. If the 0-based page number in the options      * parameter is smaller than 0 or larger than max, the nearest valid page number will be used      * (i.e. 0 or max) and no exception will be thrown.      *      * @param sigObject is the PDSignatureField model      * @param signatureInterface is an interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      */
+comment|/**      * This will add a signature to the document. If the 0-based page number in the options      * parameter is smaller than 0 or larger than max, the nearest valid page number will be used      * (i.e. 0 or max) and no exception will be thrown.      *      * @param sigObject is the PDSignatureField model      * @param signatureInterface is an interface whose implementation provides      * signing capabilities. Can be null if external signing if used.      * @param options signature options      * @throws IOException if there is an error creating required fields      */
 specifier|public
 name|void
 name|addSignature
@@ -2593,7 +2593,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add a list of signature fields to the document.      *       * @param sigFields are the PDSignatureFields that should be added to the document      * @param signatureInterface is a interface which provides signing capabilities      * @param options signature options      * @throws IOException if there is an error creating required fields      */
+comment|/**      * This will add a list of signature fields to the document.      *       * @param sigFields are the PDSignatureFields that should be added to the      * document      * @param signatureInterface is an interface whose implementation provides      * signing capabilities. Can be null if external signing if used.      * @param options signature options      * @throws IOException if there is an error creating required fields      */
 specifier|public
 name|void
 name|addSignatureField
