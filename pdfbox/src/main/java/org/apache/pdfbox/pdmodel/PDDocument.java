@@ -866,7 +866,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * avoid concurrency issues with PDDeviceRGB and deadlock in COSNumber/COSInteger      */
+comment|/**      * avoid concurrency issues with PDDeviceRGB      */
 static|static
 block|{
 try|try
