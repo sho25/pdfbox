@@ -1245,7 +1245,7 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add parameters of signature to be created externally using default signature options. See      * {@link #saveIncrementalForExternalSigning(OutputStream)} method description on external      * signature creation scenario details.      *<p>      * Only one signature may be added at in a document. To sign several times,      * load document, add signature, save incremental and close again.      *      * @param sigObject is the PDSignatureField model      * @throws IOException if there is an error creating required fields      * @throws IllegalStateException if one attempts to add several signature      * fields.      */
+comment|/**      * Add parameters of signature to be created externally using default signature options. See      * {@link #saveIncrementalForExternalSigning(OutputStream)} method description on external      * signature creation scenario details.      *<p>      * Only one signature may be added in a document. To sign several times,      * load document, add signature, save incremental and close again.      *      * @param sigObject is the PDSignatureField model      * @throws IOException if there is an error creating required fields      * @throws IllegalStateException if one attempts to add several signature      * fields.      */
 specifier|public
 name|void
 name|addSignature
@@ -1266,7 +1266,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add parameters of signature to be created externally. See      * {@link #saveIncrementalForExternalSigning(OutputStream)} method description on external      * signature creation scenario details.      *<p>      * Only one signature may be added at in a document. To sign several times,      * load document, add signature, save incremental and close again.      *      * @param sigObject is the PDSignatureField model      * @param options signature options      * @throws IOException if there is an error creating required fields      * @throws IllegalStateException if one attempts to add several signature      * fields.      */
+comment|/**      * Add parameters of signature to be created externally. See      * {@link #saveIncrementalForExternalSigning(OutputStream)} method description on external      * signature creation scenario details.      *<p>      * Only one signature may be added in a document. To sign several times,      * load document, add signature, save incremental and close again.      *      * @param sigObject is the PDSignatureField model      * @param options signature options      * @throws IOException if there is an error creating required fields      * @throws IllegalStateException if one attempts to add several signature      * fields.      */
 specifier|public
 name|void
 name|addSignature
@@ -1290,7 +1290,7 @@ name|options
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a signature to be created using the instance of given interface.      *<p>      * Only one signature may be added at in a document. To sign several times,      * load document, add signature, save incremental and close again.      *       * @param sigObject is the PDSignatureField model      * @param signatureInterface is an interface whose implementation provides      * signing capabilities. Can be null if external signing if used.      * @throws IOException if there is an error creating required fields      * @throws IllegalStateException if one attempts to add several signature      * fields.      */
+comment|/**      * Add a signature to be created using the instance of given interface.      *<p>      * Only one signature may be added in a document. To sign several times,      * load document, add signature, save incremental and close again.      *       * @param sigObject is the PDSignatureField model      * @param signatureInterface is an interface whose implementation provides      * signing capabilities. Can be null if external signing if used.      * @throws IOException if there is an error creating required fields      * @throws IllegalStateException if one attempts to add several signature      * fields.      */
 specifier|public
 name|void
 name|addSignature
@@ -1316,7 +1316,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add a signature to the document. If the 0-based page number in the options      * parameter is smaller than 0 or larger than max, the nearest valid page number will be used      * (i.e. 0 or max) and no exception will be thrown.      *<p>      * Only one signature may be added at in a document. To sign several times,      * load document, add signature, save incremental and close again.      *      * @param sigObject is the PDSignatureField model      * @param signatureInterface is an interface whose implementation provides      * signing capabilities. Can be null if external signing if used.      * @param options signature options      * @throws IOException if there is an error creating required fields      * @throws IllegalStateException if one attempts to add several signature      * fields.      */
+comment|/**      * This will add a signature to the document. If the 0-based page number in the options      * parameter is smaller than 0 or larger than max, the nearest valid page number will be used      * (i.e. 0 or max) and no exception will be thrown.      *<p>      * Only one signature may be added in a document. To sign several times,      * load document, add signature, save incremental and close again.      *      * @param sigObject is the PDSignatureField model      * @param signatureInterface is an interface whose implementation provides      * signing capabilities. Can be null if external signing if used.      * @param options signature options      * @throws IOException if there is an error creating required fields      * @throws IllegalStateException if one attempts to add several signature      * fields.      */
 specifier|public
 name|void
 name|addSignature
@@ -1342,7 +1342,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Only one signature may be added at in a document"
+literal|"Only one signature may be added in a document"
 argument_list|)
 throw|;
 block|}
