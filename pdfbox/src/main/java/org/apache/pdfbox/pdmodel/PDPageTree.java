@@ -270,7 +270,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"root cannot be null"
+literal|"page tree root cannot be null"
 argument_list|)
 throw|;
 block|}
