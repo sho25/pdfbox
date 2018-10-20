@@ -8986,7 +8986,7 @@ return|return
 name|dictionary
 return|;
 block|}
-comment|/**      * Check if all entries of the pages dictionary are present. Those which can't be dereferenced are removed.      *       * @param root the root dictionary of the pdf      */
+comment|/**      * Check if all entries of the pages dictionary are present. Those which can't be dereferenced are removed.      *       * @param root the root dictionary of the pdf      * @throws java.io.IOException if the page tree root is null      */
 specifier|protected
 name|void
 name|checkPages
@@ -8994,6 +8994,8 @@ parameter_list|(
 name|COSDictionary
 name|root
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -9039,6 +9041,45 @@ argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|pages
+operator|instanceof
+name|COSObject
+condition|)
+block|{
+name|pages
+operator|=
+operator|(
+operator|(
+name|COSObject
+operator|)
+name|pages
+operator|)
+operator|.
+name|getObject
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|pages
+operator|==
+literal|null
+operator|||
+name|pages
+operator|instanceof
+name|COSNull
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Page tree root is null"
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
