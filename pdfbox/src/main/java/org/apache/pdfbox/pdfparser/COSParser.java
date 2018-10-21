@@ -7975,6 +7975,8 @@ name|i
 operator|++
 control|)
 block|{
+try|try
+block|{
 name|long
 name|objNumber
 init|=
@@ -8039,6 +8041,23 @@ argument_list|(
 name|objKey
 argument_list|,
 operator|-
+name|stmObjNumber
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|exception
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Skipped corrupt object key in stream: "
+operator|+
 name|stmObjNumber
 argument_list|)
 expr_stmt|;
