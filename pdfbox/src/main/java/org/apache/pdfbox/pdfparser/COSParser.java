@@ -9041,6 +9041,8 @@ block|}
 block|}
 if|if
 condition|(
+operator|!
+operator|(
 name|root
 operator|.
 name|getDictionaryObject
@@ -9049,15 +9051,16 @@ name|COSName
 operator|.
 name|PAGES
 argument_list|)
-operator|==
-literal|null
+operator|instanceof
+name|COSDictionary
+operator|)
 condition|)
 block|{
 throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Page tree root is null"
+literal|"Page tree root must be a dictionary"
 argument_list|)
 throw|;
 block|}
