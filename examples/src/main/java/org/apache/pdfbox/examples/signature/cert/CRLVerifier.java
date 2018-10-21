@@ -499,6 +499,7 @@ operator|+
 name|crlDistributionPointsURL
 argument_list|)
 expr_stmt|;
+comment|//TODO catch connection errors and try the next one
 name|X509CRL
 name|crl
 init|=
@@ -627,6 +628,14 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+comment|// https://tools.ietf.org/html/rfc5280#section-4.2.1.13
+comment|// If the DistributionPointName contains multiple values,
+comment|// each name describes a different mechanism to obtain the same
+comment|// CRL.  For example, the same CRL could be available for
+comment|// retrieval through both LDAP and HTTP.
+comment|//
+comment|//TODO => thus no need to check several protocols
+return|return;
 block|}
 block|}
 catch|catch

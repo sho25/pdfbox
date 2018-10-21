@@ -398,6 +398,9 @@ argument_list|,
 name|additionalCerts
 argument_list|)
 expr_stmt|;
+comment|//TODO OCSP might be better, and would be faster too
+comment|// use existing code from Alexis Suter
+comment|// in org.apache.pdfbox.examples.signature.validation ?
 comment|// The chain is built and verified. Return it as a result
 return|return
 name|verifiedCertChain
