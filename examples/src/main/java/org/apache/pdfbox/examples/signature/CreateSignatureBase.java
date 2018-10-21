@@ -436,6 +436,16 @@ operator|.
 name|checkValidity
 argument_list|()
 expr_stmt|;
+name|SigUtils
+operator|.
+name|checkCertificateUsage
+argument_list|(
+operator|(
+name|X509Certificate
+operator|)
+name|cert
+argument_list|)
+expr_stmt|;
 block|}
 break|break;
 block|}
