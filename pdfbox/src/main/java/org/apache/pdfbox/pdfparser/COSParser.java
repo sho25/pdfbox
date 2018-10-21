@@ -10865,12 +10865,9 @@ comment|// parse catalog or root object
 name|COSObject
 name|root
 init|=
-operator|(
-name|COSObject
-operator|)
 name|trailer
 operator|.
-name|getItem
+name|getCOSObject
 argument_list|(
 name|COSName
 operator|.
