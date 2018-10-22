@@ -1368,13 +1368,14 @@ condition|)
 block|{
 comment|// xref table and trailer
 comment|// use existing parser to parse xref table
+if|if
+condition|(
+operator|!
 name|parseXrefTable
 argument_list|(
 name|prev
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
+operator|||
 operator|!
 name|parseTrailer
 argument_list|()
@@ -10442,12 +10443,20 @@ operator|+
 name|currentLine
 argument_list|)
 expr_stmt|;
-break|break;
+return|return
+literal|false
+return|;
 block|}
 comment|// first obj id
 name|long
 name|currObjID
 init|=
+literal|0
+decl_stmt|;
+try|try
+block|{
+name|currObjID
+operator|=
 name|Long
 operator|.
 name|parseLong
@@ -10457,11 +10466,37 @@ index|[
 literal|0
 index|]
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|exception
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"XRefTable: invalid ID for the first object: "
+operator|+
+name|currentLine
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 comment|// the number of objects in the xref table
 name|int
 name|count
 init|=
+literal|0
+decl_stmt|;
+try|try
+block|{
+name|count
+operator|=
 name|Integer
 operator|.
 name|parseInt
@@ -10471,7 +10506,27 @@ index|[
 literal|1
 index|]
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|exception
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"XRefTable: invalid number of objects: "
+operator|+
+name|currentLine
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 name|skipSpaces
 argument_list|()
 expr_stmt|;
