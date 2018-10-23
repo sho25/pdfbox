@@ -707,11 +707,24 @@ operator|instanceof
 name|RevokedStatus
 condition|)
 block|{
+name|RevokedStatus
+name|revokedStatus
+init|=
+operator|(
+name|RevokedStatus
+operator|)
+name|status
+decl_stmt|;
 throw|throw
 operator|new
 name|RevokedCertificateException
 argument_list|(
-literal|"OCSP: Certificate is revoked."
+literal|"OCSP: Certificate is revoked since "
+operator|+
+name|revokedStatus
+operator|.
+name|getRevocationTime
+argument_list|()
 argument_list|)
 throw|;
 block|}
