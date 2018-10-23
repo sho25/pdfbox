@@ -725,6 +725,11 @@ name|revokedStatus
 operator|.
 name|getRevocationTime
 argument_list|()
+argument_list|,
+name|revokedStatus
+operator|.
+name|getRevocationTime
+argument_list|()
 argument_list|)
 throw|;
 block|}
