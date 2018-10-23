@@ -479,6 +479,8 @@ name|MAX_CERTIFICATE_CHAIN_DEPTH
 init|=
 literal|5
 decl_stmt|;
+comment|//TODO certificateStore name misleading, this is a map.
+comment|// even more confusing: there are also "certificatesStore" variables that are a Store
 specifier|private
 specifier|final
 name|Map
@@ -1493,7 +1495,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the X509Certificate out of the X509CertificateHolder      *       * @param certificateHolder to get the certificate from      * @return a X509Certificate or<code>null</code> when there was an Error with the Certificate      * @throws CertificateProccessingException on failed conversion from X509CertificateHolder to X509Certificate      */
+comment|/**      * Gets the X509Certificate out of the X509CertificateHolder and add it to      * the certificateStore map.      *      * @param certificateHolder to get the certificate from      * @return a X509Certificate or<code>null</code> when there was an Error with the Certificate      * @throws CertificateProccessingException on failed conversion from X509CertificateHolder to X509Certificate      */
 specifier|private
 name|X509Certificate
 name|getCertFromHolder
@@ -1504,6 +1506,7 @@ parameter_list|)
 throws|throws
 name|CertificateProccessingException
 block|{
+comment|//TODO getCertFromHolder violates "do one thing" rule (adds to the map and returns a certificate)
 if|if
 condition|(
 operator|!
