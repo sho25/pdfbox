@@ -69,6 +69,7 @@ implements|implements
 name|DataSource
 block|{
 specifier|private
+specifier|final
 name|File
 name|file
 decl_stmt|;

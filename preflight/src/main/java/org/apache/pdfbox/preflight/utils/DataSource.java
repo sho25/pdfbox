@@ -46,14 +46,12 @@ specifier|public
 interface|interface
 name|DataSource
 block|{
-specifier|public
 name|InputStream
 name|getInputStream
 parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-specifier|public
 name|String
 name|getName
 parameter_list|()
