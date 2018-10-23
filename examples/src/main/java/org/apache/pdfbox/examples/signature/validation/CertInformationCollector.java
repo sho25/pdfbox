@@ -329,6 +329,20 @@ name|org
 operator|.
 name|bouncycastle
 operator|.
+name|asn1
+operator|.
+name|x509
+operator|.
+name|Extension
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
 name|cert
 operator|.
 name|X509CertificateHolder
@@ -456,30 +470,6 @@ name|CertInformationCollector
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-comment|// As described in https://tools.ietf.org/html/rfc3280.html#section-4.2.2.1
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|ID_PE_AUTHORITYINFOACCESS
-init|=
-literal|"1.3.6.1.5.5.7.1.1"
-decl_stmt|;
-comment|// As described in https://tools.ietf.org/html/rfc3280.html#section-4.2.1.14
-comment|// Disable false Sonar warning for "Hardcoded IP Address ..."
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"squid:S1313"
-argument_list|)
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|ID_CE_CRLDISTRIBUTIONPOINTS
-init|=
-literal|"2.5.29.31"
 decl_stmt|;
 specifier|private
 specifier|static
@@ -1126,6 +1116,7 @@ operator|=
 name|certificate
 expr_stmt|;
 comment|// Certificate Authority Information Access
+comment|// As described in https://tools.ietf.org/html/rfc3280.html#section-4.2.2.1
 name|byte
 index|[]
 name|authorityExtensionValue
@@ -1134,7 +1125,12 @@ name|certificate
 operator|.
 name|getExtensionValue
 argument_list|(
-name|ID_PE_AUTHORITYINFOACCESS
+name|Extension
+operator|.
+name|authorityInfoAccess
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1171,6 +1167,7 @@ name|maxDepth
 argument_list|)
 expr_stmt|;
 block|}
+comment|// As described in https://tools.ietf.org/html/rfc3280.html#section-4.2.1.14
 name|byte
 index|[]
 name|crlExtensionValue
@@ -1179,7 +1176,12 @@ name|certificate
 operator|.
 name|getExtensionValue
 argument_list|(
-name|ID_CE_CRLDISTRIBUTIONPOINTS
+name|Extension
+operator|.
+name|cRLDistributionPoints
+operator|.
+name|getId
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
