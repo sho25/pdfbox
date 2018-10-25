@@ -1415,11 +1415,9 @@ argument_list|(
 name|certId
 argument_list|)
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"Nonce: "
 operator|+
