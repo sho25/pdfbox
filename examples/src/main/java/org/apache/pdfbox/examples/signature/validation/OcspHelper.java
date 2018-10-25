@@ -601,7 +601,7 @@ operator|=
 name|ocspUrl
 expr_stmt|;
 block|}
-comment|/**      * Performs and verifies the OCSP-Request      *      * @return the OCSPResp, when the request was successful, else a corresponding exception will be      * thrown.      * @throws IOException      * @throws OCSPException      * @throws RevokedCertificateException      */
+comment|/**      * Performs and verifies the OCSP-Request      *      * @return the OCSPResp, when the request was successful, else a corresponding exception will be      * thrown. Never returns null.      * @throws IOException      * @throws OCSPException      * @throws RevokedCertificateException      */
 specifier|public
 name|OCSPResp
 name|getResponseOcsp
