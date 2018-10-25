@@ -7816,6 +7816,12 @@ decl_stmt|;
 comment|// skip spaces
 while|while
 condition|(
+name|start
+operator|<
+name|numbersBytes
+operator|.
+name|length
+operator|&&
 name|numbersBytes
 index|[
 name|start
