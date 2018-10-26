@@ -628,6 +628,43 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+elseif|else
+if|if
+condition|(
+name|revokedCRLEntry
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"The certificate was revoked after signing by CRL "
+operator|+
+name|crlDistributionPointsURL
+operator|+
+literal|" on "
+operator|+
+name|revokedCRLEntry
+operator|.
+name|getRevocationDate
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"The certificate was not revoked by CRL "
+operator|+
+name|crlDistributionPointsURL
+argument_list|)
+expr_stmt|;
+block|}
 comment|// https://tools.ietf.org/html/rfc5280#section-4.2.1.13
 comment|// If the DistributionPointName contains multiple values,
 comment|// each name describes a different mechanism to obtain the same
