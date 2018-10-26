@@ -1199,7 +1199,12 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"OCSP check successful: certificate was revoked, but after signing"
+literal|"OCSP check successful: The certificate was revoked after signing on "
+operator|+
+name|ex
+operator|.
+name|getRevocationTime
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
