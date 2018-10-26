@@ -1107,11 +1107,9 @@ name|statusInfo
 operator|=
 literal|"INTERNAL_ERROR"
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"An internal error occurred in the OCSP Server!"
 argument_list|)
@@ -1122,15 +1120,18 @@ name|OCSPResponseStatus
 operator|.
 name|MALFORMED_REQUEST
 case|:
+comment|// This can also happen if the nonce extension is not supported.
+comment|// The nonce extension is meant to prevent replay attacks.
+comment|// Once could argue that a replay attack is less likely in document validating
+comment|// than in ssl-certificate validating, so decide for yourself to remove
+comment|// the nonce submission (and the check).
 name|statusInfo
 operator|=
 literal|"MALFORMED_REQUEST"
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"Your request did not fit the RFC 2560 syntax!"
 argument_list|)
@@ -1145,11 +1146,9 @@ name|statusInfo
 operator|=
 literal|"SIG_REQUIRED"
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"Your request was not signed!"
 argument_list|)
@@ -1164,11 +1163,9 @@ name|statusInfo
 operator|=
 literal|"TRY_LATER"
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"The server was too busy to answer you!"
 argument_list|)
@@ -1183,11 +1180,9 @@ name|statusInfo
 operator|=
 literal|"UNAUTHORIZED"
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"The server could not authenticate you!"
 argument_list|)
@@ -1204,11 +1199,9 @@ name|statusInfo
 operator|=
 literal|"UNKNOWN"
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|err
-operator|.
-name|println
+name|error
 argument_list|(
 literal|"Unknown OCSPResponse status code! "
 operator|+
@@ -1237,9 +1230,9 @@ throw|throw
 operator|new
 name|OCSPException
 argument_list|(
-name|statusInfo
+literal|"OCSP response unsuccessful, status: "
 operator|+
-literal|"OCSP response unsuccessful! "
+name|statusInfo
 argument_list|)
 throw|;
 block|}
