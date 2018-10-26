@@ -774,7 +774,7 @@ throw|throw
 operator|new
 name|OCSPException
 argument_list|(
-literal|"OCSP: Recieved "
+literal|"OCSP: Received "
 operator|+
 name|responses
 operator|.
