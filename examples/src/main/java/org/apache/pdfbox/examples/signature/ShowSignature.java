@@ -793,18 +793,6 @@ name|Store
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|bouncycastle
-operator|.
-name|util
-operator|.
-name|StoreException
-import|;
-end_import
-
 begin_comment
 comment|/**  * This will get the signature(s) from the document, do some verifications and  * show the signature(s) and the certificates. This is a complex topic - the  * code here is an example and not a production-ready solution.  *  * @author Ben Litchfield  */
 end_comment
@@ -1694,7 +1682,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Verify a PKCS7 signature.      *      * @param byteArray the byte sequence that has been signed      * @param contents the /Contents field as a COSString      * @param sig the PDF signature (the /V dictionary)      * @throws CMSException      * @throws StoreException      * @throws OperatorCreationException      * @throws GeneralSecurityException      * @throws CertificateVerificationException      */
+comment|/**      * Verify a PKCS7 signature.      *      * @param byteArray the byte sequence that has been signed      * @param contents the /Contents field as a COSString      * @param sig the PDF signature (the /V dictionary)      * @throws CMSException      * @throws OperatorCreationException      * @throws GeneralSecurityException      * @throws CertificateVerificationException      */
 specifier|private
 name|void
 name|verifyPKCS7
@@ -1711,8 +1699,6 @@ name|sig
 parameter_list|)
 throws|throws
 name|CMSException
-throws|,
-name|StoreException
 throws|,
 name|OperatorCreationException
 throws|,
@@ -2258,8 +2244,6 @@ parameter_list|)
 throws|throws
 name|CertificateVerificationException
 throws|,
-name|StoreException
-throws|,
 name|CertificateException
 block|{
 comment|// Verify certificate chain (new since 10/2018)
@@ -2360,8 +2344,6 @@ throws|throws
 name|TSPException
 throws|,
 name|CertificateException
-throws|,
-name|StoreException
 throws|,
 name|OperatorCreationException
 throws|,
