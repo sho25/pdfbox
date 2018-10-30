@@ -498,9 +498,7 @@ name|trustedRootCerts
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|X509Certificate
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -511,9 +509,7 @@ name|intermediateCerts
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|X509Certificate
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|X509Certificate
@@ -827,9 +823,7 @@ name|trustAnchors
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|TrustAnchor
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
