@@ -83,13 +83,6 @@ specifier|final
 name|ByteArrayOutputStream
 name|data
 decl_stmt|;
-specifier|private
-specifier|final
-name|String
-name|name
-init|=
-literal|null
-decl_stmt|;
 specifier|public
 name|ByteArrayDataSource
 parameter_list|(
@@ -150,9 +143,7 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
-name|name
+literal|null
 return|;
 block|}
 block|}
