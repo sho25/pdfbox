@@ -826,11 +826,7 @@ name|env
 init|=
 operator|new
 name|Hashtable
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|env
@@ -1061,9 +1057,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 block|}
@@ -1144,9 +1138,7 @@ name|crlUrls
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
