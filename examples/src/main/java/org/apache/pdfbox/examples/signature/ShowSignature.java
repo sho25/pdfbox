@@ -2053,6 +2053,9 @@ expr_stmt|;
 name|X509Certificate
 name|tstCert
 init|=
+operator|(
+name|X509Certificate
+operator|)
 name|timeStampToken
 operator|.
 name|getCertificates
