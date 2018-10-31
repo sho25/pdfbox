@@ -90,6 +90,12 @@ specifier|public
 class|class
 name|ExtractTextSimple
 block|{
+specifier|private
+name|ExtractTextSimple
+parameter_list|()
+block|{
+comment|// example class should not be instantiated
+block|}
 comment|/**      * This will print the documents text page by page.      *      * @param args The command line arguments.      *      * @throws IOException If there is an error parsing or extracting the document.      */
 specifier|public
 specifier|static
