@@ -671,7 +671,7 @@ comment|// each name describes a different mechanism to obtain the same
 comment|// CRL.  For example, the same CRL could be available for
 comment|// retrieval through both LDAP and HTTP.
 comment|//
-comment|//TODO => thus no need to check several protocols
+comment|// => thus no need to check several protocols
 return|return;
 block|}
 block|}
