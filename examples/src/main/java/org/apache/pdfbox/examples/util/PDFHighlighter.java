@@ -183,9 +183,6 @@ throws|throws
 name|IOException
 block|{
 name|super
-argument_list|()
-expr_stmt|;
-name|super
 operator|.
 name|setLineSeparator
 argument_list|(
