@@ -534,18 +534,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// if there is no Opt entry an empty List shall be returned
-name|assertEquals
+name|assertTrue
 argument_list|(
 name|checkBox
 operator|.
 name|getExportValues
 argument_list|()
-argument_list|,
-operator|new
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+operator|.
+name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
