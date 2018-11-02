@@ -256,7 +256,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will test the functionality of Radio Buttons in PDFBox.  */
+comment|/**  * This will test the functionality of checkboxes in PDFBox.  */
 end_comment
 
 begin_class
@@ -333,7 +333,7 @@ name|arg
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will test the radio button PDModel.      *      * @throws IOException If there is an error creating the field.      */
+comment|/**      * This will test the checkbox PDModel.      *      * @throws IOException If there is an error creating the field.      */
 specifier|public
 name|void
 name|testCheckboxPDModel
