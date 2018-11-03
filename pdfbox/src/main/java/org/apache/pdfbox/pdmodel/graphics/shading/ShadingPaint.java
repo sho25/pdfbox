@@ -44,7 +44,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is base class for all PDShading-Paints to allow other low level libraries access to the  * shading source data. One user of this interface is the PdfBoxGraphics2D-adapter.  *  * @param<TPDShading> the actual PDShading class.  */
+comment|/**  * This is base class for all PDShading-Paints to allow other low level libraries access to the  * shading source data. One user of this interface is the PdfBoxGraphics2D-adapter.  *  * @param<T> the actual PDShading class.  */
 end_comment
 
 begin_class
@@ -53,7 +53,7 @@ specifier|abstract
 class|class
 name|ShadingPaint
 parameter_list|<
-name|TPDShading
+name|T
 extends|extends
 name|PDShading
 parameter_list|>
@@ -62,7 +62,7 @@ name|Paint
 block|{
 specifier|protected
 specifier|final
-name|TPDShading
+name|T
 name|shading
 decl_stmt|;
 specifier|protected
@@ -72,7 +72,7 @@ name|matrix
 decl_stmt|;
 name|ShadingPaint
 parameter_list|(
-name|TPDShading
+name|T
 name|shading
 parameter_list|,
 name|Matrix
@@ -94,7 +94,7 @@ expr_stmt|;
 block|}
 comment|/**      * @return the PDShading of this paint      */
 specifier|public
-name|TPDShading
+name|T
 name|getShading
 parameter_list|()
 block|{
