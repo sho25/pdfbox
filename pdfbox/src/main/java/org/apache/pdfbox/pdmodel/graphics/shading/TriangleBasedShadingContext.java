@@ -551,6 +551,109 @@ operator|.
 name|height
 argument_list|)
 expr_stmt|;
+comment|//                // https://github.com/mozilla/pdf.js/blob/master/src/display/pattern_helper.js
+comment|//                // drawTriangle
+comment|//                // Very basic Gouraud-shaded triangle rasterization algorithm.
+comment|//                // rev 398e6ac Yury Delendik
+comment|//                float x1 = (float) tri.corner[0].getX();
+comment|//                float y1 = (float) tri.corner[0].getY();
+comment|//                float x2 = (float) tri.corner[1].getX();
+comment|//                float y2 = (float) tri.corner[1].getY();
+comment|//                float x3 = (float) tri.corner[2].getX();
+comment|//                float y3 = (float) tri.corner[2].getY();
+comment|//                float tmpd;
+comment|//                float[] tmpf;
+comment|//                float[] c1 = tri.color[0];
+comment|//                float[] c2 = tri.color[1];
+comment|//                float[] c3 = tri.color[2];
+comment|//                if (y1> y2)
+comment|//                {
+comment|//                    tmpd = x1;
+comment|//                    x1 = x2;
+comment|//                    x2 = tmpd;
+comment|//                    tmpd = y1;
+comment|//                    y1 = y2;
+comment|//                    y2 = tmpd;
+comment|//                    tmpf = c1;
+comment|//                    c1 = c2;
+comment|//                    c2 = tmpf;
+comment|//                }
+comment|//                if (y2> y3)
+comment|//                {
+comment|//                    tmpd = x2;
+comment|//                    x2 = x3;
+comment|//                    x3 = tmpd;
+comment|//                    tmpd = y2;
+comment|//                    y2 = y3;
+comment|//                    y3 = tmpd;
+comment|//                    tmpf = c2;
+comment|//                    c2 = c3;
+comment|//                    c3 = tmpf;
+comment|//                }
+comment|//                if (y1> y2)
+comment|//                {
+comment|//                    tmpd = x1;
+comment|//                    x1 = x2;
+comment|//                    x2 = tmpd;
+comment|//                    tmpd = y1;
+comment|//                    y1 = y2;
+comment|//                    y2 = tmpd;
+comment|//                    tmpf = c1;
+comment|//                    c1 = c2;
+comment|//                    c2 = tmpf;
+comment|//                }
+comment|//                if (y1>= y3)
+comment|//                {
+comment|//                    //TODO needed? we're in degree 3
+comment|//                    continue;
+comment|//                }
+comment|//
+comment|//                float[] ca = new float[numberOfColorComponents];
+comment|//                float[] cb = new float[numberOfColorComponents];
+comment|//                float[] cres = new float[numberOfColorComponents];
+comment|//                for (int y = boundary[2]; y<= boundary[3]; y++)
+comment|//                {
+comment|//                    float k, xa, xb;
+comment|//                    if (y< y2)
+comment|//                    {
+comment|//                        k = y< y1 ? 0 : y1 == y2 ? 1 : (y1 - y) / (y1 - y2);
+comment|//                        xa = x1 - (x1 - x2) * k;
+comment|//                        for (int i = 0; i< numberOfColorComponents; i++)
+comment|//                        {
+comment|//                            ca[i] = c1[i] - (c1[i] - c2[i]) * k;
+comment|//                        }
+comment|//                    }
+comment|//                    else
+comment|//                    {
+comment|//                        k = y> y3 ? 1 : y2 == y3 ? 0 : (y2 - y) / (y2 - y3);
+comment|//                        xa = x2 - (x2 - x3) * k;
+comment|//                        for (int i = 0; i< numberOfColorComponents; i++)
+comment|//                        {
+comment|//                            ca[i] = c2[i] - (c2[i] - c3[i]) * k;
+comment|//                        }
+comment|//                    }
+comment|//                    k = (y< y1 ? 0 : y> y3 ? 1 : (y1 - y) / (y1 - y3));
+comment|//                    xb = x1 - (x1 - x3) * k;
+comment|//                    for (int i = 0; i< numberOfColorComponents; i++)
+comment|//                    {
+comment|//                        cb[i] = c1[i] - (c1[i] - c3[i]) * k;
+comment|//                    }
+comment|//                    int x1r = Math.round(Math.min(xa, xb));
+comment|//                    int x2r = Math.round(Math.max(xa, xb));
+comment|//                    x1r = Math.max(x1r, boundary[0]);
+comment|//                    x2r = Math.min(x2r, boundary[1]);
+comment|//                    float div = xa - xb;
+comment|//                    for (int x = x1r; x<= x2r; ++x)
+comment|//                    {
+comment|//                        k = (xa - x) / div;
+comment|//                        k = k< 0 ? 0 : k> 1 ? 1 : k;
+comment|//                        for (int i = 0; i< numberOfColorComponents; i++)
+comment|//                        {
+comment|//                            cres[i] = ca[i] - (ca[i] - cb[i]) * k;
+comment|//                        }
+comment|//                        map.put(new Point(x, y), evalFunctionAndConvertToRGB(cres));
+comment|//                    }
+comment|//                }
 for|for
 control|(
 name|int
@@ -634,6 +737,34 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|//                if (degree == 3)
+comment|//                {
+comment|//                    // "fatten" triangle by drawing the borders with
+comment|//                    // Bresenham's line algorithm
+comment|//                    // Inspiration: Raph Levien
+comment|//                    // http://bugs.ghostscript.com/show_bug.cgi?id=219588
+comment|//                    Point p0 = new Point((int) Math.round(tri.corner[0].getX()),
+comment|//                              (int) Math.round(tri.corner[0].getY()));
+comment|//                    Point p1 = new Point((int) Math.round(tri.corner[1].getX()),
+comment|//                              (int) Math.round(tri.corner[1].getY()));
+comment|//                    Point p2 = new Point((int) Math.round(tri.corner[2].getX()),
+comment|//                              (int) Math.round(tri.corner[2].getY()));
+comment|//                    Line l1 = new Line(p0, p1, tri.color[0], tri.color[1]);
+comment|//                    Line l2 = new Line(p1, p2, tri.color[1], tri.color[2]);
+comment|//                    Line l3 = new Line(p2, p0, tri.color[2], tri.color[0]);
+comment|//                    for (Point p : l1.linePoints)
+comment|//                    {
+comment|//                        map.put(p, convertToRGB(l1.calcColor(p)));
+comment|//                    }
+comment|//                    for (Point p : l2.linePoints)
+comment|//                    {
+comment|//                        map.put(p, convertToRGB(l2.calcColor(p)));
+comment|//                    }
+comment|//                    for (Point p : l3.linePoints)
+comment|//                    {
+comment|//                        map.put(p, convertToRGB(l3.calcColor(p)));
+comment|//                    }
+comment|//                }
 block|}
 block|}
 block|}
