@@ -376,7 +376,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class allows to import pages as Form XObjects into a PDF file and use them to create  * layers (optional content groups).  *  */
+comment|/**  * This class allows to import pages as Form XObjects into a document and use them to create layers  * (optional content groups). It should used only on loaded documents, not on generated documents  * because these can contain unfinished parts, e.g. font subsetting information.  */
 end_comment
 
 begin_class
