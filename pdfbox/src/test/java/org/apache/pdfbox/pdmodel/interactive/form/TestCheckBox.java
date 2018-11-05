@@ -803,6 +803,16 @@ argument_list|(
 name|fields
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Off"
+argument_list|,
+name|checkBox
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
