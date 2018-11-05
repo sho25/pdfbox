@@ -1536,7 +1536,7 @@ name|CertificateVerifier
 operator|.
 name|isSelfSigned
 argument_list|(
-name|certFromSignedData
+name|cert
 argument_list|)
 condition|)
 block|{
