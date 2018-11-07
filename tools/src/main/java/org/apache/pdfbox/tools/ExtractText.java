@@ -961,20 +961,6 @@ argument_list|(
 name|separateBeads
 argument_list|)
 expr_stmt|;
-name|stripper
-operator|.
-name|setStartPage
-argument_list|(
-name|startPage
-argument_list|)
-expr_stmt|;
-name|stripper
-operator|.
-name|setEndPage
-argument_list|(
-name|endPage
-argument_list|)
-expr_stmt|;
 name|startTime
 operator|=
 name|startProcessing
@@ -999,7 +985,52 @@ name|outputFile
 argument_list|)
 expr_stmt|;
 block|}
+name|endPage
+operator|=
+name|Math
+operator|.
+name|min
+argument_list|(
+name|endPage
+argument_list|,
+name|document
+operator|.
+name|getNumberOfPages
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// Extract text for main document:
+for|for
+control|(
+name|int
+name|p
+init|=
+name|startPage
+init|;
+name|p
+operator|<=
+name|endPage
+condition|;
+operator|++
+name|p
+control|)
+block|{
+try|try
+block|{
+name|stripper
+operator|.
+name|setStartPage
+argument_list|(
+name|p
+argument_list|)
+expr_stmt|;
+name|stripper
+operator|.
+name|setEndPage
+argument_list|(
+name|p
+argument_list|)
+expr_stmt|;
 name|stripper
 operator|.
 name|writeText
@@ -1009,6 +1040,19 @@ argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+comment|//TODO alternatively, log and continue
+throw|throw
+name|ex
+throw|;
+block|}
+block|}
 comment|// ... also for any embedded PDFs:
 name|PDDocumentCatalog
 name|catalog
@@ -1175,6 +1219,40 @@ argument_list|()
 init|;                                         PDDocument subDoc = PDDocument.load(fis)
 block|)
 block|{
+for|for
+control|(
+name|int
+name|p
+init|=
+literal|1
+init|;
+name|p
+operator|<=
+name|subDoc
+operator|.
+name|getNumberOfPages
+argument_list|()
+condition|;
+operator|++
+name|p
+control|)
+block|{
+try|try
+block|{
+name|stripper
+operator|.
+name|setStartPage
+argument_list|(
+name|p
+argument_list|)
+expr_stmt|;
+name|stripper
+operator|.
+name|setEndPage
+argument_list|(
+name|p
+argument_list|)
+expr_stmt|;
 name|stripper
 operator|.
 name|writeText
@@ -1184,6 +1262,19 @@ argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+comment|//TODO alternatively, log and continue
+throw|throw
+name|ex
+throw|;
+block|}
+block|}
 block|}
 block|}
 block|}
@@ -1332,23 +1423,23 @@ literal|"  -password<password>        : Password to decrypt document\n"
 operator|+
 literal|"  -encoding<output encoding> : UTF-8 (default) or ISO-8859-1, UTF-16BE, UTF-16LE, etc.\n"
 operator|+
-literal|"  -console                     : Send text to console instead of file\n"
+literal|"  -console                    : Send text to console instead of file\n"
 operator|+
-literal|"  -html                        : Output in HTML format instead of raw text\n"
+literal|"  -html                       : Output in HTML format instead of raw text\n"
 operator|+
-literal|"  -sort                        : Sort the text before writing\n"
+literal|"  -sort                       : Sort the text before writing\n"
 operator|+
-literal|"  -ignoreBeads                 : Disables the separation by beads\n"
+literal|"  -ignoreBeads                : Disables the separation by beads\n"
 operator|+
-literal|"  -debug                       : Enables debug output about the time consumption of every stage\n"
+literal|"  -debug                      : Enables debug output about the time consumption of every stage\n"
 operator|+
-literal|"  -startPage<number>          : The first page to start extraction(1 based)\n"
+literal|"  -startPage<number>         : The first page to start extraction (1 based)\n"
 operator|+
-literal|"  -endPage<number>            : The last page to extract(inclusive)\n"
+literal|"  -endPage<number>           : The last page to extract (1 based and inclusive)\n"
 operator|+
-literal|"<inputfile>                  : The PDF document to use\n"
+literal|"<inputfile>                 : The PDF document to use\n"
 operator|+
-literal|"  [output-text-file]           : The file to write the text to"
+literal|"  [output-text-file]          : The file to write the text to"
 decl_stmt|;
 name|System
 operator|.
