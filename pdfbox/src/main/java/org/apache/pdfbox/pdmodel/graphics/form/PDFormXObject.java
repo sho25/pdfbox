@@ -492,13 +492,10 @@ block|{
 name|COSDictionary
 name|resources
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|getCOSObject
 argument_list|()
 operator|.
-name|getDictionaryObject
+name|getCOSDictionary
 argument_list|(
 name|COSName
 operator|.
@@ -520,6 +517,28 @@ name|resources
 argument_list|,
 name|cache
 argument_list|)
+return|;
+block|}
+if|if
+condition|(
+name|getCOSObject
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
+name|RESOURCES
+argument_list|)
+condition|)
+block|{
+comment|// PDFBOX-4372 if the resource key exists but has nothing, return empty resources,
+comment|// to avoid a self-reference (xobject form Fm0 contains "/Fm0 Do")
+comment|// See also the mention of PDFBOX-1359 in PDFStreamEngine
+return|return
+operator|new
+name|PDResources
+argument_list|()
 return|;
 block|}
 return|return
