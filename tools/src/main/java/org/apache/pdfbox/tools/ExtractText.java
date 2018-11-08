@@ -91,6 +91,34 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|pdfbox
 operator|.
 name|io
@@ -234,6 +262,21 @@ block|{
 specifier|private
 specifier|static
 specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|ExtractText
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
 name|String
 name|PASSWORD
 init|=
@@ -302,6 +345,14 @@ name|String
 name|HTML
 init|=
 literal|"-html"
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ALWAYSNEXT
+init|=
+literal|"-alwaysNext"
 decl_stmt|;
 specifier|private
 specifier|static
@@ -394,6 +445,11 @@ name|boolean
 name|separateBeads
 init|=
 literal|true
+decl_stmt|;
+name|boolean
+name|alwaysNext
+init|=
+literal|false
 decl_stmt|;
 name|String
 name|password
@@ -644,6 +700,25 @@ argument_list|)
 condition|)
 block|{
 name|debug
+operator|=
+literal|true
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|args
+index|[
+name|i
+index|]
+operator|.
+name|equals
+argument_list|(
+name|ALWAYSNEXT
+argument_list|)
+condition|)
+block|{
+name|alwaysNext
 operator|=
 literal|true
 expr_stmt|;
@@ -1047,10 +1122,27 @@ name|IOException
 name|ex
 parameter_list|)
 block|{
-comment|//TODO alternatively, log and continue
+if|if
+condition|(
+operator|!
+name|alwaysNext
+condition|)
+block|{
 throw|throw
 name|ex
 throw|;
+block|}
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Failed to process page "
+operator|+
+name|p
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// ... also for any embedded PDFs:
@@ -1432,6 +1524,8 @@ operator|+
 literal|"  -ignoreBeads                : Disables the separation by beads\n"
 operator|+
 literal|"  -debug                      : Enables debug output about the time consumption of every stage\n"
+operator|+
+literal|"  -alwaysNext                 : Process next page (if applicable) despite IOException\n"
 operator|+
 literal|"  -startPage<number>         : The first page to start extraction (1 based)\n"
 operator|+
