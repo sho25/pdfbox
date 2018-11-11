@@ -719,13 +719,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|specificPageOverlay
-operator|!=
-literal|null
-condition|)
-block|{
 for|for
 control|(
 name|Map
@@ -763,7 +756,6 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 specifier|private
 name|void
