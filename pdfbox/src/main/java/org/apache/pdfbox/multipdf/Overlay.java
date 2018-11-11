@@ -349,7 +349,7 @@ name|Integer
 argument_list|,
 name|PDDocument
 argument_list|>
-name|specificPageOverlay
+name|openDocumentsMap
 init|=
 operator|new
 name|HashMap
@@ -592,7 +592,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|specificPageOverlay
+name|openDocumentsMap
 operator|.
 name|put
 argument_list|(
@@ -724,7 +724,7 @@ control|(
 name|PDDocument
 name|doc
 range|:
-name|specificPageOverlay
+name|openDocumentsMap
 operator|.
 name|values
 argument_list|()
@@ -736,7 +736,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-name|specificPageOverlay
+name|openDocumentsMap
 operator|.
 name|clear
 argument_list|()
