@@ -65,6 +65,26 @@ name|java
 operator|.
 name|security
 operator|.
+name|GeneralSecurityException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|PublicKey
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
 name|cert
 operator|.
 name|CRLException
@@ -127,7 +147,7 @@ specifier|private
 name|CrlHelper
 parameter_list|()
 block|{     }
-comment|/**      * Performs the CRL-Request and checks if the given certificate has been revoked.      *       * @param crlUrl to get the CRL from      * @param cert to be checked if it is inside the CRL      * @return CRL-Response; might be very big depending on the issuer.       * @throws CRLException if an Error occurred getting the CRL, or parsing it.      * @throws RevokedCertificateException      */
+comment|/**      * Performs the CRL-Request and checks if the given certificate has been revoked.      *      * @param crlUrl to get the CRL from      * @param cert to be checked if it is inside the CRL      * @param issuerKey public key of the issuer certificate to verify the CRL signature      * @return CRL-Response; might be very big depending on the issuer.      * @throws GeneralSecurityException if an error occurred getting the CRL, or parsing it, or      * verifying it.      * @throws RevokedCertificateException      */
 specifier|public
 specifier|static
 name|byte
@@ -139,11 +159,14 @@ name|crlUrl
 parameter_list|,
 name|X509Certificate
 name|cert
+parameter_list|,
+name|PublicKey
+name|issuerKey
 parameter_list|)
 throws|throws
-name|CRLException
-throws|,
 name|RevokedCertificateException
+throws|,
+name|GeneralSecurityException
 block|{
 try|try
 block|{
@@ -227,7 +250,15 @@ argument_list|(
 name|is
 argument_list|)
 expr_stmt|;
+name|crl
+operator|.
+name|verify
+argument_list|(
+name|issuerKey
+argument_list|)
+expr_stmt|;
 block|}
+comment|//TODO should be checked for signing time, see CRLVerifier.verifyCertificateCRLs
 if|if
 condition|(
 name|crl

@@ -1190,7 +1190,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|CRLException
+name|GeneralSecurityException
 decl||
 name|IOException
 decl||
@@ -1346,11 +1346,11 @@ name|CertSignatureInformation
 name|certInfo
 parameter_list|)
 throws|throws
-name|CRLException
-throws|,
 name|IOException
 throws|,
 name|RevokedCertificateException
+throws|,
+name|GeneralSecurityException
 block|{
 name|byte
 index|[]
@@ -1368,6 +1368,14 @@ argument_list|,
 name|certInfo
 operator|.
 name|getCertificate
+argument_list|()
+argument_list|,
+name|certInfo
+operator|.
+name|getIssuerCertificate
+argument_list|()
+operator|.
+name|getPublicKey
 argument_list|()
 argument_list|)
 decl_stmt|;
