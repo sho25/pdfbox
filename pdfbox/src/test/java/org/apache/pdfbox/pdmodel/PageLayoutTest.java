@@ -94,7 +94,7 @@ specifier|public
 class|class
 name|PageLayoutTest
 block|{
-comment|/**      * @author Tilman Hausherr      * Test for completeness (PDFBOX-3362).      */
+comment|/**      * @author Tilman Hausherr      *      * Test for completeness (PDFBOX-3362).      */
 annotation|@
 name|Test
 specifier|public
