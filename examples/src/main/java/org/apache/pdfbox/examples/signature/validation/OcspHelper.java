@@ -716,6 +716,12 @@ operator|.
 name|getCertStatus
 argument_list|()
 decl_stmt|;
+comment|//TODO check time
+comment|// https://tools.ietf.org/html/rfc5019
+comment|// Clients MUST check for the existence of the nextUpdate field and MUST
+comment|// ensure the current time, expressed in GMT time as described in
+comment|// Section 2.2.4, falls between the thisUpdate and nextUpdate times.  If
+comment|// the nextUpdate field is absent, the client MUST reject the response.
 if|if
 condition|(
 name|status
@@ -927,6 +933,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|//TODO this is not correct!
+comment|// https://tools.ietf.org/html/rfc5019
+comment|// Clients that opt to include a nonce in the
+comment|// request SHOULD NOT reject a corresponding OCSPResponse solely on the
+comment|// basis of the nonexistent expected nonce, but MUST fall back to
+comment|// validating the OCSPResponse based on time.
 throw|throw
 operator|new
 name|OCSPException
