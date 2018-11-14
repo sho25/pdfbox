@@ -575,7 +575,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Gets the last relevant signature in the document      *       * @param document to get its last Signature      * @return last signature or null when none found      * @throws IOException      */
+comment|/**      * Gets the last relevant signature in the document, i.e. the one with the highest offset.      *       * @param document to get its last Signature      * @return last signature or null when none found      * @throws IOException      */
 specifier|private
 name|PDSignature
 name|getLastRelevantSignature
