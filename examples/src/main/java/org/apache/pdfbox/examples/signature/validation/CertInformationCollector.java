@@ -465,8 +465,6 @@ name|MAX_CERTIFICATE_CHAIN_DEPTH
 init|=
 literal|5
 decl_stmt|;
-comment|//TODO certificateStore name misleading, this is a map.
-comment|// even more confusing: there are also "certificatesStore" variables that are a Store
 specifier|private
 specifier|final
 name|Map
@@ -475,7 +473,7 @@ name|BigInteger
 argument_list|,
 name|X509Certificate
 argument_list|>
-name|certificateStore
+name|certificatesMap
 init|=
 operator|new
 name|HashMap
@@ -948,7 +946,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Processes a signer store and goes through the signers certificate-chain. Adds the found data      * to the certInfo. Handles only the first signer, although multiple would be possible, but is      * not yet practicable.      *      * @param certificatesStore To get the certificate information from. Certificates will be saved      * in the certificateStore.      * @param signedData to get SignerInformation off      * @param certInfo where to add certificate information      * @return Signer Information of the processed certificate Store for further usage.      * @throws IOException on data-processing error      * @throws CertificateProccessingException on a specific error with a certificate      */
+comment|/**      * Processes a signer store and goes through the signers certificate-chain. Adds the found data      * to the certInfo. Handles only the first signer, although multiple would be possible, but is      * not yet practicable.      *      * @param certificatesStore To get the certificate information from. Certificates will be saved      * in certificatesMap.      * @param signedData to get SignerInformation off      * @param certInfo where to add certificate information      * @return Signer Information of the processed certificatesStore for further usage.      * @throws IOException on data-processing error      * @throws CertificateProccessingException on a specific error with a certificate      */
 specifier|private
 name|SignerInformation
 name|processSignerStore
@@ -1215,7 +1213,7 @@ control|(
 name|X509Certificate
 name|issuer
 range|:
-name|certificateStore
+name|certificatesMap
 operator|.
 name|values
 argument_list|()
@@ -1433,7 +1431,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Adds the given Certificate to the certificateStore, if not yet containing.      *       * @param certificate to add to the certificateStore      */
+comment|/**      * Adds the given Certificate to the certificatesMap, if not yet containing.      *       * @param certificate to add to the certificatesMap      */
 specifier|private
 name|void
 name|addCertToCertStore
@@ -1445,7 +1443,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|certificateStore
+name|certificatesMap
 operator|.
 name|containsKey
 argument_list|(
@@ -1456,7 +1454,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|certificateStore
+name|certificatesMap
 operator|.
 name|put
 argument_list|(
@@ -1470,7 +1468,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the X509Certificate out of the X509CertificateHolder and add it to      * the certificateStore map.      *      * @param certificateHolder to get the certificate from      * @return a X509Certificate or<code>null</code> when there was an Error with the Certificate      * @throws CertificateProccessingException on failed conversion from X509CertificateHolder to X509Certificate      */
+comment|/**      * Gets the X509Certificate out of the X509CertificateHolder and add it to certificatesMap.      *      * @param certificateHolder to get the certificate from      * @return a X509Certificate or<code>null</code> when there was an Error with the Certificate      * @throws CertificateProccessingException on failed conversion from X509CertificateHolder to X509Certificate      */
 specifier|private
 name|X509Certificate
 name|getCertFromHolder
@@ -1485,7 +1483,7 @@ comment|//TODO getCertFromHolder violates "do one thing" rule (adds to the map a
 if|if
 condition|(
 operator|!
-name|certificateStore
+name|certificatesMap
 operator|.
 name|containsKey
 argument_list|(
@@ -1508,7 +1506,7 @@ argument_list|(
 name|certificateHolder
 argument_list|)
 decl_stmt|;
-name|certificateStore
+name|certificatesMap
 operator|.
 name|put
 argument_list|(
@@ -1551,7 +1549,7 @@ block|}
 else|else
 block|{
 return|return
-name|certificateStore
+name|certificatesMap
 operator|.
 name|get
 argument_list|(
@@ -1609,7 +1607,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Gets a list of X509Certificate out of an array of X509CertificateHolder. The certificates      * will be added to the certificateStore.      *      * @param certHolders Array of X509CertificateHolder      * @throws CertificateProccessingException when one of the Certificates could not be parsed.      */
+comment|/**      * Gets a list of X509Certificate out of an array of X509CertificateHolder. The certificates      * will be added to certificatesMap.      *      * @param certHolders Array of X509CertificateHolder      * @throws CertificateProccessingException when one of the Certificates could not be parsed.      */
 specifier|public
 name|void
 name|addAllCertsFromHolders
@@ -1636,7 +1634,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the certificate store of all processed certificates until now.      *       * @return a map of serial numbers to certificates.      */
+comment|/**      * Get the map of all processed certificates until now.      *       * @return a map of serial numbers to certificates.      */
 specifier|public
 name|Map
 argument_list|<
@@ -1644,11 +1642,11 @@ name|BigInteger
 argument_list|,
 name|X509Certificate
 argument_list|>
-name|getCertificateStore
+name|getCertificatesMap
 parameter_list|()
 block|{
 return|return
-name|certificateStore
+name|certificatesMap
 return|;
 block|}
 comment|/**      * Data class to hold Signature, Certificate (and its chain(s)) and revocation Information      */
