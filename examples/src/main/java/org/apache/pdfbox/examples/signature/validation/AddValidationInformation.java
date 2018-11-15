@@ -1440,7 +1440,7 @@ name|cert
 range|:
 name|certInformationHelper
 operator|.
-name|getCertificateStore
+name|getCertificatesMap
 argument_list|()
 operator|.
 name|values
