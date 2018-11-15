@@ -139,6 +139,26 @@ name|java
 operator|.
 name|util
 operator|.
+name|Calendar
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Random
 import|;
 end_import
@@ -184,20 +204,6 @@ operator|.
 name|encryption
 operator|.
 name|SecurityProvider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|Hex
 import|;
 end_import
 
@@ -481,20 +487,6 @@ name|org
 operator|.
 name|bouncycastle
 operator|.
-name|jce
-operator|.
-name|provider
-operator|.
-name|BouncyCastleProvider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|bouncycastle
-operator|.
 name|operator
 operator|.
 name|ContentVerifierProvider
@@ -628,7 +620,7 @@ return|return
 name|ocspResponse
 return|;
 block|}
-comment|/**      * Verifies the status and the response itself (including nonce), but not the signature.      *       * @param ocspResponse to be verified      * @throws OCSPException      * @throws RevokedCertificateException      */
+comment|/**      * Verifies the status and the response itself (including nonce), but not the signature.      *       * @param ocspResponse to be verified      * @throws OCSPException      * @throws RevokedCertificateException      * @throws IOException if the default security provider can't be instantiated      */
 specifier|private
 name|void
 name|verifyOcspResponse
@@ -640,6 +632,8 @@ throws|throws
 name|OCSPException
 throws|,
 name|RevokedCertificateException
+throws|,
+name|IOException
 block|{
 name|verifyRespStatus
 argument_list|(
@@ -677,11 +671,14 @@ argument_list|,
 name|basicResponse
 argument_list|)
 expr_stmt|;
+name|boolean
+name|nonceChecked
+init|=
 name|checkNonce
 argument_list|(
 name|basicResponse
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|SingleResp
 index|[]
 name|responses
@@ -716,12 +713,20 @@ operator|.
 name|getCertStatus
 argument_list|()
 decl_stmt|;
-comment|//TODO check time
+if|if
+condition|(
+operator|!
+name|nonceChecked
+condition|)
+block|{
 comment|// https://tools.ietf.org/html/rfc5019
-comment|// Clients MUST check for the existence of the nextUpdate field and MUST
-comment|// ensure the current time, expressed in GMT time as described in
-comment|// Section 2.2.4, falls between the thisUpdate and nextUpdate times.  If
-comment|// the nextUpdate field is absent, the client MUST reject the response.
+comment|// fall back to validating the OCSPResponse based on time
+name|checkOcspResponseFresh
+argument_list|(
+name|resp
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|status
@@ -792,7 +797,149 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Checks whether the OCSP response is signed by the given certificate.      *       * @param certificate the certificate to check the signature      * @param basicResponse OCSP response containing the signature      * @throws OCSPException when the signature is invalid or could not be checked      */
+specifier|private
+name|void
+name|checkOcspResponseFresh
+parameter_list|(
+name|SingleResp
+name|resp
+parameter_list|)
+throws|throws
+name|OCSPException
+block|{
+comment|// https://tools.ietf.org/html/rfc5019
+comment|// Clients MUST check for the existence of the nextUpdate field and MUST
+comment|// ensure the current time, expressed in GMT time as described in
+comment|// Section 2.2.4, falls between the thisUpdate and nextUpdate times.  If
+comment|// the nextUpdate field is absent, the client MUST reject the response.
+name|Date
+name|curDate
+init|=
+name|Calendar
+operator|.
+name|getInstance
+argument_list|()
+operator|.
+name|getTime
+argument_list|()
+decl_stmt|;
+name|Date
+name|thisUpdate
+init|=
+name|resp
+operator|.
+name|getThisUpdate
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|thisUpdate
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|OCSPException
+argument_list|(
+literal|"OCSP: thisUpdate field is missing in response (RFC 5019 2.2.4.)"
+argument_list|)
+throw|;
+block|}
+name|Date
+name|nextUpdate
+init|=
+name|resp
+operator|.
+name|getNextUpdate
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|nextUpdate
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|OCSPException
+argument_list|(
+literal|"OCSP: nextUpdate field is missing in response (RFC 5019 2.2.4.)"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|curDate
+operator|.
+name|compareTo
+argument_list|(
+name|thisUpdate
+argument_list|)
+operator|<
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+name|curDate
+operator|+
+literal|"< "
+operator|+
+name|thisUpdate
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|OCSPException
+argument_list|(
+literal|"OCSP: current date< thisUpdate field (RFC 5019 2.2.4.)"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|curDate
+operator|.
+name|compareTo
+argument_list|(
+name|nextUpdate
+argument_list|)
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+name|curDate
+operator|+
+literal|"> "
+operator|+
+name|nextUpdate
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|OCSPException
+argument_list|(
+literal|"OCSP: current date> nextUpdate field (RFC 5019 2.2.4.)"
+argument_list|)
+throw|;
+block|}
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"OCSP response is fresh"
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Checks whether the OCSP response is signed by the given certificate.      *       * @param certificate the certificate to check the signature      * @param basicResponse OCSP response containing the signature      * @throws OCSPException when the signature is invalid or could not be checked      * @throws IOException if the default security provider can't be instantiated      */
 specifier|private
 name|void
 name|checkOcspSignature
@@ -805,6 +952,8 @@ name|basicResponse
 parameter_list|)
 throws|throws
 name|OCSPException
+throws|,
+name|IOException
 block|{
 try|try
 block|{
@@ -817,9 +966,10 @@ argument_list|()
 operator|.
 name|setProvider
 argument_list|(
-name|BouncyCastleProvider
+name|SecurityProvider
 operator|.
-name|PROVIDER_NAME
+name|getProvider
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -864,9 +1014,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Checks if the nonce in the response is correct      *       * @param basicResponse Response to be checked      * @throws OCSPException if nonce is wrong or inexistent      */
+comment|/**      * Checks if the nonce in the response matches.      *       * @param basicResponse Response to be checked      * @throws OCSPException if the nonce is different      */
 specifier|private
-name|void
+name|boolean
 name|checkNonce
 parameter_list|(
 name|BasicOCSPResp
@@ -920,33 +1070,32 @@ throw|throw
 operator|new
 name|OCSPException
 argument_list|(
-literal|"Invalid Nonce found in response!"
+literal|"Different nonce found in response!"
 argument_list|)
 throw|;
 block|}
-block|}
-elseif|else
-if|if
-condition|(
-name|encodedNonce
-operator|!=
-literal|null
-condition|)
+else|else
 block|{
-comment|//TODO this is not correct!
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Nonce is good"
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+block|}
 comment|// https://tools.ietf.org/html/rfc5019
 comment|// Clients that opt to include a nonce in the
 comment|// request SHOULD NOT reject a corresponding OCSPResponse solely on the
 comment|// basis of the nonexistent expected nonce, but MUST fall back to
 comment|// validating the OCSPResponse based on time.
-throw|throw
-operator|new
-name|OCSPException
-argument_list|(
-literal|"Nonce not found in response!"
-argument_list|)
-throw|;
-block|}
+return|return
+literal|false
+return|;
 block|}
 comment|/**      * Performs the OCSP-Request, with given data.      *       * @return the OCSPResp, that has been fetched from the ocspUrl      * @throws IOException      * @throws OCSPException      */
 specifier|private
@@ -984,6 +1133,8 @@ operator|.
 name|openConnection
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|httpConnection
 operator|.
 name|setRequestProperty
@@ -1054,7 +1205,9 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-comment|// Get Response
+comment|// Get response
+try|try
+init|(
 name|InputStream
 name|in
 init|=
@@ -1065,7 +1218,8 @@ name|httpConnection
 operator|.
 name|getContent
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 return|return
 operator|new
 name|OCSPResp
@@ -1073,6 +1227,16 @@ argument_list|(
 name|in
 argument_list|)
 return|;
+block|}
+block|}
+finally|finally
+block|{
+name|httpConnection
+operator|.
+name|disconnect
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Helper method to verify response status.      *       * @param resp OCSP response      * @throws OCSPException if the response status is not ok      */
 specifier|public
@@ -1132,11 +1296,8 @@ name|OCSPResponseStatus
 operator|.
 name|MALFORMED_REQUEST
 case|:
-comment|// This can also happen if the nonce extension is not supported.
-comment|// The nonce extension is meant to prevent replay attacks.
-comment|// Once could argue that a replay attack is less likely in document validating
-comment|// than in ssl-certificate validating, so decide for yourself to remove
-comment|// the nonce submission (and the check).
+comment|// This happened when the "critical" flag was used for extensions
+comment|// on a responder known by the committer of this comment.
 name|statusInfo
 operator|=
 literal|"MALFORMED_REQUEST"
@@ -1313,13 +1474,9 @@ name|e
 argument_list|)
 throw|;
 block|}
-name|OCSPReqBuilder
-name|builder
-init|=
-operator|new
-name|OCSPReqBuilder
-argument_list|()
-decl_stmt|;
+comment|// https://tools.ietf.org/html/rfc2560#section-4.1.2
+comment|// Support for any specific extension is OPTIONAL. The critical flag
+comment|// SHOULD NOT be set for any of them.
 name|Extension
 name|responseExtension
 init|=
@@ -1330,7 +1487,7 @@ name|OCSPObjectIdentifiers
 operator|.
 name|id_pkix_ocsp_response
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 operator|new
 name|DLSequence
@@ -1390,10 +1547,17 @@ name|OCSPObjectIdentifiers
 operator|.
 name|id_pkix_ocsp_nonce
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 name|encodedNonce
 argument_list|)
+decl_stmt|;
+name|OCSPReqBuilder
+name|builder
+init|=
+operator|new
+name|OCSPReqBuilder
+argument_list|()
 decl_stmt|;
 name|builder
 operator|.
@@ -1418,26 +1582,6 @@ operator|.
 name|addRequest
 argument_list|(
 name|certId
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Nonce: "
-operator|+
-name|Hex
-operator|.
-name|getString
-argument_list|(
-name|nonceExtension
-operator|.
-name|getExtnValue
-argument_list|()
-operator|.
-name|getEncoded
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
