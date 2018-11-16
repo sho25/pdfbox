@@ -582,6 +582,82 @@ argument_list|(
 name|issuerKey
 argument_list|)
 expr_stmt|;
+name|checkRevocation
+argument_list|(
+name|crl
+argument_list|,
+name|cert
+argument_list|,
+name|signDate
+argument_list|,
+name|crlDistributionPointsURL
+argument_list|)
+expr_stmt|;
+comment|// https://tools.ietf.org/html/rfc5280#section-4.2.1.13
+comment|// If the DistributionPointName contains multiple values,
+comment|// each name describes a different mechanism to obtain the same
+comment|// CRL.  For example, the same CRL could be available for
+comment|// retrieval through both LDAP and HTTP.
+comment|//
+comment|// => thus no need to check several protocols
+return|return;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|CertificateVerificationException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+name|ex
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|CertificateVerificationException
+argument_list|(
+literal|"Cannot verify CRL for certificate: "
+operator|+
+name|cert
+operator|.
+name|getSubjectX500Principal
+argument_list|()
+argument_list|,
+name|ex
+argument_list|)
+throw|;
+block|}
+block|}
+comment|/**      * Check whether the certificate was revoked at signing time.      *      * @param crl certificate revocation list      * @param cert certificate to be checked      * @param signDate date the certificate was used for signing      * @param crlDistributionPointsURL URL for log message or exception text      * @throws CertificateVerificationException if the certificate was revoked at signing time      */
+specifier|public
+specifier|static
+name|void
+name|checkRevocation
+parameter_list|(
+name|X509CRL
+name|crl
+parameter_list|,
+name|X509Certificate
+name|cert
+parameter_list|,
+name|Date
+name|signDate
+parameter_list|,
+name|String
+name|crlDistributionPointsURL
+parameter_list|)
+throws|throws
+name|CertificateVerificationException
+block|{
+comment|//TODO this should throw a RevokedCertificateException
+comment|// and these exceptions should go to "cert" package
 name|X509CRLEntry
 name|revokedCRLEntry
 init|=
@@ -665,49 +741,8 @@ name|crlDistributionPointsURL
 argument_list|)
 expr_stmt|;
 block|}
-comment|// https://tools.ietf.org/html/rfc5280#section-4.2.1.13
-comment|// If the DistributionPointName contains multiple values,
-comment|// each name describes a different mechanism to obtain the same
-comment|// CRL.  For example, the same CRL could be available for
-comment|// retrieval through both LDAP and HTTP.
-comment|//
-comment|// => thus no need to check several protocols
-return|return;
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|CertificateVerificationException
-name|ex
-parameter_list|)
-block|{
-throw|throw
-name|ex
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|ex
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|CertificateVerificationException
-argument_list|(
-literal|"Cannot verify CRL for certificate: "
-operator|+
-name|cert
-operator|.
-name|getSubjectX500Principal
-argument_list|()
-argument_list|,
-name|ex
-argument_list|)
-throw|;
-block|}
-block|}
-comment|/**      * Downloads CRL from given URL. Supports http, https, ftp and ldap based      * URLs.      */
+comment|/**      * Downloads CRL from given URL. Supports http, https, ftp and ldap based URLs.      */
 specifier|private
 specifier|static
 name|X509CRL
@@ -944,7 +979,7 @@ return|;
 block|}
 block|}
 comment|/**      * Downloads a CRL from given HTTP/HTTPS/FTP URL, e.g.      * http://crl.infonotary.com/crl/identity-ca.crl      */
-specifier|private
+specifier|public
 specifier|static
 name|X509CRL
 name|downloadCRLFromWeb
