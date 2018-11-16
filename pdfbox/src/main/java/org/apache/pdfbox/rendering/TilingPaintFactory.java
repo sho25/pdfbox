@@ -21,6 +21,16 @@ name|java
 operator|.
 name|awt
 operator|.
+name|Paint
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|geom
 operator|.
 name|AffineTransform
@@ -215,7 +225,7 @@ name|TilingPaintParameter
 argument_list|,
 name|WeakReference
 argument_list|<
-name|TilingPaint
+name|Paint
 argument_list|>
 argument_list|>
 name|weakCache
@@ -238,7 +248,7 @@ operator|=
 name|drawer
 expr_stmt|;
 block|}
-name|TilingPaint
+name|Paint
 name|create
 parameter_list|(
 name|PDTilingPattern
@@ -256,7 +266,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|TilingPaint
+name|Paint
 name|paint
 init|=
 literal|null
@@ -286,7 +296,7 @@ argument_list|)
 decl_stmt|;
 name|WeakReference
 argument_list|<
-name|TilingPaint
+name|Paint
 argument_list|>
 name|weakRef
 init|=

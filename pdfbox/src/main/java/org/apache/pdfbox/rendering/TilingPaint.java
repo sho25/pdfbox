@@ -302,7 +302,7 @@ argument_list|)
 decl_stmt|;
 specifier|private
 specifier|final
-name|TexturePaint
+name|Paint
 name|paint
 decl_stmt|;
 specifier|private
