@@ -448,7 +448,7 @@ specifier|private
 name|CRLVerifier
 parameter_list|()
 block|{     }
-comment|/**      * Extracts the CRL distribution points from the certificate (if available)      * and checks the certificate revocation status against the CRLs coming from      * the distribution points. Supports HTTP, HTTPS, FTP and LDAP based URLs.      *      * @param cert the certificate to be checked for revocation      * @param signDate the date when the signing took place      * @param additionalCerts set of trusted root CA certificates that will be      * used as "trust anchors" and intermediate CA certificates that will be      * used as part of the certification chain.      * @throws CertificateVerificationException if the certificate is revoked      */
+comment|/**      * Extracts the CRL distribution points from the certificate (if available)      * and checks the certificate revocation status against the CRLs coming from      * the distribution points. Supports HTTP, HTTPS, FTP and LDAP based URLs.      *      * @param cert the certificate to be checked for revocation      * @param signDate the date when the signing took place      * @param additionalCerts set of trusted root CA certificates that will be      * used as "trust anchors" and intermediate CA certificates that will be      * used as part of the certification chain.      * @throws CertificateVerificationException if the certificate could not be verified      * @throws RevokedCertificateException if the certificate is revoked      */
 specifier|public
 specifier|static
 name|void
@@ -468,6 +468,8 @@ name|additionalCerts
 parameter_list|)
 throws|throws
 name|CertificateVerificationException
+throws|,
+name|RevokedCertificateException
 block|{
 try|try
 block|{
@@ -605,6 +607,8 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|RevokedCertificateException
+decl||
 name|CertificateVerificationException
 name|ex
 parameter_list|)
@@ -635,7 +639,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Check whether the certificate was revoked at signing time.      *      * @param crl certificate revocation list      * @param cert certificate to be checked      * @param signDate date the certificate was used for signing      * @param crlDistributionPointsURL URL for log message or exception text      * @throws CertificateVerificationException if the certificate was revoked at signing time      */
+comment|/**      * Check whether the certificate was revoked at signing time.      *      * @param crl certificate revocation list      * @param cert certificate to be checked      * @param signDate date the certificate was used for signing      * @param crlDistributionPointsURL URL for log message or exception text      * @throws RevokedCertificateException if the certificate was revoked at signing time      */
 specifier|public
 specifier|static
 name|void
@@ -654,9 +658,8 @@ name|String
 name|crlDistributionPointsURL
 parameter_list|)
 throws|throws
-name|CertificateVerificationException
+name|RevokedCertificateException
 block|{
-comment|//TODO this should throw a RevokedCertificateException
 name|X509CRLEntry
 name|revokedCRLEntry
 init|=
@@ -688,7 +691,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|CertificateVerificationException
+name|RevokedCertificateException
 argument_list|(
 literal|"The certificate was revoked by CRL "
 operator|+
@@ -696,6 +699,11 @@ name|crlDistributionPointsURL
 operator|+
 literal|" on "
 operator|+
+name|revokedCRLEntry
+operator|.
+name|getRevocationDate
+argument_list|()
+argument_list|,
 name|revokedCRLEntry
 operator|.
 name|getRevocationDate
