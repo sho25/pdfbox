@@ -657,7 +657,6 @@ throws|throws
 name|CertificateVerificationException
 block|{
 comment|//TODO this should throw a RevokedCertificateException
-comment|// and these exceptions should go to "cert" package
 name|X509CRLEntry
 name|revokedCRLEntry
 init|=
