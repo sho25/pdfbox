@@ -1014,7 +1014,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Checks if the nonce in the response matches.      *       * @param basicResponse Response to be checked      * @throws OCSPException if the nonce is different      */
+comment|/**      * Checks if the nonce in the response matches.      *       * @param basicResponse Response to be checked      * @return true if the nonce is present and matches, false if nonce is missing.      * @throws OCSPException if the nonce is different      */
 specifier|private
 name|boolean
 name|checkNonce
