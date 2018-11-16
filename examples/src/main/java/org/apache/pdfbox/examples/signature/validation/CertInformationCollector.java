@@ -431,7 +431,7 @@ specifier|private
 name|CertSignatureInformation
 name|rootCertInfo
 decl_stmt|;
-comment|/**      * Gets the certificate information of a signature.      *       * @param PDSignature the signature of the document.      * @param fileName of the document.      * @return the CertSignatureInformation containing all certificate information      * @throws CertificateProccessingException when there is an error processing the certificates      * @throws IOException on a data processing error      */
+comment|/**      * Gets the certificate information of a signature.      *       * @param signature the signature of the document.      * @param fileName of the document.      * @return the CertSignatureInformation containing all certificate information      * @throws CertificateProccessingException when there is an error processing the certificates      * @throws IOException on a data processing error      */
 specifier|public
 name|CertSignatureInformation
 name|getLastCertInfo
