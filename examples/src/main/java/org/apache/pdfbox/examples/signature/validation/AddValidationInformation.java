@@ -987,7 +987,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Fetches and adds revocation information based on the certInfo to the DSS.      *       * @param certInfo Certificate information from CertInformationHelper containing certificate chains.      * @throws IOException      */
+comment|/**      * Fetches and adds revocation information based on the certInfo to the DSS.      *      * @param certInfo Certificate information from CertInformationHelper containing certificate      * chains.      * @throws IOException      */
 specifier|private
 name|void
 name|addRevocationData
@@ -1103,7 +1103,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Tries to get Revocation Data (first OCSP, else CRL) from the given Certificate Chain.      *       * @param certInfo from which to fetch revocation data. Will work recursively through its chains.      * @throws IOException when failed to fetch an revocation data.      */
+comment|/**      * Tries to get Revocation Data (first OCSP, else CRL) from the given Certificate Chain.      *      * @param certInfo from which to fetch revocation data. Will work recursively through its      * chains.      * @throws IOException when failed to fetch an revocation data.      */
 specifier|private
 name|void
 name|addRevocationDataRecursive
@@ -1267,7 +1267,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Tries to fetch and add OCSP Data to its containers.      *       * @param certInfo the certificate info, for it to check OCSP data.      * @return true when the OCSP data has successfully been fetched and added      * @throws IOException when Certificate is revoked.      */
+comment|/**      * Tries to fetch and add OCSP Data to its containers.      *      * @param certInfo the certificate info, for it to check OCSP data.      * @return true when the OCSP data has successfully been fetched and added      * @throws IOException when Certificate is revoked.      */
 specifier|private
 name|boolean
 name|fetchOcspData
@@ -1327,7 +1327,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Tries to fetch and add CRL Data to its containers.      *       * @param certInfo the certificate info, for it to check CRL data.      * @throws IOException when failed to fetch, because no validation data could be fetched for data.      */
+comment|/**      * Tries to fetch and add CRL Data to its containers.      *      * @param certInfo the certificate info, for it to check CRL data.      * @throws IOException when failed to fetch, because no validation data could be fetched for      * data.      */
 specifier|private
 name|void
 name|fetchCrlData
@@ -1497,7 +1497,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Fetches and adds CRL data to storage for the given Certificate.      *       * @param certInfo the certificate info, for it to check CRL data.      * @throws CRLException      * @throws IOException      * @throws RevokedCertificateException      */
+comment|/**      * Fetches and adds CRL data to storage for the given Certificate.      *       * @param certInfo the certificate info, for it to check CRL data.      * @throws IOException      * @throws RevokedCertificateException      * @throws GeneralSecurityException      * @throws CertificateVerificationException       */
 specifier|private
 name|void
 name|addCrlRevocationInfo
@@ -1609,7 +1609,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds all certs to the certs-array. Make sure, all certificates are inside the certificateStore of      * certInformationHelper      *       * @throws IOException      */
+comment|/**      * Adds all certs to the certs-array. Make sure, all certificates are inside the      * certificateStore of certInformationHelper      *      * @throws IOException      */
 specifier|private
 name|void
 name|addAllCertsToCertArray
@@ -1718,7 +1718,7 @@ return|return
 name|stream
 return|;
 block|}
-comment|/**      * Adds Extensions to the document catalog. So that the use of DSS is identified. Described in PAdES Part 4, Chapter      * 4.4.      *       * @param catalog to add Extensions into      */
+comment|/**      * Adds Extensions to the document catalog. So that the use of DSS is identified. Described in      * PAdES Part 4, Chapter 4.4.      *      * @param catalog to add Extensions into      */
 specifier|private
 name|void
 name|addExtensions
