@@ -532,6 +532,7 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
+specifier|private
 name|Calendar
 name|signDate
 decl_stmt|;
