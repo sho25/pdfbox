@@ -4789,6 +4789,19 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|inTextMode
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"You did not call endText(), some viewers won't display your text"
+argument_list|)
+expr_stmt|;
+block|}
 name|outputStream
 operator|.
 name|close
