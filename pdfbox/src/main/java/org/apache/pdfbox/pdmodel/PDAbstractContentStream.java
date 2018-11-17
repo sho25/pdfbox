@@ -1230,7 +1230,7 @@ literal|"TJ"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Shows the given text at the location specified by the current text matrix.      *      * @param text The Unicode text to show.      * @throws IOException If an io exception occurs.      */
+comment|/**      * Shows the given text at the location specified by the current text matrix.      *      * @param text The Unicode text to show.      * @throws IOException If an io exception occurs.      * @throws IllegalArgumentException if a character isn't supported by the current font      */
 specifier|public
 name|void
 name|showText
