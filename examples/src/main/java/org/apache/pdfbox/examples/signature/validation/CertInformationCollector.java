@@ -1115,13 +1115,11 @@ parameter_list|)
 throws|throws
 name|CertificateProccessingException
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"Get Certificate from: "
+literal|"Get alternative issuer certificate from: "
 operator|+
 name|certInfo
 operator|.
@@ -1215,7 +1213,7 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"Error getting additional Certificate from "
+literal|"Error getting alternative issuer certificate from "
 operator|+
 name|certInfo
 operator|.
