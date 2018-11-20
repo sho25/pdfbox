@@ -1288,7 +1288,7 @@ argument_list|(
 name|in
 argument_list|)
 decl_stmt|;
-name|addCertToCertStore
+name|addCertToCertificatesMap
 argument_list|(
 name|altIssuerCert
 argument_list|)
@@ -1342,7 +1342,7 @@ block|}
 comment|/**      * Adds the given Certificate to the certificatesMap, if not yet containing.      *       * @param certificate to add to the certificatesMap      */
 specifier|private
 name|void
-name|addCertToCertStore
+name|addCertToCertificatesMap
 parameter_list|(
 name|X509Certificate
 name|certificate
