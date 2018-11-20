@@ -809,7 +809,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Processes a signer store and goes through the signers certificate-chain. Adds the found data      * to the certInfo. Handles only the first signer, although multiple would be possible, but is      * not yet practicable.      *      * @param certificatesStore To get the certificate information from. Certificates will be saved      * in certificatesMap.      * @param signedData to get SignerInformation off      * @param certInfo where to add certificate information      * @return Signer Information of the processed certificatesStore for further usage.      * @throws IOException on data-processing error      * @throws CertificateProccessingException on a specific error with a certificate      */
+comment|/**      * Processes a signer store and goes through the signers certificate-chain. Adds the found data      * to the certInfo. Handles only the first signer, although multiple would be possible, but is      * not yet practicable.      *      * @param certificatesStore To get the certificate information from. Certificates will be saved      * in certificatesMap.      * @param signedData data from which to get the SignerInformation      * @param certInfo where to add certificate information      * @return Signer Information of the processed certificatesStore for further usage.      * @throws IOException on data-processing error      * @throws CertificateProccessingException on a specific error with a certificate      */
 specifier|private
 name|SignerInformation
 name|processSignerStore
