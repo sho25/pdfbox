@@ -1201,7 +1201,7 @@ operator|.
 name|getCertificate
 argument_list|()
 operator|.
-name|getSubjectDN
+name|getSubjectX500Principal
 argument_list|()
 argument_list|)
 throw|;

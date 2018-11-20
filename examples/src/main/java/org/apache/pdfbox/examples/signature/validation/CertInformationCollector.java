@@ -1152,14 +1152,14 @@ literal|"Found the right Issuer Cert! for Cert: "
 operator|+
 name|certificate
 operator|.
-name|getSubjectDN
+name|getSubjectX500Principal
 argument_list|()
 operator|+
 literal|"\n"
 operator|+
 name|issuer
 operator|.
-name|getSubjectDN
+name|getSubjectX500Principal
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1210,7 +1210,7 @@ literal|"No Issuer Certificate found for Cert: "
 operator|+
 name|certificate
 operator|.
-name|getSubjectDN
+name|getSubjectX500Principal
 argument_list|()
 argument_list|)
 throw|;
