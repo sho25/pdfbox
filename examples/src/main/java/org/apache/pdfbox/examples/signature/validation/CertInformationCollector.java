@@ -1469,7 +1469,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Adds multiple Certificates out of a Collection of X509CertificateHolder into the      * Certificate-Store.      *      * @param certHolders Collection of X509CertificateHolder      */
+comment|/**      * Adds multiple Certificates out of a Collection of X509CertificateHolder into certificatesMap.      *      * @param certHolders Collection of X509CertificateHolder      */
 specifier|private
 name|void
 name|addAllCerts
