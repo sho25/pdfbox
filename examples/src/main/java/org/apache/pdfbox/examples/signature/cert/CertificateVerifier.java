@@ -828,7 +828,7 @@ name|debug
 argument_list|(
 literal|"Couldn't get signature information - returning false"
 argument_list|,
-name|sigEx
+name|ex
 argument_list|)
 expr_stmt|;
 return|return
