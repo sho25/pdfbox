@@ -95,6 +95,16 @@ name|java
 operator|.
 name|security
 operator|.
+name|Security
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
 name|cert
 operator|.
 name|CertificateEncodingException
@@ -1907,6 +1917,17 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+comment|// register BouncyCastle provider, needed for "exotic" algorithms
+name|Security
+operator|.
+name|addProvider
+argument_list|(
+name|SecurityProvider
+operator|.
+name|getProvider
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// add ocspInformation
 name|AddValidationInformation
 name|addOcspInformation
