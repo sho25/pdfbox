@@ -65,6 +65,16 @@ name|java
 operator|.
 name|security
 operator|.
+name|GeneralSecurityException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
 name|PublicKey
 import|;
 end_import
@@ -489,6 +499,11 @@ name|RevokedCertificateException
 block|{
 try|try
 block|{
+name|Exception
+name|firstException
+init|=
+literal|null
+decl_stmt|;
 name|List
 argument_list|<
 name|String
@@ -517,15 +532,64 @@ operator|+
 name|crlDistributionPointsURL
 argument_list|)
 expr_stmt|;
-comment|//TODO catch connection errors and try the next one
 name|X509CRL
 name|crl
-init|=
+decl_stmt|;
+try|try
+block|{
+name|crl
+operator|=
 name|downloadCRL
 argument_list|(
 name|crlDistributionPointsURL
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+decl||
+name|GeneralSecurityException
+decl||
+name|CertificateVerificationException
+decl||
+name|NamingException
+name|ex
+parameter_list|)
+block|{
+comment|// e.g. LDAP behind corporate proxy
+comment|// but couldn't get LDAP to work at all, see e.g. file from PDFBOX-1452
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Caught "
+operator|+
+name|ex
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|" downloading CRL, will try next distribution point if available"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|firstException
+operator|==
+literal|null
+condition|)
+block|{
+name|firstException
+operator|=
+name|ex
+expr_stmt|;
+block|}
+continue|continue;
+block|}
 comment|// Verify CRL, see wikipedia:
 comment|// "To validate a specific CRL prior to relying on it,
 comment|//  the certificate of its corresponding CA is needed"
@@ -627,6 +691,17 @@ comment|// retrieval through both LDAP and HTTP.
 comment|//
 comment|// => thus no need to check several protocols
 return|return;
+block|}
+if|if
+condition|(
+name|firstException
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+name|firstException
+throw|;
 block|}
 block|}
 catch|catch
@@ -908,6 +983,17 @@ operator|.
 name|PROVIDER_URL
 argument_list|,
 name|ldapURL
+argument_list|)
+expr_stmt|;
+comment|// https://docs.oracle.com/javase/jndi/tutorial/ldap/connect/create.html
+comment|// don't wait forever behind corporate proxy
+name|env
+operator|.
+name|put
+argument_list|(
+literal|"com.sun.jndi.ldap.connect.timeout"
+argument_list|,
+literal|"1000"
 argument_list|)
 expr_stmt|;
 name|DirContext
