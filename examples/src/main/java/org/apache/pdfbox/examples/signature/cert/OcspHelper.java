@@ -267,9 +267,37 @@ name|bouncycastle
 operator|.
 name|asn1
 operator|.
+name|ocsp
+operator|.
+name|ResponderID
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
+name|asn1
+operator|.
 name|oiw
 operator|.
 name|OIWObjectIdentifiers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
+name|asn1
+operator|.
+name|x500
+operator|.
+name|X500Name
 import|;
 end_import
 
@@ -635,6 +663,11 @@ name|RevokedCertificateException
 throws|,
 name|IOException
 block|{
+name|X509CertificateHolder
+name|ocspResponderCertificateHolder
+init|=
+literal|null
+decl_stmt|;
 name|verifyRespStatus
 argument_list|(
 name|ocspResponse
@@ -658,15 +691,133 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|checkOcspSignature
-argument_list|(
+name|ResponderID
+name|responderID
+init|=
+name|basicResponse
+operator|.
+name|getResponderId
+argument_list|()
+operator|.
+name|toASN1Primitive
+argument_list|()
+decl_stmt|;
+comment|// https://tools.ietf.org/html/rfc6960#section-4.2.2.3
+comment|// The basic response type contains:
+comment|// (...)
+comment|// either the name of the responder or a hash of the responder's
+comment|// public key as the ResponderID
+name|X500Name
+name|name
+init|=
+name|responderID
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|name
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// The responder MAY include certificates in the certs field of
+comment|// BasicOCSPResponse that help the OCSP client verify the responder's
+comment|// signature.
+name|X509CertificateHolder
+index|[]
+name|certHolders
+init|=
 name|basicResponse
 operator|.
 name|getCerts
 argument_list|()
-index|[
-literal|0
-index|]
+decl_stmt|;
+for|for
+control|(
+name|X509CertificateHolder
+name|certHolder
+range|:
+name|certHolders
+control|)
+block|{
+if|if
+condition|(
+name|name
+operator|.
+name|equals
+argument_list|(
+name|certHolder
+operator|.
+name|getSubject
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|ocspResponderCertificateHolder
+operator|=
+name|certHolder
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|ocspResponderCertificateHolder
+operator|==
+literal|null
+condition|)
+block|{
+comment|//TODO search existing chain
+throw|throw
+operator|new
+name|OCSPException
+argument_list|(
+literal|"OCSP: certificate for responder "
+operator|+
+name|name
+operator|+
+literal|" not found in response"
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+name|byte
+index|[]
+name|keyHash
+init|=
+name|responderID
+operator|.
+name|getKeyHash
+argument_list|()
+decl_stmt|;
+comment|//TODO
+comment|// KeyHash ::= OCTET STRING -- SHA-1 hash of responder's public key
+comment|//         -- (i.e., the SHA-1 hash of the value of the
+comment|//         -- BIT STRING subjectPublicKey [excluding
+comment|//         -- the tag, length, and number of unused
+comment|//         -- bits] in the responder's certificate)
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"search by key hash is not implemented yet"
+argument_list|)
+throw|;
+comment|// how BC calculates the HeyHash:
+comment|// see CertificateID.createCertID()
+comment|//  digCalc is a SHA1DigestCalculator
+comment|//            SubjectPublicKeyInfo info = issuerCert.getSubjectPublicKeyInfo();
+comment|//            dgOut = digCalc.getOutputStream();
+comment|//            dgOut.write(info.getPublicKeyData().getBytes());
+comment|//            dgOut.close();
+comment|//            ASN1OctetString issuerKeyHash = new DEROctetString(digCalc.getDigest());
+block|}
+name|checkOcspSignature
+argument_list|(
+name|ocspResponderCertificateHolder
 argument_list|,
 name|basicResponse
 argument_list|)
