@@ -453,6 +453,20 @@ name|org
 operator|.
 name|bouncycastle
 operator|.
+name|asn1
+operator|.
+name|ocsp
+operator|.
+name|OCSPObjectIdentifiers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
 name|cert
 operator|.
 name|ocsp
@@ -1493,6 +1507,26 @@ name|getCerts
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|basicResponse
+operator|.
+name|getCerts
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|getExtension
+argument_list|(
+name|OCSPObjectIdentifiers
+operator|.
+name|id_pkix_ocsp_nocheck
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
 comment|// mkl in https://stackoverflow.com/questions/30617875
 comment|// "ocsp responses usually are signed by special certificates.
 comment|//  Often these certificates are marked to not require revocation checks but not always"
@@ -1517,6 +1551,11 @@ argument_list|(
 name|ocspCertInfo
 argument_list|)
 expr_stmt|;
+comment|//TODO
+comment|// 1) this must go into separate VRI
+comment|// 2) basicResponse.getCerts()[0] is not always the correct certificate
+comment|//    see in OCSPHelper code with ResponderID
+block|}
 name|byte
 index|[]
 name|ocspData
