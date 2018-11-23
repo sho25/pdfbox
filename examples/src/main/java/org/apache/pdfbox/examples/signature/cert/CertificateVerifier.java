@@ -749,6 +749,8 @@ argument_list|,
 name|ocspURL
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|verifyOCSP
 argument_list|(
 name|ocspHelper
@@ -756,6 +758,35 @@ argument_list|,
 name|signDate
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+comment|// happens with 021496.pdf because OCSP responder no longer exists
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"IOException trying OCSP, will try CRL"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+name|CRLVerifier
+operator|.
+name|verifyCertificateCRLs
+argument_list|(
+name|cert
+argument_list|,
+name|signDate
+argument_list|,
+name|additionalCerts
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
