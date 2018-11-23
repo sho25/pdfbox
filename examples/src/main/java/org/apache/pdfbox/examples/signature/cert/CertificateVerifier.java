@@ -920,6 +920,22 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// not doing this brings
+comment|// "SunCertPathBuilderException: unable to find valid certification path to requested target"
+comment|// (when using -Djava.security.debug=certpath: "critical policy qualifiers present in certificate")
+comment|// for files like 021496.pdf that have the "Adobe CDS Certificate Policy" 1.2.840.113583.1.2.1
+comment|// CDS = "Certified Document Services"
+comment|// https://www.adobe.com/misc/pdfs/Adobe_CDS_CP.pdf
+name|pkixParams
+operator|.
+name|setPolicyQualifiersRejected
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// However, maybe there is still work to do:
+comment|// "If the policyQualifiersRejected flag is set to false, it is up to the application
+comment|// to validate all policy qualifiers in this manner in order to be PKIX compliant."
 name|pkixParams
 operator|.
 name|setDate
