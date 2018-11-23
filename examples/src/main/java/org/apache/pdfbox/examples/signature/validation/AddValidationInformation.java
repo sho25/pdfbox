@@ -151,6 +151,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -1467,9 +1477,18 @@ operator|.
 name|getCertificate
 argument_list|()
 argument_list|,
+comment|//TODO put actual cert chain
 name|certInfo
 operator|.
 name|getIssuerCertificate
+argument_list|()
+argument_list|,
+name|Collections
+operator|.
+expr|<
+name|X509Certificate
+operator|>
+name|emptySet
 argument_list|()
 argument_list|,
 name|certInfo
@@ -1555,6 +1574,7 @@ comment|//TODO
 comment|// 1) this must go into separate VRI
 comment|// 2) basicResponse.getCerts()[0] is not always the correct certificate
 comment|//    see in OCSPHelper code with ResponderID
+comment|// 3) OCSP responder validation should also be done (or not done depending of id_pkix_ocsp_nocheck) when doing ShowSignature
 block|}
 name|byte
 index|[]
