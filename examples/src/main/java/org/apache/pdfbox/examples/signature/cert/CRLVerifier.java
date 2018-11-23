@@ -532,6 +532,14 @@ operator|+
 name|crlDistributionPointsURL
 argument_list|)
 expr_stmt|;
+comment|// nested exception needed to try several distribution points
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S1141"
+block|}
+argument_list|)
 name|X509CRL
 name|crl
 decl_stmt|;
