@@ -746,6 +746,8 @@ name|cert
 argument_list|,
 name|issuerCert
 argument_list|,
+name|additionalCerts
+argument_list|,
 name|ocspURL
 argument_list|)
 decl_stmt|;

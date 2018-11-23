@@ -165,6 +165,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -581,6 +591,14 @@ name|certificateToCheck
 decl_stmt|;
 specifier|private
 specifier|final
+name|Set
+argument_list|<
+name|X509Certificate
+argument_list|>
+name|additionalCerts
+decl_stmt|;
+specifier|private
+specifier|final
 name|String
 name|ocspUrl
 decl_stmt|;
@@ -588,7 +606,7 @@ specifier|private
 name|DEROctetString
 name|encodedNonce
 decl_stmt|;
-comment|/**      * @param checkCertificate Certificate to be OCSP-Checked      * @param issuerCertificate Certificate of the issuer      * @param ocspUrl where to fetch for OCSP      */
+comment|/**      * @param checkCertificate Certificate to be OCSP-Checked      * @param issuerCertificate Certificate of the issuer      * @param additionalCerts Set of trusted root CA certificates that will be used as "trust      * anchors" and intermediate CA certificates that will be used as part of the certification      * chain. All self-signed certificates are considered to be trusted root CA certificates. All      * the rest are considered to be intermediate CA certificates.      * @param ocspUrl where to fetch for OCSP      */
 specifier|public
 name|OcspHelper
 parameter_list|(
@@ -597,6 +615,12 @@ name|checkCertificate
 parameter_list|,
 name|X509Certificate
 name|issuerCertificate
+parameter_list|,
+name|Set
+argument_list|<
+name|X509Certificate
+argument_list|>
+name|additionalCerts
 parameter_list|,
 name|String
 name|ocspUrl
@@ -613,6 +637,12 @@ operator|.
 name|issuerCertificate
 operator|=
 name|issuerCertificate
+expr_stmt|;
+name|this
+operator|.
+name|additionalCerts
+operator|=
+name|additionalCerts
 expr_stmt|;
 name|this
 operator|.
