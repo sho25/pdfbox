@@ -468,13 +468,13 @@ literal|"The certificate is self-signed."
 argument_list|)
 throw|;
 block|}
-comment|// Prepare a set of trusted root CA certificates
+comment|// Prepare a set of trust anchors (set of root CA certificates)
 comment|// and a set of intermediate certificates
 name|Set
 argument_list|<
 name|X509Certificate
 argument_list|>
-name|trustedRootCerts
+name|intermediateCerts
 init|=
 operator|new
 name|HashSet
@@ -483,9 +483,9 @@ argument_list|()
 decl_stmt|;
 name|Set
 argument_list|<
-name|X509Certificate
+name|TrustAnchor
 argument_list|>
-name|intermediateCerts
+name|trustAnchors
 init|=
 operator|new
 name|HashSet
@@ -508,11 +508,17 @@ name|additionalCert
 argument_list|)
 condition|)
 block|{
-name|trustedRootCerts
+name|trustAnchors
 operator|.
 name|add
 argument_list|(
+operator|new
+name|TrustAnchor
+argument_list|(
 name|additionalCert
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -527,6 +533,22 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|trustAnchors
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|CertificateVerificationException
+argument_list|(
+literal|"No root certificate in the chain"
+argument_list|)
+throw|;
+block|}
 comment|// Attempt to build the certification chain and verify it
 name|PKIXCertPathBuilderResult
 name|verifiedCertChain
@@ -535,7 +557,7 @@ name|verifyCertificate
 argument_list|(
 name|cert
 argument_list|,
-name|trustedRootCerts
+name|trustAnchors
 argument_list|,
 name|intermediateCerts
 argument_list|,
@@ -836,7 +858,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/**      * Attempts to build a certification chain for given certificate and to      * verify it. Relies on a set of root CA certificates (trust anchors) and a      * set of intermediate certificates (to be used as part of the chain).      *      * @param cert - certificate for validation      * @param trustedRootCerts - set of trusted root CA certificates      * @param intermediateCerts - set of intermediate certificates      * @param signDate the date when the signing took place      * @return the certification chain (if verification is successful)      * @throws GeneralSecurityException - if the verification is not successful      * (e.g. certification path cannot be built or some certificate in the chain      * is expired)      */
+comment|/**      * Attempts to build a certification chain for given certificate and to      * verify it. Relies on a set of root CA certificates (trust anchors) and a      * set of intermediate certificates (to be used as part of the chain).      *      * @param cert - certificate for validation      * @param trustAnchors - set of trust anchors      * @param intermediateCerts - set of intermediate certificates      * @param signDate the date when the signing took place      * @return the certification chain (if verification is successful)      * @throws GeneralSecurityException - if the verification is not successful      * (e.g. certification path cannot be built or some certificate in the chain      * is expired)      */
 specifier|private
 specifier|static
 name|PKIXCertPathBuilderResult
@@ -847,9 +869,9 @@ name|cert
 parameter_list|,
 name|Set
 argument_list|<
-name|X509Certificate
+name|TrustAnchor
 argument_list|>
-name|trustedRootCerts
+name|trustAnchors
 parameter_list|,
 name|Set
 argument_list|<
@@ -878,40 +900,6 @@ argument_list|(
 name|cert
 argument_list|)
 expr_stmt|;
-comment|// Create the trust anchors (set of root CA certificates)
-name|Set
-argument_list|<
-name|TrustAnchor
-argument_list|>
-name|trustAnchors
-init|=
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|X509Certificate
-name|trustedRootCert
-range|:
-name|trustedRootCerts
-control|)
-block|{
-name|trustAnchors
-operator|.
-name|add
-argument_list|(
-operator|new
-name|TrustAnchor
-argument_list|(
-name|trustedRootCert
-argument_list|,
-literal|null
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 comment|// Configure the PKIX certificate builder algorithm parameters
 name|PKIXBuilderParameters
 name|pkixParams
