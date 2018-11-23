@@ -475,6 +475,14 @@ name|CRLVerifier
 parameter_list|()
 block|{     }
 comment|/**      * Extracts the CRL distribution points from the certificate (if available)      * and checks the certificate revocation status against the CRLs coming from      * the distribution points. Supports HTTP, HTTPS, FTP and LDAP based URLs.      *      * @param cert the certificate to be checked for revocation      * @param signDate the date when the signing took place      * @param additionalCerts set of trusted root CA certificates that will be      * used as "trust anchors" and intermediate CA certificates that will be      * used as part of the certification chain.      * @throws CertificateVerificationException if the certificate could not be verified      * @throws RevokedCertificateException if the certificate is revoked      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S1141"
+block|}
+argument_list|)
+comment|// nested exception needed to try several distribution points
 specifier|public
 specifier|static
 name|void
@@ -532,14 +540,6 @@ operator|+
 name|crlDistributionPointsURL
 argument_list|)
 expr_stmt|;
-comment|// nested exception needed to try several distribution points
-annotation|@
-name|SuppressWarnings
-argument_list|(
-block|{
-literal|"squid:S1141"
-block|}
-argument_list|)
 name|X509CRL
 name|crl
 decl_stmt|;
