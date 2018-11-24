@@ -151,16 +151,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashSet
 import|;
 end_import
@@ -454,20 +444,6 @@ operator|.
 name|digitalsignature
 operator|.
 name|PDSignature
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|bouncycastle
-operator|.
-name|asn1
-operator|.
-name|ocsp
-operator|.
-name|OCSPObjectIdentifiers
 import|;
 end_import
 
@@ -1477,19 +1453,23 @@ operator|.
 name|getCertificate
 argument_list|()
 argument_list|,
-comment|//TODO put actual cert chain
 name|certInfo
 operator|.
 name|getIssuerCertificate
 argument_list|()
 argument_list|,
-name|Collections
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|(
+name|certInformationHelper
 operator|.
-expr|<
-name|X509Certificate
-operator|>
-name|emptySet
+name|getCertificatesMap
 argument_list|()
+operator|.
+name|values
+argument_list|()
+argument_list|)
 argument_list|,
 name|certInfo
 operator|.
@@ -1526,50 +1506,14 @@ name|getCerts
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|basicResponse
-operator|.
-name|getCerts
-argument_list|()
-index|[
-literal|0
-index|]
-operator|.
-name|getExtension
-argument_list|(
-name|OCSPObjectIdentifiers
-operator|.
-name|id_pkix_ocsp_nocheck
-argument_list|)
-operator|==
-literal|null
-condition|)
+comment|//if (basicResponse.getCerts()[0].getExtension(OCSPObjectIdentifiers.id_pkix_ocsp_nocheck) == null)
 block|{
 comment|// mkl in https://stackoverflow.com/questions/30617875
 comment|// "ocsp responses usually are signed by special certificates.
 comment|//  Often these certificates are marked to not require revocation checks but not always"
-name|CertSignatureInformation
-name|ocspCertInfo
-init|=
-name|certInformationHelper
-operator|.
-name|getOCSPCertInfo
-argument_list|(
-name|basicResponse
-operator|.
-name|getCerts
-argument_list|()
-index|[
-literal|0
-index|]
-argument_list|)
-decl_stmt|;
-name|addRevocationDataRecursive
-argument_list|(
-name|ocspCertInfo
-argument_list|)
-expr_stmt|;
+comment|// see also updated comment by mkl in PDFBOX-3017 on 21.11.2018
+comment|//            CertSignatureInformation ocspCertInfo = certInformationHelper.getOCSPCertInfo(basicResponse.getCerts()[0]);
+comment|//            addRevocationDataRecursive(ocspCertInfo);
 comment|//TODO
 comment|// 1) this must go into separate VRI
 comment|// 2) basicResponse.getCerts()[0] is not always the correct certificate
