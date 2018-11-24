@@ -737,6 +737,10 @@ comment|// The basic response type contains:
 comment|// (...)
 comment|// either the name of the responder or a hash of the responder's
 comment|// public key as the ResponderID
+comment|// (...)
+comment|// The responder MAY include certificates in the certs field of
+comment|// BasicOCSPResponse that help the OCSP client verify the responder's
+comment|// signature.
 name|X500Name
 name|name
 init|=
@@ -752,9 +756,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// The responder MAY include certificates in the certs field of
-comment|// BasicOCSPResponse that help the OCSP client verify the responder's
-comment|// signature.
 name|X509CertificateHolder
 index|[]
 name|certHolders
@@ -789,6 +790,7 @@ name|ocspResponderCertificateHolder
 operator|=
 name|certHolder
 expr_stmt|;
+break|break;
 block|}
 block|}
 if|if
@@ -798,18 +800,78 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|//TODO search existing chain
-throw|throw
+comment|// DO NOT use the certificate found in additionalCerts first. One file had a
+comment|// responder certificate in the PDF itself with SHA1withRSA algorithm, but
+comment|// the responder delivered a different (newer, more secure) certificate
+comment|// with SHA256withRSA (tried with QV_RCA1_RCA3_CPCPS_V4_11.pdf)
+comment|// https://www.quovadisglobal.com/~/media/Files/Repository/QV_RCA1_RCA3_CPCPS_V4_11.ashx
+for|for
+control|(
+name|X509Certificate
+name|cert
+range|:
+name|additionalCerts
+control|)
+block|{
+name|X500Name
+name|certSubjectName
+init|=
 operator|new
-name|OCSPException
+name|X500Name
 argument_list|(
-literal|"OCSP: certificate for responder "
-operator|+
-name|name
-operator|+
-literal|" not found in response"
+name|cert
+operator|.
+name|getSubjectX500Principal
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
-throw|;
+decl_stmt|;
+if|if
+condition|(
+name|certSubjectName
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+try|try
+block|{
+name|ocspResponderCertificateHolder
+operator|=
+operator|new
+name|X509CertificateHolder
+argument_list|(
+name|cert
+operator|.
+name|getEncoded
+argument_list|()
+argument_list|)
+expr_stmt|;
+break|break;
+block|}
+catch|catch
+parameter_list|(
+name|CertificateEncodingException
+name|ex
+parameter_list|)
+block|{
+comment|// unlikely to happen because the certificate existed as an object
+name|LOG
+operator|.
+name|error
+argument_list|(
+name|ex
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 block|}
 block|}
 else|else
@@ -845,6 +907,26 @@ comment|//            dgOut.write(info.getPublicKeyData().getBytes());
 comment|//            dgOut.close();
 comment|//            ASN1OctetString issuerKeyHash = new DEROctetString(digCalc.getDigest());
 block|}
+if|if
+condition|(
+name|ocspResponderCertificateHolder
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|OCSPException
+argument_list|(
+literal|"OCSP: certificate for responder "
+operator|+
+name|name
+operator|+
+literal|" not found"
+argument_list|)
+throw|;
+block|}
+comment|//TODO verify that ExtendedKeyUsage usage contains OCSPSigning
 name|checkOcspSignature
 argument_list|(
 name|ocspResponderCertificateHolder
