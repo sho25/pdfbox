@@ -129,6 +129,18 @@ name|security
 operator|.
 name|cert
 operator|.
+name|CertificateException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|cert
+operator|.
 name|X509Certificate
 import|;
 end_import
@@ -375,7 +387,7 @@ name|cert
 operator|.
 name|jcajce
 operator|.
-name|JcaX509CertificateHolder
+name|JcaX509CertificateConverter
 import|;
 end_import
 
@@ -389,7 +401,7 @@ name|cert
 operator|.
 name|jcajce
 operator|.
-name|JcaX509ContentVerifierProviderBuilder
+name|JcaX509CertificateHolder
 import|;
 end_import
 
@@ -555,6 +567,20 @@ name|OperatorCreationException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
+name|operator
+operator|.
+name|jcajce
+operator|.
+name|JcaContentVerifierProviderBuilder
+import|;
+end_import
+
 begin_comment
 comment|/**  * Helper Class for OCSP-Operations with bouncy castle.  *   * @author Alexis Suter  */
 end_comment
@@ -606,6 +632,19 @@ specifier|private
 name|DEROctetString
 name|encodedNonce
 decl_stmt|;
+specifier|private
+name|X509Certificate
+name|ocspResponderCertificate
+decl_stmt|;
+specifier|private
+specifier|final
+name|JcaX509CertificateConverter
+name|certificateConverter
+init|=
+operator|new
+name|JcaX509CertificateConverter
+argument_list|()
+decl_stmt|;
 comment|/**      * @param checkCertificate Certificate to be OCSP-Checked      * @param issuerCertificate Certificate of the issuer      * @param additionalCerts Set of trusted root CA certificates that will be used as "trust      * anchors" and intermediate CA certificates that will be used as part of the certification      * chain. All self-signed certificates are considered to be trusted root CA certificates. All      * the rest are considered to be intermediate CA certificates.      * @param ocspUrl where to fetch for OCSP      */
 specifier|public
 name|OcspHelper
@@ -651,7 +690,7 @@ operator|=
 name|ocspUrl
 expr_stmt|;
 block|}
-comment|/**      * Performs and verifies the OCSP-Request      *      * @return the OCSPResp, when the request was successful, else a corresponding exception will be      * thrown. Never returns null.      * @throws IOException      * @throws OCSPException      * @throws RevokedCertificateException      */
+comment|/**      * Performs and verifies the OCSP-Request      *      * @return the OCSPResp, when the request was successful, else a corresponding exception will be      * thrown. Never returns null.      *      * @throws IOException      * @throws OCSPException      * @throws RevokedCertificateException      */
 specifier|public
 name|OCSPResp
 name|getResponseOcsp
@@ -678,6 +717,16 @@ return|return
 name|ocspResponse
 return|;
 block|}
+comment|/**      * Get responder certificate. This is available after {@link #getResponseOcsp()} has been called.      *      * @return The certificate of the responder.      */
+specifier|public
+name|X509Certificate
+name|getOcspResponderCertificate
+parameter_list|()
+block|{
+return|return
+name|ocspResponderCertificate
+return|;
+block|}
 comment|/**      * Verifies the status and the response itself (including nonce), but not the signature.      *       * @param ocspResponse to be verified      * @throws OCSPException      * @throws RevokedCertificateException      * @throws IOException if the default security provider can't be instantiated      */
 specifier|private
 name|void
@@ -693,11 +742,6 @@ name|RevokedCertificateException
 throws|,
 name|IOException
 block|{
-name|X509CertificateHolder
-name|ocspResponderCertificateHolder
-init|=
-literal|null
-decl_stmt|;
 name|verifyRespStatus
 argument_list|(
 name|ocspResponse
@@ -786,16 +830,41 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|ocspResponderCertificateHolder
+try|try
+block|{
+name|ocspResponderCertificate
 operator|=
+name|certificateConverter
+operator|.
+name|getCertificate
+argument_list|(
 name|certHolder
+argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CertificateException
+name|ex
+parameter_list|)
+block|{
+comment|// unlikely to happen because the certificate existed as an object
+name|LOG
+operator|.
+name|error
+argument_list|(
+name|ex
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
 break|break;
 block|}
 block|}
 if|if
 condition|(
-name|ocspResponderCertificateHolder
+name|ocspResponderCertificate
 operator|==
 literal|null
 condition|)
@@ -838,38 +907,11 @@ name|name
 argument_list|)
 condition|)
 block|{
-try|try
-block|{
-name|ocspResponderCertificateHolder
+name|ocspResponderCertificate
 operator|=
-operator|new
-name|X509CertificateHolder
-argument_list|(
 name|cert
-operator|.
-name|getEncoded
-argument_list|()
-argument_list|)
 expr_stmt|;
 break|break;
-block|}
-catch|catch
-parameter_list|(
-name|CertificateEncodingException
-name|ex
-parameter_list|)
-block|{
-comment|// unlikely to happen because the certificate existed as an object
-name|LOG
-operator|.
-name|error
-argument_list|(
-name|ex
-argument_list|,
-name|ex
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -909,7 +951,7 @@ comment|//            ASN1OctetString issuerKeyHash = new DEROctetString(digCalc
 block|}
 if|if
 condition|(
-name|ocspResponderCertificateHolder
+name|ocspResponderCertificate
 operator|==
 literal|null
 condition|)
@@ -929,7 +971,7 @@ block|}
 comment|//TODO verify that ExtendedKeyUsage usage contains OCSPSigning
 name|checkOcspSignature
 argument_list|(
-name|ocspResponderCertificateHolder
+name|ocspResponderCertificate
 argument_list|,
 name|basicResponse
 argument_list|)
@@ -1207,7 +1249,7 @@ specifier|private
 name|void
 name|checkOcspSignature
 parameter_list|(
-name|X509CertificateHolder
+name|X509Certificate
 name|certificate
 parameter_list|,
 name|BasicOCSPResp
@@ -1224,7 +1266,7 @@ name|ContentVerifierProvider
 name|verifier
 init|=
 operator|new
-name|JcaX509ContentVerifierProviderBuilder
+name|JcaContentVerifierProviderBuilder
 argument_list|()
 operator|.
 name|setProvider
