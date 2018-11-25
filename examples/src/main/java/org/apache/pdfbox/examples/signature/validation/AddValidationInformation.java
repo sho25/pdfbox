@@ -453,6 +453,20 @@ name|org
 operator|.
 name|bouncycastle
 operator|.
+name|asn1
+operator|.
+name|ocsp
+operator|.
+name|OCSPObjectIdentifiers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
 name|cert
 operator|.
 name|ocsp
@@ -1496,6 +1510,14 @@ operator|.
 name|getResponseObject
 argument_list|()
 decl_stmt|;
+name|X509Certificate
+name|ocspResponderCertificate
+init|=
+name|ocspHelper
+operator|.
+name|getOcspResponderCertificate
+argument_list|()
+decl_stmt|;
 name|certInformationHelper
 operator|.
 name|addAllCertsFromHolders
@@ -1506,7 +1528,22 @@ name|getCerts
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//if (basicResponse.getCerts()[0].getExtension(OCSPObjectIdentifiers.id_pkix_ocsp_nocheck) == null)
+if|if
+condition|(
+name|ocspResponderCertificate
+operator|.
+name|getExtensionValue
+argument_list|(
+name|OCSPObjectIdentifiers
+operator|.
+name|id_pkix_ocsp_nocheck
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+operator|==
+literal|null
+condition|)
 block|{
 comment|// mkl in https://stackoverflow.com/questions/30617875
 comment|// "ocsp responses usually are signed by special certificates.
