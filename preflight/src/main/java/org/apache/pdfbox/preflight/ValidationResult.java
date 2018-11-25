@@ -77,8 +77,8 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Max error count, to avoid out of memory.      */
-specifier|static
 specifier|private
+specifier|static
 specifier|final
 name|int
 name|MAX_ERRORS
