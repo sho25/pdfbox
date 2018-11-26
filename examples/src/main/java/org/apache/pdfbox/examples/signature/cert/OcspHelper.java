@@ -755,7 +755,7 @@ return|return
 name|ocspResponderCertificate
 return|;
 block|}
-comment|/**      * Verifies the status and the response itself (including nonce), but not the signature.      *       * @param ocspResponse to be verified      * @throws OCSPException      * @throws RevokedCertificateException      * @throws IOException if the default security provider can't be instantiated      */
+comment|/**      * Verifies the status and the response itself (including nonce).      *      * @param ocspResponse to be verified      * @throws OCSPException      * @throws RevokedCertificateException      * @throws IOException if the default security provider can't be instantiated      */
 specifier|private
 name|void
 name|verifyOcspResponse
