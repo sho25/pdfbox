@@ -1467,6 +1467,11 @@ operator|.
 name|getCertificate
 argument_list|()
 argument_list|,
+name|signDate
+operator|.
+name|getTime
+argument_list|()
+argument_list|,
 name|certInfo
 operator|.
 name|getIssuerCertificate
