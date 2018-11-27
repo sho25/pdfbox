@@ -741,6 +741,13 @@ specifier|private
 name|ColorSpaceHelperFactory
 name|colorSpaceHelperFact
 decl_stmt|;
+comment|/**      * Define the maximum number of errors.      */
+specifier|private
+name|int
+name|maxErrors
+init|=
+literal|10000
+decl_stmt|;
 specifier|public
 specifier|static
 name|PreflightConfiguration
@@ -1392,6 +1399,32 @@ operator|.
 name|colorSpaceHelperFact
 operator|=
 name|colorSpaceHelperFact
+expr_stmt|;
+block|}
+comment|/**      * Get the maximum number of errors after which to abort when possible.      *      * @return       */
+specifier|public
+name|int
+name|getMaxErrors
+parameter_list|()
+block|{
+return|return
+name|maxErrors
+return|;
+block|}
+comment|/**      * Set the maximum number of errors after which to abort when possible.      *      * @param maxErrors       */
+specifier|public
+name|void
+name|setMaxErrors
+parameter_list|(
+name|int
+name|maxErrors
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxErrors
+operator|=
+name|maxErrors
 expr_stmt|;
 block|}
 block|}
