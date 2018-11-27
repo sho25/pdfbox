@@ -640,6 +640,11 @@ name|issuerCertificate
 decl_stmt|;
 specifier|private
 specifier|final
+name|Date
+name|signDate
+decl_stmt|;
+specifier|private
+specifier|final
 name|X509Certificate
 name|certificateToCheck
 decl_stmt|;
@@ -673,12 +678,15 @@ operator|new
 name|JcaX509CertificateConverter
 argument_list|()
 decl_stmt|;
-comment|/**      * @param checkCertificate Certificate to be OCSP-Checked      * @param issuerCertificate Certificate of the issuer      * @param additionalCerts Set of trusted root CA certificates that will be used as "trust      * anchors" and intermediate CA certificates that will be used as part of the certification      * chain. All self-signed certificates are considered to be trusted root CA certificates. All      * the rest are considered to be intermediate CA certificates.      * @param ocspUrl where to fetch for OCSP      */
+comment|/**      * @param checkCertificate Certificate to be OCSP-checked      * @param signDate the date when the signing took place      * @param issuerCertificate Certificate of the issuer      * @param additionalCerts Set of trusted root CA certificates that will be used as "trust      * anchors" and intermediate CA certificates that will be used as part of the certification      * chain. All self-signed certificates are considered to be trusted root CA certificates. All      * the rest are considered to be intermediate CA certificates.      * @param ocspUrl where to fetch for OCSP      */
 specifier|public
 name|OcspHelper
 parameter_list|(
 name|X509Certificate
 name|checkCertificate
+parameter_list|,
+name|Date
+name|signDate
 parameter_list|,
 name|X509Certificate
 name|issuerCertificate
@@ -698,6 +706,12 @@ operator|.
 name|certificateToCheck
 operator|=
 name|checkCertificate
+expr_stmt|;
+name|this
+operator|.
+name|signDate
+operator|=
+name|signDate
 expr_stmt|;
 name|this
 operator|.
@@ -755,7 +769,7 @@ return|return
 name|ocspResponderCertificate
 return|;
 block|}
-comment|/**      * Verifies the status and the response itself (including nonce).      *      * @param ocspResponse to be verified      * @throws OCSPException      * @throws RevokedCertificateException      * @throws IOException if the default security provider can't be instantiated      */
+comment|/**      * Verifies the status and the response itself (including nonce), but not the signature.      *       * @param ocspResponse to be verified      * @throws OCSPException      * @throws RevokedCertificateException      * @throws IOException if the default security provider can't be instantiated      */
 specifier|private
 name|void
 name|verifyOcspResponse
@@ -993,6 +1007,21 @@ name|RevokedStatus
 operator|)
 name|status
 decl_stmt|;
+if|if
+condition|(
+name|revokedStatus
+operator|.
+name|getRevocationTime
+argument_list|()
+operator|.
+name|compareTo
+argument_list|(
+name|signDate
+argument_list|)
+operator|<=
+literal|0
+condition|)
+block|{
 throw|throw
 operator|new
 name|RevokedCertificateException
@@ -1010,6 +1039,23 @@ name|getRevocationTime
 argument_list|()
 argument_list|)
 throw|;
+block|}
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"The certificate was revoked after signing by OCSP "
+operator|+
+name|ocspUrl
+operator|+
+literal|" on "
+operator|+
+name|revokedStatus
+operator|.
+name|getRevocationTime
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if
