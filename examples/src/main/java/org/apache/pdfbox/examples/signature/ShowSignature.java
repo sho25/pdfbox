@@ -801,6 +801,18 @@ name|bouncycastle
 operator|.
 name|util
 operator|.
+name|CollectionStore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
+name|util
+operator|.
 name|Selector
 import|;
 end_import
@@ -2086,10 +2098,7 @@ condition|)
 block|{
 comment|// tested with QV_RCA1_RCA3_CPCPS_V4_11.pdf
 comment|// https://www.quovadisglobal.com/~/media/Files/Repository/QV_RCA1_RCA3_CPCPS_V4_11.ashx
-comment|// timeStampToken.getCertificates() only contained the local certificate and not
-comment|// the whole chain, so use the store of the main signature.
-comment|// (If this assumption is incorrect, then the code must be changed to merge
-comment|// both stores, or to pass a collection)
+comment|// also 021496.pdf and 036351.pdf from digitalcorpora
 name|validateTimestampToken
 argument_list|(
 name|timeStampToken
@@ -2129,9 +2138,53 @@ argument_list|(
 name|tstCertHolder
 argument_list|)
 decl_stmt|;
-name|verifyCertificateChain
+comment|// merge both stores using a set to remove duplicates
+name|HashSet
+argument_list|<
+name|X509CertificateHolder
+argument_list|>
+name|certificateHolderSet
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+decl_stmt|;
+name|certificateHolderSet
+operator|.
+name|addAll
 argument_list|(
 name|certificatesStore
+operator|.
+name|getMatches
+argument_list|(
+literal|null
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|certificateHolderSet
+operator|.
+name|addAll
+argument_list|(
+name|timeStampToken
+operator|.
+name|getCertificates
+argument_list|()
+operator|.
+name|getMatches
+argument_list|(
+literal|null
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|verifyCertificateChain
+argument_list|(
+operator|new
+name|CollectionStore
+argument_list|<>
+argument_list|(
+name|certificateHolderSet
+argument_list|)
 argument_list|,
 name|certFromTimeStamp
 argument_list|,
