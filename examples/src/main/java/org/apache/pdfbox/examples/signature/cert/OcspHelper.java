@@ -958,10 +958,24 @@ condition|(
 name|responses
 operator|.
 name|length
-operator|==
+operator|!=
 literal|1
 condition|)
 block|{
+throw|throw
+operator|new
+name|OCSPException
+argument_list|(
+literal|"OCSP: Received "
+operator|+
+name|responses
+operator|.
+name|length
+operator|+
+literal|" responses instead of 1!"
+argument_list|)
+throw|;
+block|}
 name|SingleResp
 name|resp
 init|=
@@ -1072,23 +1086,6 @@ operator|new
 name|OCSPException
 argument_list|(
 literal|"OCSP: Status of Cert is unknown"
-argument_list|)
-throw|;
-block|}
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|OCSPException
-argument_list|(
-literal|"OCSP: Received "
-operator|+
-name|responses
-operator|.
-name|length
-operator|+
-literal|" responses instead of 1!"
 argument_list|)
 throw|;
 block|}
