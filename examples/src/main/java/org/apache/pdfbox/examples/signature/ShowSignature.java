@@ -2512,6 +2512,17 @@ operator|.
 name|id_aa_signatureTimeStampToken
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|attribute
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 name|ASN1Object
 name|obj
 init|=
