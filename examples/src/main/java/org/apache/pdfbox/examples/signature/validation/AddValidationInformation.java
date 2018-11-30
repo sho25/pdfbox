@@ -1063,6 +1063,8 @@ argument_list|(
 name|certInfo
 argument_list|)
 expr_stmt|;
+comment|//TODO this will have to be rewritten differently, because it is wrong to take the whole
+comment|// list object for the OCSP / CRL entries. Each VRI must have its own.
 if|if
 condition|(
 name|correspondingOCSPs
