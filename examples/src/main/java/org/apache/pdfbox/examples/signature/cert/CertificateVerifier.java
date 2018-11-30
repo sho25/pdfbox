@@ -1406,7 +1406,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Revocation check of OCSP responder certificate"
+literal|"Check of OCSP responder certificate"
 argument_list|)
 expr_stmt|;
 name|Set
@@ -1490,42 +1490,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-try|try
-block|{
-name|checkRevocations
+name|CertificateVerifier
+operator|.
+name|verifyCertificate
 argument_list|(
 name|ocspResponderCertificate
 argument_list|,
 name|additionalCerts2
 argument_list|,
+literal|true
+argument_list|,
 name|now
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|GeneralSecurityException
-name|ex
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|CertificateVerificationException
-argument_list|(
-name|ex
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|ex
-argument_list|)
-throw|;
-block|}
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Revocation check of OCSP responder certificate done"
+literal|"Check of OCSP responder certificate done"
 argument_list|)
 expr_stmt|;
 block|}
