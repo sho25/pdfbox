@@ -609,6 +609,26 @@ expr_stmt|;
 block|}
 continue|continue;
 block|}
+name|Set
+argument_list|<
+name|X509Certificate
+argument_list|>
+name|mergedCertSet
+init|=
+name|CertificateVerifier
+operator|.
+name|downloadExtraCertificates
+argument_list|(
+name|crl
+argument_list|)
+decl_stmt|;
+name|mergedCertSet
+operator|.
+name|addAll
+argument_list|(
+name|additionalCerts
+argument_list|)
+expr_stmt|;
 comment|// Verify CRL, see wikipedia:
 comment|// "To validate a specific CRL prior to relying on it,
 comment|//  the certificate of its corresponding CA is needed"
@@ -620,9 +640,9 @@ decl_stmt|;
 for|for
 control|(
 name|X509Certificate
-name|additionalCert
+name|possibleCert
 range|:
-name|additionalCerts
+name|mergedCertSet
 control|)
 block|{
 if|if
@@ -634,7 +654,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|additionalCert
+name|possibleCert
 operator|.
 name|getSubjectX500Principal
 argument_list|()
@@ -643,7 +663,7 @@ condition|)
 block|{
 name|crlIssuerCert
 operator|=
-name|additionalCert
+name|possibleCert
 expr_stmt|;
 break|break;
 block|}
@@ -722,7 +742,7 @@ name|verifyCertificate
 argument_list|(
 name|crlIssuerCert
 argument_list|,
-name|additionalCerts
+name|mergedCertSet
 argument_list|,
 literal|true
 argument_list|,
