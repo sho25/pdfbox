@@ -1398,6 +1398,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|oid
 operator|.
 name|equals
@@ -1408,6 +1409,8 @@ name|id_ad_caIssuers
 argument_list|)
 condition|)
 block|{
+continue|continue;
+block|}
 name|DERTaggedObject
 name|location
 init|=
@@ -1560,7 +1563,6 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|LOG
