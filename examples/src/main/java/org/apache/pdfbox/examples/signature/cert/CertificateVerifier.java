@@ -1204,25 +1204,17 @@ argument_list|()
 operator|-
 name|startSize
 decl_stmt|;
-if|if
-condition|(
-name|added
-operator|>
-literal|0
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Added "
+literal|"CA issuers: Added "
 operator|+
 name|added
 operator|+
 literal|" new certificate(s) to the store"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 operator|new
 name|CollectionStore
@@ -1278,10 +1270,14 @@ decl_stmt|;
 if|if
 condition|(
 name|authorityExtensionValue
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+return|return
+name|resultSet
+return|;
+block|}
 name|ASN1Primitive
 name|asn1Prim
 decl_stmt|;
@@ -1500,21 +1496,6 @@ argument_list|(
 name|in
 argument_list|)
 decl_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"CA issuers URL: "
-operator|+
-name|altCerts
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|" certificate(s) loaded"
-argument_list|)
-expr_stmt|;
-comment|// Create new store that contains the online certificates
 for|for
 control|(
 name|Certificate
@@ -1582,31 +1563,20 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-if|if
-condition|(
-operator|!
-name|resultSet
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Downloaded "
+literal|"CA issuers: Downloaded "
 operator|+
 name|resultSet
 operator|.
 name|size
 argument_list|()
 operator|+
-literal|" certificate(s)"
+literal|" certificate(s) total"
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|resultSet
 return|;
