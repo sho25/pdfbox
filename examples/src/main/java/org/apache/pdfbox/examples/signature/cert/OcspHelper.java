@@ -1175,8 +1175,21 @@ name|ex
 parameter_list|)
 block|{
 comment|// should not happen
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"SHA-1 Algorithm not found"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
 return|return
-literal|null
+operator|new
+name|byte
+index|[
+literal|0
+index|]
 return|;
 block|}
 block|}
@@ -2338,20 +2351,25 @@ block|}
 catch|catch
 parameter_list|(
 name|NoSuchAlgorithmException
-name|e
+name|ex
 parameter_list|)
 block|{
+comment|// should not happen
 name|LOG
 operator|.
 name|error
 argument_list|(
 literal|"SHA-1 Algorithm not found"
 argument_list|,
-name|e
+name|ex
 argument_list|)
 expr_stmt|;
 return|return
-literal|null
+operator|new
+name|byte
+index|[
+literal|0
+index|]
 return|;
 block|}
 block|}
