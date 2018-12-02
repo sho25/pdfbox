@@ -1243,6 +1243,7 @@ argument_list|(
 name|certHolder
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 catch|catch
 parameter_list|(
@@ -1264,13 +1265,6 @@ block|}
 break|break;
 block|}
 block|}
-if|if
-condition|(
-name|ocspResponderCertificate
-operator|==
-literal|null
-condition|)
-block|{
 comment|// DO NOT use the certificate found in additionalCerts first. One file had a
 comment|// responder certificate in the PDF itself with SHA1withRSA algorithm, but
 comment|// the responder delivered a different (newer, more secure) certificate
@@ -1318,7 +1312,7 @@ name|ocspResponderCertificate
 operator|=
 name|cert
 expr_stmt|;
-break|break;
+return|return;
 block|}
 block|}
 catch|catch
@@ -1337,7 +1331,6 @@ argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
@@ -1393,6 +1386,7 @@ argument_list|(
 name|certHolder
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 catch|catch
 parameter_list|(
@@ -1411,16 +1405,8 @@ name|ex
 argument_list|)
 expr_stmt|;
 block|}
-break|break;
 block|}
 block|}
-if|if
-condition|(
-name|ocspResponderCertificate
-operator|==
-literal|null
-condition|)
-block|{
 comment|// DO NOT use the certificate found in additionalCerts first. One file had a
 comment|// responder certificate in the PDF itself with SHA1withRSA algorithm, but
 comment|// the responder delivered a different (newer, more secure) certificate
@@ -1463,8 +1449,7 @@ name|ocspResponderCertificate
 operator|=
 name|cert
 expr_stmt|;
-break|break;
-block|}
+return|return;
 block|}
 block|}
 block|}
