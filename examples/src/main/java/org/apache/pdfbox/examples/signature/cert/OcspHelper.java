@@ -163,6 +163,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Calendar
 import|;
 end_import
@@ -390,6 +400,20 @@ operator|.
 name|x509
 operator|.
 name|Extensions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
+name|asn1
+operator|.
+name|x509
+operator|.
+name|SubjectPublicKeyInfo
 import|;
 end_import
 
@@ -861,27 +885,21 @@ operator|.
 name|getKeyHash
 argument_list|()
 decl_stmt|;
-comment|//TODO
-comment|// KeyHash ::= OCTET STRING -- SHA-1 hash of responder's public key
-comment|//         -- (i.e., the SHA-1 hash of the value of the
-comment|//         -- BIT STRING subjectPublicKey [excluding
-comment|//         -- the tag, length, and number of unused
-comment|//         -- bits] in the responder's certificate)
-throw|throw
-operator|new
-name|UnsupportedOperationException
+if|if
+condition|(
+name|keyHash
+operator|!=
+literal|null
+condition|)
+block|{
+name|findResponderCertificateByKeyHash
 argument_list|(
-literal|"search by key hash is not implemented yet"
+name|basicResponse
+argument_list|,
+name|keyHash
 argument_list|)
-throw|;
-comment|// how BC calculates the HeyHash:
-comment|// see CertificateID.createCertID()
-comment|//  digCalc is a SHA1DigestCalculator
-comment|//            SubjectPublicKeyInfo info = issuerCert.getSubjectPublicKeyInfo();
-comment|//            dgOut = digCalc.getOutputStream();
-comment|//            dgOut.write(info.getPublicKeyData().getBytes());
-comment|//            dgOut.close();
-comment|//            ASN1OctetString issuerKeyHash = new DEROctetString(digCalc.getDigest());
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1088,6 +1106,140 @@ argument_list|(
 literal|"OCSP: Status of Cert is unknown"
 argument_list|)
 throw|;
+block|}
+block|}
+block|}
+specifier|private
+name|void
+name|findResponderCertificateByKeyHash
+parameter_list|(
+name|BasicOCSPResp
+name|basicResponse
+parameter_list|,
+name|byte
+index|[]
+name|keyHash
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// https://tools.ietf.org/html/rfc2560#section-4.2.1
+comment|// KeyHash ::= OCTET STRING -- SHA-1 hash of responder's public key
+comment|//         -- (i.e., the SHA-1 hash of the value of the
+comment|//         -- BIT STRING subjectPublicKey [excluding
+comment|//         -- the tag, length, and number of unused
+comment|//         -- bits] in the responder's certificate)
+comment|// code below inspired by org.bouncycastle.cert.ocsp.CertificateID.createCertID()
+comment|// tested with SO52757037-Signed3-OCSP-with-KeyHash.pdf
+name|X509CertificateHolder
+index|[]
+name|certHolders
+init|=
+name|basicResponse
+operator|.
+name|getCerts
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|X509CertificateHolder
+name|certHolder
+range|:
+name|certHolders
+control|)
+block|{
+name|SHA1DigestCalculator
+name|digCalc
+init|=
+operator|new
+name|SHA1DigestCalculator
+argument_list|()
+decl_stmt|;
+name|SubjectPublicKeyInfo
+name|info
+init|=
+name|certHolder
+operator|.
+name|getSubjectPublicKeyInfo
+argument_list|()
+decl_stmt|;
+name|OutputStream
+name|dgOut
+init|=
+name|digCalc
+operator|.
+name|getOutputStream
+argument_list|()
+decl_stmt|;
+name|dgOut
+operator|.
+name|write
+argument_list|(
+name|info
+operator|.
+name|getPublicKeyData
+argument_list|()
+operator|.
+name|getBytes
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|dgOut
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|byte
+index|[]
+name|digest
+init|=
+name|digCalc
+operator|.
+name|getDigest
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|Arrays
+operator|.
+name|equals
+argument_list|(
+name|keyHash
+argument_list|,
+name|digest
+argument_list|)
+condition|)
+block|{
+try|try
+block|{
+name|ocspResponderCertificate
+operator|=
+name|certificateConverter
+operator|.
+name|getCertificate
+argument_list|(
+name|certHolder
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CertificateException
+name|ex
+parameter_list|)
+block|{
+comment|// unlikely to happen because the certificate existed as an object
+name|LOG
+operator|.
+name|error
+argument_list|(
+name|ex
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
+break|break;
 block|}
 block|}
 block|}
