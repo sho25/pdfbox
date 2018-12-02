@@ -1130,13 +1130,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|SHA1DigestCalculator
-name|digCalc
-init|=
-operator|new
-name|SHA1DigestCalculator
-argument_list|()
-decl_stmt|;
+comment|// https://tools.ietf.org/html/rfc2560#section-4.2.1
+comment|// KeyHash ::= OCTET STRING -- SHA-1 hash of responder's public key
+comment|//         -- (i.e., the SHA-1 hash of the value of the
+comment|//         -- BIT STRING subjectPublicKey [excluding
+comment|//         -- the tag, length, and number of unused
+comment|//         -- bits] in the responder's certificate)
+comment|// code below inspired by org.bouncycastle.cert.ocsp.CertificateID.createCertID()
+comment|// tested with SO52757037-Signed3-OCSP-with-KeyHash.pdf
 name|SubjectPublicKeyInfo
 name|info
 init|=
@@ -1146,19 +1147,16 @@ name|getSubjectPublicKeyInfo
 argument_list|()
 decl_stmt|;
 try|try
-init|(
-name|OutputStream
-name|dgOut
-init|=
-name|digCalc
-operator|.
-name|getOutputStream
-argument_list|()
-init|)
 block|{
-name|dgOut
+return|return
+name|MessageDigest
 operator|.
-name|write
+name|getInstance
+argument_list|(
+literal|"SHA-1"
+argument_list|)
+operator|.
+name|digest
 argument_list|(
 name|info
 operator|.
@@ -1168,14 +1166,19 @@ operator|.
 name|getBytes
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|digCalc
-operator|.
-name|getDigest
-argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchAlgorithmException
+name|ex
+parameter_list|)
+block|{
+comment|// should not happen
+return|return
+literal|null
+return|;
+block|}
 block|}
 specifier|private
 name|void
@@ -1191,14 +1194,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// https://tools.ietf.org/html/rfc2560#section-4.2.1
-comment|// KeyHash ::= OCTET STRING -- SHA-1 hash of responder's public key
-comment|//         -- (i.e., the SHA-1 hash of the value of the
-comment|//         -- BIT STRING subjectPublicKey [excluding
-comment|//         -- the tag, length, and number of unused
-comment|//         -- bits] in the responder's certificate)
-comment|// code below inspired by org.bouncycastle.cert.ocsp.CertificateID.createCertID()
-comment|// tested with SO52757037-Signed3-OCSP-with-KeyHash.pdf
 name|X509CertificateHolder
 index|[]
 name|certHolders
