@@ -900,6 +900,16 @@ name|keyHash
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|OCSPException
+argument_list|(
+literal|"OCSP: basic response must provide name or key hash"
+argument_list|)
+throw|;
+block|}
 block|}
 if|if
 condition|(
