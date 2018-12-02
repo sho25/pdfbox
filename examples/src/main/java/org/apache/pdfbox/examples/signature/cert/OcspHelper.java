@@ -908,59 +908,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// DO NOT use the certificate found in additionalCerts first. One file had a
-comment|// responder certificate in the PDF itself with SHA1withRSA algorithm, but
-comment|// the responder delivered a different (newer, more secure) certificate
-comment|// with SHA256withRSA (tried with QV_RCA1_RCA3_CPCPS_V4_11.pdf)
-comment|// https://www.quovadisglobal.com/~/media/Files/Repository/QV_RCA1_RCA3_CPCPS_V4_11.ashx
-for|for
-control|(
-name|X509Certificate
-name|cert
-range|:
-name|additionalCerts
-control|)
-block|{
-name|X500Name
-name|certSubjectName
-init|=
-operator|new
-name|X500Name
-argument_list|(
-name|cert
-operator|.
-name|getSubjectX500Principal
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|certSubjectName
-operator|.
-name|equals
-argument_list|(
-name|name
-argument_list|)
-condition|)
-block|{
-name|ocspResponderCertificate
-operator|=
-name|cert
-expr_stmt|;
-break|break;
-block|}
-block|}
-block|}
-if|if
-condition|(
-name|ocspResponderCertificate
-operator|==
-literal|null
-condition|)
-block|{
 throw|throw
 operator|new
 name|OCSPException
@@ -1366,6 +1313,59 @@ argument_list|)
 expr_stmt|;
 block|}
 break|break;
+block|}
+block|}
+if|if
+condition|(
+name|ocspResponderCertificate
+operator|==
+literal|null
+condition|)
+block|{
+comment|// DO NOT use the certificate found in additionalCerts first. One file had a
+comment|// responder certificate in the PDF itself with SHA1withRSA algorithm, but
+comment|// the responder delivered a different (newer, more secure) certificate
+comment|// with SHA256withRSA (tried with QV_RCA1_RCA3_CPCPS_V4_11.pdf)
+comment|// https://www.quovadisglobal.com/~/media/Files/Repository/QV_RCA1_RCA3_CPCPS_V4_11.ashx
+for|for
+control|(
+name|X509Certificate
+name|cert
+range|:
+name|additionalCerts
+control|)
+block|{
+name|X500Name
+name|certSubjectName
+init|=
+operator|new
+name|X500Name
+argument_list|(
+name|cert
+operator|.
+name|getSubjectX500Principal
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|certSubjectName
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+name|ocspResponderCertificate
+operator|=
+name|cert
+expr_stmt|;
+break|break;
+block|}
 block|}
 block|}
 block|}
