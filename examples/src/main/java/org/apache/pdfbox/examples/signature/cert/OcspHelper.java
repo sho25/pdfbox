@@ -1110,43 +1110,15 @@ block|}
 block|}
 block|}
 specifier|private
-name|void
-name|findResponderCertificateByKeyHash
-parameter_list|(
-name|BasicOCSPResp
-name|basicResponse
-parameter_list|,
 name|byte
 index|[]
-name|keyHash
+name|getKeyHashFromCertHolder
+parameter_list|(
+name|X509CertificateHolder
+name|certHolder
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-comment|// https://tools.ietf.org/html/rfc2560#section-4.2.1
-comment|// KeyHash ::= OCTET STRING -- SHA-1 hash of responder's public key
-comment|//         -- (i.e., the SHA-1 hash of the value of the
-comment|//         -- BIT STRING subjectPublicKey [excluding
-comment|//         -- the tag, length, and number of unused
-comment|//         -- bits] in the responder's certificate)
-comment|// code below inspired by org.bouncycastle.cert.ocsp.CertificateID.createCertID()
-comment|// tested with SO52757037-Signed3-OCSP-with-KeyHash.pdf
-name|X509CertificateHolder
-index|[]
-name|certHolders
-init|=
-name|basicResponse
-operator|.
-name|getCerts
-argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|X509CertificateHolder
-name|certHolder
-range|:
-name|certHolders
-control|)
 block|{
 name|SHA1DigestCalculator
 name|digCalc
@@ -1188,14 +1160,60 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|byte
-index|[]
-name|digest
-init|=
+return|return
 name|digCalc
 operator|.
 name|getDigest
 argument_list|()
+return|;
+block|}
+specifier|private
+name|void
+name|findResponderCertificateByKeyHash
+parameter_list|(
+name|BasicOCSPResp
+name|basicResponse
+parameter_list|,
+name|byte
+index|[]
+name|keyHash
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// https://tools.ietf.org/html/rfc2560#section-4.2.1
+comment|// KeyHash ::= OCTET STRING -- SHA-1 hash of responder's public key
+comment|//         -- (i.e., the SHA-1 hash of the value of the
+comment|//         -- BIT STRING subjectPublicKey [excluding
+comment|//         -- the tag, length, and number of unused
+comment|//         -- bits] in the responder's certificate)
+comment|// code below inspired by org.bouncycastle.cert.ocsp.CertificateID.createCertID()
+comment|// tested with SO52757037-Signed3-OCSP-with-KeyHash.pdf
+name|X509CertificateHolder
+index|[]
+name|certHolders
+init|=
+name|basicResponse
+operator|.
+name|getCerts
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|X509CertificateHolder
+name|certHolder
+range|:
+name|certHolders
+control|)
+block|{
+name|byte
+index|[]
+name|digest
+init|=
+name|getKeyHashFromCertHolder
+argument_list|(
+name|certHolder
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -1239,6 +1257,82 @@ argument_list|)
 expr_stmt|;
 block|}
 break|break;
+block|}
+block|}
+if|if
+condition|(
+name|ocspResponderCertificate
+operator|==
+literal|null
+condition|)
+block|{
+comment|// DO NOT use the certificate found in additionalCerts first. One file had a
+comment|// responder certificate in the PDF itself with SHA1withRSA algorithm, but
+comment|// the responder delivered a different (newer, more secure) certificate
+comment|// with SHA256withRSA (tried with QV_RCA1_RCA3_CPCPS_V4_11.pdf)
+comment|// https://www.quovadisglobal.com/~/media/Files/Repository/QV_RCA1_RCA3_CPCPS_V4_11.ashx
+for|for
+control|(
+name|X509Certificate
+name|cert
+range|:
+name|additionalCerts
+control|)
+block|{
+try|try
+block|{
+name|byte
+index|[]
+name|digest
+init|=
+name|getKeyHashFromCertHolder
+argument_list|(
+operator|new
+name|X509CertificateHolder
+argument_list|(
+name|cert
+operator|.
+name|getEncoded
+argument_list|()
+argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|Arrays
+operator|.
+name|equals
+argument_list|(
+name|keyHash
+argument_list|,
+name|digest
+argument_list|)
+condition|)
+block|{
+name|ocspResponderCertificate
+operator|=
+name|cert
+expr_stmt|;
+break|break;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|CertificateException
+name|ex
+parameter_list|)
+block|{
+comment|// unlikely to happen because the certificate existed as an object
+name|LOG
+operator|.
+name|error
+argument_list|(
+name|ex
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
