@@ -1442,12 +1442,9 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|URL
-name|certUrl
+name|String
+name|urlString
 init|=
-operator|new
-name|URL
-argument_list|(
 operator|new
 name|String
 argument_list|(
@@ -1456,7 +1453,6 @@ operator|.
 name|getOctets
 argument_list|()
 argument_list|)
-argument_list|)
 decl_stmt|;
 name|LOG
 operator|.
@@ -1464,8 +1460,19 @@ name|info
 argument_list|(
 literal|"CA issuers URL: "
 operator|+
-name|certUrl
+name|urlString
 argument_list|)
+expr_stmt|;
+name|in
+operator|=
+operator|new
+name|URL
+argument_list|(
+name|urlString
+argument_list|)
+operator|.
+name|openStream
+argument_list|()
 expr_stmt|;
 name|CertificateFactory
 name|certFactory
@@ -1477,13 +1484,6 @@ argument_list|(
 literal|"X.509"
 argument_list|)
 decl_stmt|;
-name|in
-operator|=
-name|certUrl
-operator|.
-name|openStream
-argument_list|()
-expr_stmt|;
 name|Collection
 argument_list|<
 name|?
