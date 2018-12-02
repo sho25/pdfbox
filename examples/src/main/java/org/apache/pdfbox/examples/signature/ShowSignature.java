@@ -2073,17 +2073,6 @@ operator|+
 name|certFromSignedData
 argument_list|)
 expr_stmt|;
-name|certificatesStore
-operator|=
-name|CertificateVerifier
-operator|.
-name|addExtraCertificatesToStore
-argument_list|(
-name|certFromSignedData
-argument_list|,
-name|certificatesStore
-argument_list|)
-expr_stmt|;
 name|SigUtils
 operator|.
 name|checkCertificateUsage
