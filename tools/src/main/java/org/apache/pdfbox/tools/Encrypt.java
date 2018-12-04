@@ -286,7 +286,7 @@ decl_stmt|;
 name|int
 name|keyLength
 init|=
-literal|40
+literal|256
 decl_stmt|;
 name|PDDocument
 name|document
@@ -906,9 +906,9 @@ literal|"Usage: java -jar pdfbox-app-x.y.z.jar Encrypt [options]<inputfile> [out
 operator|+
 literal|"\nOptions:\n"
 operator|+
-literal|"  -O<password>                            : Set the owner password (ignored if cert is set)\n"
+literal|"  -O<password>                            : Set the owner password (ignored if certFile is set)\n"
 operator|+
-literal|"  -U<password>                            : Set the user password (ignored if cert is set)\n"
+literal|"  -U<password>                            : Set the user password (ignored if certFile is set)\n"
 operator|+
 literal|"  -certFile<path to cert>                 : Path to X.509 certificate\n"
 operator|+
@@ -928,9 +928,9 @@ literal|"  -canPrint<true|false>                   : Set the print permission\n"
 operator|+
 literal|"  -canPrintDegraded<true|false>           : Set the print degraded permission\n"
 operator|+
-literal|"  -keyLength<length>                      : The length of the key in bits "
+literal|"  -keyLength<length>                      : Key length in bits "
 operator|+
-literal|"(valid values: 40, 128 or 256, default is 40)\n"
+literal|"(valid values: 40, 128 or 256, default is 256)\n"
 operator|+
 literal|"\nNote: By default all permissions are set to true!"
 decl_stmt|;
