@@ -2806,6 +2806,18 @@ specifier|public
 specifier|static
 specifier|final
 name|COSName
+name|HELV
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"Helv"
+argument_list|)
+decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|COSName
 name|HIDE_MENUBAR
 init|=
 operator|new
@@ -6144,6 +6156,19 @@ operator|new
 name|COSName
 argument_list|(
 literal|"Yes"
+argument_list|)
+decl_stmt|;
+comment|// Z
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|ZA_DB
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"ZaDb"
 argument_list|)
 decl_stmt|;
 comment|// fields
