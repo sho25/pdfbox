@@ -585,7 +585,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param doc The document that this form is part of.      * @param form The existing acroForm.      */
+comment|/**      * Constructor. Side effect: /Helv and /ZaDb fonts added with update mark.      *      * @param doc The document that this form is part of.      * @param form The existing acroForm.      */
 specifier|public
 name|PDAcroForm
 parameter_list|(
@@ -678,10 +678,12 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Adobe Acrobat uses Helvetica as a default font and
+comment|// PDFBOX-3732: Adobe Acrobat uses Helvetica as a default font and
 comment|// stores that under the name '/Helv' in the resources dictionary
 comment|// Zapf Dingbats is included per default for check boxes and
 comment|// radio buttons as /ZaDb.
+comment|// PDFBOX-4393: the two fonts are added by Adobe when signing
+comment|// and this breaks a previous signature. (Might be an Adobe bug)
 name|COSDictionary
 name|fontDict
 init|=
