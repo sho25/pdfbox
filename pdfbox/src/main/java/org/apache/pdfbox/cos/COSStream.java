@@ -622,6 +622,13 @@ name|filters
 argument_list|)
 expr_stmt|;
 block|}
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|randomAccess
+argument_list|)
+expr_stmt|;
 name|randomAccess
 operator|=
 name|scratchFile
@@ -629,7 +636,6 @@ operator|.
 name|createBuffer
 argument_list|()
 expr_stmt|;
-comment|// discards old data - TODO: close existing buffer?
 name|OutputStream
 name|randomOut
 init|=
@@ -775,6 +781,13 @@ literal|"Cannot have more than one open stream writer."
 argument_list|)
 throw|;
 block|}
+name|IOUtils
+operator|.
+name|closeQuietly
+argument_list|(
+name|randomAccess
+argument_list|)
+expr_stmt|;
 name|randomAccess
 operator|=
 name|scratchFile
@@ -782,7 +795,6 @@ operator|.
 name|createBuffer
 argument_list|()
 expr_stmt|;
-comment|// discards old data - TODO: close existing buffer?
 name|OutputStream
 name|out
 init|=
