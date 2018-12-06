@@ -772,23 +772,9 @@ name|this
 argument_list|)
 expr_stmt|;
 comment|// do things that trigger a ProfileDataException
-comment|// or CMMException due to invalid profiles, see PDFBOX-1295 and PDFBOX-1740
+comment|// or CMMException due to invalid profiles, see PDFBOX-1295 and PDFBOX-1740 (ü-file)
 comment|// or ArrayIndexOutOfBoundsException, see PDFBOX-3610
-name|awtColorSpace
-operator|.
-name|toRGB
-argument_list|(
-operator|new
-name|float
-index|[
-name|awtColorSpace
-operator|.
-name|getNumComponents
-argument_list|()
-index|]
-argument_list|)
-expr_stmt|;
-comment|// this one triggers an exception for PDFBOX-3549 with KCMS
+comment|// also triggers a ProfileDataException for PDFBOX-3549 with KCMS
 operator|new
 name|Color
 argument_list|(
