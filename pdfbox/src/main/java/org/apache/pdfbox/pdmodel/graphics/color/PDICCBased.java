@@ -441,8 +441,8 @@ name|useOnlyAlternateColorSpace
 init|=
 literal|false
 decl_stmt|;
-specifier|static
 specifier|private
+specifier|static
 specifier|final
 name|boolean
 name|IS_KCMS
