@@ -240,37 +240,6 @@ name|MARGIN
 init|=
 literal|20
 decl_stmt|;
-static|static
-block|{
-try|try
-block|{
-comment|// turns off log info about using KCMS (faster than LCMS) if available
-name|Class
-operator|.
-name|forName
-argument_list|(
-literal|"sun.java2d.cmm.kcms.KcmsServiceProvider"
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"sun.java2d.cmm"
-argument_list|,
-literal|"sun.java2d.cmm.kcms.KcmsServiceProvider"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ClassNotFoundException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
-block|}
 specifier|private
 name|BengaliPdfGenerationHelloWorld
 parameter_list|()
