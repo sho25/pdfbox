@@ -309,7 +309,7 @@ comment|// is an open alternative to the "ISO Coated v2 300% (ECI)" profile.
 name|String
 name|name
 init|=
-literal|"org/apache/pdfbox/resources/icc/ISOcoated_v2_300_bas.icc"
+literal|"/org/apache/pdfbox/resources/icc/ISOcoated_v2_300_bas.icc"
 decl_stmt|;
 name|URL
 name|url
@@ -317,9 +317,6 @@ init|=
 name|PDDeviceCMYK
 operator|.
 name|class
-operator|.
-name|getClassLoader
-argument_list|()
 operator|.
 name|getResource
 argument_list|(

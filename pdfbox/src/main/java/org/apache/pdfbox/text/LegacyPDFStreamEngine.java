@@ -928,7 +928,7 @@ comment|// load additional glyph list for Unicode mapping
 name|String
 name|path
 init|=
-literal|"org/apache/pdfbox/resources/glyphlist/additional.txt"
+literal|"/org/apache/pdfbox/resources/glyphlist/additional.txt"
 decl_stmt|;
 try|try
 init|(
@@ -938,9 +938,6 @@ init|=
 name|GlyphList
 operator|.
 name|class
-operator|.
-name|getClassLoader
-argument_list|()
 operator|.
 name|getResourceAsStream
 argument_list|(

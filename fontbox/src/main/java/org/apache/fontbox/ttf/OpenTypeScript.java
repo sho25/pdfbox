@@ -1842,7 +1842,7 @@ block|{
 name|String
 name|path
 init|=
-literal|"org/apache/fontbox/unicode/Scripts.txt"
+literal|"/org/apache/fontbox/unicode/Scripts.txt"
 decl_stmt|;
 try|try
 init|(
@@ -1852,9 +1852,6 @@ init|=
 name|OpenTypeScript
 operator|.
 name|class
-operator|.
-name|getClassLoader
-argument_list|()
 operator|.
 name|getResourceAsStream
 argument_list|(

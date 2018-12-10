@@ -528,7 +528,7 @@ block|}
 name|String
 name|resourceName
 init|=
-literal|"org/apache/pdfbox/resources/afm/"
+literal|"/org/apache/pdfbox/resources/afm/"
 operator|+
 name|afmName
 operator|+
@@ -540,9 +540,6 @@ init|=
 name|PDType1Font
 operator|.
 name|class
-operator|.
-name|getClassLoader
-argument_list|()
 operator|.
 name|getResource
 argument_list|(

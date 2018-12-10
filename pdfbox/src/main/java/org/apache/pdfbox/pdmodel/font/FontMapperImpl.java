@@ -618,7 +618,7 @@ block|{
 name|String
 name|ttfName
 init|=
-literal|"org/apache/pdfbox/resources/ttf/LiberationSans-Regular.ttf"
+literal|"/org/apache/pdfbox/resources/ttf/LiberationSans-Regular.ttf"
 decl_stmt|;
 name|URL
 name|url
@@ -626,9 +626,6 @@ init|=
 name|FontMapper
 operator|.
 name|class
-operator|.
-name|getClassLoader
-argument_list|()
 operator|.
 name|getResource
 argument_list|(

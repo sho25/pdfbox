@@ -530,12 +530,9 @@ name|PDFont
 operator|.
 name|class
 operator|.
-name|getClassLoader
-argument_list|()
-operator|.
 name|getResource
 argument_list|(
-literal|"org/apache/pdfbox/resources/ttf/LiberationSans-Regular.ttf"
+literal|"/org/apache/pdfbox/resources/ttf/LiberationSans-Regular.ttf"
 argument_list|)
 decl_stmt|;
 name|File
