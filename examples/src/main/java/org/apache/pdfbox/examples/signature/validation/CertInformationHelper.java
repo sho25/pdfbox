@@ -568,6 +568,22 @@ operator|.
 name|getObject
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|!
+operator|(
+name|derTagged
+operator|.
+name|getObject
+argument_list|()
+operator|instanceof
+name|DEROctetString
+operator|)
+condition|)
+block|{
+comment|// happens with SampleSignedPDFDocument.pdf
+continue|continue;
+block|}
 name|DEROctetString
 name|uri
 init|=
