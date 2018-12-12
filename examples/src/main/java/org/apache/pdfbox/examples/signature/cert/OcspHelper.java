@@ -783,7 +783,7 @@ return|return
 name|ocspResponse
 return|;
 block|}
-comment|/**      * Get responder certificate. This is available after {@link #getResponseOcsp()} has been called.      *      * @return The certificate of the responder.      */
+comment|/**      * Get responder certificate. This is available after {@link #getResponseOcsp()} has been      * called. This method should be used instead of {@code basicResponse.getCerts()[0]}      *      * @return The certificate of the responder.      */
 specifier|public
 name|X509Certificate
 name|getOcspResponderCertificate
