@@ -1572,12 +1572,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Traverse the OCSP certificate.      *      * @param certHolder      * @return      * @throws CertificateProccessingException       */
+comment|/**      * Traverse a certificate.      *      * @param certificate      * @return      * @throws CertificateProccessingException       */
 name|CertSignatureInformation
-name|getOCSPCertInfo
+name|getCertInfo
 parameter_list|(
-name|X509CertificateHolder
-name|certHolder
+name|X509Certificate
+name|certificate
 parameter_list|)
 throws|throws
 name|CertificateProccessingException
@@ -1593,12 +1593,7 @@ argument_list|()
 decl_stmt|;
 name|traverseChain
 argument_list|(
-name|certConverter
-operator|.
-name|getCertificate
-argument_list|(
-name|certHolder
-argument_list|)
+name|certificate
 argument_list|,
 name|certSignatureInformation
 argument_list|,
@@ -1612,8 +1607,6 @@ block|}
 catch|catch
 parameter_list|(
 name|IOException
-decl||
-name|CertificateException
 name|ex
 parameter_list|)
 block|{
