@@ -357,6 +357,8 @@ argument_list|,
 literal|"text-with-form-overlay.pdf"
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|PDDocument
 name|targetDoc
 init|=
@@ -366,18 +368,17 @@ name|load
 argument_list|(
 name|mainPDF
 argument_list|)
-decl_stmt|;
+init|;
 name|PDDocument
 name|overlay1Doc
-init|=
+operator|=
 name|PDDocument
 operator|.
 name|load
 argument_list|(
 name|overlay1
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|LayerUtility
 name|layerUtil
@@ -448,19 +449,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-name|targetDoc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|overlay1Doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
@@ -470,8 +460,7 @@ name|load
 argument_list|(
 name|targetFile
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|PDDocumentCatalog
 name|catalog
@@ -570,14 +559,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 specifier|private
 name|File
@@ -597,14 +578,15 @@ argument_list|,
 literal|"text-doc.pdf"
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
 operator|new
 name|PDDocument
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 comment|//Create new page
 name|PDPage
@@ -672,7 +654,8 @@ block|,
 literal|"vulputate."
 block|}
 decl_stmt|;
-comment|//Setup page content stream and paint background/title
+try|try
+init|(
 name|PDPageContentStream
 name|contentStream
 init|=
@@ -689,7 +672,9 @@ name|OVERWRITE
 argument_list|,
 literal|false
 argument_list|)
-decl_stmt|;
+init|)
+block|{
+comment|//Setup page content stream and paint background/title
 name|PDFont
 name|font
 init|=
@@ -799,11 +784,7 @@ operator|.
 name|endText
 argument_list|()
 expr_stmt|;
-name|contentStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|doc
 operator|.
 name|save
@@ -813,14 +794,6 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 return|return
@@ -845,14 +818,15 @@ argument_list|,
 literal|"overlay1.pdf"
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|PDDocument
 name|doc
 init|=
 operator|new
 name|PDDocument
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 comment|//Create new page
 name|PDPage
@@ -898,7 +872,8 @@ name|resources
 argument_list|)
 expr_stmt|;
 block|}
-comment|//Setup page content stream and paint background/title
+try|try
+init|(
 name|PDPageContentStream
 name|contentStream
 init|=
@@ -915,7 +890,9 @@ name|OVERWRITE
 argument_list|,
 literal|false
 argument_list|)
-decl_stmt|;
+init|)
+block|{
+comment|//Setup page content stream and paint background/title
 name|PDFont
 name|font
 init|=
@@ -1044,11 +1021,7 @@ operator|.
 name|endText
 argument_list|()
 expr_stmt|;
-name|contentStream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|doc
 operator|.
 name|save
@@ -1058,14 +1031,6 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|doc
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 return|return
