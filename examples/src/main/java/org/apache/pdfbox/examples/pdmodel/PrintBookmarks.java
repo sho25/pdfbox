@@ -607,7 +607,7 @@ name|println
 argument_list|(
 name|indentation
 operator|+
-literal|"Destination class2: "
+literal|"Destination class: "
 operator|+
 name|gta
 operator|.
