@@ -2860,6 +2860,7 @@ operator|<
 literal|0
 condition|)
 block|{
+comment|//TODO this is not correct. Needs to search the tree and put last + 1 here
 name|destParentTreeNextKey
 operator|=
 name|destNumbersArray
@@ -3272,6 +3273,10 @@ condition|(
 name|mergeStructTree
 condition|)
 block|{
+comment|//TODO this code only works with flat number trees.
+comment|// It should be a PDNumberTreeNode, but that class is broken because
+comment|// COSBase can't be instanciated and because the tree elements can
+comment|// be an array or a dictionary
 name|updatePageReferences
 argument_list|(
 name|cloner
@@ -3281,6 +3286,11 @@ argument_list|,
 name|objMapping
 argument_list|)
 expr_stmt|;
+name|int
+name|srcKey
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -3301,6 +3311,41 @@ name|i
 operator|++
 control|)
 block|{
+name|srcKey
+operator|=
+name|srcNumbersArray
+operator|.
+name|getInt
+argument_list|(
+name|i
+operator|*
+literal|2
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|srcKey
+operator|<
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"numbers array content on position "
+operator|+
+operator|(
+name|i
+operator|*
+literal|2
+operator|)
+operator|+
+literal|" should be an int"
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 name|destNumbersArray
 operator|.
 name|add
@@ -3311,7 +3356,7 @@ name|get
 argument_list|(
 name|destParentTreeNextKey
 operator|+
-name|i
+name|srcKey
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3334,12 +3379,9 @@ expr_stmt|;
 block|}
 name|destParentTreeNextKey
 operator|+=
-name|srcNumbersArray
-operator|.
-name|size
-argument_list|()
-operator|/
-literal|2
+name|srcKey
+operator|+
+literal|1
 expr_stmt|;
 name|destParentTreeDict
 operator|.
