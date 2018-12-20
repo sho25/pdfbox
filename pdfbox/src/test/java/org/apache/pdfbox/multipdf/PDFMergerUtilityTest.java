@@ -110,6 +110,18 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+operator|.
+name|fail
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -298,6 +310,24 @@ operator|.
 name|logicalstructure
 operator|.
 name|PDStructureTreeRoot
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|annotation
+operator|.
+name|PDAnnotation
 import|;
 end_import
 
@@ -1897,6 +1927,7 @@ comment|// Each element can be an array, a dictionary or a number.
 comment|// See PDF specification Table 37 - Entries in a number tree node dictionary
 comment|// See PDF specification Table 322 - Entries in the structure tree root
 comment|// See PDF specification Table 323 - Entries in a structure element dictionary
+comment|// See PDF specification Table 325 – Entries in an object reference dictionary
 comment|// example of file with /Kids: 000153.pdf 000208.pdf 000314.pdf 000359.pdf 000671.pdf
 comment|// from digitalcorpora site
 specifier|private
@@ -1909,6 +1940,8 @@ parameter_list|,
 name|COSBase
 name|base
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -2085,6 +2118,123 @@ name|NUMS
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+comment|// if we're an object reference dictionary (/OBJR), check the obj
+if|if
+condition|(
+name|kdict
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
+name|OBJ
+argument_list|)
+condition|)
+block|{
+name|COSDictionary
+name|obj
+init|=
+operator|(
+name|COSDictionary
+operator|)
+name|kdict
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|OBJ
+argument_list|)
+decl_stmt|;
+name|COSBase
+name|type
+init|=
+name|obj
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|TYPE
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|COSName
+operator|.
+name|ANNOT
+operator|.
+name|equals
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+name|PDAnnotation
+name|annotation
+init|=
+name|PDAnnotation
+operator|.
+name|createAnnotation
+argument_list|(
+name|obj
+argument_list|)
+decl_stmt|;
+name|PDPage
+name|page
+init|=
+name|annotation
+operator|.
+name|getPage
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|page
+operator|!=
+literal|null
+condition|)
+block|{
+comment|//TODO activate when PDFBOX-4407 is solved
+comment|//assertTrue("Annotation page is not in the page tree", pageTree.indexOf(page) != -1);
+if|if
+condition|(
+name|pageTree
+operator|.
+name|indexOf
+argument_list|(
+name|page
+argument_list|)
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|System
+operator|.
+name|err
+operator|.
+name|println
+argument_list|(
+literal|"Annotation page is not in the page tree"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+else|else
+block|{
+comment|//TODO needs to be investigated. Specification mentions
+comment|// "such as an XObject or an annotation"
+name|fail
+argument_list|(
+literal|"Other type: "
+operator|+
+name|type
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
