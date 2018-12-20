@@ -3267,6 +3267,8 @@ comment|//TODO this code only works with flat number trees.
 comment|// It should be a PDNumberTreeNode, but that class is broken because
 comment|// COSBase can't be instanciated and because the tree elements can
 comment|// be an array or a dictionary
+comment|// example of file with /Kids: 000153.pdf 000208.pdf 000314.pdf 000359.pdf 000671.pdf
+comment|// from digitalcorpora site
 name|updatePageReferences
 argument_list|(
 name|cloner
