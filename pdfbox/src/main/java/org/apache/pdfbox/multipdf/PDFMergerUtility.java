@@ -4249,6 +4249,26 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|objMapping
+operator|.
+name|containsValue
+argument_list|(
+name|obj
+argument_list|)
+condition|)
+block|{
+comment|// PDFBOX-4407: don't clone a clone
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"don't clone a clone"
+argument_list|)
+expr_stmt|;
+block|}
 else|else
 block|{
 comment|// PDFBOX-3999: clone objects that are not in mapping to make sure that

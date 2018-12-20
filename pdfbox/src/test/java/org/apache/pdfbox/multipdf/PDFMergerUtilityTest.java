@@ -2147,8 +2147,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|//TODO activate when PDFBOX-4407 is solved
-comment|//assertTrue("Annotation page is not in the page tree", pageTree.indexOf(page) != -1);
 if|if
 condition|(
 name|pageTree
@@ -2162,15 +2160,62 @@ operator|-
 literal|1
 condition|)
 block|{
-name|System
+name|COSBase
+name|item
+init|=
+name|kdict
 operator|.
-name|err
-operator|.
-name|println
+name|getItem
 argument_list|(
-literal|"Annotation page is not in the page tree"
+name|COSName
+operator|.
+name|OBJ
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|item
+operator|instanceof
+name|COSObject
+condition|)
+block|{
+name|assertTrue
+argument_list|(
+literal|"Annotation page is not in the page tree: "
+operator|+
+name|item
+argument_list|,
+name|pageTree
+operator|.
+name|indexOf
+argument_list|(
+name|page
+argument_list|)
+operator|!=
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// don't display because of stack overflow
+name|assertTrue
+argument_list|(
+literal|"Annotation page is not in the page tree"
+argument_list|,
+name|pageTree
+operator|.
+name|indexOf
+argument_list|(
+name|page
+argument_list|)
+operator|!=
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
