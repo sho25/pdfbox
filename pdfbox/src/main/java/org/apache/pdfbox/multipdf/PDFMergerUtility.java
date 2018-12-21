@@ -4222,13 +4222,21 @@ operator|instanceof
 name|COSDictionary
 condition|)
 block|{
+name|COSDictionary
+name|objDict
+init|=
+operator|(
+name|COSDictionary
+operator|)
+name|obj
+decl_stmt|;
 if|if
 condition|(
 name|objMapping
 operator|.
 name|containsKey
 argument_list|(
-name|obj
+name|objDict
 argument_list|)
 condition|)
 block|{
@@ -4244,7 +4252,7 @@ name|objMapping
 operator|.
 name|get
 argument_list|(
-name|obj
+name|objDict
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4256,7 +4264,7 @@ name|objMapping
 operator|.
 name|containsValue
 argument_list|(
-name|obj
+name|objDict
 argument_list|)
 condition|)
 block|{
@@ -4300,45 +4308,81 @@ literal|"clone potential orphan object in structure tree: "
 operator|+
 name|item
 operator|+
-literal|", type: "
+literal|", Type: "
 operator|+
-operator|(
-operator|(
-name|COSDictionary
-operator|)
-name|obj
-operator|)
+name|objDict
 operator|.
 name|getNameAsString
 argument_list|(
 name|COSName
 operator|.
 name|TYPE
+argument_list|)
+operator|+
+literal|", Subtype: "
+operator|+
+name|objDict
+operator|.
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|SUBTYPE
+argument_list|)
+operator|+
+literal|", T: "
+operator|+
+name|objDict
+operator|.
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|T
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-comment|// don't display because of stack overflow
+comment|// don't display in full because of stack overflow
 name|LOG
 operator|.
 name|debug
 argument_list|(
 literal|"clone potential orphan object in structure tree, type: "
 operator|+
-operator|(
-operator|(
-name|COSDictionary
-operator|)
-name|obj
-operator|)
+literal|", Type: "
+operator|+
+name|objDict
 operator|.
 name|getNameAsString
 argument_list|(
 name|COSName
 operator|.
 name|TYPE
+argument_list|)
+operator|+
+literal|", Subtype: "
+operator|+
+name|objDict
+operator|.
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|SUBTYPE
+argument_list|)
+operator|+
+literal|", T: "
+operator|+
+name|objDict
+operator|.
+name|getNameAsString
+argument_list|(
+name|COSName
+operator|.
+name|T
 argument_list|)
 argument_list|)
 expr_stmt|;
