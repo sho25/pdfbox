@@ -116,6 +116,39 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * @return SHA-256 message digest      */
+specifier|static
+name|MessageDigest
+name|getSHA256
+parameter_list|()
+block|{
+try|try
+block|{
+return|return
+name|MessageDigest
+operator|.
+name|getInstance
+argument_list|(
+literal|"SHA-256"
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchAlgorithmException
+name|e
+parameter_list|)
+block|{
+comment|// should never happen
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 block|}
 end_class
 
