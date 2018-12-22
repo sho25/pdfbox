@@ -266,6 +266,13 @@ specifier|private
 name|String
 name|producer
 decl_stmt|;
+specifier|private
+specifier|final
+name|int
+name|KEYLENGTH
+init|=
+literal|256
+decl_stmt|;
 comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
@@ -547,6 +554,13 @@ argument_list|(
 name|recipient1
 argument_list|)
 expr_stmt|;
+name|policy
+operator|.
+name|setEncryptionKeyLength
+argument_list|(
+name|KEYLENGTH
+argument_list|)
+expr_stmt|;
 name|document
 operator|.
 name|protect
@@ -667,6 +681,13 @@ operator|.
 name|addRecipient
 argument_list|(
 name|recipient1
+argument_list|)
+expr_stmt|;
+name|policy
+operator|.
+name|setEncryptionKeyLength
+argument_list|(
+name|KEYLENGTH
 argument_list|)
 expr_stmt|;
 name|document
@@ -829,6 +850,13 @@ operator|.
 name|addRecipient
 argument_list|(
 name|recipient2
+argument_list|)
+expr_stmt|;
+name|policy
+operator|.
+name|setEncryptionKeyLength
+argument_list|(
+name|KEYLENGTH
 argument_list|)
 expr_stmt|;
 name|document
