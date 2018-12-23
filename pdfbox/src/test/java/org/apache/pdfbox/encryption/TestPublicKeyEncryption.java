@@ -81,6 +81,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|crypto
@@ -181,11 +201,11 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
-operator|.
-name|TestCase
+name|After
 import|;
 end_import
 
@@ -199,16 +219,77 @@ name|Assert
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|runner
+operator|.
+name|RunWith
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|runners
+operator|.
+name|Parameterized
+import|;
+end_import
+
 begin_comment
 comment|/**  * Tests for public key encryption.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
+annotation|@
+name|RunWith
+argument_list|(
+name|Parameterized
+operator|.
+name|class
+argument_list|)
 specifier|public
 class|class
 name|TestPublicKeyEncryption
-extends|extends
-name|TestCase
 block|{
 specifier|private
 specifier|final
@@ -266,13 +347,38 @@ specifier|private
 name|String
 name|producer
 decl_stmt|;
-specifier|private
-specifier|final
+annotation|@
+name|Parameterized
+operator|.
+name|Parameter
+specifier|public
 name|int
-name|KEYLENGTH
-init|=
-literal|256
+name|keyLength
 decl_stmt|;
+comment|/**      * Values for keyLength test parameter.      *      * @return      */
+annotation|@
+name|Parameterized
+operator|.
+name|Parameters
+specifier|public
+specifier|static
+name|Collection
+name|keyLengths
+parameter_list|()
+block|{
+return|return
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|40
+argument_list|,
+literal|128
+argument_list|,
+literal|256
+argument_list|)
+return|;
+block|}
 specifier|public
 name|TestPublicKeyEncryption
 parameter_list|()
@@ -285,8 +391,8 @@ expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
 annotation|@
-name|Override
-specifier|protected
+name|Before
+specifier|public
 name|void
 name|setUp
 parameter_list|()
@@ -528,8 +634,8 @@ expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
 annotation|@
-name|Override
-specifier|protected
+name|After
+specifier|public
 name|void
 name|tearDown
 parameter_list|()
@@ -543,6 +649,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Protect a document with certificate 1 and try to open it with      * certificate 2 and catch the exception.      *      * @throws Exception If there is an unexpected error during the test.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testProtectionError
@@ -568,7 +676,7 @@ name|policy
 operator|.
 name|setEncryptionKeyLength
 argument_list|(
-name|KEYLENGTH
+name|keyLength
 argument_list|)
 expr_stmt|;
 name|document
@@ -672,6 +780,8 @@ block|}
 block|}
 block|}
 comment|/**      * Protect a document with a public certificate and try to open it      * with the corresponding private certificate.      *      * @throws Exception If there is an unexpected error during the test.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testProtection
@@ -697,7 +807,7 @@ name|policy
 operator|.
 name|setEncryptionKeyLength
 argument_list|(
-name|KEYLENGTH
+name|keyLength
 argument_list|)
 expr_stmt|;
 name|document
@@ -834,6 +944,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Protect the document for 2 recipients and try to open it.      *      * @throws Exception If there is an error during the test.      */
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testMultipleRecipients
@@ -866,7 +978,7 @@ name|policy
 operator|.
 name|setEncryptionKeyLength
 argument_list|(
-name|KEYLENGTH
+name|keyLength
 argument_list|)
 expr_stmt|;
 name|document
@@ -1282,20 +1394,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|int
-name|keyLength
-init|=
-name|document
-operator|.
-name|getEncryption
-argument_list|()
-operator|.
-name|getSecurityHandler
-argument_list|()
-operator|.
-name|getKeyLength
-argument_list|()
-decl_stmt|;
 name|File
 name|file
 init|=
