@@ -276,7 +276,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests for public key encryption.  *  * @author Ben Litchfield  */
+comment|/**  * Tests for public key encryption. These tests are not perfect - to be sure, encrypt a file by  * using a certificate exported from your digital id in Adobe Reader, and then open that file with  * Adobe Reader. Do this with every key length.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
