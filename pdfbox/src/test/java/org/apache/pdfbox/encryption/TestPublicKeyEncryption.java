@@ -273,6 +273,16 @@ name|KEYLENGTH
 init|=
 literal|256
 decl_stmt|;
+specifier|public
+name|TestPublicKeyEncryption
+parameter_list|()
+block|{
+name|testResultsDir
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
