@@ -1058,8 +1058,6 @@ block|{
 name|optimizedMergeDocuments
 argument_list|(
 name|memUsageSetting
-argument_list|,
-name|sources
 argument_list|)
 expr_stmt|;
 block|}
@@ -1070,12 +1068,6 @@ name|optimizedMergeDocuments
 parameter_list|(
 name|MemoryUsageSetting
 name|memUsageSetting
-parameter_list|,
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|sourceDocuments
 parameter_list|)
 throws|throws
 name|IOException
