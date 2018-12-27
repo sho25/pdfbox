@@ -105,11 +105,7 @@ comment|/**      * Constructor.      */
 specifier|public
 name|PDStructureElementNameTreeNode
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * Constructor.      *      * @param dic The COS dictionary.      */
 specifier|public
 name|PDStructureElementNameTreeNode
