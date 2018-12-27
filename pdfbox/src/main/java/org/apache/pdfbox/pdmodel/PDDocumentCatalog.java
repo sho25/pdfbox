@@ -1886,12 +1886,9 @@ block|{
 name|COSDictionary
 name|dict
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|root
 operator|.
-name|getDictionaryObject
+name|getCOSDictionary
 argument_list|(
 name|COSName
 operator|.
