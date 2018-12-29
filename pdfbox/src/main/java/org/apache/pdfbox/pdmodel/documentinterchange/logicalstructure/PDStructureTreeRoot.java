@@ -255,7 +255,9 @@ name|dic
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the K array entry.      *       * @return the K array entry      */
+comment|/**      * Returns the K array entry.      *       * @return the K array entry      *      * @deprecated use {@link #getK()} only. /K can be a dictionary or an array, and the next level      * can also be a dictionary. See file 054080.pdf in PDFBOX-4417 and read "Entries in the      * structure tree root" in the PDF specification.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|COSArray
 name|getKArray
