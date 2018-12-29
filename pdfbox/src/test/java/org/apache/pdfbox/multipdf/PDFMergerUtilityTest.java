@@ -1679,7 +1679,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// check for orphan pages in the StructTreeRoot/K and StructTreeRoot/ParentTree trees.
+comment|// check for orphan pages in the StructTreeRoot/K, StructTreeRoot/ParentTree and
+comment|// StructTreeRoot/IDTree trees.
 name|PDPageTree
 name|pageTree
 init|=
