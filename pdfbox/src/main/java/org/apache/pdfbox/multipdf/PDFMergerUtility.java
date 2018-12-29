@@ -3392,6 +3392,10 @@ name|destNumbersArray
 operator|.
 name|add
 argument_list|(
+name|cloner
+operator|.
+name|cloneForNewDocument
+argument_list|(
 name|srcNumbersArray
 operator|.
 name|getObject
@@ -3401,6 +3405,7 @@ operator|*
 literal|2
 operator|+
 literal|1
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
