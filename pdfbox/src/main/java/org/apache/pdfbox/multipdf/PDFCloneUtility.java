@@ -295,8 +295,32 @@ literal|null
 condition|)
 block|{
 comment|//we are done, it has already been converted.
+return|return
+name|retval
+return|;
 block|}
-elseif|else
+if|if
+condition|(
+name|base
+operator|instanceof
+name|COSBase
+operator|&&
+name|clonedVersion
+operator|.
+name|containsValue
+argument_list|(
+name|base
+argument_list|)
+condition|)
+block|{
+comment|// Don't clone a clone
+return|return
+operator|(
+name|COSBase
+operator|)
+name|base
+return|;
+block|}
 if|if
 condition|(
 name|base
@@ -742,7 +766,7 @@ block|{
 return|return;
 comment|//we are done, it has already been converted. // ### Is that correct for cloneMerge???
 block|}
-elseif|else
+comment|//TODO what when clone-merging a clone? Does it ever happen?
 if|if
 condition|(
 operator|!
