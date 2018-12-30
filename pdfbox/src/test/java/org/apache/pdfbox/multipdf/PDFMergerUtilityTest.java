@@ -1403,7 +1403,15 @@ name|close
 argument_list|()
 expr_stmt|;
 name|checkStructTreeRootCount
-argument_list|()
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|TARGETTESTDIR
+argument_list|,
+literal|"PDFBOX-4408-merged.pdf"
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * PDFBOX-4417: Same as the previous tests, but this one failed when the previous tests      * succeeded because of more bugs with cloning.      *      * @throws IOException      */
@@ -1516,7 +1524,15 @@ name|close
 argument_list|()
 expr_stmt|;
 name|checkStructTreeRootCount
-argument_list|()
+argument_list|(
+operator|new
+name|File
+argument_list|(
+name|TARGETTESTDIR
+argument_list|,
+literal|"PDFBOX-4417-001031-merged.pdf"
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * PDFBOX-4417: Same as the previous tests, but this one failed when the previous tests      * succeeded because the /K tree started with two dictionaries and not with an array.      *      * @throws IOException       */
@@ -1717,23 +1733,7 @@ name|close
 argument_list|()
 expr_stmt|;
 name|checkStructTreeRootCount
-argument_list|()
-expr_stmt|;
-block|}
-comment|// PDFBOX-4417: check for multiple /StructTreeRoot entries that was due to
-comment|// incorrect merging of /K entries
-specifier|private
-name|void
-name|checkStructTreeRootCount
-parameter_list|()
-throws|throws
-name|FileNotFoundException
-throws|,
-name|IOException
-block|{
-name|File
-name|file
-init|=
+argument_list|(
 operator|new
 name|File
 argument_list|(
@@ -1741,7 +1741,23 @@ name|TARGETTESTDIR
 argument_list|,
 literal|"PDFBOX-4417-054080-merged.pdf"
 argument_list|)
-decl_stmt|;
+argument_list|)
+expr_stmt|;
+block|}
+comment|// PDFBOX-4417: check for multiple /StructTreeRoot entries that was due to
+comment|// incorrect merging of /K entries
+specifier|private
+name|void
+name|checkStructTreeRootCount
+parameter_list|(
+name|File
+name|file
+parameter_list|)
+throws|throws
+name|FileNotFoundException
+throws|,
+name|IOException
+block|{
 name|int
 name|count
 init|=
