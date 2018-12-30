@@ -2028,6 +2028,34 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|destNames
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// found in 054080.pdf from PDFBOX-4417 and doesn't belong there
+name|destNames
+operator|.
+name|getCOSObject
+argument_list|()
+operator|.
+name|removeItem
+argument_list|(
+name|COSName
+operator|.
+name|ID_TREE
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Removed /IDTree from /Names dictionary, doesn't belong there"
+argument_list|)
+expr_stmt|;
+block|}
 name|PDDocumentNameDestinationDictionary
 name|destDests
 init|=
