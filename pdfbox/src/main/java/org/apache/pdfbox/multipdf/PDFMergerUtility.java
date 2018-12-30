@@ -4701,7 +4701,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"clone potential orphan object in structure tree, type: "
+literal|"clone potential orphan object in structure tree"
 operator|+
 literal|", Type: "
 operator|+
