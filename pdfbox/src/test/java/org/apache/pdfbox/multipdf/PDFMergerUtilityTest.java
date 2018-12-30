@@ -1891,7 +1891,7 @@ name|File
 argument_list|(
 name|TARGETTESTDIR
 argument_list|,
-literal|"IDTree-merged.pdf"
+literal|"PDFBOX-4416-IDTree-merged.pdf"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1911,7 +1911,7 @@ name|File
 argument_list|(
 name|TARGETTESTDIR
 argument_list|,
-literal|"IDTree-merged.pdf"
+literal|"PDFBOX-4416-IDTree-merged.pdf"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1969,7 +1969,7 @@ name|File
 argument_list|(
 name|TARGETTESTDIR
 argument_list|,
-literal|"IDTree-merged.pdf"
+literal|"PDFBOX-4416-IDTree-merged.pdf"
 argument_list|)
 argument_list|)
 expr_stmt|;
