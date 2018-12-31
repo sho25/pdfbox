@@ -490,7 +490,7 @@ name|COSDictionary
 operator|)
 name|base
 argument_list|,
-name|COSBase
+name|PDParentTreeValue
 operator|.
 name|class
 argument_list|)
