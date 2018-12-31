@@ -4069,12 +4069,21 @@ name|numbers
 operator|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|COSObjectable
-argument_list|>
+argument_list|<>
 argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// must copy because the map is read only
+name|numbers
+operator|=
+operator|new
+name|LinkedHashMap
+argument_list|<>
+argument_list|(
+name|numbers
+argument_list|)
 expr_stmt|;
 block|}
 name|List
