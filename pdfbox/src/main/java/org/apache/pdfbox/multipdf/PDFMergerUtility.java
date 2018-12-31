@@ -3009,7 +3009,7 @@ block|}
 if|if
 condition|(
 name|destParentTreeNextKey
-operator|>
+operator|>=
 literal|0
 operator|&&
 name|srcStructTree
