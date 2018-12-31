@@ -1868,6 +1868,13 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|192
+argument_list|,
+name|expectedTotal
+argument_list|)
+expr_stmt|;
 name|pdfMergerUtility
 operator|.
 name|appendDocument
