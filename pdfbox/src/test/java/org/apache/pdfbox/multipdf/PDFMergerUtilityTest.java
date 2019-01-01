@@ -2186,24 +2186,6 @@ literal|"PDFBOX-4418-000314.pdf"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|dst
-operator|.
-name|getDocumentCatalog
-argument_list|()
-operator|.
-name|getStructureTreeRoot
-argument_list|()
-operator|.
-name|getParentTreeNextKey
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// existing numbers are 321..327; ParentTreeNextKey is 408.
 comment|// After deletion, it is recalculated in the merge 328.
 comment|// That value is added to all numbers of the destination,
