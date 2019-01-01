@@ -2835,8 +2835,7 @@ argument_list|,
 name|destCatalog
 argument_list|)
 expr_stmt|;
-comment|// merge logical structure hierarchy if logical structure information is available in both source pdf and
-comment|// destination pdf
+comment|// merge logical structure hierarchy
 name|boolean
 name|mergeStructTree
 init|=
@@ -2869,14 +2868,6 @@ init|=
 literal|null
 decl_stmt|;
 name|PDStructureTreeRoot
-name|destStructTree
-init|=
-name|destCatalog
-operator|.
-name|getStructureTreeRoot
-argument_list|()
-decl_stmt|;
-name|PDStructureTreeRoot
 name|srcStructTree
 init|=
 name|srcCatalog
@@ -2884,6 +2875,54 @@ operator|.
 name|getStructureTreeRoot
 argument_list|()
 decl_stmt|;
+name|PDStructureTreeRoot
+name|destStructTree
+init|=
+name|destCatalog
+operator|.
+name|getStructureTreeRoot
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|destStructTree
+operator|==
+literal|null
+operator|&&
+name|srcStructTree
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// create a dummy structure tree in the destination, so that the source
+comment|// tree is cloned. (We can't just copy the tree reference due to PDFBOX-3999)
+name|destStructTree
+operator|=
+operator|new
+name|PDStructureTreeRoot
+argument_list|()
+expr_stmt|;
+name|destCatalog
+operator|.
+name|setStructureTreeRoot
+argument_list|(
+name|destStructTree
+argument_list|)
+expr_stmt|;
+name|destStructTree
+operator|.
+name|setParentTree
+argument_list|(
+operator|new
+name|PDNumberTreeNode
+argument_list|(
+name|PDParentTreeValue
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|destStructTree
