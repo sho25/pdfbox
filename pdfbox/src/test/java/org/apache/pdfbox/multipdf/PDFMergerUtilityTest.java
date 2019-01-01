@@ -2141,7 +2141,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * PDFBOX-4416: Test merging of /IDTree      *      * @throws IOException       */
+comment|/**      * PDFBOX-4416: Test merging of /IDTree      *<br>      * PDFBOX-4009: test merging to empty destination      *      * @throws IOException       */
 specifier|public
 name|void
 name|testStructureTreeMergeIDTree
@@ -2271,6 +2271,33 @@ literal|192
 argument_list|,
 name|expectedTotal
 argument_list|)
+expr_stmt|;
+comment|// PDFBOX-4009, test that empty dest doc still merges structure tree
+comment|// (empty dest doc is used in command line app)
+name|PDDocument
+name|emptyDest
+init|=
+operator|new
+name|PDDocument
+argument_list|()
+decl_stmt|;
+name|pdfMergerUtility
+operator|.
+name|appendDocument
+argument_list|(
+name|emptyDest
+argument_list|,
+name|src
+argument_list|)
+expr_stmt|;
+name|src
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|src
+operator|=
+name|emptyDest
 expr_stmt|;
 name|pdfMergerUtility
 operator|.
