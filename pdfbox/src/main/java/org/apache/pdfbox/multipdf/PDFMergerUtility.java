@@ -3438,6 +3438,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// Note that all elements are stored flatly. This could become a problem for large files
+comment|// when these are opened in a viewer that uses the tagging information.
+comment|// If this happens, then ​PDNumberTreeNode should be improved with a convenience method that
+comment|// stores the map into a B+Tree, see https://en.wikipedia.org/wiki/B+_tree
 name|newParentTreeNode
 operator|.
 name|setNumbers
@@ -3971,6 +3975,10 @@ argument_list|(
 name|destIDTree
 argument_list|)
 expr_stmt|;
+comment|// Note that all elements are stored flatly. This could become a problem for large files
+comment|// when these are opened in a viewer that uses the tagging information.
+comment|// If this happens, then PDNameTreeNode should be improved with a convenience method that
+comment|// stores the map into a B+Tree, see https://en.wikipedia.org/wiki/B+_tree
 block|}
 comment|// PDNameTreeNode.getNames() only brings one level, this is why we need this
 comment|// might be made public at a later time, or integrated into PDNameTreeNode with template.
