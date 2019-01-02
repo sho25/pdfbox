@@ -132,7 +132,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.actions.AbstractActionManager#valid(java.util .List)      */
+comment|/*      * (non-Javadoc)      *       * @see org.apache.pdfbox.preflight.action.AbstractActionManager#valid(java.util .List)      */
 annotation|@
 name|Override
 specifier|protected
