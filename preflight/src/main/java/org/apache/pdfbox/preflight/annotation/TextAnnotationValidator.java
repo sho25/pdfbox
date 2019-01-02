@@ -149,7 +149,7 @@ operator|.
 name|pdText
 expr_stmt|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.annotation.AnnotationValidator#checkFlags( java.util.List)      */
+comment|/*      * (non-Javadoc)      *       * @see org.apache.pdfbox.preflight.annotation.AnnotationValidator#checkFlags( java.util.List)      */
 specifier|protected
 name|boolean
 name|checkFlags
