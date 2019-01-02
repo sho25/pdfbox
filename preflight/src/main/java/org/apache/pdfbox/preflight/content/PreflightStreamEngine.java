@@ -1849,7 +1849,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check operands of the "ri" operator. Operands must exist in the RenderingIntent list.      * (net.awl.edoc.pdfa.validation.utils.RenderingIntents)      *       * @param operator      *            the "ri" operator      * @param arguments      *            the "ri" operands      * @throws ContentStreamException      *             ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY if the operand is invalid      */
+comment|/**      * Check operands of the "ri" operator. Operands must exist in the RenderingIntent list.      * (org.apache.pdfbox.preflight.utils.RenderingIntents)      *       * @param operator      *            the "ri" operator      * @param arguments      *            the "ri" operands      * @throws ContentStreamException      *             ERROR_GRAPHIC_UNEXPECTED_VALUE_FOR_KEY if the operand is invalid      */
 specifier|protected
 name|void
 name|validateRenderingIntent
