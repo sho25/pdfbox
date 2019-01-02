@@ -521,7 +521,7 @@ name|void
 name|checkMandatoryFields
 parameter_list|()
 function_decl|;
-comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.graphics.XObjectValidator#validate()      */
+comment|/*      * (non-Javadoc)      *       * @see org.apache.pdfbox.preflight.graphic.XObjectValidator#validate()      */
 annotation|@
 name|Override
 specifier|public

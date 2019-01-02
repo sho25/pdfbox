@@ -399,7 +399,7 @@ operator|=
 name|xobj
 expr_stmt|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.graphics.AbstractXObjValidator#validate()      */
+comment|/*      * (non-Javadoc)      *       * @see org.apache.pdfbox.preflight.graphic.AbstractXObjValidator#validate()      */
 annotation|@
 name|Override
 specifier|public
@@ -427,7 +427,7 @@ name|validateXObjectContent
 argument_list|()
 expr_stmt|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @seenet.awl.edoc.pdfa.validation.graphics.AbstractXObjValidator# checkMandatoryFields(java.util.List)      */
+comment|/*      * (non-Javadoc)      *       * @seeorg.apache.pdfbox.preflight.graphic.AbstractXObjValidator# checkMandatoryFields(java.util.List)      */
 annotation|@
 name|Override
 specifier|protected

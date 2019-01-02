@@ -504,7 +504,7 @@ operator|=
 name|_cs
 expr_stmt|;
 block|}
-comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.graphics.color.ColorSpaceHelper#validate(java .util.List)      */
+comment|/*      * (non-Javadoc)      *       * @see org.apache.pdfbox.preflight.graphic.color.ColorSpaceHelper#validate(java .util.List)      */
 annotation|@
 name|Override
 specifier|public

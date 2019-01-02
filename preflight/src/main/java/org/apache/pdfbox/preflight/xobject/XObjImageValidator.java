@@ -851,7 +851,7 @@ literal|false
 return|;
 block|}
 block|}
-comment|/*      * (non-Javadoc)      *       * @see net.awl.edoc.pdfa.validation.graphics.AbstractXObjValidator#validate()      */
+comment|/*      * (non-Javadoc)      *       * @see org.apache.pdfbox.preflight.graphic.AbstractXObjValidator#validate()      */
 annotation|@
 name|Override
 specifier|public

@@ -563,7 +563,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Check the Extended Graphic State contains in the ShadingPattern dictionary if it is present. To check this      * ExtGState, this method uses the net.awl.edoc.pdfa.validation.graphics.ExtGStateContainer object.      *       * @param context the preflight context.      * @param page the page to check.      * @param shadingRes the Shading pattern to check.      * @throws ValidationException      */
+comment|/**      * Check the Extended Graphic State contains in the ShadingPattern dictionary if it is present. To check this      * ExtGState, this method uses the org.apache.pdfbox.preflight.graphic.ExtGStateContainer object.      *       * @param context the preflight context.      * @param page the page to check.      * @param shadingRes the Shading pattern to check.      * @throws ValidationException      */
 specifier|protected
 name|void
 name|checkGraphicState
