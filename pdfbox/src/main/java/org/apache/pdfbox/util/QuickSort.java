@@ -111,7 +111,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|/**      * Sorts the given list using the given comparator.      *       * @param list list to be sorted      * @param cmp comparator used to compare the object swithin the list      */
+comment|/**      * Sorts the given list using the given comparator.      *       * @param<T> type of the objects to be sorted.      * @param list list to be sorted      * @param cmp comparator used to compare the objects within the list      */
 specifier|public
 specifier|static
 parameter_list|<
@@ -158,7 +158,7 @@ name|cmp
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sorts the given list using compareTo as comparator.      *       * @param list list to be sorted      */
+comment|/**      * Sorts the given list using compareTo as comparator.      *       * @param<T> type of the objects to be sorted.      * @param list list to be sorted      */
 specifier|public
 specifier|static
 parameter_list|<
