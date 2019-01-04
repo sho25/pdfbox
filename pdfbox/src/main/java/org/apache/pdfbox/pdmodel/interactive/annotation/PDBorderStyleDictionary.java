@@ -271,6 +271,27 @@ name|float
 name|getWidth
 parameter_list|()
 block|{
+if|if
+condition|(
+name|getCOSObject
+argument_list|()
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|W
+argument_list|)
+operator|instanceof
+name|COSName
+condition|)
+block|{
+comment|// replicate Adobe behavior although it contradicts the specification
+comment|// https://github.com/mozilla/pdf.js/issues/10385
+return|return
+literal|0
+return|;
+block|}
 return|return
 name|getCOSObject
 argument_list|()
