@@ -43,6 +43,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -923,10 +933,11 @@ name|colorSpace
 decl_stmt|;
 try|try
 block|{
-name|ICC_Profile
-operator|.
-name|getInstance
-argument_list|(
+try|try
+init|(
+name|InputStream
+name|is
+init|=
 name|iccBased
 operator|.
 name|getPDStream
@@ -934,8 +945,18 @@ argument_list|()
 operator|.
 name|createInputStream
 argument_list|()
+init|)
+block|{
+comment|// check that ICC profile loads (PDICCBased also does this, but catches the exception)
+comment|// PDFBOX-2819: load ICC profile as a stream, not as a byte array because of java error
+name|ICC_Profile
+operator|.
+name|getInstance
+argument_list|(
+name|is
 argument_list|)
 expr_stmt|;
+block|}
 name|PDColorSpace
 name|altpdcs
 init|=
