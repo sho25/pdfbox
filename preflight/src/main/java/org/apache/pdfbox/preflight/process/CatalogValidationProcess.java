@@ -2136,10 +2136,7 @@ condition|(
 name|altCS
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|altCS
 operator|.
 name|getNumberOfComponents
@@ -2151,6 +2148,7 @@ name|getNumberOfComponents
 argument_list|()
 condition|)
 block|{
+comment|// https://github.com/veraPDF/veraPDF-library/issues/773
 name|addValidationError
 argument_list|(
 name|ctx
@@ -2178,7 +2176,6 @@ literal|")"
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
