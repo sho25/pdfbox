@@ -1329,7 +1329,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * PDFBOX-4408: check that StructParent values are found in the ParentTree.      *      * @throws IOException      */
+comment|/**      * PDFBOX-4408: Check that /StructParents values from pages and /StructParent values from      * annotations are found in the /ParentTree.      *      * @throws IOException      */
 specifier|public
 name|void
 name|testStructureTreeMerge3
@@ -2763,7 +2763,7 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * PDFBOX-4408: Check that StructParent values are found in the ParentTree      *      * @param document      */
+comment|/**      * PDFBOX-4408: Check that /StructParents values from pages and /StructParent values from      * annotations are found in the /ParentTree.      *      * @param document      */
 name|void
 name|checkWithNumberTree
 parameter_list|(
