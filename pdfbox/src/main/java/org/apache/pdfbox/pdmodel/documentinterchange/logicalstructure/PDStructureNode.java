@@ -209,11 +209,9 @@ return|;
 block|}
 if|if
 condition|(
-operator|(
 name|type
 operator|==
 literal|null
-operator|)
 operator|||
 literal|"StructElem"
 operator|.
@@ -321,7 +319,7 @@ name|TYPE
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a list of objects for the kids (K).      *       * @return a list of objects for the kids      */
+comment|/**      * Returns a list of objects for the kids (K).      *       * @return a list of objects for the kids, never null.      */
 specifier|public
 name|List
 argument_list|<
