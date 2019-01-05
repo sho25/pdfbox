@@ -1928,7 +1928,7 @@ name|nm
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the key of this annotation in the structural parent tree.      *       * @return the integer key of the annotation's entry in the structural parent tree      */
+comment|/**      * This will get the key of this annotation in the structural parent tree.      *      * @return the integer key of the annotation's entry in the structural parent tree or -1 if      * there isn't any.      */
 specifier|public
 name|int
 name|getStructParent
@@ -1943,8 +1943,6 @@ argument_list|(
 name|COSName
 operator|.
 name|STRUCT_PARENT
-argument_list|,
-literal|0
 argument_list|)
 return|;
 block|}

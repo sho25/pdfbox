@@ -756,7 +756,7 @@ name|matrix
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the key of this XObjectForm in the structural parent tree.      * Required if the form XObject contains marked-content sequences that are      * structural content items.      * @return the integer key of the XObjectForm's entry in the structural parent tree      */
+comment|/**      * This will get the key of this XObjectForm in the structural parent tree. Required if the form      * XObject contains marked-content sequences that are structural content items.      *      * @return the integer key of the XObjectForm's entry in the structural parent tree or -1 if      * there isn't any.      */
 specifier|public
 name|int
 name|getStructParents
@@ -771,8 +771,6 @@ argument_list|(
 name|COSName
 operator|.
 name|STRUCT_PARENTS
-argument_list|,
-literal|0
 argument_list|)
 return|;
 block|}
