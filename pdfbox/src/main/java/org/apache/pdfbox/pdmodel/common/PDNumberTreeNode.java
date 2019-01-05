@@ -241,7 +241,7 @@ operator|=
 name|valueClass
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param dict The dictionary that holds the name information.      * @param valueClass The PD Model type of object that is the value.      */
+comment|/**      * Constructor.      *      * @param dict The dictionary that holds the number information.      * @param valueClass The PD Model type of object that is the value.      */
 specifier|public
 name|PDNumberTreeNode
 parameter_list|(
@@ -526,20 +526,20 @@ name|Integer
 argument_list|,
 name|COSObjectable
 argument_list|>
-name|names
+name|numbers
 init|=
 name|getNumbers
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|names
+name|numbers
 operator|!=
 literal|null
 condition|)
 block|{
 return|return
-name|names
+name|numbers
 operator|.
 name|get
 argument_list|(
@@ -696,7 +696,7 @@ name|COSArray
 condition|)
 block|{
 name|COSArray
-name|namesArray
+name|numbersArray
 init|=
 operator|(
 name|COSArray
@@ -719,7 +719,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|namesArray
+name|numbersArray
 operator|.
 name|size
 argument_list|()
@@ -732,7 +732,7 @@ block|{
 name|COSBase
 name|base
 init|=
-name|namesArray
+name|numbersArray
 operator|.
 name|getObject
 argument_list|(
@@ -777,7 +777,7 @@ decl_stmt|;
 name|COSBase
 name|cosValue
 init|=
-name|namesArray
+name|numbersArray
 operator|.
 name|getObject
 argument_list|(
@@ -821,7 +821,7 @@ return|return
 name|indices
 return|;
 block|}
-comment|/**      * Method to convert the COS value in the name tree to the PD Model object.  The      * default implementation will simply use reflection to create the correct object      * type.  Subclasses can do whatever they want.      *      * @param base The COS object to convert.      * @return The converted PD Model object.      * @throws IOException If there is an error during creation.      */
+comment|/**      * Method to convert the COS value in the number tree to the PD Model object. The default      * implementation will simply use reflection to create the correct object type. Subclasses can      * do whatever they want.      *      * @param base The COS object to convert.      * @return The converted PD Model object.      * @throws IOException If there is an error during creation.      */
 specifier|protected
 name|COSObjectable
 name|convertCOSToPD
@@ -832,6 +832,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// valueType (passed in constructor here) must have a constructor of type of COSBase as parameter
 try|try
 block|{
 return|return
@@ -892,7 +893,7 @@ name|valueType
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the names of for this node.  The keys should be java.lang.String and the      * values must be a COSObjectable.  This method will set the appropriate upper and lower      * limits based on the keys in the map.      *      * @param numbers The map of names to objects.      */
+comment|/**      * Set the numbers for this node. This method will set the appropriate upper and lower limits      * based on the keys in the map.      *      * @param numbers The map of numbers to objects, or<code>null</code> for nothing.      */
 specifier|public
 name|void
 name|setNumbers
@@ -1080,7 +1081,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the highest value for a key in the name map.      *      * @return The highest value for a key in the map.      */
+comment|/**      * Get the highest value for a key in the number map.      *      * @return The highest value for a key in the map.      */
 specifier|public
 name|Integer
 name|getUpperLimit
@@ -1229,7 +1230,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Get the lowest value for a key in the name map.      *      * @return The lowest value for a key in the map.      */
+comment|/**      * Get the lowest value for a key in the number map.      *      * @return The lowest value for a key in the map.      */
 specifier|public
 name|Integer
 name|getLowerLimit

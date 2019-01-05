@@ -1115,7 +1115,7 @@ name|COSDictionary
 name|dic
 parameter_list|)
 function_decl|;
-comment|/**      * Set the names of for this node.  The keys should be java.lang.String and the      * values must be a COSObjectable.  This method will set the appropriate upper and lower      * limits based on the keys in the map.      *      * @param names map of names to objects, or<code>null</code>      */
+comment|/**      * Set the names for this node. This method will set the appropriate upper and lower limits      * based on the keys in the map.      *      * @param names map of names to objects, or<code>null</code> for nothing.      */
 specifier|public
 name|void
 name|setNames
