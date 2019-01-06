@@ -1625,13 +1625,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|AccessPermission
-name|ap
-init|=
-operator|new
-name|AccessPermission
-argument_list|()
-decl_stmt|;
 name|StandardProtectionPolicy
 name|spp
 init|=
@@ -1642,7 +1635,7 @@ name|ownerpassword
 argument_list|,
 name|userpassword
 argument_list|,
-name|ap
+name|permission
 argument_list|)
 decl_stmt|;
 name|spp
@@ -1657,13 +1650,6 @@ operator|.
 name|setPreferAES
 argument_list|(
 name|preferAES
-argument_list|)
-expr_stmt|;
-name|spp
-operator|.
-name|setPermissions
-argument_list|(
-name|permission
 argument_list|)
 expr_stmt|;
 comment|// This must have no effect and should only log a warning.
@@ -1749,12 +1735,10 @@ operator|!=
 name|sizePriorToEncr
 argument_list|)
 expr_stmt|;
+comment|// test with owner password => full permissions
 name|PDDocument
 name|encryptedDoc
-decl_stmt|;
-comment|// test with owner password => full permissions
-name|encryptedDoc
-operator|=
+init|=
 name|PDDocument
 operator|.
 name|load
@@ -1763,7 +1747,7 @@ name|pdfFile
 argument_list|,
 name|ownerpassword
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|Assert
 operator|.
 name|assertTrue
