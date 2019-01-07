@@ -1023,7 +1023,7 @@ name|TMP_FILE_PREFIX
 init|=
 literal|"tmpPDF"
 decl_stmt|;
-comment|/**      * Default constructor.      */
+comment|/**      * Default constructor.      *      * @param source input representing the pdf.      */
 specifier|public
 name|COSParser
 parameter_list|(
