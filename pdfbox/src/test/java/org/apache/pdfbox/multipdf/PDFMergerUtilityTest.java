@@ -2983,6 +2983,8 @@ name|count
 init|=
 literal|0
 decl_stmt|;
+try|try
+init|(
 name|BufferedReader
 name|br
 init|=
@@ -2999,7 +3001,8 @@ name|file
 argument_list|)
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|String
 name|line
 decl_stmt|;
@@ -3032,11 +3035,7 @@ name|count
 expr_stmt|;
 block|}
 block|}
-name|br
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 name|assertEquals
 argument_list|(
 literal|1
