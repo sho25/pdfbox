@@ -497,6 +497,15 @@ range|:
 name|pageArticles
 control|)
 block|{
+if|if
+condition|(
+name|bead
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|PDRectangle
 name|r
 init|=
