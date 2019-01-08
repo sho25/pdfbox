@@ -54,6 +54,11 @@ specifier|final
 name|boolean
 name|subsamplingAllowed
 decl_stmt|;
+specifier|private
+specifier|final
+name|RenderDestination
+name|destination
+decl_stmt|;
 comment|/**      * Package-private constructor.      */
 name|PageDrawerParameters
 parameter_list|(
@@ -65,6 +70,9 @@ name|page
 parameter_list|,
 name|boolean
 name|subsamplingAllowed
+parameter_list|,
+name|RenderDestination
+name|destination
 parameter_list|)
 block|{
 name|this
@@ -84,6 +92,12 @@ operator|.
 name|subsamplingAllowed
 operator|=
 name|subsamplingAllowed
+expr_stmt|;
+name|this
+operator|.
+name|destination
+operator|=
+name|destination
 expr_stmt|;
 block|}
 comment|/**      * Returns the page.      */
@@ -113,6 +127,18 @@ parameter_list|()
 block|{
 return|return
 name|subsamplingAllowed
+return|;
+block|}
+comment|/**      * @return the destination      */
+specifier|public
+name|RenderDestination
+name|getDestination
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|destination
 return|;
 block|}
 block|}

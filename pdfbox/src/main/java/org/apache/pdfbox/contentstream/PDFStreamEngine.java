@@ -231,6 +231,34 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
+name|COSDictionary
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
 name|COSNumber
 import|;
 end_import
@@ -346,6 +374,24 @@ operator|.
 name|common
 operator|.
 name|PDRectangle
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|documentinterchange
+operator|.
+name|markedcontent
+operator|.
+name|PDMarkedContent
 import|;
 end_import
 
@@ -2984,6 +3030,28 @@ name|textRenderingMatrix
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Called when a a marked content group begins      *      * @param tag content tag      * @param properties optional properties      */
+specifier|public
+name|void
+name|beginMarkedContentSequence
+parameter_list|(
+name|COSName
+name|tag
+parameter_list|,
+name|COSDictionary
+name|properties
+parameter_list|)
+block|{
+comment|// overridden in subclasses
+block|}
+comment|/**      * Called when a a marked content group ends      */
+specifier|public
+name|void
+name|endMarkedContentSequence
+parameter_list|()
+block|{
+comment|// overridden in subclasses
 block|}
 comment|/**      * This is used to handle an operation.      *       * @param operation The operation to perform.      * @param arguments The list of arguments.      * @throws IOException If there is an error processing the operation.      */
 specifier|public

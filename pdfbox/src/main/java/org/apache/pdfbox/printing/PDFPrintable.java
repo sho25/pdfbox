@@ -195,6 +195,20 @@ name|PDFRenderer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|rendering
+operator|.
+name|RenderDestination
+import|;
+end_import
+
 begin_comment
 comment|/**  * Prints pages from a PDF document using any page size or scaling mode.  *  * @author John Hewson  */
 end_comment
@@ -780,6 +794,15 @@ operator|(
 name|float
 operator|)
 name|scale
+argument_list|,
+operator|(
+name|float
+operator|)
+name|scale
+argument_list|,
+name|RenderDestination
+operator|.
+name|PRINT
 argument_list|)
 expr_stmt|;
 comment|// draw crop box
