@@ -3013,7 +3013,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Called when a a marked content group begins      *      * @param tag content tag      * @param properties optional properties      */
+comment|/**      * Called when a marked content group begins      *      * @param tag content tag      * @param properties optional properties      */
 specifier|public
 name|void
 name|beginMarkedContentSequence
