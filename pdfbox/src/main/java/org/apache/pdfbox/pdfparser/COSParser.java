@@ -6104,12 +6104,6 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-name|long
-name|newOffsetTable
-decl_stmt|;
-name|long
-name|newOffsetStream
-decl_stmt|;
 comment|// initialize bfSearchXRefTablesOffsets -> not null
 name|bfSearchForXRefTables
 argument_list|()
@@ -6119,25 +6113,27 @@ name|bfSearchForXRefStreams
 argument_list|()
 expr_stmt|;
 comment|// TODO to be optimized, this won't work in every case
+name|long
 name|newOffsetTable
-operator|=
+init|=
 name|searchNearestValue
 argument_list|(
 name|bfSearchXRefTablesOffsets
 argument_list|,
 name|xrefOffset
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// TODO to be optimized, this won't work in every case
+name|long
 name|newOffsetStream
-operator|=
+init|=
 name|searchNearestValue
 argument_list|(
 name|bfSearchXRefStreamsOffsets
 argument_list|,
 name|xrefOffset
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// choose the nearest value
 if|if
 condition|(
@@ -7243,11 +7239,6 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-name|COSObjectKey
-name|streamObjectKey
-init|=
-literal|null
-decl_stmt|;
 name|boolean
 name|objFound
 init|=
@@ -7432,8 +7423,9 @@ init|=
 name|readGenerationNumber
 argument_list|()
 decl_stmt|;
+name|COSObjectKey
 name|streamObjectKey
-operator|=
+init|=
 operator|new
 name|COSObjectKey
 argument_list|(
@@ -7441,7 +7433,7 @@ name|objNumber
 argument_list|,
 name|genNumber
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|bfSearchObjStreamsOffsets
 operator|.
 name|put
@@ -8781,9 +8773,6 @@ init|=
 operator|new
 name|COSObjectKey
 argument_list|(
-operator|(
-name|COSObject
-operator|)
 name|object
 argument_list|)
 decl_stmt|;
@@ -10410,8 +10399,6 @@ block|}
 comment|// first obj id
 name|long
 name|currObjID
-init|=
-literal|0
 decl_stmt|;
 try|try
 block|{
