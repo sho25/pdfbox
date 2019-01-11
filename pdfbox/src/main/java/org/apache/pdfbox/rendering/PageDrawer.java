@@ -7907,7 +7907,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Marked content begins      *      * @param tag name of the content mark      * @see      * org.apache.pdfbox.contentstream.PDFStreamEngine#beginMarkedContentSequence(org.apache.pdfbox.cos.COSName,      * org.apache.pdfbox.cos.COSDictionary)      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
@@ -8034,7 +8034,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      *      * @see org.apache.pdfbox.contentstream.PDFStreamEngine#endMarkedContentSequence()      */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 specifier|public
