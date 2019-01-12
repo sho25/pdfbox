@@ -4121,6 +4121,19 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// must copy because the map is read only
+name|names
+operator|=
+operator|new
+name|LinkedHashMap
+argument_list|<>
+argument_list|(
+name|names
+argument_list|)
+expr_stmt|;
+block|}
 name|List
 argument_list|<
 name|PDNameTreeNode
