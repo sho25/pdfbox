@@ -346,14 +346,18 @@ specifier|public
 class|class
 name|CreateCheckBox
 block|{
+specifier|private
+name|CreateCheckBox
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|void
 name|main
 parameter_list|(
 name|String
-name|arg
 index|[]
+name|args
 parameter_list|)
 throws|throws
 name|IOException
