@@ -1206,11 +1206,11 @@ literal|"\n"
 operator|+
 literal|"  -prefix<string>                 : Filename prefix for image files\n"
 operator|+
-literal|"  -page<number>                   : The only page to extract (1-based)\n"
+literal|"  -page<int>                      : The only page to extract (1-based)\n"
 operator|+
 literal|"  -startPage<int>                 : The first page to start extraction (1-based)\n"
 operator|+
-literal|"  -endPage<int>                   : The last page to extract(inclusive)\n"
+literal|"  -endPage<int>                   : The last page to extract (inclusive)\n"
 operator|+
 literal|"  -color<int>                     : The color depth (valid: bilevel, gray, rgb (default), rgba)\n"
 operator|+
