@@ -157,22 +157,6 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|TRANSPARENCY_DICTIONARY_KEY_EXTGSTATE_ENTRY_REGEX
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
 name|TRANSPARENCY_DICTIONARY_KEY_BLEND_MODE
 import|;
 end_import
