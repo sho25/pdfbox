@@ -219,7 +219,9 @@ block|{
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+literal|"This entry is not an appearance stream"
+argument_list|)
 throw|;
 block|}
 return|return
@@ -254,7 +256,9 @@ block|{
 throw|throw
 operator|new
 name|IllegalStateException
-argument_list|()
+argument_list|(
+literal|"This entry is not an appearance subdictionary"
+argument_list|)
 throw|;
 block|}
 name|COSDictionary
