@@ -845,6 +845,10 @@ condition|(
 name|target
 operator|instanceof
 name|COSDictionary
+operator|||
+name|target
+operator|instanceof
+name|COSArray
 condition|)
 block|{
 name|cloneMerge
