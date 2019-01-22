@@ -17,6 +17,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|RenderingHints
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -59,6 +69,11 @@ specifier|final
 name|RenderDestination
 name|destination
 decl_stmt|;
+specifier|private
+specifier|final
+name|RenderingHints
+name|renderingHints
+decl_stmt|;
 comment|/**      * Package-private constructor.      */
 name|PageDrawerParameters
 parameter_list|(
@@ -73,6 +88,9 @@ name|subsamplingAllowed
 parameter_list|,
 name|RenderDestination
 name|destination
+parameter_list|,
+name|RenderingHints
+name|renderingHints
 parameter_list|)
 block|{
 name|this
@@ -98,6 +116,12 @@ operator|.
 name|destination
 operator|=
 name|destination
+expr_stmt|;
+name|this
+operator|.
+name|renderingHints
+operator|=
+name|renderingHints
 expr_stmt|;
 block|}
 comment|/**      * Returns the page.      */
@@ -139,6 +163,16 @@ return|return
 name|this
 operator|.
 name|destination
+return|;
+block|}
+comment|/**      * @return the rendering hints.      */
+specifier|public
+name|RenderingHints
+name|getRenderingHints
+parameter_list|()
+block|{
+return|return
+name|renderingHints
 return|;
 block|}
 block|}
