@@ -61,6 +61,16 @@ name|java
 operator|.
 name|awt
 operator|.
+name|RenderingHints
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
 name|geom
 operator|.
 name|AffineTransform
@@ -257,6 +267,12 @@ name|subsamplingAllowed
 init|=
 literal|false
 decl_stmt|;
+specifier|private
+name|RenderingHints
+name|renderingHints
+init|=
+literal|null
+decl_stmt|;
 comment|/**      * Creates a new PDFPrintable.      *      * @param document the document to print      */
 specifier|public
 name|PDFPrintable
@@ -440,6 +456,32 @@ operator|.
 name|subsamplingAllowed
 operator|=
 name|subsamplingAllowed
+expr_stmt|;
+block|}
+comment|/**      * Get the rendering hints.      *      * @return the rendering hints or null if none are set.      */
+specifier|public
+name|RenderingHints
+name|getRenderingHints
+parameter_list|()
+block|{
+return|return
+name|renderingHints
+return|;
+block|}
+comment|/**      * Set the rendering hints. Use this to influence rendering quality and speed. If you don't set      * them yourself or pass null, PDFBox will decide<b><u>at runtime</u></b> depending on the      * destination.      *      * @param renderingHints      */
+specifier|public
+name|void
+name|setRenderingHints
+parameter_list|(
+name|RenderingHints
+name|renderingHints
+parameter_list|)
+block|{
+name|this
+operator|.
+name|renderingHints
+operator|=
+name|renderingHints
 expr_stmt|;
 block|}
 annotation|@
@@ -780,6 +822,13 @@ operator|.
 name|setSubsamplingAllowed
 argument_list|(
 name|subsamplingAllowed
+argument_list|)
+expr_stmt|;
+name|renderer
+operator|.
+name|setRenderingHints
+argument_list|(
+name|renderingHints
 argument_list|)
 expr_stmt|;
 name|renderer

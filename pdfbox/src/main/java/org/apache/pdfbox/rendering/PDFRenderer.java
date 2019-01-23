@@ -405,6 +405,12 @@ name|RenderDestination
 name|defaultDestination
 decl_stmt|;
 specifier|private
+name|RenderingHints
+name|renderingHints
+init|=
+literal|null
+decl_stmt|;
+specifier|private
 name|BufferedImage
 name|pageImage
 decl_stmt|;
@@ -520,6 +526,32 @@ operator|.
 name|defaultDestination
 operator|=
 name|defaultDestination
+expr_stmt|;
+block|}
+comment|/**      * Get the rendering hints.      *      * @return the rendering hints or null if none are set.      */
+specifier|public
+name|RenderingHints
+name|getRenderingHints
+parameter_list|()
+block|{
+return|return
+name|renderingHints
+return|;
+block|}
+comment|/**      * Set the rendering hints. Use this to influence rendering quality and speed. If you don't set      * them yourself or pass null, PDFBox will decide<b><u>at runtime</u></b> depending on the      * destination.      *      * @param renderingHints      */
+specifier|public
+name|void
+name|setRenderingHints
+parameter_list|(
+name|RenderingHints
+name|renderingHints
+parameter_list|)
+block|{
+name|this
+operator|.
+name|renderingHints
+operator|=
+name|renderingHints
 expr_stmt|;
 block|}
 comment|/**      * Returns the given page as an RGB image at 72 DPI      * @param pageIndex the zero-based index of the page to be converted.      * @return the rendered page image      * @throws IOException if the PDF cannot be read      */
@@ -936,12 +968,18 @@ argument_list|)
 expr_stmt|;
 comment|// the end-user may provide a custom PageDrawer
 name|RenderingHints
-name|renderingHints
+name|actualRenderingHints
 init|=
+name|renderingHints
+operator|==
+literal|null
+condition|?
 name|createDefaultRenderingHints
 argument_list|(
 name|g
 argument_list|)
+else|:
+name|renderingHints
 decl_stmt|;
 name|PageDrawerParameters
 name|parameters
@@ -957,7 +995,7 @@ name|subsamplingAllowed
 argument_list|,
 name|destination
 argument_list|,
-name|renderingHints
+name|actualRenderingHints
 argument_list|)
 decl_stmt|;
 name|PageDrawer
@@ -1259,12 +1297,18 @@ argument_list|)
 expr_stmt|;
 comment|// the end-user may provide a custom PageDrawer
 name|RenderingHints
-name|renderingHints
+name|actualRenderingHints
 init|=
+name|renderingHints
+operator|==
+literal|null
+condition|?
 name|createDefaultRenderingHints
 argument_list|(
 name|graphics
 argument_list|)
+else|:
+name|renderingHints
 decl_stmt|;
 name|PageDrawerParameters
 name|parameters
@@ -1280,7 +1324,7 @@ name|subsamplingAllowed
 argument_list|,
 name|destination
 argument_list|,
-name|renderingHints
+name|actualRenderingHints
 argument_list|)
 decl_stmt|;
 name|PageDrawer
