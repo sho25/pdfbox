@@ -91,18 +91,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|DatatypeConverter
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -354,6 +342,20 @@ operator|.
 name|utils
 operator|.
 name|COSUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|util
+operator|.
+name|Hex
 import|;
 end_import
 
@@ -1102,9 +1104,9 @@ try|try
 block|{
 name|binImage
 operator|=
-name|DatatypeConverter
+name|Hex
 operator|.
-name|parseBase64Binary
+name|decodeBase64
 argument_list|(
 name|tb
 operator|.
