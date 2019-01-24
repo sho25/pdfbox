@@ -759,8 +759,6 @@ parameter_list|(
 name|String
 name|base64Value
 parameter_list|)
-throws|throws
-name|IllegalArgumentException
 block|{
 comment|// https://stackoverflow.com/questions/469695/decode-base64-data-in-java
 try|try
