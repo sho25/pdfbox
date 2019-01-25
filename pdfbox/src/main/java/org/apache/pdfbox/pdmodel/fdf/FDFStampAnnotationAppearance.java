@@ -269,17 +269,6 @@ operator|=
 name|dictionary
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-specifier|public
-name|COSDictionary
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|dictionary
-return|;
-block|}
 comment|/**      * This will create an Appearance dictionary from an appearance XML document.      *      * @param fdfXML The XML document that contains the appearance data.      */
 name|FDFStampAnnotationAppearance
 parameter_list|(
@@ -530,6 +519,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|COSDictionary
+name|getCOSObject
+parameter_list|()
+block|{
+return|return
+name|dictionary
+return|;
 block|}
 specifier|private
 name|COSStream
