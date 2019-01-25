@@ -425,18 +425,6 @@ operator|.
 name|getTagName
 argument_list|()
 argument_list|)
-operator|&&
-literal|"N"
-operator|.
-name|equalsIgnoreCase
-argument_list|(
-name|child
-operator|.
-name|getAttribute
-argument_list|(
-literal|"KEY"
-argument_list|)
-argument_list|)
 condition|)
 block|{
 name|LOG
@@ -445,7 +433,16 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Process N item in the dictionary after processing the "
+literal|" => Process "
+operator|+
+name|child
+operator|.
+name|getAttribute
+argument_list|(
+literal|"KEY"
+argument_list|)
+operator|+
+literal|" item in the dictionary after processing the "
 operator|+
 name|child
 operator|.
@@ -457,9 +454,12 @@ name|dictionary
 operator|.
 name|setItem
 argument_list|(
-name|COSName
+name|child
 operator|.
-name|N
+name|getAttribute
+argument_list|(
+literal|"KEY"
+argument_list|)
 argument_list|,
 name|parseStreamElement
 argument_list|(
@@ -473,7 +473,14 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Set N"
+literal|" => Set "
+operator|+
+name|child
+operator|.
+name|getAttribute
+argument_list|(
+literal|"KEY"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -485,7 +492,7 @@ name|warn
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Not handling element: "
+literal|" => Not handling element: "
 operator|+
 name|child
 operator|.
@@ -505,7 +512,7 @@ name|warn
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Not handling element: "
+literal|" => Not handling element: "
 operator|+
 name|appearanceXML
 operator|.
@@ -636,7 +643,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"reading child: "
+literal|" => reading child: "
 operator|+
 name|child
 operator|.
@@ -697,7 +704,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Set "
+literal|" => Set "
 operator|+
 name|childAttrKey
 operator|+
@@ -742,7 +749,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Set "
+literal|" => Set "
 operator|+
 name|childAttrKey
 operator|+
@@ -791,7 +798,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Set Interpolate: "
+literal|" => Set Interpolate: "
 operator|+
 name|childAttrVal
 argument_list|)
@@ -834,7 +841,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Set "
+literal|" => Set "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -877,7 +884,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Set "
+literal|" => Set "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -920,7 +927,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Set "
+literal|" => Set "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -946,7 +953,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Handling DATA with encoding: "
+literal|" => Handling DATA with encoding: "
 operator|+
 name|child
 operator|.
@@ -1006,7 +1013,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Data was streamed"
+literal|" => Data was streamed"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1035,7 +1042,7 @@ name|warn
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Not handling element DATA encoding: "
+literal|" => Not handling element DATA encoding: "
 operator|+
 name|child
 operator|.
@@ -1055,7 +1062,7 @@ name|warn
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Not handling child element: "
+literal|" => Not handling child element: "
 operator|+
 name|child
 operator|.
@@ -1436,7 +1443,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Handling DICT element with key: "
+literal|" => Handling DICT element with key: "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -1464,7 +1471,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Set "
+literal|" => Set "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -1490,7 +1497,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Handling STREAM element with key: "
+literal|" => Handling STREAM element with key: "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -1533,7 +1540,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Handling NAME element with key: "
+literal|" => Handling NAME element with key: "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -1558,7 +1565,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"Set "
+literal|" => Set "
 operator|+
 name|childAttrKey
 operator|+
@@ -1576,7 +1583,7 @@ name|warn
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|"NOT handling child element: "
+literal|" => NOT handling child element: "
 operator|+
 name|child
 operator|.
