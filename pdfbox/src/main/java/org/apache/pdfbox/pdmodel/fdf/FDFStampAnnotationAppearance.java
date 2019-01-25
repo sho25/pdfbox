@@ -294,7 +294,7 @@ argument_list|()
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Build dictionary for Appearance based on the appearanceXML"
 argument_list|)
@@ -329,7 +329,7 @@ argument_list|)
 decl_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Appearance Root - tag: "
 operator|+
@@ -441,11 +441,11 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Process N item in the dictionary after processing the "
+literal|"Process N item in the dictionary after processing the "
 operator|+
 name|child
 operator|.
@@ -469,11 +469,11 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Set N"
+literal|"Set N"
 argument_list|)
 expr_stmt|;
 block|}
@@ -485,7 +485,7 @@ name|warn
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Not handling element: "
+literal|"Not handling element: "
 operator|+
 name|child
 operator|.
@@ -505,7 +505,7 @@ name|warn
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Not handling element: "
+literal|"Not handling element: "
 operator|+
 name|appearanceXML
 operator|.
@@ -632,11 +632,11 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => reading child: "
+literal|"reading child: "
 operator|+
 name|child
 operator|.
@@ -663,6 +663,7 @@ condition|)
 block|{
 if|if
 condition|(
+operator|!
 literal|"Length"
 operator|.
 name|equals
@@ -670,20 +671,6 @@ argument_list|(
 name|childAttrKey
 argument_list|)
 condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-name|parentAttrKey
-operator|+
-literal|" => Not handling element INT key: "
-operator|+
-name|childAttrKey
-argument_list|)
-expr_stmt|;
-block|}
-else|else
 block|{
 name|stream
 operator|.
@@ -710,7 +697,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Set "
+literal|"Set "
 operator|+
 name|childAttrKey
 operator|+
@@ -755,7 +742,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Set "
+literal|"Set "
 operator|+
 name|childAttrKey
 operator|+
@@ -804,7 +791,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Set Interpolate: "
+literal|"Set Interpolate: "
 operator|+
 name|childAttrVal
 argument_list|)
@@ -847,7 +834,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Set "
+literal|"Set "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -890,7 +877,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Set "
+literal|"Set "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -933,7 +920,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Set "
+literal|"Set "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -955,11 +942,11 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Handling DATA with encoding: "
+literal|"Handling DATA with encoding: "
 operator|+
 name|child
 operator|.
@@ -986,6 +973,8 @@ condition|)
 block|{
 name|OutputStream
 name|os
+init|=
+literal|null
 decl_stmt|;
 try|try
 block|{
@@ -1011,32 +1000,31 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|os
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|LOG
 operator|.
 name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Data was streamed"
+literal|"Data was streamed"
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|ex
-parameter_list|)
+finally|finally
 block|{
-name|ex
+if|if
+condition|(
+name|os
+operator|!=
+literal|null
+condition|)
+block|{
+name|os
 operator|.
-name|printStackTrace
+name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 else|else
@@ -1047,7 +1035,7 @@ name|warn
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Not handling element DATA encoding: "
+literal|"Not handling element DATA encoding: "
 operator|+
 name|child
 operator|.
@@ -1067,7 +1055,7 @@ name|warn
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Not handling child element: "
+literal|"Not handling child element: "
 operator|+
 name|child
 operator|.
@@ -1094,7 +1082,7 @@ name|IOException
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Parse "
 operator|+
@@ -1165,7 +1153,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"BBox does not have enough coordinates only has: "
+literal|"BBox does not have enough coordinates, only has: "
 operator|+
 name|nodeList
 operator|.
@@ -1200,7 +1188,7 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Matrix does not have enough coordinates only has: "
+literal|"Matrix does not have enough coordinates, only has: "
 operator|+
 name|nodeList
 operator|.
@@ -1319,7 +1307,7 @@ name|IOException
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Parse "
 operator|+
@@ -1444,11 +1432,11 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Handling DICT element with key: "
+literal|"Handling DICT element with key: "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -1476,7 +1464,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Set "
+literal|"Set "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -1498,11 +1486,11 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Handling STREAM element with key: "
+literal|"Handling STREAM element with key: "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -1541,11 +1529,11 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Handling NAME element with key: "
+literal|"Handling NAME element with key: "
 operator|+
 name|childAttrKey
 argument_list|)
@@ -1570,7 +1558,7 @@ name|debug
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => Set "
+literal|"Set "
 operator|+
 name|childAttrKey
 operator|+
@@ -1588,7 +1576,7 @@ name|warn
 argument_list|(
 name|parentAttrKey
 operator|+
-literal|" => NOT handling child element: "
+literal|"NOT handling child element: "
 operator|+
 name|child
 operator|.
