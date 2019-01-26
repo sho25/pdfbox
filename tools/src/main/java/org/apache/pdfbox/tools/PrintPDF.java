@@ -713,10 +713,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|printJob
-operator|.
-name|setPageable
-argument_list|(
+name|PDFPageable
+name|pageable
+init|=
 operator|new
 name|PDFPageable
 argument_list|(
@@ -728,26 +727,8 @@ name|showPageBorder
 argument_list|,
 name|dpi
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|PDFPrintable
-name|printable
-init|=
-operator|new
-name|PDFPrintable
-argument_list|(
-name|document
-argument_list|,
-name|Scaling
-operator|.
-name|ACTUAL_SIZE
-argument_list|,
-name|showPageBorder
-argument_list|,
-name|dpi
-argument_list|)
 decl_stmt|;
-name|printable
+name|pageable
 operator|.
 name|setRenderingHints
 argument_list|(
@@ -756,11 +737,15 @@ argument_list|)
 expr_stmt|;
 name|printJob
 operator|.
-name|setPrintable
+name|setPageable
 argument_list|(
-name|printable
+name|pageable
 argument_list|)
 expr_stmt|;
+comment|// We're not using PDFPrintable, because then
+comment|// "the PageFormat for each page is the default page format"
+comment|// which results in the image appearing in the middle of the page, and padded
+comment|// when printing on XPS. Also PDFPageable.getPageFormat() won't be called.
 if|if
 condition|(
 name|silentPrint
