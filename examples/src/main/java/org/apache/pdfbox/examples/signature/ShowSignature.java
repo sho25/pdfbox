@@ -3255,9 +3255,11 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|"<password><inputfile>"
+literal|"<password (usually empty)><inputfile>"
 argument_list|)
 expr_stmt|;
+comment|// The password is for encrypted files and has nothing to do with the signature.
+comment|// (A PDF can be both encrypted and signed)
 block|}
 block|}
 end_class
