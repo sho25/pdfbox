@@ -175,6 +175,20 @@ name|COSName
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSNull
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class represents a PDF Number tree. See the PDF Reference 1.7 section  * 7.9.7 for more details.  *  * @author Ben Litchfield,  * @author Igor Podolskiy  */
 end_comment
@@ -1012,6 +1026,14 @@ name|array
 operator|.
 name|add
 argument_list|(
+name|obj
+operator|==
+literal|null
+condition|?
+name|COSNull
+operator|.
+name|NULL
+else|:
 name|obj
 argument_list|)
 expr_stmt|;
