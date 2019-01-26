@@ -859,39 +859,6 @@ name|Exception
 name|t
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"valueType: "
-operator|+
-name|valueType
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"base: "
-operator|+
-name|base
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Exception: "
-operator|+
-name|t
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|IOException
