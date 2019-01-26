@@ -1612,6 +1612,15 @@ name|RenderingHints
 operator|.
 name|KEY_INTERPOLATION
 argument_list|,
+name|isBitonal
+argument_list|(
+name|graphics
+argument_list|)
+condition|?
+name|RenderingHints
+operator|.
+name|VALUE_INTERPOLATION_NEAREST_NEIGHBOR
+else|:
 name|RenderingHints
 operator|.
 name|VALUE_INTERPOLATION_BICUBIC
