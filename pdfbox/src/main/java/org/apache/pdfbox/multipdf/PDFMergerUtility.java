@@ -5093,6 +5093,15 @@ name|values
 argument_list|()
 control|)
 block|{
+if|if
+condition|(
+name|obj
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|PDParentTreeValue
 name|val
 init|=
