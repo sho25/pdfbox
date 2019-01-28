@@ -2858,7 +2858,7 @@ return|return
 name|document
 return|;
 block|}
-comment|/**      * This will get the document info dictionary. This is guaranteed to not return null.      *       * @return The documents /Info dictionary      */
+comment|/**      * This will get the document info dictionary. If it doesn't exist, an empty document info      * dictionary is created in the document trailer.      *      * @return The documents /Info dictionary, never null.      */
 specifier|public
 name|PDDocumentInformation
 name|getDocumentInformation
