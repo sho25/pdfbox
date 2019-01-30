@@ -1500,9 +1500,6 @@ name|graphics
 operator|.
 name|rotate
 argument_list|(
-operator|(
-name|float
-operator|)
 name|Math
 operator|.
 name|toRadians
