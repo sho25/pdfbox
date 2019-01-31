@@ -7602,15 +7602,6 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// apply the underlying Graphics2D device's DPI transform and y-axis flip
-name|Matrix
-name|m
-init|=
-operator|new
-name|Matrix
-argument_list|(
-name|xform
-argument_list|)
-decl_stmt|;
 name|AffineTransform
 name|dpiTransform
 init|=
