@@ -43,6 +43,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -533,10 +543,17 @@ name|float
 index|[]
 name|values
 init|=
+name|Arrays
+operator|.
+name|copyOf
+argument_list|(
 name|array
 operator|.
 name|toFloatArray
 argument_list|()
+argument_list|,
+literal|4
+argument_list|)
 decl_stmt|;
 name|rectArray
 operator|=
