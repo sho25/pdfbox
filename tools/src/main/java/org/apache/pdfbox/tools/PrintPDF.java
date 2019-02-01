@@ -141,34 +141,6 @@ name|PDFPageable
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|printing
-operator|.
-name|PDFPrintable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|printing
-operator|.
-name|Scaling
-import|;
-end_import
-
 begin_comment
 comment|/**  * This is a command line program that will print a PDF document.  *   * @author Ben Litchfield  */
 end_comment
