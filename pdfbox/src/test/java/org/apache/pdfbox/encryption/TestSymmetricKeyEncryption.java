@@ -1322,7 +1322,7 @@ block|}
 comment|/**      * PDFBOX-4453: verify that identical encrypted strings are really decrypted each.      *       * @throws IOException       */
 specifier|public
 name|void
-name|t_estPDFBox4453
+name|testPDFBox4453
 parameter_list|()
 throws|throws
 name|IOException

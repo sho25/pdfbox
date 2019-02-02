@@ -133,6 +133,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Arrays
 import|;
 end_import
@@ -143,7 +153,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -154,16 +174,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 
@@ -498,14 +508,19 @@ name|decryptMetadata
 decl_stmt|;
 specifier|private
 specifier|final
-name|Set
+name|Map
 argument_list|<
 name|COSBase
+argument_list|,
+name|List
+argument_list|<
+name|COSBase
+argument_list|>
 argument_list|>
 name|objects
 init|=
 operator|new
-name|HashSet
+name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -1465,18 +1480,72 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-operator|!
+comment|// PDFBOX-4453: Originally this was just a Set. This failed in rare cases
+comment|// when a decrypted string was identical to an encrypted string.
+comment|// Because COSString.equals() checks the contents, decryption was then skipped.
+comment|// This solution keeps all different "equal" objects.
+comment|// Please do not replace this with a solution using System.identityHashCode(),
+comment|// because this is still a hash code and is NOT guaranteed to be unique.
+name|List
+argument_list|<
+name|COSBase
+argument_list|>
+name|list
+init|=
 name|objects
 operator|.
-name|contains
+name|get
 argument_list|(
 name|obj
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|list
+operator|==
+literal|null
 condition|)
 block|{
+name|list
+operator|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+expr_stmt|;
 name|objects
+operator|.
+name|put
+argument_list|(
+name|obj
+argument_list|,
+name|list
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// check whether the exact object is in the list
+for|for
+control|(
+name|COSBase
+name|base
+range|:
+name|list
+control|)
+block|{
+if|if
+condition|(
+name|base
+operator|==
+name|obj
+condition|)
+block|{
+return|return;
+block|}
+block|}
+block|}
+name|list
 operator|.
 name|add
 argument_list|(
@@ -1565,7 +1634,6 @@ argument_list|,
 name|genNum
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * This will decrypt a stream.      *      * @param stream The stream to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If there is an error getting the stream data.      */
