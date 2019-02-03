@@ -26,7 +26,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Contains a stack of objects to follow the validation path. Ex : - if the ValidationProcess computes a Type1Font  * object, this object should contains a path like PDPage|PDResources|PDFont. - if the ValidationProcess computes a  * XObject object, this object could contains a path like PDPage|PDResources|PDFontType3|PDResource|PDXObject.  */
+comment|/**  * Contains a stack of objects to follow the validation path. Examples:  *<ul>  *<li>If the ValidationProcess computes a Type1Font, this object could contain a path like  * PDPage|PDResources|PDFont.  *<li>If the ValidationProcess computes an XObject, this object could contain a path like  * PDPage|PDResources|PDFontType3|PDResource|PDXObject.  *</ul>  */
 end_comment
 
 begin_class
