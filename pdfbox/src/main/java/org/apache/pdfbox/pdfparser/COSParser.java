@@ -2855,6 +2855,23 @@ name|fileOffset
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Invalid object stream xref object reference for key '"
+operator|+
+name|objKey
+operator|+
+literal|"': "
+operator|+
+name|fileOffset
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 block|}
 else|else
 block|{
