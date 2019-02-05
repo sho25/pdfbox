@@ -2117,10 +2117,13 @@ expr_stmt|;
 name|PDICCBased
 name|iccBased
 init|=
-operator|new
 name|PDICCBased
+operator|.
+name|create
 argument_list|(
 name|array
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|PDColorSpace
