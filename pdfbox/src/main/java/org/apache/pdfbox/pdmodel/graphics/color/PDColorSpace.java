@@ -757,10 +757,13 @@ name|ICCBASED
 condition|)
 block|{
 return|return
-operator|new
 name|PDICCBased
+operator|.
+name|create
 argument_list|(
 name|array
+argument_list|,
+name|resources
 argument_list|)
 return|;
 block|}
