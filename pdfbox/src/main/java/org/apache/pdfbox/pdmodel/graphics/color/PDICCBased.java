@@ -550,11 +550,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|checkArray
-argument_list|(
-name|iccArray
-argument_list|)
-expr_stmt|;
 name|useOnlyAlternateColorSpace
 operator|=
 name|System
