@@ -794,14 +794,14 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"getGlypDescription("
+literal|"GlyphDescription for index "
 operator|+
 name|c
 operator|.
 name|getGlyphIndex
 argument_list|()
 operator|+
-literal|") is null, returning 0"
+literal|" is null, returning 0"
 argument_list|)
 expr_stmt|;
 name|pointCount
