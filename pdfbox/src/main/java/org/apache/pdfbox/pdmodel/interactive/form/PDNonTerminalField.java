@@ -889,12 +889,24 @@ argument_list|>
 name|getWidgets
 parameter_list|()
 block|{
-comment|//TODO shouldn't we return a non modifiable list?
-return|return
+name|List
+argument_list|<
+name|PDAnnotationWidget
+argument_list|>
+name|emptyList
+init|=
 name|Collections
 operator|.
 name|emptyList
 argument_list|()
+decl_stmt|;
+return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
+name|emptyList
+argument_list|)
 return|;
 block|}
 block|}
