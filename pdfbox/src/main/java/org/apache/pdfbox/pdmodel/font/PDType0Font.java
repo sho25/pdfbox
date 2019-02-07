@@ -650,7 +650,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**     * Loads a TTF to be embedded into a document as a Type 0 font.     *     * @param doc The PDF document that will hold the embedded font.     * @param input A TrueType font.     * @return A Type0 font with a CIDFontType2 descendant.     * @throws IOException If there is an error reading the font stream.     */
+comment|/**     * Loads a TTF to be embedded into a document as a Type 0 font.     *     * @param doc The PDF document that will hold the embedded font.     * @param input An input stream of a TrueType font. It will be closed before returning.     * @return A Type0 font with a CIDFontType2 descendant.     * @throws IOException If there is an error reading the font stream.     */
 specifier|public
 specifier|static
 name|PDType0Font
@@ -688,7 +688,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Loads a TTF to be embedded into a document as a Type 0 font.      *      * @param doc The PDF document that will hold the embedded font.      * @param input A TrueType font.      * @param embedSubset True if the font will be subset before embedding      * @return A Type0 font with a CIDFontType2 descendant.      * @throws IOException If there is an error reading the font stream.      */
+comment|/**      * Loads a TTF to be embedded into a document as a Type 0 font.      *      * @param doc The PDF document that will hold the embedded font.      * @param input An input stream of a TrueType font. It will be closed before returning.      * @param embedSubset True if the font will be subset before embedding      * @return A Type0 font with a CIDFontType2 descendant.      * @throws IOException If there is an error reading the font stream.      */
 specifier|public
 specifier|static
 name|PDType0Font
