@@ -1332,7 +1332,8 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|// todo: invert the ToUnicode CMap?
+comment|//TODO: invert the ToUnicode CMap?
+comment|// see also PDFBOX-4233
 name|cid
 operator|=
 literal|0
