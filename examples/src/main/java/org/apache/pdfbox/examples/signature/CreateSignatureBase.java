@@ -500,6 +500,16 @@ name|certificateChain
 expr_stmt|;
 block|}
 specifier|public
+name|Certificate
+index|[]
+name|getCertificateChain
+parameter_list|()
+block|{
+return|return
+name|certificateChain
+return|;
+block|}
+specifier|public
 name|void
 name|setTsaUrl
 parameter_list|(
