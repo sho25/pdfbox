@@ -1112,6 +1112,34 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+operator|!
+name|refreshAppearances
+operator|&&
+name|getNeedAppearances
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"acroForm.getNeedAppearances() returns true, "
+operator|+
+literal|"visual field appearances may not have been set"
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"call acroForm.refreshAppearances() or "
+operator|+
+literal|"use the flatten() method with refreshAppearances parameter"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// for dynamic XFA forms there is no flatten as this would mean to do a rendering
 comment|// from the XFA content into a static PDF.
 if|if
