@@ -1866,6 +1866,91 @@ literal|"font is null, check whether /DA entry is incomplete or incorrect"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"+"
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Font '"
+operator|+
+name|defaultAppearance
+operator|.
+name|getFontName
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"' of field '"
+operator|+
+name|field
+operator|.
+name|getFullyQualifiedName
+argument_list|()
+operator|+
+literal|"' contains subsetted font '"
+operator|+
+name|font
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"'"
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"This may bring trouble with PDField.setValue(), PDAcroForm.flatten() or "
+operator|+
+literal|"PDAcroForm.refreshAppearances()"
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"You should replace this font with a non-subsetted font:"
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"PDFont font = PDType0Font.load(doc, new FileInputStream(fontfile), false);"
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"acroForm.getDefaultResources().put(COSName.getPDFName(\""
+operator|+
+name|defaultAppearance
+operator|.
+name|getFontName
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"\", font);"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// calculate the fontSize (because 0 = autosize)
 name|float
 name|fontSize
