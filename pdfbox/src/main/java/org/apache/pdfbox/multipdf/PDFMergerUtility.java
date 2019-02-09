@@ -5311,7 +5311,7 @@ operator|=
 name|ignoreAcroFormErrorsValue
 expr_stmt|;
 block|}
-comment|/**      * Get the mode to be used for merging AcroForms      *       * {@link AcroFormMergeMode}      */
+comment|/**      * Get the merge mode to be used for merging AcroForms between documents      *       * {@link AcroFormMergeMode}      */
 specifier|public
 name|AcroFormMergeMode
 name|getAcroFormMergeMode
@@ -5321,7 +5321,7 @@ return|return
 name|acroFormMergeMode
 return|;
 block|}
-comment|/**      * Set the mode to be used for merging AcroForms      *       * {@link AcroFormMergeMode}      */
+comment|/**      * Set the merge mode to be used for merging AcroForms between documents      *       * {@link AcroFormMergeMode}      */
 specifier|public
 name|void
 name|setAcroFormMergeMode
