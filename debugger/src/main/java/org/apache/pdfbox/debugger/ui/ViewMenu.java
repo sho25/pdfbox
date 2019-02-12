@@ -162,6 +162,7 @@ name|JCheckBoxMenuItem
 name|allowSubsampling
 decl_stmt|;
 specifier|private
+specifier|final
 name|PDFDebugger
 name|pdfDebugger
 decl_stmt|;
@@ -186,7 +187,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Provides the ViewMenu instance.      *      * @return ViewMenu instance.      */
+comment|/**      * Provides the ViewMenu instance.      *      * @param pdfDebugger PDFDebugger instance.      *      * @return ViewMenu instance.      */
 specifier|public
 specifier|static
 name|ViewMenu
