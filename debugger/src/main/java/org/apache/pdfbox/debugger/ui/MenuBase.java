@@ -74,7 +74,7 @@ name|menu
 init|=
 literal|null
 decl_stmt|;
-specifier|protected
+specifier|final
 name|void
 name|setMenu
 parameter_list|(
