@@ -1454,6 +1454,14 @@ index|[
 name|numberOfInputValues
 index|]
 decl_stmt|;
+name|input
+operator|=
+name|input
+operator|.
+name|clone
+argument_list|()
+expr_stmt|;
+comment|// PDFBOX-4461
 for|for
 control|(
 name|int
