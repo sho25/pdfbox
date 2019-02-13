@@ -1052,10 +1052,12 @@ decl_stmt|;
 if|if
 condition|(
 name|acroForm
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+return|return;
+block|}
 for|for
 control|(
 name|PDField
@@ -1113,7 +1115,6 @@ operator|+
 name|fullyQualifiedName
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
