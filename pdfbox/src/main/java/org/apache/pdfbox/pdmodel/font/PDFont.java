@@ -1237,7 +1237,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Encodes the given string for use in a PDF content stream.      *      * @param text Any Unicode text.      * @return Array of PDF content stream bytes.      * @throws IOException If the text could not be encoded.      */
+comment|/**      * Encodes the given string for use in a PDF content stream.      *      * @param text Any Unicode text.      * @return Array of PDF content stream bytes.      * @throws IOException If the text could not be encoded.      * @throws IllegalArgumentException if a character isn't supported by the font.      */
 specifier|public
 specifier|final
 name|byte
@@ -1316,7 +1316,7 @@ name|toByteArray
 argument_list|()
 return|;
 block|}
-comment|/**      * Encodes the given Unicode code point for use in a PDF content stream.      * Content streams use a multi-byte encoding with 1 to 4 bytes.      *      *<p>This method is called when embedding text in PDFs and when filling in fields.      *      * @param unicode Unicode code point.      * @return Array of 1 to 4 PDF content stream bytes.      * @throws IOException If the text could not be encoded.      */
+comment|/**      * Encodes the given Unicode code point for use in a PDF content stream.      * Content streams use a multi-byte encoding with 1 to 4 bytes.      *      *<p>This method is called when embedding text in PDFs and when filling in fields.      *      * @param unicode Unicode code point.      * @return Array of 1 to 4 PDF content stream bytes.      * @throws IOException If the text could not be encoded.      * @throws IllegalArgumentException if a character isn't supported by the font.      */
 specifier|protected
 specifier|abstract
 name|byte
@@ -1329,7 +1329,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the width of the given Unicode string.      *      * @param text The text to get the width of.      * @return The width of the string in 1/1000 units of text space.      * @throws IOException If there is an error getting the width information.      */
+comment|/**      * Returns the width of the given Unicode string.      *      * @param text The text to get the width of.      * @return The width of the string in 1/1000 units of text space.      * @throws IOException If there is an error getting the width information.      * @throws IllegalArgumentException if a character isn't supported by the font.      */
 specifier|public
 name|float
 name|getStringWidth
