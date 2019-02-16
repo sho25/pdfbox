@@ -472,6 +472,16 @@ argument_list|(
 literal|"example.pdf"
 argument_list|)
 expr_stmt|;
+name|ttc2
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|ttc3
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 specifier|static
