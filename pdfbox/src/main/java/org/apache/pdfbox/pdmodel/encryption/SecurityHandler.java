@@ -2006,6 +2006,32 @@ name|equals
 argument_list|(
 name|type
 argument_list|)
+operator|||
+comment|// PDFBOX-4466: /Type is optional, see
+comment|// https://ec.europa.eu/cefdigital/tracker/browse/DSS-1538
+operator|(
+name|dictionary
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|CONTENTS
+argument_list|)
+operator|instanceof
+name|COSString
+operator|&&
+name|dictionary
+operator|.
+name|getDictionaryObject
+argument_list|(
+name|COSName
+operator|.
+name|BYTERANGE
+argument_list|)
+operator|instanceof
+name|COSArray
+operator|)
 decl_stmt|;
 for|for
 control|(
