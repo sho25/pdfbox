@@ -1968,6 +1968,10 @@ decl_stmt|;
 if|if
 condition|(
 name|normalAppearanceEntry
+operator|==
+literal|null
+operator|||
+name|normalAppearanceEntry
 operator|.
 name|isSubDictionary
 argument_list|()
