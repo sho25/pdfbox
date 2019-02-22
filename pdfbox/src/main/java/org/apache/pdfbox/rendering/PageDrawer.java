@@ -1017,6 +1017,24 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|annotation
+operator|.
+name|PDAnnotationUnknown
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|util
 operator|.
 name|Matrix
@@ -5869,8 +5887,6 @@ name|lastClip
 operator|=
 literal|null
 expr_stmt|;
-comment|//TODO support more annotation flags (Invisible, NoZoom)
-comment|// Example for NoZoom can be found in p5 of PDFBOX-2348
 name|int
 name|deviceType
 init|=
@@ -5954,6 +5970,23 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|annotation
+operator|.
+name|isInvisible
+argument_list|()
+operator|&&
+name|annotation
+operator|instanceof
+name|PDAnnotationUnknown
+condition|)
+block|{
+comment|// "If set, do not display the annotation if it does not belong to one
+comment|// of the standard annotation types and no annotation handler is available."
+return|return;
+block|}
+comment|//TODO support NoZoom, example can be found in p5 of PDFBOX-2348
 if|if
 condition|(
 name|isHiddenOCG
