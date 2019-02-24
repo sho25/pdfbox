@@ -528,7 +528,7 @@ name|getEncryptionKeyLength
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Computes the version number of the StandardSecurityHandler based on the encryption key      * length.      * See PDF Spec 1.6 p 93 and PDF 1.7 AEL3      *      * @return The computed version number.      */
+comment|/**      * Computes the version number of the StandardSecurityHandler based on the encryption key      * length. See PDF Spec 1.6 p 93 and      *<a href="https://www.adobe.com/content/dam/acom/en/devnet/pdf/adobe_supplement_iso32000.pdf">PDF      * 1.7 Supplement ExtensionLevel: 3</a> and      *<a href="http://intranet.pdfa.org/wp-content/uploads/2016/08/ISO_DIS_32000-2-DIS4.pdf">PDF      * Spec 2.0</a>.      *      * @return The computed version number.      */
 specifier|private
 name|int
 name|computeVersionNumber
@@ -1842,6 +1842,7 @@ argument_list|,
 literal|"AES"
 argument_list|)
 argument_list|,
+comment|// "an initialization vector of zero"
 operator|new
 name|IvParameterSpec
 argument_list|(
@@ -1985,6 +1986,7 @@ argument_list|,
 literal|"AES"
 argument_list|)
 argument_list|,
+comment|// "an initialization vector of zero"
 operator|new
 name|IvParameterSpec
 argument_list|(
@@ -2222,6 +2224,7 @@ argument_list|,
 literal|"AES"
 argument_list|)
 argument_list|,
+comment|// "an initialization vector of zero"
 operator|new
 name|IvParameterSpec
 argument_list|(
