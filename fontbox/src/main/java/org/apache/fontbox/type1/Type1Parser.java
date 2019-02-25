@@ -1808,6 +1808,28 @@ return|return
 name|value
 return|;
 block|}
+name|readPostScriptWrapper
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+return|return
+name|value
+return|;
+block|}
+specifier|private
+name|void
+name|readPostScriptWrapper
+parameter_list|(
+name|List
+argument_list|<
+name|Token
+argument_list|>
+name|value
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 comment|// postscript wrapper (not in the Type 1 spec)
 if|if
 condition|(
@@ -1928,9 +1950,6 @@ literal|"if"
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|value
-return|;
 block|}
 comment|/**      * Reads a procedure.      */
 specifier|private
