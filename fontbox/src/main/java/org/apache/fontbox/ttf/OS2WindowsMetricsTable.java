@@ -315,14 +315,14 @@ name|FSTYPE_PREVIEW_AND_PRINT
 init|=
 literal|0x0004
 decl_stmt|;
-comment|/**      * Editable embedding: the font may be embedded but must only be installed temporarily on other      * systems. Documents may be editied and changes saved.      */
+comment|/**      * Editable embedding: the font may be embedded but must only be installed temporarily on other      * systems. Documents may be edited and changes saved.      */
 specifier|public
 specifier|static
 specifier|final
 name|short
 name|FSTYPE_EDITIBLE
 init|=
-literal|0x0004
+literal|0x0008
 decl_stmt|;
 comment|/**      * No subsetting: the font must not be subsetted prior to embedding.      */
 specifier|public
