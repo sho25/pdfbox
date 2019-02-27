@@ -2715,6 +2715,10 @@ argument_list|,
 name|signDate
 argument_list|)
 expr_stmt|;
+comment|//TODO check whether the root certificate is in our trusted list.
+comment|// For the EU, get a list here:
+comment|// https://ec.europa.eu/digital-single-market/en/eu-trusted-lists-trust-service-providers
+comment|// ( getRootCertificates() is not helpful because these are SSL certificates)
 block|}
 specifier|private
 name|void
