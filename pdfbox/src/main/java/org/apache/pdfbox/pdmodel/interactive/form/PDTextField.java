@@ -538,7 +538,7 @@ name|maxLen
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the plain text value of this field.      *       * @param value Plain text      * @throws IOException if the value could not be set      */
+comment|/**      * Set the plain text value of this field, and try to update the visual appearance.      *       * @param value Plain text      * @throws IOException if the value could not be set      */
 annotation|@
 name|Override
 specifier|public

@@ -444,7 +444,7 @@ literal|"Off"
 return|;
 block|}
 block|}
-comment|/**      * Sets the selected option given its name.      *       * @param value Name of option to select      * @throws IOException if the value could not be set      * @throws IllegalArgumentException if the value is not a valid option.      */
+comment|/**      * Set the selected option given its name, and try to update the visual appearance.      *       * @param value Name of option to select      * @throws IOException if the value could not be set      * @throws IllegalArgumentException if the value is not a valid option.      */
 annotation|@
 name|Override
 specifier|public
