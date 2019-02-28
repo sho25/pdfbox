@@ -629,7 +629,7 @@ name|base
 operator|==
 literal|null
 condition|?
-literal|" null"
+literal|"null"
 else|:
 name|base
 operator|.
