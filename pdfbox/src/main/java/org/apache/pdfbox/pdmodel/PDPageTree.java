@@ -624,6 +624,13 @@ name|warn
 argument_list|(
 literal|"COSDictionary expected, but got "
 operator|+
+operator|(
+name|base
+operator|==
+literal|null
+condition|?
+literal|" null"
+else|:
 name|base
 operator|.
 name|getClass
@@ -631,6 +638,7 @@ argument_list|()
 operator|.
 name|getSimpleName
 argument_list|()
+operator|)
 argument_list|)
 expr_stmt|;
 block|}
