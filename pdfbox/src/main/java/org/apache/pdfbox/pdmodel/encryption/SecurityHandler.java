@@ -1492,6 +1492,25 @@ block|{
 if|if
 condition|(
 operator|!
+operator|(
+name|obj
+operator|instanceof
+name|COSString
+operator|||
+name|obj
+operator|instanceof
+name|COSDictionary
+operator|||
+name|obj
+operator|instanceof
+name|COSArray
+operator|)
+condition|)
+block|{
+return|return;
+block|}
+if|if
+condition|(
 name|objects
 operator|.
 name|contains
@@ -1500,6 +1519,8 @@ name|obj
 argument_list|)
 condition|)
 block|{
+return|return;
+block|}
 name|objects
 operator|.
 name|add
@@ -1589,7 +1610,6 @@ argument_list|,
 name|genNum
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * This will decrypt a stream.      *      * @param stream The stream to decrypt.      * @param objNum The object number.      * @param genNum The object generation number.      *      * @throws IOException If there is an error getting the stream data.      */
