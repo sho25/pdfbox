@@ -264,6 +264,9 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|// It might be useful to use IdentityHashMap like in PDFBOX-4477 for speed,
+comment|// but we need a really huge file to test this. A test with the file from PDFBOX-4477
+comment|// did not show a noticeable speed difference.
 comment|/**      * Creates a new instance for the given target document.      * @param dest the destination PDF document that will receive the clones      */
 name|PDFCloneUtility
 parameter_list|(
