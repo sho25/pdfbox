@@ -1653,12 +1653,29 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the soft mask stored in the COS dictionary      *      * @return the soft mask      */
+comment|/**      * Returns the soft mask stored in the COS dictionary      *      * @return the soft mask or null if their isn't any.      */
 specifier|public
 name|PDSoftMask
 name|getSoftMask
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|dict
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
+name|SMASK
+argument_list|)
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 return|return
 name|PDSoftMask
 operator|.
