@@ -1569,7 +1569,7 @@ return|return
 name|isXRefStream
 return|;
 block|}
-comment|/**      * Sets isXRefStream to the given value.      *       * @param isXRefStreamValue the new value for isXRefStream      */
+comment|/**      * Sets isXRefStream to the given value. You need to take care that the version of your PDF is      * 1.5 or higher.      *      * @param isXRefStreamValue the new value for isXRefStream      */
 specifier|public
 name|void
 name|setIsXRefStream
