@@ -2020,16 +2020,24 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+try|try
+init|(
+name|InputStream
+name|is
+init|=
+name|contentStream
+operator|.
+name|getContents
+argument_list|()
+init|)
+block|{
 name|PDFStreamParser
 name|parser
 init|=
 operator|new
 name|PDFStreamParser
 argument_list|(
-name|contentStream
-operator|.
-name|getContents
-argument_list|()
+name|is
 argument_list|)
 decl_stmt|;
 name|Object
@@ -2116,6 +2124,7 @@ operator|.
 name|parseNextToken
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Pushes the given stream's resources, returning the previous resources.      */
