@@ -53,16 +53,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|math
-operator|.
-name|BigInteger
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|URL
@@ -181,7 +171,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|HashSet
 import|;
 end_import
 
@@ -191,7 +181,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|Set
 import|;
 end_import
 
@@ -466,7 +456,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This Class helps to extract Data/Information from a signature. The information is held in  * CertSignatureInformation. Some information is needed for validation processing of the  * participating certificates.  *  * @author Alexis Suter  *  */
+comment|/**  * This class helps to extract data/information from a signature. The information is held in  * CertSignatureInformation. Some information is needed for validation processing of the  * participating certificates.  *  * @author Alexis Suter  *  */
 end_comment
 
 begin_class
@@ -499,16 +489,14 @@ literal|5
 decl_stmt|;
 specifier|private
 specifier|final
-name|Map
+name|Set
 argument_list|<
-name|BigInteger
-argument_list|,
 name|X509Certificate
 argument_list|>
-name|certificatesMap
+name|certificateSet
 init|=
 operator|new
-name|HashMap
+name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -835,7 +823,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Processes a signer store and goes through the signers certificate-chain. Adds the found data      * to the certInfo. Handles only the first signer, although multiple would be possible, but is      * not yet practicable.      *      * @param certificatesStore To get the certificate information from. Certificates will be saved      * in certificatesMap.      * @param signedData data from which to get the SignerInformation      * @param certInfo where to add certificate information      * @return Signer Information of the processed certificatesStore for further usage.      * @throws IOException on data-processing error      * @throws CertificateProccessingException on a specific error with a certificate      */
+comment|/**      * Processes a signer store and goes through the signers certificate-chain. Adds the found data      * to the certInfo. Handles only the first signer, although multiple would be possible, but is      * not yet practicable.      *      * @param certificatesStore To get the certificate information from. Certificates will be saved      * in certificateSet.      * @param signedData data from which to get the SignerInformation      * @param certInfo where to add certificate information      * @return Signer Information of the processed certificatesStore for further usage.      * @throws IOException on data-processing error      * @throws CertificateProccessingException on a specific error with a certificate      */
 specifier|private
 name|SignerInformation
 name|processSignerStore
@@ -923,6 +911,13 @@ name|next
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|certificateSet
+operator|.
+name|add
+argument_list|(
+name|certificate
+argument_list|)
+expr_stmt|;
 name|Collection
 argument_list|<
 name|X509CertificateHolder
@@ -1113,10 +1108,7 @@ control|(
 name|X509Certificate
 name|issuer
 range|:
-name|certificatesMap
-operator|.
-name|values
-argument_list|()
+name|certificateSet
 control|)
 block|{
 if|if
@@ -1322,7 +1314,9 @@ argument_list|(
 name|in
 argument_list|)
 decl_stmt|;
-name|addCertToCertificatesMap
+name|certificateSet
+operator|.
+name|add
 argument_list|(
 name|altIssuerCert
 argument_list|)
@@ -1373,44 +1367,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Adds the given Certificate to the certificatesMap, if not yet containing.      *       * @param certificate to add to the certificatesMap      */
-specifier|private
-name|void
-name|addCertToCertificatesMap
-parameter_list|(
-name|X509Certificate
-name|certificate
-parameter_list|)
-block|{
-if|if
-condition|(
-operator|!
-name|certificatesMap
-operator|.
-name|containsKey
-argument_list|(
-name|certificate
-operator|.
-name|getSerialNumber
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|certificatesMap
-operator|.
-name|put
-argument_list|(
-name|certificate
-operator|.
-name|getSerialNumber
-argument_list|()
-argument_list|,
-name|certificate
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-comment|/**      * Gets the X509Certificate out of the X509CertificateHolder and add it to certificatesMap.      *      * @param certificateHolder to get the certificate from      * @return a X509Certificate or<code>null</code> when there was an Error with the Certificate      * @throws CertificateProccessingException on failed conversion from X509CertificateHolder to X509Certificate      */
+comment|/**      * Gets the X509Certificate out of the X509CertificateHolder.      *      * @param certificateHolder to get the certificate from      * @return a X509Certificate or<code>null</code> when there was an Error with the Certificate      * @throws CertificateProccessingException on failed conversion from X509CertificateHolder to      * X509Certificate      */
 specifier|private
 name|X509Certificate
 name|getCertFromHolder
@@ -1421,47 +1378,15 @@ parameter_list|)
 throws|throws
 name|CertificateProccessingException
 block|{
-comment|//TODO getCertFromHolder violates "do one thing" rule (adds to the map and returns a certificate)
-if|if
-condition|(
-operator|!
-name|certificatesMap
-operator|.
-name|containsKey
-argument_list|(
-name|certificateHolder
-operator|.
-name|getSerialNumber
-argument_list|()
-argument_list|)
-condition|)
-block|{
 try|try
 block|{
-name|X509Certificate
-name|certificate
-init|=
+return|return
 name|certConverter
 operator|.
 name|getCertificate
 argument_list|(
 name|certificateHolder
 argument_list|)
-decl_stmt|;
-name|certificatesMap
-operator|.
-name|put
-argument_list|(
-name|certificate
-operator|.
-name|getSerialNumber
-argument_list|()
-argument_list|,
-name|certificate
-argument_list|)
-expr_stmt|;
-return|return
-name|certificate
 return|;
 block|}
 catch|catch
@@ -1488,22 +1413,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-else|else
-block|{
-return|return
-name|certificatesMap
-operator|.
-name|get
-argument_list|(
-name|certificateHolder
-operator|.
-name|getSerialNumber
-argument_list|()
-argument_list|)
-return|;
-block|}
-block|}
-comment|/**      * Adds multiple Certificates out of a Collection of X509CertificateHolder into certificatesMap.      *      * @param certHolders Collection of X509CertificateHolder      */
+comment|/**      * Adds multiple Certificates out of a Collection of X509CertificateHolder into certificateSet.      *      * @param certHolders Collection of X509CertificateHolder      */
 specifier|private
 name|void
 name|addAllCerts
@@ -1525,9 +1435,19 @@ control|)
 block|{
 try|try
 block|{
+name|X509Certificate
+name|certificate
+init|=
 name|getCertFromHolder
 argument_list|(
 name|certificateHolder
+argument_list|)
+decl_stmt|;
+name|certificateSet
+operator|.
+name|add
+argument_list|(
+name|certificate
 argument_list|)
 expr_stmt|;
 block|}
@@ -1549,7 +1469,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Gets a list of X509Certificate out of an array of X509CertificateHolder. The certificates      * will be added to certificatesMap.      *      * @param certHolders Array of X509CertificateHolder      * @throws CertificateProccessingException when one of the Certificates could not be parsed.      */
+comment|/**      * Gets a list of X509Certificate out of an array of X509CertificateHolder. The certificates      * will be added to certificateSet.      *      * @param certHolders Array of X509CertificateHolder      * @throws CertificateProccessingException when one of the Certificates could not be parsed.      */
 specifier|public
 name|void
 name|addAllCertsFromHolders
@@ -1619,19 +1539,17 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Get the map of all processed certificates until now.      *       * @return a map of serial numbers to certificates.      */
+comment|/**      * Get the set of all processed certificates until now.      *       * @return a set of serial numbers to certificates.      */
 specifier|public
-name|Map
+name|Set
 argument_list|<
-name|BigInteger
-argument_list|,
 name|X509Certificate
 argument_list|>
-name|getCertificatesMap
+name|getCertificateSet
 parameter_list|()
 block|{
 return|return
-name|certificatesMap
+name|certificateSet
 return|;
 block|}
 comment|/**      * Data class to hold Signature, Certificate (and its chain(s)) and revocation Information      */
