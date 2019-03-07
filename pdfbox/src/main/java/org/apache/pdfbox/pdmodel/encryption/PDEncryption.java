@@ -1191,7 +1191,7 @@ name|cryptFilterName
 argument_list|,
 name|cryptFilterDictionary
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1207,7 +1207,7 @@ parameter_list|)
 block|{
 name|cryptFilterDictionary
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setDirect
@@ -1237,7 +1237,7 @@ parameter_list|)
 block|{
 name|defaultFilterDictionary
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setDirect

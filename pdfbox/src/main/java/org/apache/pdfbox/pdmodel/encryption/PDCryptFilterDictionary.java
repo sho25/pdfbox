@@ -45,6 +45,22 @@ name|COSName
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
+name|COSObjectable
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class is a specialized view of the crypt filter dictionary of a PDF document.  * It contains a low level dictionary (COSDictionary) and provides the methods to  * manage its fields.  *  */
 end_comment
@@ -53,6 +69,8 @@ begin_class
 specifier|public
 class|class
 name|PDCryptFilterDictionary
+implements|implements
+name|COSObjectable
 block|{
 comment|/**      * COS crypt filter dictionary.      */
 specifier|protected
@@ -89,7 +107,7 @@ block|}
 comment|/**      * This will get the dictionary associated with this crypt filter dictionary.      *      * @return The COS dictionary that this object wraps.      */
 specifier|public
 name|COSDictionary
-name|getCOSDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 return|return
