@@ -1141,12 +1141,9 @@ block|{
 name|COSDictionary
 name|cfDictionary
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|dictionary
 operator|.
-name|getDictionaryObject
+name|getCOSDictionary
 argument_list|(
 name|COSName
 operator|.
@@ -1180,6 +1177,14 @@ expr_stmt|;
 block|}
 name|cfDictionary
 operator|.
+name|setDirect
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// PDFBOX-4436 direct obj needed for Adobe Reader on Android
+name|cfDictionary
+operator|.
 name|setItem
 argument_list|(
 name|cryptFilterName
@@ -1200,6 +1205,17 @@ name|PDCryptFilterDictionary
 name|cryptFilterDictionary
 parameter_list|)
 block|{
+name|cryptFilterDictionary
+operator|.
+name|getCOSDictionary
+argument_list|()
+operator|.
+name|setDirect
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// PDFBOX-4436
 name|setCryptFilterDictionary
 argument_list|(
 name|COSName
@@ -1219,6 +1235,17 @@ name|PDCryptFilterDictionary
 name|defaultFilterDictionary
 parameter_list|)
 block|{
+name|defaultFilterDictionary
+operator|.
+name|getCOSDictionary
+argument_list|()
+operator|.
+name|setDirect
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// PDFBOX-4436
 name|setCryptFilterDictionary
 argument_list|(
 name|COSName
