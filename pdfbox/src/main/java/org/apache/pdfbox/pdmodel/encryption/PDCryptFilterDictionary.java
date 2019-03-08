@@ -105,6 +105,8 @@ name|d
 expr_stmt|;
 block|}
 comment|/**      * This will get the dictionary associated with this crypt filter dictionary.      *      * @return The COS dictionary that this object wraps.      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
 name|getCOSObject
