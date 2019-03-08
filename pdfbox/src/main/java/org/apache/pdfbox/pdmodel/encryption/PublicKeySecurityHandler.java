@@ -796,7 +796,7 @@ name|COSArray
 operator|)
 name|encryption
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -1908,7 +1908,7 @@ name|setEncryptionDictionary
 argument_list|(
 name|dictionary
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;

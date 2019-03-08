@@ -1666,7 +1666,7 @@ name|setEncryptionDictionary
 argument_list|(
 name|encryptionDictionary
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;

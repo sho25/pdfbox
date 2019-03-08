@@ -111,6 +111,22 @@ name|COSString
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|common
+operator|.
+name|COSObjectable
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class is a specialized view of the encryption dictionary of a PDF document.  * It contains a low level dictionary (COSDictionary) and provides the methods to  * manage its fields.  *  * The available fields are the ones who are involved by standard security handler  * and public key security handler.  *  * @author Ben Litchfield  * @author Benoit Guillon  */
 end_comment
@@ -119,6 +135,8 @@ begin_class
 specifier|public
 class|class
 name|PDEncryption
+implements|implements
+name|COSObjectable
 block|{
 comment|/**      * See PDF Reference 1.4 Table 3.13.      */
 specifier|public
@@ -300,9 +318,11 @@ literal|null
 return|;
 block|}
 comment|/**      * This will get the dictionary associated with this encryption dictionary.      *      * @return The COS dictionary that this object wraps.      */
+annotation|@
+name|Override
 specifier|public
 name|COSDictionary
-name|getCOSDictionary
+name|getCOSObject
 parameter_list|()
 block|{
 return|return
