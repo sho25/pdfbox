@@ -991,6 +991,7 @@ index|]
 argument_list|)
 decl_stmt|;
 comment|// use old-style document loading to disable leniency
+comment|// see also https://www.pdf-insecurity.org/
 name|RandomAccessBufferedFileInputStream
 name|raFile
 init|=
