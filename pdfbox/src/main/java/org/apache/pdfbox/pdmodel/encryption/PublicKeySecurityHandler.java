@@ -828,7 +828,7 @@ name|COSArray
 operator|)
 name|defaultCryptFilterDictionary
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|getItem
@@ -2036,7 +2036,7 @@ expr_stmt|;
 block|}
 name|cryptFilterDictionary
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setItem
@@ -2075,7 +2075,7 @@ argument_list|)
 expr_stmt|;
 name|cryptFilterDictionary
 operator|.
-name|getCOSDictionary
+name|getCOSObject
 argument_list|()
 operator|.
 name|setDirect
