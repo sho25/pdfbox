@@ -4558,6 +4558,12 @@ name|seqSource
 operator|.
 name|getPosition
 argument_list|()
+operator|+
+literal|", instead got '"
+operator|+
+name|intBuffer
+operator|+
+literal|"'"
 argument_list|,
 name|e
 argument_list|)
