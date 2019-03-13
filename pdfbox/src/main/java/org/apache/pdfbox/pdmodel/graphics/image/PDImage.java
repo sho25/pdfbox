@@ -204,7 +204,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns an InputStream, passing additional options to each filter      * @param options Additional decoding options passed to the filters used      * @return Decoded stream      * @throws IOException if the data could not be read      */
+comment|/**      * Returns an InputStream, passing additional options to each filter. As a side effect, the      * filterSubsampled flag is set in {@link DecodeOptions}.      *      * @param options Additional decoding options passed to the filters used      * @return Decoded stream      * @throws IOException if the data could not be read      */
 name|InputStream
 name|createInputStream
 parameter_list|(
