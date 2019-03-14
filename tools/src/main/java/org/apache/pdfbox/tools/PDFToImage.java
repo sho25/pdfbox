@@ -1212,7 +1212,7 @@ literal|"  -startPage<int>                 : The first page to start extraction 
 operator|+
 literal|"  -endPage<int>                   : The last page to extract (inclusive)\n"
 operator|+
-literal|"  -color<int>                     : The color depth (valid: bilevel, gray, rgb (default), rgba)\n"
+literal|"  -color<string>                  : The color depth (valid: bilevel, gray, rgb (default), rgba)\n"
 operator|+
 literal|"  -dpi<int>                       : The DPI of the output image, default: screen resolution or 96 if unknown\n"
 operator|+
