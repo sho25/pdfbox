@@ -911,7 +911,33 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Get the mode to be used for merging the documents      *       * {@link DocumentMergeMode}      */
+comment|/**      * Get the merge mode to be used for merging AcroForms between documents      *       * {@link AcroFormMergeMode}      */
+specifier|public
+name|AcroFormMergeMode
+name|getAcroFormMergeMode
+parameter_list|()
+block|{
+return|return
+name|acroFormMergeMode
+return|;
+block|}
+comment|/**      * Set the merge mode to be used for merging AcroForms between documents      *       * {@link AcroFormMergeMode}      */
+specifier|public
+name|void
+name|setAcroFormMergeMode
+parameter_list|(
+name|AcroFormMergeMode
+name|theAcroFormMergeMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|acroFormMergeMode
+operator|=
+name|theAcroFormMergeMode
+expr_stmt|;
+block|}
+comment|/**      * Get the merge mode to be used for merging documents      *       * {@link DocumentMergeMode}      */
 specifier|public
 name|DocumentMergeMode
 name|getDocumentMergeMode
@@ -920,6 +946,22 @@ block|{
 return|return
 name|documentMergeMode
 return|;
+block|}
+comment|/**      * Set the merge mode to be used for merging documents      *       * {@link DocumentMergeMode}      */
+specifier|public
+name|void
+name|setDocumentMergeMode
+parameter_list|(
+name|DocumentMergeMode
+name|theDocumentMergeMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|documentMergeMode
+operator|=
+name|theDocumentMergeMode
+expr_stmt|;
 block|}
 comment|/**      * Set the mode to be used for merging the documents      *       * {@link DocumentMergeMode}      */
 specifier|public
@@ -5309,32 +5351,6 @@ block|{
 name|ignoreAcroFormErrors
 operator|=
 name|ignoreAcroFormErrorsValue
-expr_stmt|;
-block|}
-comment|/**      * Get the merge mode to be used for merging AcroForms between documents      *       * {@link AcroFormMergeMode}      */
-specifier|public
-name|AcroFormMergeMode
-name|getAcroFormMergeMode
-parameter_list|()
-block|{
-return|return
-name|acroFormMergeMode
-return|;
-block|}
-comment|/**      * Set the merge mode to be used for merging AcroForms between documents      *       * {@link AcroFormMergeMode}      */
-specifier|public
-name|void
-name|setAcroFormMergeMode
-parameter_list|(
-name|AcroFormMergeMode
-name|theAcroFormMergeMode
-parameter_list|)
-block|{
-name|this
-operator|.
-name|acroFormMergeMode
-operator|=
-name|theAcroFormMergeMode
 expr_stmt|;
 block|}
 comment|/**      * Update the Pg and Obj references to the new (merged) page.      */
