@@ -961,6 +961,8 @@ literal|"image width and height must be positive"
 argument_list|)
 throw|;
 block|}
+try|try
+block|{
 if|if
 condition|(
 name|bitsPerComponent
@@ -991,7 +993,6 @@ name|height
 argument_list|)
 return|;
 block|}
-comment|//
 comment|// An AWT raster must use 8/16/32 bits per component. Images with< 8bpc
 comment|// will be unpacked into a byte-backed raster. Images with 16bpc will be reduced
 comment|// in depth to 8bpc as they will be drawn to TYPE_INT_RGB images anyway. All code
@@ -1094,6 +1095,21 @@ argument_list|,
 name|height
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|NegativeArraySizeException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+name|ex
+argument_list|)
+throw|;
+block|}
 block|}
 specifier|private
 specifier|static
