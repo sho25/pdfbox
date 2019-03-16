@@ -342,9 +342,17 @@ operator|new
 name|PDComplexFileSpecification
 argument_list|()
 decl_stmt|;
+comment|// use both methods for backwards, cross-platform and cross-language compatibility.
 name|fs
 operator|.
 name|setFile
+argument_list|(
+literal|"Test.txt"
+argument_list|)
+expr_stmt|;
+name|fs
+operator|.
+name|setFileUnicode
 argument_list|(
 literal|"Test.txt"
 argument_list|)
