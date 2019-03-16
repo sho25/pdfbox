@@ -596,7 +596,7 @@ return|return
 name|file
 return|;
 block|}
-comment|/**      * Set the embedded file for this spec.      *      * @param file The file to be embedded.      */
+comment|/**      * Set the embedded file for this spec. You should also call      * {@link #setEmbeddedFileUnicode(org.apache.pdfbox.pdmodel.common.filespecification.PDEmbeddedFile) setEmbeddedFileUnicode(PDEmbeddedFile)}      * for cross-platform and cross-language compatibility.      *      * @param file The file to be embedded.      */
 specifier|public
 name|void
 name|setEmbeddedFile
@@ -704,7 +704,9 @@ return|return
 name|file
 return|;
 block|}
-comment|/**      * Set the embedded dos file for this spec.      *      * @param file The dos file to be embedded.      */
+comment|/**      * Set the embedded dos file for this spec.      *      * @param file The dos file to be embedded.      * @deprecated This method is obsolescent and should not be used by conforming writers.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|setEmbeddedFileDos
@@ -812,7 +814,9 @@ return|return
 name|file
 return|;
 block|}
-comment|/**      * Set the embedded Mac file for this spec.      *      * @param file The Mac file to be embedded.      */
+comment|/**      * Set the embedded Mac file for this spec.      *      * @param file The Mac file to be embedded.      * @deprecated This method is obsolescent and should not be used by conforming writers.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|setEmbeddedFileMac
@@ -920,7 +924,9 @@ return|return
 name|file
 return|;
 block|}
-comment|/**      * Set the embedded Unix file for this spec.      *      * @param file The Unix file to be embedded.      */
+comment|/**      * Set the embedded Unix file for this spec.      *      * @param file The Unix file to be embedded.      * @deprecated This method is obsolescent and should not be used by conforming writers.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|setEmbeddedFileUnix
@@ -1028,7 +1034,7 @@ return|return
 name|file
 return|;
 block|}
-comment|/**      * Set the embedded Unicode file for this spec.      *      * @param file The Unicode file to be embedded.      */
+comment|/**      * Set the embedded Unicode file for this spec. If you call this, then do not forget to also      * call      * {@link #setEmbeddedFile(org.apache.pdfbox.pdmodel.common.filespecification.PDEmbeddedFile) setEmbeddedFile(PDEmbeddedFile)}      * or the attachment will not be visible on some viewers.      *      * @param file The Unicode file to be embedded.      */
 specifier|public
 name|void
 name|setEmbeddedFileUnicode
