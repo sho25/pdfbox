@@ -492,7 +492,7 @@ name|useAllOverlayPages
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * This will add overlays to a document.      *      * @param specificPageOverlayFile map of overlay files for specific pages. The page numbers are      * 1-based.      *      * @return The modified input PDF document, which has to be saved and closed by the caller. If      * the input document was passed by {@link #setInputPDF(PDDocument) setInputPDF(PDDocument)}      * then it is that object that is returned.      *      * @throws IOException if something went wrong      */
+comment|/**      * This will add overlays to a document.      *      * @param specificPageOverlayFile Optional map of overlay files for specific pages. The page      * numbers are 1-based. The map must be empty (but not null) if no specific mappings are used.      *      * @return The modified input PDF document, which has to be saved and closed by the caller. If      * the input document was passed by {@link #setInputPDF(PDDocument) setInputPDF(PDDocument)}      * then it is that object that is returned.      *      * @throws IOException if something went wrong      */
 specifier|public
 name|PDDocument
 name|overlay
@@ -644,7 +644,7 @@ return|return
 name|inputPDFDocument
 return|;
 block|}
-comment|/**      * This will add overlays documents to a document.      *      * @param specificPageOverlayDocuments map of overlay documents for specific pages. The page      * numbers are 1-based.      *      * @return The modified input PDF document, which has to be saved and closed by the caller. If      * the input document was passed by {@link #setInputPDF(PDDocument) setInputPDF(PDDocument)}      * then it is that object that is returned.      *      * @throws IOException if something went wrong      */
+comment|/**      * This will add overlays documents to a document.      *      * @param specificPageOverlayDocuments Optional map of overlay documents for specific pages. The      * page numbers are 1-based. The map must be empty (but not null) if no specific mappings are      * used.      *      * @return The modified input PDF document, which has to be saved and closed by the caller. If      * the input document was passed by {@link #setInputPDF(PDDocument) setInputPDF(PDDocument)}      * then it is that object that is returned.      *      * @throws IOException if something went wrong      */
 specifier|public
 name|PDDocument
 name|overlayDocuments
