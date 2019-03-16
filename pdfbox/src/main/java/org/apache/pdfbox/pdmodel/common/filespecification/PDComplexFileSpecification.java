@@ -329,7 +329,7 @@ name|UF
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set unicode file name.      *      * @param file The name of the file.      */
+comment|/**      * This will set the unicode file name. If you call this, then do not forget to also call      * {@link #setFile(java.lang.String) setFile(String)} or the attachment will not be visible on      * some viewers.      *      * @param file The name of the file.      */
 specifier|public
 name|void
 name|setFileUnicode
@@ -369,7 +369,7 @@ name|F
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the file name.      *      * @param file The name of the file.      */
+comment|/**      * This will set the file name. You should also call      * {@link #setFileUnicode(java.lang.String) setFileUnicode(String)} for cross-platform and      * cross-language compatibility.      *      * @param file The name of the file.      */
 annotation|@
 name|Override
 specifier|public
@@ -409,7 +409,9 @@ name|DOS
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set name representing a dos file.      *      * @param file The name of the file.      */
+comment|/**      * This will set name representing a dos file.      *      * @param file The name of the file.      * @deprecated This method is obsolescent and should not be used by conforming writers.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|setFileDos
@@ -447,7 +449,9 @@ name|MAC
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set name representing a Mac file.      *      * @param file The name of the file.      */
+comment|/**      * This will set name representing a Mac file.      *      * @param file The name of the file.      * @deprecated This method is obsolescent and should not be used by conforming writers.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|setFileMac
@@ -485,7 +489,9 @@ name|UNIX
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set name representing a Unix file.      *      * @param file The name of the file.      */
+comment|/**      * This will set name representing a Unix file.      *      * @param file The name of the file.      * @deprecated This method is obsolescent and should not be used by conforming writers.      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|setFileUnix
