@@ -193,6 +193,20 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|PageMode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|font
 operator|.
 name|PDFont
@@ -228,11 +242,7 @@ comment|/**      * Constructor.      */
 specifier|public
 name|EmbeddedFiles
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * create the second sample document from the PDF file format specification.      *      * @param file The file to write the PDF to.      *      * @throws IOException If there is an error writing the data.      */
 specifier|public
 name|void
@@ -246,7 +256,6 @@ name|IOException
 block|{
 try|try
 init|(
-comment|// the document
 name|PDDocument
 name|doc
 init|=
@@ -394,7 +403,7 @@ name|ef
 operator|.
 name|setSubtype
 argument_list|(
-literal|"test/plain"
+literal|"text/plain"
 argument_list|)
 expr_stmt|;
 name|ef
@@ -415,9 +424,17 @@ name|GregorianCalendar
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// use both methods for backwards, cross-platform and cross-language compatibility.
 name|fs
 operator|.
 name|setEmbeddedFile
+argument_list|(
+name|ef
+argument_list|)
+expr_stmt|;
+name|fs
+operator|.
+name|setEmbeddedFileUnicode
 argument_list|(
 name|ef
 argument_list|)
@@ -498,6 +515,19 @@ operator|.
 name|setNames
 argument_list|(
 name|names
+argument_list|)
+expr_stmt|;
+comment|// show attachments panel in some viewers
+name|doc
+operator|.
+name|getDocumentCatalog
+argument_list|()
+operator|.
+name|setPageMode
+argument_list|(
+name|PageMode
+operator|.
+name|USE_ATTACHMENTS
 argument_list|)
 expr_stmt|;
 name|doc
