@@ -239,7 +239,7 @@ class|class
 name|EmbeddedFiles
 block|{
 comment|/**      * Constructor.      */
-specifier|public
+specifier|private
 name|EmbeddedFiles
 parameter_list|()
 block|{     }
