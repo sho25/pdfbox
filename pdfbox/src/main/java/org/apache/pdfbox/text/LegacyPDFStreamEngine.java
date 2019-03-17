@@ -1281,7 +1281,14 @@ literal|2
 operator|<
 name|glyphHeight
 operator|||
+name|Float
+operator|.
+name|compare
+argument_list|(
 name|glyphHeight
+argument_list|,
+literal|0
+argument_list|)
 operator|==
 literal|0
 operator|)
