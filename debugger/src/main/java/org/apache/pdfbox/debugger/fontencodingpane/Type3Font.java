@@ -990,7 +990,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//TODO support type3 font encoding in PDType3Font.encode
+comment|// can't use showText() because there's no guarantee we have the unicode
 name|cs
 operator|.
 name|appendRawCommands
