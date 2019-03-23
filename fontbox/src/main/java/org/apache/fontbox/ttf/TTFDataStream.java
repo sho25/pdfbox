@@ -278,7 +278,7 @@ argument_list|()
 decl_stmt|;
 return|return
 name|signedByte
-operator|<
+operator|<=
 literal|127
 condition|?
 name|signedByte
