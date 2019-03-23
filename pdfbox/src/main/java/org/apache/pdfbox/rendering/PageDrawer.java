@@ -3142,7 +3142,18 @@ operator|.
 name|getDashArray
 argument_list|()
 decl_stmt|;
-comment|// apply the CTM
+name|float
+name|scalingFactorX
+init|=
+operator|new
+name|Matrix
+argument_list|(
+name|xform
+argument_list|)
+operator|.
+name|getScalingFactorX
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -3160,9 +3171,7 @@ operator|++
 name|i
 control|)
 block|{
-comment|// minimum line dash width avoids JVM crash,
-comment|// see PDFBOX-2373, PDFBOX-2929, PDFBOX-3204, PDFBOX-3813
-comment|// also avoid 0 in array like "[ 0 1000 ] 0 d", see PDFBOX-3724
+comment|// apply the CTM
 name|float
 name|w
 init|=
@@ -3174,6 +3183,34 @@ name|i
 index|]
 argument_list|)
 decl_stmt|;
+comment|// minimum line dash width avoids JVM crash,
+comment|// see PDFBOX-2373, PDFBOX-2929, PDFBOX-3204, PDFBOX-3813
+comment|// also avoid 0 in array like "[ 0 1000 ] 0 d", see PDFBOX-3724
+if|if
+condition|(
+name|scalingFactorX
+operator|<
+literal|0.5f
+condition|)
+block|{
+comment|// PDFBOX-4492
+name|dashArray
+index|[
+name|i
+index|]
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+name|w
+argument_list|,
+literal|0.2f
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|dashArray
 index|[
 name|i
@@ -3188,6 +3225,7 @@ argument_list|,
 literal|0.062f
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|phaseStart
 operator|=
