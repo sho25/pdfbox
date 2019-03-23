@@ -597,7 +597,7 @@ name|Point
 name|p
 init|=
 operator|new
-name|Point
+name|IntPoint
 argument_list|(
 name|x
 argument_list|,
@@ -799,7 +799,7 @@ name|Point
 name|p
 init|=
 operator|new
-name|Point
+name|IntPoint
 argument_list|(
 name|x
 operator|+

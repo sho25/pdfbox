@@ -249,7 +249,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|Point
+name|IntPoint
 argument_list|(
 name|x0
 argument_list|,
