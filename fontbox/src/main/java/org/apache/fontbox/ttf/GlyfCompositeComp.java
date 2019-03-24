@@ -229,6 +229,7 @@ operator|!=
 literal|0
 condition|)
 block|{
+comment|// If this is set, the arguments are 16-bit (uint16 or int16)
 name|argument1
 operator|=
 name|bais
@@ -246,6 +247,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// otherwise, they are bytes (uint8 or int8).
 name|argument1
 operator|=
 operator|(
@@ -279,6 +281,7 @@ operator|!=
 literal|0
 condition|)
 block|{
+comment|// If this is set, the arguments are signed xy values
 name|xtranslate
 operator|=
 name|argument1
@@ -290,7 +293,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// TODO unused?
+comment|// otherwise, they are unsigned point numbers.
+comment|//TODO why unused?
+comment|// https://docs.microsoft.com/en-us/typography/opentype/spec/glyf
+comment|// "In the latter case, the first point number indicates the point that is to be matched
+comment|// to the new glyph. The second number indicates the new glyph’s “matched” point.
+comment|// Once a glyph is added, its point numbers begin directly after the last glyphs
+comment|// (endpoint of first glyph + 1).
 name|point1
 operator|=
 name|argument1
