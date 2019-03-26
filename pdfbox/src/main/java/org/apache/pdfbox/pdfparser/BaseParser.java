@@ -686,9 +686,9 @@ name|COSInteger
 operator|)
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
+name|LOG
+operator|.
+name|error
 argument_list|(
 literal|"expected number, actual="
 operator|+
@@ -698,7 +698,12 @@ literal|" at offset "
 operator|+
 name|numOffset
 argument_list|)
-throw|;
+expr_stmt|;
+return|return
+name|COSNull
+operator|.
+name|NULL
+return|;
 block|}
 if|if
 condition|(
@@ -710,9 +715,9 @@ name|COSInteger
 operator|)
 condition|)
 block|{
-throw|throw
-operator|new
-name|IOException
+name|LOG
+operator|.
+name|error
 argument_list|(
 literal|"expected number, actual="
 operator|+
@@ -722,7 +727,12 @@ literal|" at offset "
 operator|+
 name|genOffset
 argument_list|)
-throw|;
+expr_stmt|;
+return|return
+name|COSNull
+operator|.
+name|NULL
+return|;
 block|}
 name|COSObjectKey
 name|key
