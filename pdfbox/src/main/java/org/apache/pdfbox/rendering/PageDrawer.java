@@ -3145,7 +3145,7 @@ operator|.
 name|getLineDashPattern
 argument_list|()
 decl_stmt|;
-name|int
+name|float
 name|phaseStart
 init|=
 name|dashPattern
@@ -3164,9 +3164,6 @@ argument_list|)
 decl_stmt|;
 name|phaseStart
 operator|=
-operator|(
-name|int
-operator|)
 name|transformWidth
 argument_list|(
 name|phaseStart
