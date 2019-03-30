@@ -918,7 +918,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Indicates whether<em>at least one</em> optional content group with this name is enabled.      * There may be disabled optional content groups with this name even if this function returns      * true      *      * @param groupName the group name      * @return true if at least one group is enabled      */
+comment|/**      * Indicates whether<em>at least one</em> optional content group with this name is enabled.      * There may be disabled optional content groups with this name even if this function returns      * true.      *      * @param groupName the group name      * @return true if at least one group is enabled      */
 end_comment
 
 begin_function
@@ -977,10 +977,7 @@ name|equals
 argument_list|(
 name|name
 argument_list|)
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|isGroupEnabled
 argument_list|(
 operator|new
@@ -995,7 +992,6 @@ name|result
 operator|=
 literal|true
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
@@ -1277,10 +1273,7 @@ name|equals
 argument_list|(
 name|name
 argument_list|)
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|setGroupEnabled
 argument_list|(
 operator|new
@@ -1297,7 +1290,6 @@ name|result
 operator|=
 literal|true
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
