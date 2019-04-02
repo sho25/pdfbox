@@ -486,7 +486,11 @@ comment|// convert the color table into a 1-row BufferedImage in the base color 
 comment|// using a writable raster for high performance
 name|WritableRaster
 name|baseRaster
-init|=
+decl_stmt|;
+try|try
+block|{
+name|baseRaster
+operator|=
 name|Raster
 operator|.
 name|createBandedRaster
@@ -511,7 +515,23 @@ argument_list|,
 literal|0
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|ex
+parameter_list|)
+block|{
+comment|// PDFBOX-4503: when stream is empty or null
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+name|ex
+argument_list|)
+throw|;
+block|}
 name|int
 index|[]
 name|base
