@@ -520,7 +520,11 @@ name|debug
 argument_list|(
 literal|"Decoded XML: "
 operator|+
+operator|new
+name|String
+argument_list|(
 name|decodedAppearanceXML
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Document
