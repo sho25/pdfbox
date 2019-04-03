@@ -896,7 +896,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns true if this page has contents.      */
+comment|/**      * Returns true if this page has one or more content streams.      */
 specifier|public
 name|boolean
 name|hasContents
