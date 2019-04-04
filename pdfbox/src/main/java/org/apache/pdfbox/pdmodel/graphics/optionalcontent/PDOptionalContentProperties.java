@@ -358,14 +358,11 @@ block|{
 name|COSArray
 name|ocgs
 init|=
-operator|(
-name|COSArray
-operator|)
 name|this
 operator|.
 name|dict
 operator|.
-name|getItem
+name|getCOSArray
 argument_list|(
 name|COSName
 operator|.
