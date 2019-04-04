@@ -11,9 +11,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
-operator|.
-name|fdf
+name|util
 package|;
 end_package
 
@@ -162,6 +160,7 @@ comment|/**  * This class with handle some simple XML operations.  *  * @author 
 end_comment
 
 begin_class
+specifier|public
 specifier|final
 class|class
 name|XMLUtil
@@ -179,6 +178,30 @@ name|parse
 parameter_list|(
 name|InputStream
 name|is
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|parse
+argument_list|(
+name|is
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * This will parse an XML stream and create a DOM document.      *      * @param is The stream to get the XML from.      * @param nsAware activates namespace awareness of the parser      * @return The DOM document.      * @throws IOException It there is an error creating the dom.      */
+specifier|public
+specifier|static
+name|Document
+name|parse
+parameter_list|(
+name|InputStream
+name|is
+parameter_list|,
+name|boolean
+name|nsAware
 parameter_list|)
 throws|throws
 name|IOException
@@ -241,6 +264,13 @@ operator|.
 name|setExpandEntityReferences
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+name|builderFactory
+operator|.
+name|setNamespaceAware
+argument_list|(
+name|nsAware
 argument_list|)
 expr_stmt|;
 name|DocumentBuilder
