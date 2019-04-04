@@ -984,6 +984,13 @@ argument_list|,
 name|array
 argument_list|)
 expr_stmt|;
+name|array
+operator|.
+name|setDirect
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Returns the number of recipients contained in the Recipients field of the dictionary.      *      * @return the number of recipients contained in the Recipients field.      */
 specifier|public
