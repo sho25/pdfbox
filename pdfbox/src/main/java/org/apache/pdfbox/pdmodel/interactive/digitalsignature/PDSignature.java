@@ -649,6 +649,13 @@ argument_list|,
 name|ary
 argument_list|)
 expr_stmt|;
+name|ary
+operator|.
+name|setDirect
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Read out the byterange from the file.      *      * @return a integer array with the byterange      */
 specifier|public
