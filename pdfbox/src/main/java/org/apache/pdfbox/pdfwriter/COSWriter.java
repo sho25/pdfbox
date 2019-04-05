@@ -1234,7 +1234,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * COSWriter constructor for incremental updates.      *      * @param outputStream output stream where the new PDF data will be written. It will be closed      * when this object is closed.      * @param inputData random access read containing source PDF data      *      * @throws IOException if something went wrong      */
+comment|/**      * COSWriter constructor for incremental updates. There must be a path of objects that have      * {@link COSUpdateInfo#isNeedToBeUpdated()} set, starting from the document catalog. For      * signatures this is taken care by PDFBox itself.      *      * @param outputStream output stream where the new PDF data will be written. It will be closed      * when this object is closed.      * @param inputData random access read containing source PDF data      *      * @throws IOException if something went wrong      */
 specifier|public
 name|COSWriter
 parameter_list|(
