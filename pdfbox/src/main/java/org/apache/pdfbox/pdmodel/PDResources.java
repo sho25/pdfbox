@@ -1767,6 +1767,7 @@ operator|)
 name|base
 return|;
 block|}
+comment|// not an indirect object. Resource may have been added at runtime.
 return|return
 literal|null
 return|;
