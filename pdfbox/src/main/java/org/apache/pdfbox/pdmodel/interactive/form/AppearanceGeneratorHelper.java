@@ -1034,18 +1034,33 @@ argument_list|(
 name|bbox
 argument_list|)
 expr_stmt|;
-name|appearanceStream
-operator|.
-name|setMatrix
-argument_list|(
+name|AffineTransform
+name|at
+init|=
 name|calculateMatrix
 argument_list|(
 name|bbox
 argument_list|,
 name|rotation
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|at
+operator|.
+name|isIdentity
+argument_list|()
+condition|)
+block|{
+name|appearanceStream
+operator|.
+name|setMatrix
+argument_list|(
+name|at
 argument_list|)
 expr_stmt|;
+block|}
 name|appearanceStream
 operator|.
 name|setFormType
@@ -2011,7 +2026,7 @@ operator|.
 name|beginText
 argument_list|()
 expr_stmt|;
-comment|// write the /DA string
+comment|// write font and color from the /DA string, with the calculated font size
 name|defaultAppearance
 operator|.
 name|writeTo
