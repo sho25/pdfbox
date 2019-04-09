@@ -2315,10 +2315,7 @@ name|getValue
 argument_list|()
 operator|instanceof
 name|COSObject
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|object
 operator|.
 name|getCOSObject
@@ -2344,7 +2341,6 @@ operator|.
 name|getKey
 argument_list|()
 return|;
-block|}
 block|}
 block|}
 block|}
