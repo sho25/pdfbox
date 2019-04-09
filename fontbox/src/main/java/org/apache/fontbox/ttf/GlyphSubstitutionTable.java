@@ -1096,7 +1096,7 @@ operator|-
 literal|1
 index|]
 argument_list|)
-operator|<
+operator|<=
 literal|0
 condition|)
 block|{
