@@ -946,7 +946,7 @@ operator|=
 name|fontColor
 expr_stmt|;
 block|}
-comment|/**      * Writes the DA string to the given content stream.      */
+comment|/**      * Write font name, font size and color from the /DA string to the given content stream.      *      * @param contents The content stream.      * @param zeroFontSize The calculated font size to use if the /DA string has a size 0      * (autosize). Otherwise the size from the /DA string is used.      */
 name|void
 name|writeTo
 parameter_list|(
