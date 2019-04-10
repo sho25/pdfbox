@@ -1039,20 +1039,6 @@ name|isExternalSigning
 argument_list|()
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Signing externally "
-operator|+
-name|signedFile
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|ExternalSigningSupport
 name|externalSigning
 init|=
