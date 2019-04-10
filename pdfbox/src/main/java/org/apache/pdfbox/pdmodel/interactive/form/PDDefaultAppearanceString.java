@@ -1058,8 +1058,7 @@ name|streamResources
 operator|.
 name|getFont
 argument_list|(
-name|getFontName
-argument_list|()
+name|fontName
 argument_list|)
 operator|==
 literal|null
