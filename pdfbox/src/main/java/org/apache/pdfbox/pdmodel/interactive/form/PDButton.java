@@ -1151,15 +1151,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-operator|(
-operator|(
-name|COSDictionary
-operator|)
 name|appearanceEntry
 operator|.
 name|getCOSObject
 argument_list|()
-operator|)
 operator|.
 name|containsKey
 argument_list|(

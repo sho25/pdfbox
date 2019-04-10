@@ -620,9 +620,6 @@ decl_stmt|;
 name|COSDictionary
 name|normalAppearanceDict
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|normalAppearance
 operator|.
 name|getCOSObject
