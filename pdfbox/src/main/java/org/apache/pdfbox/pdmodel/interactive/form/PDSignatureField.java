@@ -304,7 +304,6 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// fixme: this ignores non-terminal fields, so will miss any descendant signatures
 for|for
 control|(
 name|PDField
@@ -313,7 +312,7 @@ range|:
 name|getAcroForm
 argument_list|()
 operator|.
-name|getFields
+name|getFieldTree
 argument_list|()
 control|)
 block|{
