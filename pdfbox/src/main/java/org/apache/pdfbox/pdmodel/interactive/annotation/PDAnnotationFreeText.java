@@ -183,6 +183,33 @@ name|SUB_TYPE
 init|=
 literal|"FreeText"
 decl_stmt|;
+comment|/**      * A plain free-text annotation, also known as a text box comment.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|IT_FREE_TEXT
+init|=
+literal|"FreeText"
+decl_stmt|;
+comment|/**      * A callout, associated with an area on the page through the callout line specified.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|IT_FREE_TEXT_CALLOUT
+init|=
+literal|"FreeTextCallout"
+decl_stmt|;
+comment|/**      * The annotation is intended to function as a click-to-type or typewriter object.      */
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|IT_FREE_TEXT_TYPE_WRITER
+init|=
+literal|"FreeTextTypeWriter"
+decl_stmt|;
 specifier|private
 name|PDAppearanceHandler
 name|customAppearanceHandler
@@ -489,7 +516,7 @@ index|[]
 block|{}
 return|;
 block|}
-comment|/**      * This will set the coordinates of the callout line.      *      * @param callout An array of four or six numbers specifying a callout line attached to the free      * text annotation. Six numbers [ x1 y1 x2 y2 x3 y3 ] represent the starting, knee point, and      * ending coordinates of the line in default user space, four numbers [ x1 y1 x2 y2 ] represent      * the starting and ending coordinates of the line.      */
+comment|/**      * This will set the coordinates of the callout line. (PDF 1.6 and higher) Only relevant if the      * intent is FreeTextCallout.      *      * @param callout An array of four or six numbers specifying a callout line attached to the free      * text annotation. Six numbers [ x1 y1 x2 y2 x3 y3 ] represent the starting, knee point, and      * ending coordinates of the line in default user space, four numbers [ x1 y1 x2 y2 ] represent      * the starting and ending coordinates of the line.      */
 specifier|public
 specifier|final
 name|void
@@ -527,7 +554,7 @@ name|newCallout
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the coordinates of the callout line.      *      * @return An array of four or six numbers specifying a callout line attached to the free text      * annotation. Six numbers [ x1 y1 x2 y2 x3 y3 ] represent the starting, knee point, and ending      * coordinates of the line in default user space, four numbers [ x1 y1 x2 y2 ] represent the      * starting and ending coordinates of the line.      */
+comment|/**      * This will get the coordinates of the callout line. (PDF 1.6 and higher) Only relevant if the      * intent is FreeTextCallout.      *      * @return An array of four or six numbers specifying a callout line attached to the free text      * annotation. Six numbers [ x1 y1 x2 y2 x3 y3 ] represent the starting, knee point, and ending      * coordinates of the line in default user space, four numbers [ x1 y1 x2 y2 ] represent the      * starting and ending coordinates of the line.      */
 specifier|public
 name|float
 index|[]
