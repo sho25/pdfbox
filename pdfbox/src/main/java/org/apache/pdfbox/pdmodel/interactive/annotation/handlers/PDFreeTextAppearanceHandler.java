@@ -575,7 +575,9 @@ index|]
 decl_stmt|;
 if|if
 condition|(
-literal|"FreeTextCallout"
+name|PDAnnotationFreeText
+operator|.
+name|IT_FREE_TEXT_CALLOUT
 operator|.
 name|equals
 argument_list|(
