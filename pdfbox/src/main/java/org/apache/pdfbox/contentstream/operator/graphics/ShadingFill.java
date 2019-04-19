@@ -99,6 +99,22 @@ name|Operator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
 begin_comment
 comment|/**  * sh Fills the clipping area with the given shading pattern.  *  * @author Daniel Wilson  */
 end_comment
@@ -133,10 +149,8 @@ if|if
 condition|(
 name|operands
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|<
-literal|1
 condition|)
 block|{
 throw|throw
@@ -173,7 +187,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"sh"
+name|OperatorName
+operator|.
+name|SHADING_FILL
 return|;
 block|}
 block|}

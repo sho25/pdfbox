@@ -111,6 +111,22 @@ name|Operator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
 begin_comment
 comment|/**  * y Append curved segment to path with final point replicated.  *  * @author Ben Litchfield  */
 end_comment
@@ -306,7 +322,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"y"
+name|OperatorName
+operator|.
+name|CURVE_TO_REPLICATE_FINAL_POINT
 return|;
 block|}
 block|}

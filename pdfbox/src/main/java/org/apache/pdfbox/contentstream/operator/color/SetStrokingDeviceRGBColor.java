@@ -83,6 +83,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -174,7 +190,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"RG"
+name|OperatorName
+operator|.
+name|STROKING_COLOR_RGB
 return|;
 block|}
 block|}

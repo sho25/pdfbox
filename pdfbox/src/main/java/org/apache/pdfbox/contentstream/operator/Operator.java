@@ -153,11 +153,13 @@ argument_list|(
 literal|"ID"
 argument_list|)
 operator|||
-name|operator
+name|OperatorName
+operator|.
+name|BEGIN_INLINE_IMAGE
 operator|.
 name|equals
 argument_list|(
-literal|"BI"
+name|operator
 argument_list|)
 condition|)
 block|{

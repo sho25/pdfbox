@@ -69,6 +69,22 @@ name|Operator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
 begin_comment
 comment|/**  * n End the path.  *  * @author Ben Litchfield  */
 end_comment
@@ -113,7 +129,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"n"
+name|OperatorName
+operator|.
+name|ENDPATH
 return|;
 block|}
 block|}

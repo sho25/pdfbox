@@ -105,6 +105,22 @@ name|Operator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
 begin_comment
 comment|/**  * BI Begins an inline image.  *  * @author Ben Litchfield  */
 end_comment
@@ -194,7 +210,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"BI"
+name|OperatorName
+operator|.
+name|BEGIN_INLINE_IMAGE
 return|;
 block|}
 block|}

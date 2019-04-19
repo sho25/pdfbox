@@ -19,6 +19,22 @@ name|graphics
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
 begin_comment
 comment|/**  * F Fill path using non zero winding rule. Included only for compatibility with Acrobat.  *  * @author John Hewson  */
 end_comment
@@ -39,7 +55,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"F"
+name|OperatorName
+operator|.
+name|LEGACY_FILL_NON_ZERO
 return|;
 block|}
 block|}

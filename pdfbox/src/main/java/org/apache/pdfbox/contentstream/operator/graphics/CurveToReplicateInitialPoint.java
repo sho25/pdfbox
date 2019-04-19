@@ -139,6 +139,22 @@ name|Operator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
 begin_comment
 comment|/**  * v Append curved segment to path with the initial point replicated.  *  * @author Ben Litchfield  */
 end_comment
@@ -407,7 +423,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"v"
+name|OperatorName
+operator|.
+name|CURVE_TO_REPLICATE_INITIAL_POINT
 return|;
 block|}
 block|}

@@ -61,6 +61,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -102,7 +118,9 @@ name|context
 operator|.
 name|processOperator
 argument_list|(
-literal|"h"
+name|OperatorName
+operator|.
+name|CLOSE_PATH
 argument_list|,
 name|arguments
 argument_list|)
@@ -111,7 +129,9 @@ name|context
 operator|.
 name|processOperator
 argument_list|(
-literal|"S"
+name|OperatorName
+operator|.
+name|STROKE_PATH
 argument_list|,
 name|arguments
 argument_list|)
@@ -125,7 +145,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"s"
+name|OperatorName
+operator|.
+name|CLOSE_AND_STROKE
 return|;
 block|}
 block|}

@@ -111,6 +111,22 @@ name|Operator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
 begin_comment
 comment|/**  * re Appends a rectangle to the path.  *  * @author Ben Litchfield  */
 end_comment
@@ -335,7 +351,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"re"
+name|OperatorName
+operator|.
+name|APPEND_RECT
 return|;
 block|}
 block|}

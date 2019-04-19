@@ -61,6 +61,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|awt
@@ -129,7 +145,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"B*"
+name|OperatorName
+operator|.
+name|FILL_EVEN_ODD_AND_STROKE
 return|;
 block|}
 block|}

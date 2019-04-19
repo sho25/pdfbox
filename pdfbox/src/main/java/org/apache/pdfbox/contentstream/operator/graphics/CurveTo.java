@@ -139,6 +139,22 @@ name|Operator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
 begin_comment
 comment|/**  * c Append curved segment to path.  *  * @author Ben Litchfield  */
 end_comment
@@ -440,7 +456,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"c"
+name|OperatorName
+operator|.
+name|CURVE_TO
 return|;
 block|}
 block|}

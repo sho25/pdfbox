@@ -81,6 +81,22 @@ name|Operator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
 begin_comment
 comment|/**  * f Fill path using non zero winding rule.  *  * @author Ben Litchfield  */
 end_comment
@@ -129,7 +145,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"f"
+name|OperatorName
+operator|.
+name|FILL_NON_ZERO
 return|;
 block|}
 block|}

@@ -61,6 +61,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -103,22 +119,24 @@ name|context
 operator|.
 name|processOperator
 argument_list|(
-literal|"h"
+name|OperatorName
+operator|.
+name|CLOSE_PATH
 argument_list|,
 name|operands
 argument_list|)
 expr_stmt|;
-comment|// ClosePath
 name|context
 operator|.
 name|processOperator
 argument_list|(
-literal|"B*"
+name|OperatorName
+operator|.
+name|FILL_EVEN_ODD_AND_STROKE
 argument_list|,
 name|operands
 argument_list|)
 expr_stmt|;
-comment|// FillEvenOddAndStroke
 block|}
 annotation|@
 name|Override
@@ -128,7 +146,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"b*"
+name|OperatorName
+operator|.
+name|CLOSE_FILL_EVEN_ODD_AND_STROKE
 return|;
 block|}
 block|}

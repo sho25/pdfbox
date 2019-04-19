@@ -150,10 +150,8 @@ if|if
 condition|(
 name|arguments
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|<
-literal|1
 condition|)
 block|{
 throw|throw
@@ -276,7 +274,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"Do"
+name|OperatorName
+operator|.
+name|DRAW_OBJECT
 return|;
 block|}
 block|}

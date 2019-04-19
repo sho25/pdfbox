@@ -183,6 +183,22 @@ name|Operator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
 begin_comment
 comment|/**  * Do: Draws an XObject.  *  * @author Ben Litchfield  * @author John Hewson  */
 end_comment
@@ -217,10 +233,8 @@ if|if
 condition|(
 name|operands
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|<
-literal|1
 condition|)
 block|{
 throw|throw
@@ -369,7 +383,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"Do"
+name|OperatorName
+operator|.
+name|DRAW_OBJECT
 return|;
 block|}
 block|}

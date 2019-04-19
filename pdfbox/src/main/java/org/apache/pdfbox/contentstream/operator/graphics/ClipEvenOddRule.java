@@ -81,6 +81,22 @@ name|Operator
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
 begin_comment
 comment|/**  * W* Set clipping path using even odd rule.  *  * @author Daniel Wilson  */
 end_comment
@@ -129,7 +145,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"W*"
+name|OperatorName
+operator|.
+name|CLIP_EVEN_ODD
 return|;
 block|}
 block|}

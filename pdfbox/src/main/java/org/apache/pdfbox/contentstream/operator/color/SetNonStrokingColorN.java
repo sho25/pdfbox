@@ -19,6 +19,22 @@ name|color
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
 begin_comment
 comment|/**  * scn: Sets the colour to use for non-stroking operations.  * Supports Pattern, Separation, DeviceN and ICCBased colour spaces.  *  * @author John Hewson  */
 end_comment
@@ -38,7 +54,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"scn"
+name|OperatorName
+operator|.
+name|NON_STROKING_COLOR_N
 return|;
 block|}
 block|}

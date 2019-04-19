@@ -85,6 +85,22 @@ name|contentstream
 operator|.
 name|operator
 operator|.
+name|OperatorName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
 name|OperatorProcessor
 import|;
 end_import
@@ -132,10 +148,8 @@ if|if
 condition|(
 name|arguments
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|<
-literal|1
 condition|)
 block|{
 comment|// ignore ( )Tj
@@ -204,7 +218,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-literal|"Tj"
+name|OperatorName
+operator|.
+name|SHOW_TEXT
 return|;
 block|}
 block|}
