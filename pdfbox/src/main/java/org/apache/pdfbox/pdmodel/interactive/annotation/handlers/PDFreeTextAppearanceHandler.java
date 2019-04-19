@@ -2019,6 +2019,7 @@ name|getRectangle
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//TODO when callout is used, /RD should be so that the result is the writable part
 block|}
 block|}
 catch|catch
