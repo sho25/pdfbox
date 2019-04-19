@@ -150,7 +150,9 @@ name|operator
 operator|.
 name|equals
 argument_list|(
-literal|"ID"
+name|OperatorName
+operator|.
+name|BEGIN_INLINE_IMAGE_DATA
 argument_list|)
 operator|||
 name|OperatorName

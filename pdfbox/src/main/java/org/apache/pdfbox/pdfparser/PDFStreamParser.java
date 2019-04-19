@@ -127,6 +127,22 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|cos
 operator|.
 name|COSBase
@@ -847,7 +863,9 @@ name|next
 operator|.
 name|equals
 argument_list|(
-literal|"BI"
+name|OperatorName
+operator|.
+name|BEGIN_INLINE_IMAGE
 argument_list|)
 condition|)
 block|{
@@ -1007,7 +1025,9 @@ name|id
 operator|.
 name|equals
 argument_list|(
-literal|"ID"
+name|OperatorName
+operator|.
+name|BEGIN_INLINE_IMAGE_DATA
 argument_list|)
 condition|)
 block|{
@@ -1122,7 +1142,9 @@ name|Operator
 operator|.
 name|getOperator
 argument_list|(
-literal|"ID"
+name|OperatorName
+operator|.
+name|BEGIN_INLINE_IMAGE_DATA
 argument_list|)
 expr_stmt|;
 comment|// save the image data to the operator, so that it can be accessed later

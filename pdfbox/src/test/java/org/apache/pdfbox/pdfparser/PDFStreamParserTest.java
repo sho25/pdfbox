@@ -62,6 +62,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|contentstream
+operator|.
+name|operator
+operator|.
+name|OperatorName
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -458,7 +474,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"ID"
+name|OperatorName
+operator|.
+name|BEGIN_INLINE_IMAGE_DATA
 argument_list|,
 operator|(
 operator|(
@@ -582,7 +600,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"ID"
+name|OperatorName
+operator|.
+name|BEGIN_INLINE_IMAGE_DATA
 argument_list|,
 operator|(
 operator|(
