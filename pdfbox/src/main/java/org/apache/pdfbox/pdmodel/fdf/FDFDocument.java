@@ -445,12 +445,9 @@ decl_stmt|;
 name|COSDictionary
 name|root
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|trailer
 operator|.
-name|getDictionaryObject
+name|getCOSDictionary
 argument_list|(
 name|COSName
 operator|.

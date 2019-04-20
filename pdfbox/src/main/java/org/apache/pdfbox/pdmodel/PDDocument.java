@@ -2896,12 +2896,9 @@ decl_stmt|;
 name|COSDictionary
 name|infoDic
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|trailer
 operator|.
-name|getDictionaryObject
+name|getCOSDictionary
 argument_list|(
 name|COSName
 operator|.
