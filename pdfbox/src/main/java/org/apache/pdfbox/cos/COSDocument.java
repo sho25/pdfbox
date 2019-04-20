@@ -836,27 +836,24 @@ name|COSName
 operator|.
 name|ENCRYPT
 argument_list|)
-operator|!=
-literal|null
+operator|instanceof
+name|COSDictionary
 expr_stmt|;
 block|}
 return|return
 name|encrypted
 return|;
 block|}
-comment|/**      * This will get the encryption dictionary if the document is encrypted or null      * if the document is not encrypted.      *      * @return The encryption dictionary.      */
+comment|/**      * This will get the encryption dictionary if the document is encrypted or null if the document      * is not encrypted.      *      * @return The encryption dictionary.      */
 specifier|public
 name|COSDictionary
 name|getEncryptionDictionary
 parameter_list|()
 block|{
 return|return
-operator|(
-name|COSDictionary
-operator|)
 name|trailer
 operator|.
-name|getDictionaryObject
+name|getCOSDictionary
 argument_list|(
 name|COSName
 operator|.
@@ -892,13 +889,10 @@ name|getDocumentID
 parameter_list|()
 block|{
 return|return
-operator|(
-name|COSArray
-operator|)
 name|getTrailer
 argument_list|()
 operator|.
-name|getDictionaryObject
+name|getCOSArray
 argument_list|(
 name|COSName
 operator|.
