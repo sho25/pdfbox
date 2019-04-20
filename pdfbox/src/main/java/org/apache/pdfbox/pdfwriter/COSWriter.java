@@ -5389,12 +5389,9 @@ expr_stmt|;
 name|COSDictionary
 name|info
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|trailer
 operator|.
-name|getDictionaryObject
+name|getCOSDictionary
 argument_list|(
 name|COSName
 operator|.
