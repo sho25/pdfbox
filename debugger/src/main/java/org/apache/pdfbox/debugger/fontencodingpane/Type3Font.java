@@ -792,8 +792,7 @@ operator|=
 name|NO_GLYPH
 expr_stmt|;
 block|}
-else|else
-block|{
+elseif|else
 if|if
 condition|(
 name|map
@@ -851,7 +850,6 @@ index|]
 operator|=
 name|image
 expr_stmt|;
-block|}
 block|}
 name|totalAvailableGlyph
 operator|++
