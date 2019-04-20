@@ -311,12 +311,9 @@ decl_stmt|;
 name|COSDictionary
 name|dict
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|page
 operator|.
-name|getDictionaryObject
+name|getCOSDictionary
 argument_list|(
 name|COSName
 operator|.
