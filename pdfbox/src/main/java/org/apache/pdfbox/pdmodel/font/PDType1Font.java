@@ -2696,7 +2696,7 @@ name|uniName
 return|;
 block|}
 comment|// PDFBOX-4017: no postscript table on Windows 10, and the low uni00NN
-comment|// names are not found. What works is using the PDF code plus 0xF000
+comment|// names are not found in Symbol font. What works is using the PDF code plus 0xF000
 comment|// while disregarding encoding from the PDF (because of file from PDFBOX-1606,
 comment|// makes sense because this segment is about finding the name in a standard font)
 comment|//TODO bring up better solution than this
@@ -2713,7 +2713,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|int
+name|Integer
 name|code
 init|=
 name|SymbolEncoding
@@ -2728,6 +2728,13 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|code
+operator|!=
+literal|null
+condition|)
+block|{
 name|uniName
 operator|=
 name|getUniNameOfCodePoint
@@ -2750,6 +2757,7 @@ block|{
 return|return
 name|uniName
 return|;
+block|}
 block|}
 block|}
 block|}
