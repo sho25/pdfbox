@@ -2605,8 +2605,6 @@ return|return
 name|name
 return|;
 block|}
-else|else
-block|{
 comment|// try alternative name
 name|String
 name|altName
@@ -2644,8 +2642,6 @@ return|return
 name|altName
 return|;
 block|}
-else|else
-block|{
 comment|// try unicode name
 name|String
 name|unicodes
@@ -2701,7 +2697,7 @@ return|;
 block|}
 comment|// PDFBOX-4017: no postscript table on Windows 10, and the low uni00NN
 comment|// names are not found. What works is using the PDF code plus 0xF000
-comment|// while disregarding encoding from the PDF (because of file from PDFBOX-1606;
+comment|// while disregarding encoding from the PDF (because of file from PDFBOX-1606,
 comment|// makes sense because this segment is about finding the name in a standard font)
 comment|//TODO bring up better solution than this
 if|if
@@ -2754,8 +2750,6 @@ block|{
 return|return
 name|uniName
 return|;
-block|}
-block|}
 block|}
 block|}
 block|}
