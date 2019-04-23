@@ -639,6 +639,8 @@ operator|.
 name|createFont
 argument_list|(
 name|dict
+argument_list|,
+name|cache
 argument_list|)
 expr_stmt|;
 block|}

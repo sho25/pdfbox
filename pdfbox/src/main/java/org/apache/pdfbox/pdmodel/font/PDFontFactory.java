@@ -97,6 +97,20 @@ name|LogFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|ResourceCache
+import|;
+end_import
+
 begin_comment
 comment|/**  * Creates the appropriate font subtype based on information in the dictionary.  * @author Ben Litchfield  */
 end_comment
@@ -134,6 +148,30 @@ name|createFont
 parameter_list|(
 name|COSDictionary
 name|dictionary
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|createFont
+argument_list|(
+name|dictionary
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a new PDFont instance with the appropriate subclass.      *      * @param dictionary a font dictionary      * @param resourceCache resource cache, only useful for type 3 fonts, can be null      * @return a PDFont instance, based on the SubType entry of the dictionary      * @throws IOException if something goes wrong      */
+specifier|public
+specifier|static
+name|PDFont
+name|createFont
+parameter_list|(
+name|COSDictionary
+name|dictionary
+parameter_list|,
+name|ResourceCache
+name|resourceCache
 parameter_list|)
 throws|throws
 name|IOException
@@ -356,6 +394,8 @@ operator|new
 name|PDType3Font
 argument_list|(
 name|dictionary
+argument_list|,
+name|resourceCache
 argument_list|)
 return|;
 block|}
