@@ -7083,7 +7083,12 @@ name|getGroup
 argument_list|()
 operator|.
 name|getColorSpace
+argument_list|(
+name|form
+operator|.
+name|getResources
 argument_list|()
+argument_list|)
 argument_list|)
 condition|)
 block|{
