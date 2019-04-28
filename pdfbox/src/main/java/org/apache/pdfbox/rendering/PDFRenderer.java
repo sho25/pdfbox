@@ -797,6 +797,49 @@ argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
+comment|// PDFBOX-4518 the maximum size (w*h) of a buffered image is limited to Integer.MAX_VALUE
+if|if
+condition|(
+operator|(
+name|long
+operator|)
+name|widthPx
+operator|*
+operator|(
+name|long
+operator|)
+name|heightPx
+operator|>
+name|Integer
+operator|.
+name|MAX_VALUE
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Maximum size of image exceeded (w * h * scale) = "
+comment|//
+operator|+
+name|widthPt
+operator|+
+literal|" * "
+operator|+
+name|heightPt
+operator|+
+literal|" * "
+operator|+
+name|scale
+operator|+
+literal|"> "
+operator|+
+name|Integer
+operator|.
+name|MAX_VALUE
+argument_list|)
+throw|;
+block|}
 name|int
 name|rotationAngle
 init|=
