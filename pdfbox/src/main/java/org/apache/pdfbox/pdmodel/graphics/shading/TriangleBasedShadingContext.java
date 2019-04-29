@@ -640,7 +640,7 @@ name|Point
 name|p0
 init|=
 operator|new
-name|Point
+name|IntPoint
 argument_list|(
 operator|(
 name|int
@@ -683,7 +683,7 @@ name|Point
 name|p1
 init|=
 operator|new
-name|Point
+name|IntPoint
 argument_list|(
 operator|(
 name|int
@@ -726,7 +726,7 @@ name|Point
 name|p2
 init|=
 operator|new
-name|Point
+name|IntPoint
 argument_list|(
 operator|(
 name|int
