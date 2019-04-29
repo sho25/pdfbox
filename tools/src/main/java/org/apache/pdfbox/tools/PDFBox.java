@@ -242,6 +242,17 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
+literal|"ImageToPDF"
+case|:
+name|ImageToPDF
+operator|.
+name|main
+argument_list|(
+name|arguments
+argument_list|)
+expr_stmt|;
+break|break;
+case|case
 literal|"TextToPDF"
 case|:
 name|TextToPDF
@@ -319,6 +330,8 @@ operator|+
 literal|"  ExtractText\n"
 operator|+
 literal|"  ExtractImages\n"
+operator|+
+literal|"  ImageToPDF\n"
 operator|+
 literal|"  OverlayPDF\n"
 operator|+
