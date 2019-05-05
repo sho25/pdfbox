@@ -41,6 +41,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -114,6 +124,20 @@ operator|.
 name|io
 operator|.
 name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|PDDocument
 import|;
 end_import
 
@@ -449,6 +473,28 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+comment|/**      * This will test the use of identity filter to decode stream and string.      * This test threw an IOException before the correction.      *       * @throws IOException      */
+specifier|public
+name|void
+name|testPDFBOX4517
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|PDDocument
+operator|.
+name|load
+argument_list|(
+operator|new
+name|File
+argument_list|(
+literal|"target/pdfs/PDFBOX-4517-cryptfilter.pdf"
+argument_list|)
+argument_list|,
+literal|"userpassword1234"
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * This will test the LZW filter with the sequence that failed in PDFBOX-1777.      * To check that the test itself is legit, revert LZWFilter.java to rev 1571801,      * which should fail this test.      *       * @throws IOException       */
 specifier|public
