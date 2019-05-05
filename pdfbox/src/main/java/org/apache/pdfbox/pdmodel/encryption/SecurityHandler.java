@@ -544,6 +544,16 @@ name|currentAccessPermission
 init|=
 literal|null
 decl_stmt|;
+comment|/**      * The stream filter name.      */
+specifier|private
+name|COSName
+name|streamFilterName
+decl_stmt|;
+comment|/** 	 * The string filter name. 	 */
+specifier|private
+name|COSName
+name|stringFilterName
+decl_stmt|;
 comment|/**      * Set wether to decrypt meta data.      *      * @param decryptMetadata true if meta data has to be decrypted.      */
 specifier|protected
 name|void
@@ -558,6 +568,38 @@ operator|.
 name|decryptMetadata
 operator|=
 name|decryptMetadata
+expr_stmt|;
+block|}
+comment|/**      * Set the string filter name.      *       * @param stringFilterName the string filter name.      */
+specifier|protected
+name|void
+name|setStringFilterName
+parameter_list|(
+name|COSName
+name|stringFilterName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|stringFilterName
+operator|=
+name|stringFilterName
+expr_stmt|;
+block|}
+comment|/**      * Set the stream filter name.      *       * @param streamFilterName the stream filter name.      */
+specifier|protected
+name|void
+name|setStreamFilterName
+parameter_list|(
+name|COSName
+name|streamFilterName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamFilterName
+operator|=
+name|streamFilterName
 expr_stmt|;
 block|}
 comment|/**      * Prepare the document for encryption.      *      * @param doc The document that will be encrypted.      *      * @throws IOException If there is an error with the document.      */
@@ -1649,6 +1691,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// Stream encrypted with identity filter
+if|if
+condition|(
+name|COSName
+operator|.
+name|IDENTITY
+operator|.
+name|equals
+argument_list|(
+name|streamFilterName
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|COSBase
 name|type
 init|=
@@ -2120,6 +2177,21 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// String encrypted with identity filter
+if|if
+condition|(
+name|COSName
+operator|.
+name|IDENTITY
+operator|.
+name|equals
+argument_list|(
+name|stringFilterName
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 name|ByteArrayInputStream
 name|data
 init|=
