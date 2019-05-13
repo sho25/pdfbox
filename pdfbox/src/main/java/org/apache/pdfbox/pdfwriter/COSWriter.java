@@ -2133,10 +2133,7 @@ name|Float
 operator|.
 name|toString
 argument_list|(
-name|fdfDocument
-operator|.
-name|getDocument
-argument_list|()
+name|doc
 operator|.
 name|getVersion
 argument_list|()
@@ -2153,10 +2150,7 @@ name|Float
 operator|.
 name|toString
 argument_list|(
-name|pdDocument
-operator|.
-name|getDocument
-argument_list|()
+name|doc
 operator|.
 name|getVersion
 argument_list|()
