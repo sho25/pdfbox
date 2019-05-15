@@ -1536,6 +1536,20 @@ argument_list|(
 name|cmapStream
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|startCode
+operator|.
+name|length
+operator|!=
+name|endCode
+operator|.
+name|length
+condition|)
+block|{
+comment|// PDFBOX-4550: likely corrupt stream
+continue|continue;
+block|}
 name|nextToken
 operator|=
 name|parseNextToken
