@@ -633,7 +633,7 @@ name|COSName
 operator|.
 name|Off
 argument_list|,
-name|createRadioButtonAppearanceStream
+name|createAppearanceStream
 argument_list|(
 name|document
 argument_list|,
@@ -651,7 +651,7 @@ name|COSName
 operator|.
 name|YES
 argument_list|,
-name|createRadioButtonAppearanceStream
+name|createAppearanceStream
 argument_list|(
 name|document
 argument_list|,
@@ -708,7 +708,7 @@ block|}
 specifier|private
 specifier|static
 name|PDAppearanceStream
-name|createRadioButtonAppearanceStream
+name|createAppearanceStream
 parameter_list|(
 specifier|final
 name|PDDocument

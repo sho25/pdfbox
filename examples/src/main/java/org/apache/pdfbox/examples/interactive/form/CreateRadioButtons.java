@@ -654,7 +654,7 @@ name|COSName
 operator|.
 name|Off
 argument_list|,
-name|createCheckBoxAppearanceStream
+name|createAppearanceStream
 argument_list|(
 name|document
 argument_list|,
@@ -675,7 +675,7 @@ argument_list|(
 name|i
 argument_list|)
 argument_list|,
-name|createCheckBoxAppearanceStream
+name|createAppearanceStream
 argument_list|(
 name|document
 argument_list|,
@@ -865,7 +865,7 @@ block|}
 specifier|private
 specifier|static
 name|PDAppearanceStream
-name|createCheckBoxAppearanceStream
+name|createAppearanceStream
 parameter_list|(
 specifier|final
 name|PDDocument
