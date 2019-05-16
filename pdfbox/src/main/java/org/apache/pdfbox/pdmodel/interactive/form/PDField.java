@@ -1198,7 +1198,7 @@ return|return
 name|finalName
 return|;
 block|}
-comment|/**      * Gets the alternate name of the field.      *       * @return the alternate name of the field      */
+comment|/**      * Gets the alternate name of the field ("shall be used in place of the actual field name      * wherever the field shall be identified in the user interface (such as in error or status      * messages referring to the field)").      *      * @return the alternate name of the field      */
 specifier|public
 name|String
 name|getAlternateFieldName
@@ -1215,7 +1215,7 @@ name|TU
 argument_list|)
 return|;
 block|}
-comment|/**      * This will set the alternate name of the field.      *       * @param alternateFieldName the alternate name of the field      */
+comment|/**      * This will set the alternate name of the field ("shall be used in place of the actual field      * name wherever the field shall be identified in the user interface (such as in error or status      * messages referring to the field)"). The text appears as a tool tip in Adobe Reader. Because      * of the usage for error or status messages, it should be different for each field.      *      * @param alternateFieldName the alternate name of the field.      */
 specifier|public
 name|void
 name|setAlternateFieldName
