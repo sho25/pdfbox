@@ -571,7 +571,7 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param fontDictionary Font dictionary.      */
+comment|/**      * Constructor.      *      * @param fontDictionary Font dictionary.      *      * @throws java.io.IOException      */
 specifier|protected
 name|PDFont
 parameter_list|(
@@ -604,7 +604,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// may be null (it usually is)
-comment|// font descriptor
+name|fontDescriptor
+operator|=
+name|loadFontDescriptor
+argument_list|()
+expr_stmt|;
+name|toUnicodeCMap
+operator|=
+name|loadUnicodeCmap
+argument_list|()
+expr_stmt|;
+block|}
+specifier|private
+name|PDFontDescriptor
+name|loadFontDescriptor
+parameter_list|()
+block|{
 name|COSDictionary
 name|fd
 init|=
@@ -627,14 +642,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|fontDescriptor
-operator|=
+return|return
 operator|new
 name|PDFontDescriptor
 argument_list|(
 name|fd
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 elseif|else
 if|if
@@ -645,24 +659,27 @@ literal|null
 condition|)
 block|{
 comment|// build font descriptor from the AFM
-name|fontDescriptor
-operator|=
+return|return
 name|PDType1FontEmbedder
 operator|.
 name|buildFontDescriptor
 argument_list|(
 name|afmStandard14
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 else|else
 block|{
-name|fontDescriptor
-operator|=
+return|return
 literal|null
-expr_stmt|;
+return|;
 block|}
-comment|// ToUnicode CMap
+block|}
+specifier|private
+name|CMap
+name|loadUnicodeCmap
+parameter_list|()
+block|{
 name|COSBase
 name|toUnicode
 init|=
@@ -678,10 +695,14 @@ decl_stmt|;
 if|if
 condition|(
 name|toUnicode
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+return|return
+literal|null
+return|;
+block|}
 name|CMap
 name|cmap
 init|=
@@ -790,18 +811,9 @@ name|ex
 argument_list|)
 expr_stmt|;
 block|}
-name|toUnicodeCMap
-operator|=
+return|return
 name|cmap
-expr_stmt|;
-block|}
-else|else
-block|{
-name|toUnicodeCMap
-operator|=
-literal|null
-expr_stmt|;
-block|}
+return|;
 block|}
 comment|/**      * Returns the AFM if this is a Standard 14 font.      */
 specifier|protected
