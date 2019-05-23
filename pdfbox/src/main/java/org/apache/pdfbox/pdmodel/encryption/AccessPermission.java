@@ -711,7 +711,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will tell if the user can insert/rotate/delete pages.      *      * @return true If supplied with the user password they are allowed to extract content      *              from the PDF document      */
+comment|/**      * This will tell if the user can insert/rotate/delete pages.      *      * @return true If supplied with the user password they are allowed to assemble the document.      */
 specifier|public
 name|boolean
 name|canAssembleDocument
