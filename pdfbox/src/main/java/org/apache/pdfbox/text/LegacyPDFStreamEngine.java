@@ -1242,7 +1242,7 @@ operator|=
 name|capHeight
 expr_stmt|;
 block|}
-comment|// PDFBOX-3464, PDFBOX-448:
+comment|// PDFBOX-3464, PDFBOX-4480, PDFBOX-4553:
 comment|// sometimes even CapHeight has very high value, but Ascent and Descent are ok
 name|float
 name|ascent
@@ -1262,6 +1262,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|capHeight
+operator|>
+name|ascent
+operator|&&
 name|ascent
 operator|>
 literal|0
