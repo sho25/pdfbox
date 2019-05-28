@@ -101,6 +101,10 @@ name|IOUtils
 import|;
 end_import
 
+begin_comment
+comment|/**  * A filtered stream that excludes the bytes that are in the (begin,length) intervals passed in the  * constructor.  */
+end_comment
+
 begin_class
 specifier|public
 class|class
