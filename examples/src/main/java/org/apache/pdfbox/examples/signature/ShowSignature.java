@@ -1015,6 +1015,9 @@ argument_list|(
 name|infile
 argument_list|)
 decl_stmt|;
+comment|// If your files are not too large, you can also download the PDF into a byte array
+comment|// with IOUtils.toByteArray() and pass a RandomAccessBuffer() object to the
+comment|// PDFParser constructor.
 name|PDFParser
 name|parser
 init|=
@@ -1109,6 +1112,7 @@ argument_list|(
 name|fis
 argument_list|)
 expr_stmt|;
+comment|// alternatively, pass a byte array here
 block|}
 name|System
 operator|.
