@@ -771,7 +771,7 @@ operator|-
 name|begin
 decl_stmt|;
 return|return
-name|getContents
+name|getConvertedContents
 argument_list|(
 operator|new
 name|COSFilterInputStream
@@ -836,7 +836,7 @@ operator|-
 name|begin
 decl_stmt|;
 return|return
-name|getContents
+name|getConvertedContents
 argument_list|(
 operator|new
 name|COSFilterInputStream
@@ -858,7 +858,7 @@ block|}
 specifier|private
 name|byte
 index|[]
-name|getContents
+name|getConvertedContents
 parameter_list|(
 name|COSFilterInputStream
 name|fis
