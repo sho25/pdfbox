@@ -860,8 +860,8 @@ name|byte
 index|[]
 name|getConvertedContents
 parameter_list|(
-name|COSFilterInputStream
-name|fis
+name|InputStream
+name|is
 parameter_list|)
 throws|throws
 name|IOException
@@ -893,7 +893,7 @@ condition|(
 operator|(
 name|c
 operator|=
-name|fis
+name|is
 operator|.
 name|read
 argument_list|(
@@ -987,7 +987,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|fis
+name|is
 operator|.
 name|close
 argument_list|()
