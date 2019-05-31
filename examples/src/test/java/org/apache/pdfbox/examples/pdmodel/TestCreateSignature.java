@@ -1844,29 +1844,18 @@ decl_stmt|;
 name|byte
 index|[]
 name|buf
-decl_stmt|;
-try|try
-init|(
-name|FileInputStream
-name|fis
 init|=
+name|sig
+operator|.
+name|getSignedContent
+argument_list|(
 operator|new
 name|FileInputStream
 argument_list|(
 name|signedFile
 argument_list|)
-init|)
-block|{
-name|buf
-operator|=
-name|sig
-operator|.
-name|getSignedContent
-argument_list|(
-name|fis
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 comment|// inspiration:
 comment|// http://stackoverflow.com/a/26702631/535646
 comment|// http://stackoverflow.com/a/9261365/535646
