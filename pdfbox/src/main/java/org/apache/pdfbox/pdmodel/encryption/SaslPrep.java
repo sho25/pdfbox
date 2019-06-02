@@ -45,6 +45,10 @@ begin_class
 class|class
 name|SaslPrep
 block|{
+specifier|private
+name|SaslPrep
+parameter_list|()
+block|{     }
 comment|/**      * Return the {@code SASLPrep}-canonicalised version of the given {@code str} for use as a query      * string. This implements the {@code SASLPrep} algorithm defined in      *<a href="https://tools.ietf.org/html/rfc4013">RFC 4013</a>.      *      * @param str The string to canonicalise.      * @return The canonicalised string.      * @throws IllegalArgumentException if the string contained prohibited codepoints, or broke the      * requirements for bidirectional character handling.      * @see<a href="https://tools.ietf.org/html/rfc3454#section-7">RFC 3454, Section 7</a> for      * discussion of what a query string is.      */
 specifier|static
 name|String
@@ -108,10 +112,6 @@ for|for
 control|(
 name|int
 name|i
-init|=
-literal|0
-init|,
-name|j
 init|=
 literal|0
 init|;
