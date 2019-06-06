@@ -68,7 +68,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple wrapper around all the command line utilities included in PDFBox.  * Used as the main class in the runnable standalone PDFBox jar.  *  * @see<a href="https://issues.apache.org/jira/browse/PDFBOX-687">PDFBOX-687</a>  */
+comment|/**  * Simple wrapper around all the command line utilities included in PDFBox.  * Used as the main class in the runnable standalone PDFBox jar.  */
 end_comment
 
 begin_class
@@ -96,7 +96,7 @@ specifier|private
 name|PDFBox
 parameter_list|()
 block|{     }
-comment|/**      * Main method.      *       * @param args command line arguments      */
+comment|/**      * Main method.      *       * @param args command line arguments      * @throws java.lang.Exception      */
 specifier|public
 specifier|static
 name|void
@@ -111,7 +111,7 @@ name|Exception
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Args: "
 operator|+
