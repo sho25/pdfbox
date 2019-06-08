@@ -1533,13 +1533,26 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|verifyCertificateChain
+annotation|@
+name|SuppressWarnings
 argument_list|(
+literal|"unchecked"
+argument_list|)
+name|Store
+argument_list|<
+name|X509CertificateHolder
+argument_list|>
+name|store
+init|=
 operator|new
 name|JcaCertStore
 argument_list|(
 name|certs
 argument_list|)
+decl_stmt|;
+name|verifyCertificateChain
+argument_list|(
+name|store
 argument_list|,
 name|cert
 argument_list|,
@@ -2578,6 +2591,12 @@ argument_list|(
 name|timeStampToken
 argument_list|)
 expr_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+comment|// TimeStampToken.getSID() is untyped
 name|Collection
 argument_list|<
 name|X509CertificateHolder
@@ -2591,6 +2610,12 @@ argument_list|()
 operator|.
 name|getMatches
 argument_list|(
+operator|(
+name|Selector
+argument_list|<
+name|X509CertificateHolder
+argument_list|>
+operator|)
 name|timeStampToken
 operator|.
 name|getSID
@@ -3223,6 +3248,12 @@ throws|,
 name|IOException
 block|{
 comment|// https://stackoverflow.com/questions/42114742/
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+comment|// TimeStampToken.getSID() is untyped
 name|Collection
 argument_list|<
 name|X509CertificateHolder
@@ -3236,6 +3267,12 @@ argument_list|()
 operator|.
 name|getMatches
 argument_list|(
+operator|(
+name|Selector
+argument_list|<
+name|X509CertificateHolder
+argument_list|>
+operator|)
 name|timeStampToken
 operator|.
 name|getSID
