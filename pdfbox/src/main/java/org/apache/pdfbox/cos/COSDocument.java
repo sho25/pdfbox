@@ -145,6 +145,20 @@ name|PDFObjectStreamParser
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|PDDocument
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is the in-memory representation of the PDF document.  You need to call  * close() on this object when you are done using it!!  *  * @author Ben Litchfield  *   */
 end_comment
@@ -921,43 +935,6 @@ argument_list|,
 name|id
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * This will get the document catalog.      *      * @return The catalog that is the root of the document; never null.      *      * @throws IOException If no catalog can be found.      */
-specifier|public
-name|COSObject
-name|getCatalog
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|COSObject
-name|catalog
-init|=
-name|getObjectByType
-argument_list|(
-name|COSName
-operator|.
-name|CATALOG
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|catalog
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Catalog cannot be found"
-argument_list|)
-throw|;
-block|}
-return|return
-name|catalog
-return|;
 block|}
 comment|/**      * This will get a list of all available objects.      *      * @return A list of all objects, never null.      */
 specifier|public
