@@ -66,38 +66,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|TRANSPARENCY_DICTIONARY_VALUE_SOFT_MASK_NONE
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|XOBJECT_DICTIONARY_VALUE_SUBTYPE_POSTSCRIPT
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -108,20 +76,6 @@ operator|.
 name|cos
 operator|.
 name|COSBase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|cos
-operator|.
-name|COSDocument
 import|;
 end_import
 
@@ -199,22 +153,6 @@ name|ValidationException
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|utils
-operator|.
-name|COSUtils
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class processes commons validations of XObjects.  */
 end_comment
@@ -241,13 +179,6 @@ name|context
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * The PDF document as COSDocument.      */
-specifier|protected
-name|COSDocument
-name|cosDocument
-init|=
-literal|null
-decl_stmt|;
 specifier|public
 name|AbstractXObjValidator
 parameter_list|(
@@ -270,18 +201,6 @@ name|context
 operator|=
 name|context
 expr_stmt|;
-name|this
-operator|.
-name|cosDocument
-operator|=
-name|context
-operator|.
-name|getDocument
-argument_list|()
-operator|.
-name|getDocument
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**      * This method checks the SMask entry in the XObject dictionary. According to the PDF Reference, a SMask in a      * XObject is a Stream. So if it is not null, it should be an error but a SMask with the name None is authorized in      * the PDF/A Specification 6.4. If the validation fails (SMask not null and different from None), the error list is      * updated with the error code ERROR_GRAPHIC_TRANSPARENCY_SMASK (2.2.2).      *       */
 specifier|protected
@@ -294,7 +213,7 @@ name|smask
 init|=
 name|xobject
 operator|.
-name|getItem
+name|getCOSDictionary
 argument_list|(
 name|COSName
 operator|.
@@ -309,27 +228,17 @@ literal|null
 operator|&&
 operator|!
 operator|(
-name|COSUtils
-operator|.
-name|isString
-argument_list|(
 name|smask
-argument_list|,
-name|cosDocument
-argument_list|)
+operator|instanceof
+name|COSName
 operator|&&
-name|TRANSPARENCY_DICTIONARY_VALUE_SOFT_MASK_NONE
+name|COSName
+operator|.
+name|NONE
 operator|.
 name|equals
 argument_list|(
-name|COSUtils
-operator|.
-name|getAsString
-argument_list|(
 name|smask
-argument_list|,
-name|cosDocument
-argument_list|)
 argument_list|)
 operator|)
 condition|)
@@ -440,14 +349,14 @@ name|checkPostscriptXObject
 parameter_list|()
 block|{
 comment|// 6.2.7 No PostScript XObjects
-name|String
+name|COSName
 name|subtype
 init|=
 name|this
 operator|.
 name|xobject
 operator|.
-name|getNameAsString
+name|getCOSName
 argument_list|(
 name|COSName
 operator|.
@@ -456,7 +365,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|XOBJECT_DICTIONARY_VALUE_SUBTYPE_POSTSCRIPT
+name|COSName
+operator|.
+name|PS
 operator|.
 name|equals
 argument_list|(
@@ -477,8 +388,8 @@ literal|"No Postscript XObject allowed in PDF/A"
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
+elseif|else
 if|if
 condition|(
 name|this
@@ -511,7 +422,6 @@ literal|"No Postscript XObject allowed in PDF/A (Subtype2)"
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return;
 block|}
 block|}
 comment|/**      * This method checks if required fields are present.      *       */

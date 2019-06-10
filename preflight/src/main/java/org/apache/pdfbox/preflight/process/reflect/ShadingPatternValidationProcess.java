@@ -62,22 +62,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|TRANSPARENCY_DICTIONARY_KEY_EXTGSTATE
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -116,6 +100,20 @@ operator|.
 name|cos
 operator|.
 name|COSDictionary
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|cos
+operator|.
+name|COSName
 import|;
 end_import
 
@@ -593,7 +591,9 @@ argument_list|()
 operator|.
 name|getDictionaryObject
 argument_list|(
-name|TRANSPARENCY_DICTIONARY_KEY_EXTGSTATE
+name|COSName
+operator|.
+name|EXT_G_STATE
 argument_list|)
 decl_stmt|;
 if|if

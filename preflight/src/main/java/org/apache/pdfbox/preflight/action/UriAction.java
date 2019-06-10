@@ -87,7 +87,7 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSDocument
+name|COSName
 import|;
 end_import
 
@@ -101,7 +101,7 @@ name|pdfbox
 operator|.
 name|cos
 operator|.
-name|COSName
+name|COSString
 import|;
 end_import
 
@@ -132,22 +132,6 @@ operator|.
 name|ValidationResult
 operator|.
 name|ValidationError
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|utils
-operator|.
-name|COSUtils
 import|;
 end_import
 
@@ -206,7 +190,7 @@ name|this
 operator|.
 name|actionDictionnary
 operator|.
-name|getItem
+name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
@@ -237,30 +221,14 @@ return|return
 literal|false
 return|;
 block|}
-name|COSDocument
-name|cosDocument
-init|=
-name|this
-operator|.
-name|context
-operator|.
-name|getDocument
-argument_list|()
-operator|.
-name|getDocument
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 operator|!
-name|COSUtils
-operator|.
-name|isString
-argument_list|(
+operator|(
 name|uri
-argument_list|,
-name|cosDocument
-argument_list|)
+operator|instanceof
+name|COSString
+operator|)
 condition|)
 block|{
 name|context
