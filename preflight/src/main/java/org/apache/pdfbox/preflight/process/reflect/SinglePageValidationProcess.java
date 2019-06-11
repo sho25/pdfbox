@@ -1182,7 +1182,7 @@ if|if
 condition|(
 name|COSName
 operator|.
-name|S
+name|TRANSPARENCY
 operator|.
 name|equals
 argument_list|(
