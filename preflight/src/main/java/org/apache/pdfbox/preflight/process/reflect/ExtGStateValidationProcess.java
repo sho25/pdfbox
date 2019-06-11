@@ -568,7 +568,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Create a list of ExtGState dictionaries using the given Resource dictionary and the COSDocument.      *       * @param context the context which contains the Resource dictionary.      * @param egsEntry a resource COSDictionary.      * @return the list of ExtGState dictionaries.      * @throws ValidationException thrown if an Extended Graphic State isn't valid.      */
+comment|/**      * Create a list of ExtGState dictionaries using the given Resource dictionary and the COSDocument.      *       * @param context the context which contains the Resource dictionary.      * @param extGStates a resource COSDictionary.      * @return the list of ExtGState dictionaries.      * @throws ValidationException thrown if an Extended Graphic State isn't valid.      */
 specifier|public
 name|List
 argument_list|<
