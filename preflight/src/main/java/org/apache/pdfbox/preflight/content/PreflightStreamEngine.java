@@ -2063,12 +2063,12 @@ name|getImageParameters
 argument_list|()
 decl_stmt|;
 comment|/*          * Search a Filter declaration in the InlinedImage dictionary. The LZWDecode Filter is forbidden.          */
-name|COSName
+name|COSBase
 name|filter
 init|=
 name|dict
 operator|.
-name|getCOSName
+name|getDictionaryObject
 argument_list|(
 name|COSName
 operator|.
@@ -2086,10 +2086,15 @@ argument_list|(
 name|context
 argument_list|,
 name|filter
-operator|!=
-literal|null
+operator|instanceof
+name|COSName
 condition|?
+operator|(
+operator|(
+name|COSName
+operator|)
 name|filter
+operator|)
 operator|.
 name|getName
 argument_list|()
