@@ -3386,7 +3386,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// legal values 0..
+comment|// legal values 0..2
 name|int
 name|lineJoin
 init|=
