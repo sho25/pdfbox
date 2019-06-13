@@ -788,26 +788,22 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|(
 name|cmapName
 operator|.
 name|contains
 argument_list|(
 literal|"Identity"
 argument_list|)
+comment|//
 operator|||
-operator|(
 name|ordering
 operator|.
 name|contains
 argument_list|(
 literal|"Identity"
 argument_list|)
-operator|)
-operator|)
 comment|//
-operator|&&
-operator|(
+operator|||
 name|COSName
 operator|.
 name|IDENTITY_H
@@ -816,6 +812,7 @@ name|equals
 argument_list|(
 name|encoding
 argument_list|)
+comment|//
 operator|||
 name|COSName
 operator|.
@@ -825,7 +822,6 @@ name|equals
 argument_list|(
 name|encoding
 argument_list|)
-operator|)
 condition|)
 block|{
 comment|// assume that if encoding is identity, then the reverse is also true
