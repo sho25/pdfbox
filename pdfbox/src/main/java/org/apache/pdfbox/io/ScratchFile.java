@@ -598,7 +598,7 @@ name|idx
 return|;
 block|}
 block|}
-comment|/**      * This will provide new free pages by either enlarging the scratch file       * by a number of pages defined by {@link #ENLARGE_PAGE_COUNT} - in case      * scratch file usage is allowed - or increase the {@link #inMemoryPages}      * array in case main memory was not restricted. If neither of both is      * allowed/the case than free pages count won't be changed. The same is true      * if no new pages could be added because we reached the maximum of      * {@link Integer#MAX_VALUE} pages.      *       *<p>If scratch file uage is allowed and scratch file does not exist already      * it will be created.</p>      *       *<p>Only to be called under synchronization on {@link #freePages}.</p>      */
+comment|/**      * This will provide new free pages by either enlarging the scratch file       * by a number of pages defined by {@link #ENLARGE_PAGE_COUNT} - in case      * scratch file usage is allowed - or increase the {@link #inMemoryPages}      * array in case main memory was not restricted. If neither of both is      * allowed/the case than free pages count won't be changed. The same is true      * if no new pages could be added because we reached the maximum of      * {@link Integer#MAX_VALUE} pages.      *       *<p>If scratch file usage is allowed and scratch file does not exist already      * it will be created.</p>      *       *<p>Only to be called under synchronization on {@link #freePages}.</p>      */
 specifier|private
 name|void
 name|enlarge
