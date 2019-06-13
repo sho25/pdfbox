@@ -35,6 +35,34 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|Log
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|logging
+operator|.
+name|LogFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * An InputStream which reads from a RandomAccessRead.  *   * @author Ben Litchfield  * @author John Hewson  */
 end_comment
@@ -46,6 +74,21 @@ name|RandomAccessInputStream
 extends|extends
 name|InputStream
 block|{
+specifier|private
+specifier|static
+specifier|final
+name|Log
+name|LOG
+init|=
+name|LogFactory
+operator|.
+name|getLog
+argument_list|(
+name|RandomAccessInputStream
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 specifier|private
 specifier|final
 name|RandomAccessRead
@@ -166,10 +209,40 @@ operator|.
 name|read
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|b
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
 name|position
 operator|+=
 literal|1
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// should never happen due to prior isEOF() check
+comment|// unless there is an unsynchronized concurrent access
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"read() returns -1, assumed position: "
+operator|+
+name|position
+operator|+
+literal|", actual position: "
+operator|+
+name|input
+operator|.
+name|getPosition
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|b
 return|;
@@ -223,10 +296,40 @@ argument_list|,
 name|len
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|n
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
 name|position
 operator|+=
 name|n
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// should never happen due to prior isEOF() check
+comment|// unless there is an unsynchronized concurrent access
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"read() returns -1, assumed position: "
+operator|+
+name|position
+operator|+
+literal|", actual position: "
+operator|+
+name|input
+operator|.
+name|getPosition
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|n
 return|;
