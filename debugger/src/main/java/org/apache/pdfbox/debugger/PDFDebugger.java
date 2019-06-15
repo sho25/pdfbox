@@ -1153,6 +1153,22 @@ name|debugger
 operator|.
 name|ui
 operator|.
+name|TextDialog
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|debugger
+operator|.
+name|ui
+operator|.
 name|Tree
 import|;
 end_import
@@ -1850,6 +1866,13 @@ argument_list|(
 literal|"org.apache.commons.logging.Log"
 argument_list|,
 literal|"org.apache.pdfbox.debugger.ui.DebugLog"
+argument_list|)
+expr_stmt|;
+name|TextDialog
+operator|.
+name|init
+argument_list|(
+name|viewer
 argument_list|)
 expr_stmt|;
 comment|// trigger premature initializations for more accurate rendering benchmarks
