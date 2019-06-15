@@ -86,7 +86,8 @@ name|double
 name|x
 init|=
 literal|0
-decl_stmt|,
+decl_stmt|;
+name|double
 name|y
 init|=
 literal|0
