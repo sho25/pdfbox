@@ -1461,10 +1461,15 @@ condition|)
 block|{
 return|return;
 block|}
+name|COSBase
+name|localDestOutputProfile
+init|=
+name|destOutputProfile
+decl_stmt|;
 comment|// destOutputProfile should be an instance of COSObject because of this is a object reference
 if|if
 condition|(
-name|destOutputProfile
+name|localDestOutputProfile
 operator|instanceof
 name|COSObject
 condition|)
@@ -1481,7 +1486,7 @@ argument_list|(
 operator|(
 name|COSObject
 operator|)
-name|destOutputProfile
+name|localDestOutputProfile
 argument_list|)
 argument_list|)
 condition|)
@@ -1515,7 +1520,19 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// else the profile will be kept in the tmpDestOutputProfile if it is valid
+comment|// else the profile will be kept in the mapDestOutputProfile if it is valid
+name|localDestOutputProfile
+operator|=
+operator|(
+operator|(
+name|COSObject
+operator|)
+name|localDestOutputProfile
+operator|)
+operator|.
+name|getObject
+argument_list|()
+expr_stmt|;
 block|}
 comment|// keep reference to avoid multiple profile definition
 name|mapDestOutputProfile
@@ -1536,43 +1553,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|destOutputProfile
-operator|instanceof
-name|COSObject
-condition|)
-block|{
-name|destOutputProfile
-operator|=
+operator|!
 operator|(
-operator|(
-name|COSObject
-operator|)
-name|destOutputProfile
-operator|)
-operator|.
-name|getObject
-argument_list|()
-expr_stmt|;
-block|}
-name|COSStream
-name|stream
-init|=
-name|destOutputProfile
+name|localDestOutputProfile
 operator|instanceof
 name|COSStream
-condition|?
-operator|(
-name|COSStream
 operator|)
-name|destOutputProfile
-else|:
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|stream
-operator|==
-literal|null
 condition|)
 block|{
 name|addValidationError
@@ -1584,12 +1570,20 @@ name|ValidationError
 argument_list|(
 name|ERROR_GRAPHIC_OUTPUT_INTENT_INVALID_ENTRY
 argument_list|,
-literal|"OutputIntent object uses a NULL Object"
+literal|"OutputIntent object must be a stream"
 argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
 block|}
+name|COSStream
+name|stream
+init|=
+operator|(
+name|COSStream
+operator|)
+name|localDestOutputProfile
+decl_stmt|;
 name|ICC_Profile
 name|iccp
 decl_stmt|;
