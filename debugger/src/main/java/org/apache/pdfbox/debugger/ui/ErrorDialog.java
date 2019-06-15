@@ -720,9 +720,7 @@ block|{
 name|details
 operator|=
 name|createDetailedMessage
-argument_list|(
-name|error
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|StringBuilder
 name|buffer
@@ -1152,10 +1150,7 @@ block|}
 comment|/**      * Creates a non-editable widget to display the detailed stack trace.      */
 name|JScrollPane
 name|createDetailedMessage
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
+parameter_list|()
 block|{
 name|stacktrace
 operator|=
@@ -1170,9 +1165,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-name|JScrollPane
-name|pane
-init|=
+return|return
 operator|new
 name|JScrollPane
 argument_list|(
@@ -1186,9 +1179,6 @@ name|JScrollPane
 operator|.
 name|HORIZONTAL_SCROLLBAR_AS_NEEDED
 argument_list|)
-decl_stmt|;
-return|return
-name|pane
 return|;
 block|}
 comment|/**      * Recursively print the stack trace on the given buffer.      */
