@@ -170,7 +170,6 @@ name|JCheckBoxMenuItem
 name|allowSubsampling
 decl_stmt|;
 specifier|private
-specifier|static
 name|JMenuItem
 name|extractTextMenuItem
 decl_stmt|;
@@ -352,13 +351,13 @@ name|actionEvent
 parameter_list|)
 block|{
 return|return
-name|extractTextMenuItem
+name|EXTRACT_TEXT
 operator|.
 name|equals
 argument_list|(
 name|actionEvent
 operator|.
-name|getSource
+name|getActionCommand
 argument_list|()
 argument_list|)
 return|;
