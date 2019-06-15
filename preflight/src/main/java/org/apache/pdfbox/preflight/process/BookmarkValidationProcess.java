@@ -449,8 +449,6 @@ if|if
 condition|(
 name|isCountEntryPositive
 argument_list|(
-name|ctx
-argument_list|,
 name|dict
 argument_list|)
 operator|&&
@@ -548,9 +546,6 @@ specifier|private
 name|boolean
 name|isCountEntryPositive
 parameter_list|(
-name|PreflightContext
-name|ctx
-parameter_list|,
 name|COSDictionary
 name|outline
 parameter_list|)
