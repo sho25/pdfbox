@@ -400,28 +400,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|interactive
-operator|.
-name|annotation
-operator|.
-name|handlers
-operator|.
-name|PDAbstractAppearanceHandler
-operator|.
-name|SHORT_STYLES
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
