@@ -1565,20 +1565,11 @@ name|length
 argument_list|)
 decl_stmt|;
 comment|// end has to be bigger than start or equal
-comment|// the range can not represent more that 255 values
 if|if
 condition|(
 name|end
-argument_list|<
+operator|<
 name|start
-operator|||
-operator|(
-name|end
-operator|-
-name|start
-operator|)
-argument_list|>
-literal|255
 condition|)
 block|{
 comment|// PDFBOX-4550: likely corrupt stream
@@ -1657,6 +1648,21 @@ name|byte
 index|[]
 condition|)
 block|{
+comment|// the range can not represent more that 255 values
+if|if
+condition|(
+operator|(
+name|end
+operator|-
+name|start
+operator|)
+operator|>
+literal|255
+condition|)
+block|{
+comment|// PDFBOX-4550: likely corrupt stream
+break|break;
+block|}
 name|byte
 index|[]
 name|tokenBytes
