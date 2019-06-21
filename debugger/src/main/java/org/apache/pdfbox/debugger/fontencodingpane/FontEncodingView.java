@@ -661,8 +661,10 @@ name|getProperty
 argument_list|(
 literal|"headerFontSize"
 argument_list|,
-literal|""
-operator|+
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|headerPanel
 operator|.
 name|getFont
@@ -670,6 +672,7 @@ argument_list|()
 operator|.
 name|getSize
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -908,8 +911,10 @@ name|getProperty
 argument_list|(
 literal|"encodingFontSize"
 argument_list|,
-literal|""
-operator|+
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|label
 operator|.
 name|getFont
@@ -917,6 +922,7 @@ argument_list|()
 operator|.
 name|getSize
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1348,8 +1354,10 @@ name|getProperty
 argument_list|(
 literal|"encodingFontSize"
 argument_list|,
-literal|""
-operator|+
+name|Integer
+operator|.
+name|toString
+argument_list|(
 name|label
 operator|.
 name|getFont
@@ -1357,6 +1365,7 @@ argument_list|()
 operator|.
 name|getSize
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
