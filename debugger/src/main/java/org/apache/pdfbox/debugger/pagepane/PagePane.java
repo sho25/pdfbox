@@ -1946,7 +1946,9 @@ parameter_list|(
 name|AncestorEvent
 name|ancestorEvent
 parameter_list|)
-block|{     }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -1956,7 +1958,9 @@ parameter_list|(
 name|MouseEvent
 name|e
 parameter_list|)
-block|{     }
+block|{
+comment|// do nothing
+block|}
 comment|/**      * Catch mouse event to display cursor position in PDF coordinates in the status bar.      *      * @param e mouse event with position      */
 annotation|@
 name|Override
@@ -2058,7 +2062,8 @@ argument_list|()
 decl_stmt|;
 name|int
 name|x1
-decl_stmt|,
+decl_stmt|;
+name|int
 name|y1
 decl_stmt|;
 switch|switch
@@ -2269,7 +2274,9 @@ parameter_list|(
 name|MouseEvent
 name|e
 parameter_list|)
-block|{     }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -2279,7 +2286,9 @@ parameter_list|(
 name|MouseEvent
 name|e
 parameter_list|)
-block|{     }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -2289,7 +2298,9 @@ parameter_list|(
 name|MouseEvent
 name|e
 parameter_list|)
-block|{     }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -2299,7 +2310,9 @@ parameter_list|(
 name|MouseEvent
 name|e
 parameter_list|)
-block|{     }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
