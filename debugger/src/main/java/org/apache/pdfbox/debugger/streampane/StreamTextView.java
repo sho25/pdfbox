@@ -381,7 +381,9 @@ parameter_list|(
 name|MouseEvent
 name|mouseEvent
 parameter_list|)
-block|{     }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -547,7 +549,9 @@ parameter_list|(
 name|AncestorEvent
 name|ancestorEvent
 parameter_list|)
-block|{     }
+block|{
+comment|// do nothing
+block|}
 block|}
 end_class
 

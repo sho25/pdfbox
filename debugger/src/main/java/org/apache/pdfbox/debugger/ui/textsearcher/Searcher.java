@@ -1046,7 +1046,9 @@ parameter_list|(
 name|ComponentEvent
 name|componentEvent
 parameter_list|)
-block|{      }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -1056,7 +1058,9 @@ parameter_list|(
 name|ComponentEvent
 name|componentEvent
 parameter_list|)
-block|{      }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
