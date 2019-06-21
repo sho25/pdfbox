@@ -49,6 +49,7 @@ name|name
 decl_stmt|;
 comment|// hardcoded, but kept to aid with debugging custom builds
 specifier|private
+specifier|static
 specifier|final
 name|boolean
 name|INFO
@@ -56,6 +57,7 @@ init|=
 literal|true
 decl_stmt|;
 specifier|private
+specifier|static
 specifier|final
 name|boolean
 name|TRACE
@@ -63,6 +65,7 @@ init|=
 literal|false
 decl_stmt|;
 specifier|private
+specifier|static
 specifier|final
 name|boolean
 name|DEBUG
