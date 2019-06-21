@@ -1017,13 +1017,11 @@ decl_stmt|;
 name|int
 name|elementNumber
 init|=
-operator|(
 name|x
 operator|/
 name|HexView
 operator|.
 name|CHAR_WIDTH
-operator|)
 decl_stmt|;
 return|return
 operator|(
@@ -1551,7 +1549,9 @@ parameter_list|(
 name|KeyEvent
 name|keyEvent
 parameter_list|)
-block|{      }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -1620,7 +1620,9 @@ parameter_list|(
 name|MouseEvent
 name|mouseEvent
 parameter_list|)
-block|{      }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -1630,7 +1632,9 @@ parameter_list|(
 name|MouseEvent
 name|mouseEvent
 parameter_list|)
-block|{     }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -1640,7 +1644,9 @@ parameter_list|(
 name|MouseEvent
 name|mouseEvent
 parameter_list|)
-block|{      }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -1650,7 +1656,9 @@ parameter_list|(
 name|MouseEvent
 name|mouseEvent
 parameter_list|)
-block|{      }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -1660,7 +1668,9 @@ parameter_list|(
 name|MouseEvent
 name|mouseEvent
 parameter_list|)
-block|{      }
+block|{
+comment|// do nothing
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -1670,7 +1680,9 @@ parameter_list|(
 name|MouseEvent
 name|mouseEvent
 parameter_list|)
-block|{      }
+block|{
+comment|// do nothing
+block|}
 specifier|private
 specifier|static
 name|boolean
