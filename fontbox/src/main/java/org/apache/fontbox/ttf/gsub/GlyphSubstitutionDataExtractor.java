@@ -879,9 +879,10 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// usually null, due to being skipped in GlyphSubstitutionTable.readLookupTable()
 name|LOG
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"The type "
 operator|+
