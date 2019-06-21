@@ -72,6 +72,15 @@ comment|/**  * Window for text extraction result.  *  * @author Tilman Hausherr 
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"serial"
+block|,
+literal|"squid:MaximumInheritanceDepth"
+block|}
+argument_list|)
 specifier|public
 class|class
 name|TextDialog
