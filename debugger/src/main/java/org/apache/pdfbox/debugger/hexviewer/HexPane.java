@@ -194,6 +194,11 @@ comment|/**  * @author Khyrul Bashar  *  * HexPane shows the byte in a Grid tabl
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"squid:S1948"
+argument_list|)
 class|class
 name|HexPane
 extends|extends

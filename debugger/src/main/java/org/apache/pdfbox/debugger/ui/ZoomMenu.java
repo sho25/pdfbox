@@ -79,6 +79,11 @@ name|ZoomMenu
 extends|extends
 name|MenuBase
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"squid:MaximumInheritanceDepth"
+argument_list|)
 specifier|private
 specifier|static
 class|class
