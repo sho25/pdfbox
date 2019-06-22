@@ -595,16 +595,12 @@ block|}
 block|}
 block|}
 name|int
-name|sz
+name|rowNum
 init|=
 name|vlist
 operator|.
 name|size
 argument_list|()
-decl_stmt|,
-name|rowNum
-init|=
-name|sz
 operator|/
 name|numPerRow
 decl_stmt|;
