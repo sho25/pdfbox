@@ -45,6 +45,22 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
+name|ERROR_SYNTAX_STREAM_DELIMITER
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|preflight
+operator|.
+name|PreflightConstants
+operator|.
 name|ERROR_SYNTAX_STREAM_FX_KEYS
 import|;
 end_import
@@ -948,6 +964,7 @@ decl_stmt|;
 comment|// "stream" has to be followed by a LF or CRLF
 if|if
 condition|(
+operator|(
 name|c
 operator|!=
 literal|'\r'
@@ -955,23 +972,10 @@ operator|&&
 name|c
 operator|!=
 literal|'\n'
-condition|)
-block|{
-name|addStreamLengthValidationError
-argument_list|(
-name|context
-argument_list|,
-name|cObj
-argument_list|,
-name|length
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-if|if
-condition|(
+operator|)
+comment|//
+operator|||
+operator|(
 name|c
 operator|==
 literal|'\r'
@@ -982,17 +986,20 @@ name|read
 argument_list|()
 operator|!=
 literal|'\n'
+operator|)
 condition|)
 block|{
-name|addStreamLengthValidationError
+name|addValidationError
 argument_list|(
 name|context
 argument_list|,
-name|cObj
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_SYNTAX_STREAM_DELIMITER
 argument_list|,
-name|length
-argument_list|,
-literal|""
+literal|"Expected 'EOL' after the stream keyword not found"
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1195,6 +1202,9 @@ name|ENDSTREAM
 argument_list|)
 condition|)
 block|{
+comment|// TODO in some cases it is hard to say if the reason for this issue is a missing EOL or a wrong
+comment|// stream length, see isartor-6-1-7-t03-fail-a.pdf
+comment|// the implementation has to be adjusted similar to PreflightParser#parseCOSStream
 name|addStreamLengthValidationError
 argument_list|(
 name|context
