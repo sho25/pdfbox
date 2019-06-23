@@ -998,12 +998,11 @@ name|cachedInfos
 operator|!=
 literal|null
 operator|&&
+operator|!
 name|cachedInfos
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|>
-literal|0
 condition|)
 block|{
 name|fontInfoList
@@ -2345,12 +2344,11 @@ block|}
 block|}
 if|if
 condition|(
+operator|!
 name|pending
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|>
-literal|0
 condition|)
 block|{
 comment|// re-build the entire cache if we encounter un-cached fonts (could be optimised)
