@@ -338,6 +338,13 @@ condition|(
 name|windir
 operator|!=
 literal|null
+operator|&&
+name|windir
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|2
 condition|)
 block|{
 comment|// remove any trailing '/'
