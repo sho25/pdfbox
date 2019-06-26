@@ -2112,7 +2112,7 @@ block|}
 default|default:
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|IOException
 argument_list|(
 literal|"Unknown substFormat: "
 operator|+
@@ -2158,7 +2158,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|IOException
 argument_list|(
 literal|"The expected SubstFormat for LigatureSubstitutionTable is 1"
 argument_list|)
@@ -2240,7 +2240,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|IOException
 argument_list|(
 literal|"According to the OpenTypeFont specifications, the coverage count should be equal to the no. of LigatureSetTables"
 argument_list|)
@@ -2702,7 +2702,7 @@ default|default:
 comment|// Should not happen (the spec indicates only format 1 and format 2)
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|IOException
 argument_list|(
 literal|"Unknown coverage format: "
 operator|+
