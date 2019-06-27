@@ -1913,6 +1913,7 @@ case|case
 literal|1
 case|:
 comment|// Single
+comment|// https://docs.microsoft.com/en-us/typography/opentype/spec/gsub#SS
 for|for
 control|(
 name|int
@@ -1951,6 +1952,7 @@ case|case
 literal|4
 case|:
 comment|// Ligature Substitution Subtable
+comment|// https://docs.microsoft.com/en-us/typography/opentype/spec/gsub#LS
 for|for
 control|(
 name|int
@@ -2050,6 +2052,8 @@ case|case
 literal|1
 case|:
 block|{
+comment|// LookupType 1: Single Substitution Subtable
+comment|// https://docs.microsoft.com/en-us/typography/opentype/spec/gsub#11-single-substitution-format-1
 name|int
 name|coverageOffset
 init|=
@@ -2094,6 +2098,8 @@ case|case
 literal|2
 case|:
 block|{
+comment|// Single Substitution Format 2
+comment|// https://docs.microsoft.com/en-us/typography/opentype/spec/gsub#12-single-substitution-format-2
 name|int
 name|coverageOffset
 init|=
