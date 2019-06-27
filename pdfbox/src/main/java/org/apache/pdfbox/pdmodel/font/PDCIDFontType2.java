@@ -509,27 +509,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|otf
-operator|.
-name|hasLayoutTables
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"OpenType Layout tables used in font "
-operator|+
-name|getBaseFont
-argument_list|()
-operator|+
-literal|" are not implemented in PDFBox and will be ignored"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
