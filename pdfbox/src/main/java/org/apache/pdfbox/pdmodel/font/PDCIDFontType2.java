@@ -1368,8 +1368,13 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"No glyph for U+%04X in font %s"
+literal|"No glyph for U+%04X (%c) in font %s"
 argument_list|,
+name|unicode
+argument_list|,
+operator|(
+name|char
+operator|)
 name|unicode
 argument_list|,
 name|getName
