@@ -3361,10 +3361,14 @@ index|]
 operator|<<
 literal|8
 operator|&
+operator|(
 name|bytes
 index|[
 literal|141
 index|]
+operator|&
+literal|0xFF
+operator|)
 decl_stmt|;
 name|ros
 operator|=
