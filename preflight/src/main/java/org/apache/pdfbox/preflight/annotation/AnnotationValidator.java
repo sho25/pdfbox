@@ -151,6 +151,24 @@ name|interactive
 operator|.
 name|annotation
 operator|.
+name|PDAnnotationWidget
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|interactive
+operator|.
+name|annotation
+operator|.
 name|PDAppearanceDictionary
 import|;
 end_import
@@ -1039,6 +1057,45 @@ return|;
 block|}
 block|}
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|this
+operator|.
+name|pdAnnot
+operator|instanceof
+name|PDAnnotationWidget
+operator|&&
+name|this
+operator|.
+name|pdAnnot
+operator|.
+name|getAppearance
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// https://www.pdfa.org/wp-content/uploads/2017/07/TechNote0010.pdf
+comment|// "An ISO 19005-1 validator shall FAIL otherwise conforming files in which a
+comment|//  widget annotation lacks an appearance dictionary." (page 17)
+name|ctx
+operator|.
+name|addValidationError
+argument_list|(
+operator|new
+name|ValidationError
+argument_list|(
+name|ERROR_ANNOT_INVALID_AP_CONTENT
+argument_list|,
+literal|"widget annotation lacks an appearance dictionary"
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
 block|}
 comment|// else ok, nothing to check, this field is optional
 return|return
