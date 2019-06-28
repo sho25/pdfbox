@@ -736,6 +736,15 @@ name|contains
 argument_list|(
 name|index
 argument_list|)
+operator|||
+name|font
+operator|.
+name|toUnicode
+argument_list|(
+name|index
+argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 name|String
