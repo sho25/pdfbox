@@ -1179,6 +1179,11 @@ specifier|private
 name|Area
 name|lastClip
 decl_stmt|;
+comment|// clip when drawPage() is called, can be null, must be intersected when clipping
+specifier|private
+name|Shape
+name|initialClip
+decl_stmt|;
 comment|// shapes of glyphs being drawn to be used for clipping
 specifier|private
 name|List
@@ -1433,6 +1438,13 @@ operator|.
 name|getTransform
 argument_list|()
 expr_stmt|;
+name|initialClip
+operator|=
+name|graphics
+operator|.
+name|getClip
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|pageSize
@@ -1574,6 +1586,15 @@ name|lastClip
 operator|=
 literal|null
 expr_stmt|;
+name|Shape
+name|oldInitialClip
+init|=
+name|initialClip
+decl_stmt|;
+name|initialClip
+operator|=
+literal|null
+expr_stmt|;
 name|boolean
 name|oldFlipTG
 init|=
@@ -1612,6 +1633,10 @@ expr_stmt|;
 name|lastClip
 operator|=
 name|oldLastClip
+expr_stmt|;
+name|initialClip
+operator|=
+name|oldInitialClip
 expr_stmt|;
 name|clipWindingRule
 operator|=
@@ -1900,6 +1925,30 @@ argument_list|(
 name|clippingPath
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|initialClip
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// apply the remembered initial clip, but transform it first
+name|graphics
+operator|.
+name|clip
+argument_list|(
+name|graphics
+operator|.
+name|getTransform
+argument_list|()
+operator|.
+name|createTransformedShape
+argument_list|(
+name|initialClip
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|lastClip
 operator|=
 name|clippingPath
@@ -6854,6 +6903,11 @@ name|lastClipOriginal
 init|=
 name|lastClip
 decl_stmt|;
+name|Shape
+name|oldInitialClip
+init|=
+name|initialClip
+decl_stmt|;
 comment|// get the CTM x Form Matrix transform
 name|Matrix
 name|transform
@@ -7612,6 +7666,10 @@ expr_stmt|;
 name|graphics
 operator|=
 name|g2dOriginal
+expr_stmt|;
+name|initialClip
+operator|=
+name|oldInitialClip
 expr_stmt|;
 name|clipWindingRule
 operator|=
