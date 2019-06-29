@@ -835,7 +835,7 @@ name|codepoint
 operator|<=
 literal|0xF8FF
 operator|||
-literal|0xF000
+literal|0xF0000
 operator|<=
 name|codepoint
 operator|&&
