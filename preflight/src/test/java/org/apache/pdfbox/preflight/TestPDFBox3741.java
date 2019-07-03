@@ -78,14 +78,14 @@ end_comment
 begin_class
 specifier|public
 class|class
-name|TestPDFBox3743
+name|TestPDFBox3741
 block|{
 comment|/**      * Test whether use of default colorspace without output intent for text output is detected.      *      * @throws IOException      */
 annotation|@
 name|Test
 specifier|public
 name|void
-name|testPDFBox3743
+name|testPDFBox3741
 parameter_list|()
 throws|throws
 name|IOException
@@ -99,7 +99,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"src/test/resources/PDFBOX-3743.pdf"
+literal|"src/test/resources/PDFBOX-3741.pdf"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -141,7 +141,7 @@ name|Assert
 operator|.
 name|assertFalse
 argument_list|(
-literal|"File PDFBOX-3743.pdf should be detected as not PDF/A-1b"
+literal|"File PDFBOX-3741.pdf should be detected as not PDF/A-1b"
 argument_list|,
 name|result
 operator|.
