@@ -2215,7 +2215,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Wraps the {@link PDFParser#parseCOSStream} to check rules on 'stream' and 'endstream'      * keywords. {@link #checkStreamKeyWord()} and {@link #checkEndstreamKeyWord()}      *      * @param dic dictionary that goes with this stream.      *      * @return parsed pdf stream.      *      * @throws IOException if an error occurred reading the stream, like problems with reading      * length attribute, stream does not end with 'endstream' after data read, stream too short etc.      */
+comment|/**      * Wraps the {@link PDFParser#parseCOSStream} to check rules on 'stream' and 'endstream'      * keywords. {@link #checkStreamKeyWord()} and {@link #checkEndstreamKeyWord(org.apache.pdfbox.cos.COSDictionary, long)}      *      * @param dic dictionary that goes with this stream.      *      * @return parsed pdf stream.      *      * @throws IOException if an error occurred reading the stream, like problems with reading      * length attribute, stream does not end with 'endstream' after data read, stream too short etc.      */
 annotation|@
 name|Override
 specifier|protected

@@ -291,7 +291,7 @@ specifier|private
 name|long
 name|fileLen
 decl_stmt|;
-comment|/**      * Create the DocumentHandler using the DataSource which represent the PDF file to check.      *       * @param dataSource      */
+comment|/**      * Create the DocumentHandler using the DataSource which represent the PDF file to check.      */
 specifier|public
 name|PreflightContext
 parameter_list|()
