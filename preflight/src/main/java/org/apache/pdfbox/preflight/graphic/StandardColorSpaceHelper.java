@@ -903,7 +903,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is a Clibrated Color (CalGary, CalRGB, Lab).      * @param colorSpace       *       */
+comment|/**      * Method called by the processAllColorSpace if the ColorSpace to check is a calibrated color (CalGray, CalRGB, Lab).      * @param colorSpace       *       */
 specifier|protected
 name|void
 name|processCalibratedColorSpace
