@@ -1201,13 +1201,6 @@ operator|.
 name|getColorants
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|colorants
-operator|!=
-literal|null
-condition|)
-block|{
 name|numberOfColorants
 operator|=
 name|colorants
@@ -1238,7 +1231,6 @@ argument_list|(
 name|col
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 name|PDDeviceNProcess
