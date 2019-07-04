@@ -230,12 +230,9 @@ decl_stmt|;
 name|COSDictionary
 name|colorants
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|dictionary
 operator|.
-name|getDictionaryObject
+name|getCOSDictionary
 argument_list|(
 name|COSName
 operator|.
@@ -329,12 +326,9 @@ block|{
 name|COSDictionary
 name|process
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|dictionary
 operator|.
-name|getDictionaryObject
+name|getCOSDictionary
 argument_list|(
 name|COSName
 operator|.

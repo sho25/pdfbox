@@ -1132,12 +1132,9 @@ decl_stmt|;
 name|COSDictionary
 name|propBuildDic
 init|=
-operator|(
-name|COSDictionary
-operator|)
 name|dictionary
 operator|.
-name|getDictionaryObject
+name|getCOSDictionary
 argument_list|(
 name|COSName
 operator|.
