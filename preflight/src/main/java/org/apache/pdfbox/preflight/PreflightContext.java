@@ -257,8 +257,6 @@ decl_stmt|;
 specifier|private
 name|PreflightConfiguration
 name|config
-init|=
-literal|null
 decl_stmt|;
 specifier|private
 name|PreflightPath
@@ -295,7 +293,14 @@ comment|/**      * Create the DocumentHandler using the DataSource which represe
 specifier|public
 name|PreflightContext
 parameter_list|()
-block|{     }
+block|{
+name|this
+operator|.
+name|config
+operator|=
+literal|null
+expr_stmt|;
+block|}
 specifier|public
 name|PreflightContext
 parameter_list|(
