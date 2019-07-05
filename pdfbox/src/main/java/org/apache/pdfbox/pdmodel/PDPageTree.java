@@ -1087,7 +1087,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Index not found: "
+literal|"1-based index not found: "
 operator|+
 name|pageNum
 argument_list|)
@@ -1099,7 +1099,7 @@ throw|throw
 operator|new
 name|IndexOutOfBoundsException
 argument_list|(
-literal|"Index out of bounds: "
+literal|"1-based index out of bounds: "
 operator|+
 name|pageNum
 argument_list|)
@@ -1125,7 +1125,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Index not found: "
+literal|"1-based index not found: "
 operator|+
 name|pageNum
 argument_list|)
