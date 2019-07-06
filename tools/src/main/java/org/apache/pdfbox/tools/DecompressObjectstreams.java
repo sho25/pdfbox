@@ -109,6 +109,20 @@ name|COSObjectKey
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|io
+operator|.
+name|IOUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * This program will just take all of the stream objects in a PDF and dereference  * them.  The streams will be gone in the resulting file and the objects will be  * present.  This is very helpful when trying to debug problems as it'll make  * it possible to easily look through a PDF using a text editor.  It also exposes  * problems which stem from objects inside object streams overwriting other  * objects.  * @author Adam Nichols  */
 end_comment
@@ -378,28 +392,13 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-if|if
-condition|(
-name|doc
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|doc
+name|IOUtils
 operator|.
-name|close
-argument_list|()
+name|closeQuietly
+argument_list|(
+name|doc
+argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{                 }
-block|}
 block|}
 block|}
 comment|/**      * Explains how to use the program.      */
