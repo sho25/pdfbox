@@ -6797,6 +6797,8 @@ name|isContentRendered
 argument_list|()
 condition|)
 block|{
+try|try
+block|{
 name|graphics
 operator|.
 name|drawImage
@@ -6808,6 +6810,25 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InternalError
+name|ie
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Exception drawing image, see JDK-6689349, "
+operator|+
+literal|"try rendering into a BufferedImage instead"
+argument_list|,
+name|ie
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 name|graphics
