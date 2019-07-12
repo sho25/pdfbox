@@ -67,6 +67,16 @@ name|java
 operator|.
 name|security
 operator|.
+name|GeneralSecurityException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
 name|KeyStore
 import|;
 end_import
@@ -2570,11 +2580,9 @@ name|COSBase
 name|cosBase
 range|:
 operator|(
-operator|(
 name|COSArray
 operator|)
 name|baseObj
-operator|)
 control|)
 block|{
 name|addNewToList
@@ -2753,8 +2761,7 @@ block|}
 else|else
 block|{
 comment|// negative offset means we have a compressed
-comment|// object within object stream;
-comment|// get offset of object stream
+comment|// object within object stream => get offset of object stream
 name|COSObjectKey
 name|key
 init|=
@@ -3990,8 +3997,6 @@ return|;
 block|}
 name|COSNumber
 name|retVal
-init|=
-literal|null
 decl_stmt|;
 comment|// maybe length was given directly
 if|if
@@ -8635,11 +8640,7 @@ name|bfSearchForTrailer
 argument_list|(
 name|trailer
 argument_list|)
-condition|)
-block|{
-comment|// search for the different parts of the trailer dictionary
-if|if
-condition|(
+operator|&&
 operator|!
 name|searchForTrailerItems
 argument_list|(
@@ -8661,7 +8662,6 @@ argument_list|(
 name|trailer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// prepare decryption if necessary
 name|prepareDecryption
@@ -8686,6 +8686,7 @@ return|return
 name|trailer
 return|;
 block|}
+comment|/**      * Search for the different parts of the trailer dictionary.      *      * @param trailer      * @return true if the root was found, false if not.      * @throws IOException      */
 specifier|private
 name|boolean
 name|searchForTrailerItems
@@ -10978,17 +10979,17 @@ name|void
 name|prepareDecryption
 parameter_list|()
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 if|if
 condition|(
 name|encryption
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
+return|return;
+block|}
 name|COSBase
 name|trailerEncryptItem
 init|=
@@ -11007,17 +11008,16 @@ decl_stmt|;
 if|if
 condition|(
 name|trailerEncryptItem
-operator|!=
+operator|==
 literal|null
-operator|&&
-operator|!
-operator|(
+operator|||
 name|trailerEncryptItem
 operator|instanceof
 name|COSNull
-operator|)
 condition|)
 block|{
+return|return;
+block|}
 if|if
 condition|(
 name|trailerEncryptItem
@@ -11149,7 +11149,7 @@ throw|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|GeneralSecurityException
 name|e
 parameter_list|)
 block|{
@@ -11189,8 +11189,6 @@ argument_list|(
 name|keyStoreInputStream
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 block|}
 block|}
