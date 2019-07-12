@@ -1933,21 +1933,7 @@ literal|null
 condition|)
 block|{
 comment|// apply the remembered initial clip, but transform it first
-name|graphics
-operator|.
-name|clip
-argument_list|(
-name|graphics
-operator|.
-name|getTransform
-argument_list|()
-operator|.
-name|createTransformedShape
-argument_list|(
-name|initialClip
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//TODO see PDFBOX-4583
 block|}
 name|lastClip
 operator|=
