@@ -1407,8 +1407,6 @@ argument_list|)
 decl_stmt|;
 name|float
 name|height
-init|=
-literal|0
 decl_stmt|;
 if|if
 condition|(
@@ -1447,6 +1445,18 @@ argument_list|(
 name|name
 argument_list|,
 name|height
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|height
+operator|=
+name|glyphHeights
+operator|.
+name|get
+argument_list|(
+name|name
 argument_list|)
 expr_stmt|;
 block|}
