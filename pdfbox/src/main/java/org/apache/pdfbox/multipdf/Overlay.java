@@ -1102,6 +1102,11 @@ name|COSDictionary
 name|overlayResources
 decl_stmt|;
 specifier|private
+specifier|final
+name|int
+name|overlayRotation
+decl_stmt|;
+specifier|private
 name|LayoutPage
 parameter_list|(
 name|PDRectangle
@@ -1112,6 +1117,9 @@ name|contentStream
 parameter_list|,
 name|COSDictionary
 name|resources
+parameter_list|,
+name|int
+name|rotation
 parameter_list|)
 block|{
 name|overlayMediaBox
@@ -1125,6 +1133,10 @@ expr_stmt|;
 name|overlayResources
 operator|=
 name|resources
+expr_stmt|;
+name|overlayRotation
+operator|=
+name|rotation
 expr_stmt|;
 block|}
 block|}
@@ -1202,6 +1214,11 @@ argument_list|,
 name|resources
 operator|.
 name|getCOSObject
+argument_list|()
+argument_list|,
+name|page
+operator|.
+name|getRotation
 argument_list|()
 argument_list|)
 return|;
@@ -1328,6 +1345,11 @@ argument_list|,
 name|resources
 operator|.
 name|getCOSObject
+argument_list|()
+argument_list|,
+name|page
+operator|.
+name|getRotation
 argument_list|()
 argument_list|)
 argument_list|)
