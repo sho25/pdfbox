@@ -1811,8 +1811,6 @@ argument_list|)
 decl_stmt|;
 name|float
 name|height
-init|=
-literal|0
 decl_stmt|;
 if|if
 condition|(
