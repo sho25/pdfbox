@@ -1881,10 +1881,6 @@ argument_list|(
 name|page
 argument_list|,
 name|layoutPage
-argument_list|,
-name|layoutPage
-operator|.
-name|overlayContentStream
 argument_list|)
 decl_stmt|;
 name|array
@@ -2082,9 +2078,6 @@ name|page
 parameter_list|,
 name|LayoutPage
 name|layoutPage
-parameter_list|,
-name|COSStream
-name|contentStream
 parameter_list|)
 block|{
 name|PDFormXObject
@@ -2093,7 +2086,9 @@ init|=
 operator|new
 name|PDFormXObject
 argument_list|(
-name|contentStream
+name|layoutPage
+operator|.
+name|overlayContentStream
 argument_list|)
 decl_stmt|;
 name|xobjForm
