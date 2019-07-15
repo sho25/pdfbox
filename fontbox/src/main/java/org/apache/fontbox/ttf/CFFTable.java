@@ -134,7 +134,7 @@ argument_list|(
 name|bytes
 argument_list|,
 operator|new
-name|ByteSource
+name|CFFBytesource
 argument_list|(
 name|font
 argument_list|)
@@ -164,7 +164,7 @@ comment|/**      * Allows bytes to be re-read later by CFFParser.      */
 specifier|private
 specifier|static
 class|class
-name|ByteSource
+name|CFFBytesource
 implements|implements
 name|CFFParser
 operator|.
@@ -175,7 +175,7 @@ specifier|final
 name|TrueTypeFont
 name|ttf
 decl_stmt|;
-name|ByteSource
+name|CFFBytesource
 parameter_list|(
 name|TrueTypeFont
 name|ttf
