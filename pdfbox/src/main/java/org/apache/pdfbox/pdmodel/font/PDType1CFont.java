@@ -492,15 +492,10 @@ condition|)
 block|{
 name|bytes
 operator|=
-name|IOUtils
-operator|.
-name|toByteArray
-argument_list|(
 name|ff3Stream
 operator|.
-name|createInputStream
+name|toByteArray
 argument_list|()
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
