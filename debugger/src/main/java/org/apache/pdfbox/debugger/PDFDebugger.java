@@ -1571,6 +1571,11 @@ specifier|private
 name|RecentFiles
 name|recentFiles
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"squid:S1948"
+argument_list|)
 specifier|private
 name|WindowPrefs
 name|windowPrefs
