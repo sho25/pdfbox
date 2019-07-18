@@ -87,7 +87,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayDeque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Deque
 import|;
 end_import
 
@@ -118,16 +138,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Stack
 import|;
 end_import
 
@@ -748,14 +758,14 @@ name|Matrix
 name|textLineMatrix
 decl_stmt|;
 specifier|private
-name|Stack
+name|Deque
 argument_list|<
 name|PDGraphicsState
 argument_list|>
 name|graphicsStack
 init|=
 operator|new
-name|Stack
+name|ArrayDeque
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -1091,7 +1101,7 @@ argument_list|(
 name|group
 argument_list|)
 decl_stmt|;
-name|Stack
+name|Deque
 argument_list|<
 name|PDGraphicsState
 argument_list|>
@@ -1237,7 +1247,7 @@ argument_list|(
 name|charProc
 argument_list|)
 decl_stmt|;
-name|Stack
+name|Deque
 argument_list|<
 name|PDGraphicsState
 argument_list|>
@@ -1341,7 +1351,7 @@ argument_list|(
 name|appearance
 argument_list|)
 decl_stmt|;
-name|Stack
+name|Deque
 argument_list|<
 name|PDGraphicsState
 argument_list|>
@@ -1638,7 +1648,7 @@ name|patternMatrix
 argument_list|)
 expr_stmt|;
 comment|// save the original graphics state
-name|Stack
+name|Deque
 argument_list|<
 name|PDGraphicsState
 argument_list|>
@@ -1923,7 +1933,7 @@ argument_list|(
 name|contentStream
 argument_list|)
 decl_stmt|;
-name|Stack
+name|Deque
 argument_list|<
 name|PDGraphicsState
 argument_list|>
@@ -2391,7 +2401,8 @@ decl_stmt|;
 comment|// calculate the combined displacements
 name|float
 name|tx
-decl_stmt|,
+decl_stmt|;
+name|float
 name|ty
 decl_stmt|;
 if|if
@@ -2814,7 +2825,8 @@ expr_stmt|;
 comment|// calculate the combined displacements
 name|float
 name|tx
-decl_stmt|,
+decl_stmt|;
+name|float
 name|ty
 decl_stmt|;
 if|if
@@ -3321,14 +3333,14 @@ block|}
 comment|/**      * Saves the entire graphics stack.      *       * @return the saved graphics state stack.      */
 specifier|protected
 specifier|final
-name|Stack
+name|Deque
 argument_list|<
 name|PDGraphicsState
 argument_list|>
 name|saveGraphicsStack
 parameter_list|()
 block|{
-name|Stack
+name|Deque
 argument_list|<
 name|PDGraphicsState
 argument_list|>
@@ -3339,7 +3351,7 @@ decl_stmt|;
 name|graphicsStack
 operator|=
 operator|new
-name|Stack
+name|ArrayDeque
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -3366,7 +3378,7 @@ specifier|final
 name|void
 name|restoreGraphicsStack
 parameter_list|(
-name|Stack
+name|Deque
 argument_list|<
 name|PDGraphicsState
 argument_list|>
