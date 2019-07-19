@@ -2974,8 +2974,6 @@ name|IOException
 block|{
 name|COSBoolean
 name|retval
-init|=
-literal|null
 decl_stmt|;
 name|char
 name|c
