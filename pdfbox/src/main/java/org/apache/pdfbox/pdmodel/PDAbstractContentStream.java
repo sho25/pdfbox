@@ -2192,7 +2192,7 @@ name|DRAW_OBJECT
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The cm operator. Concatenates the given matrix with the CTM.      *      * @param matrix the transformation matrix      * @throws IOException If there is an error writing to the stream.      */
+comment|/**      * The cm operator. Concatenates the given matrix with the current transformation matrix (CTM),      * which maps user space coordinates used within a PDF content stream into output device      * coordinates. More details on coordinates can be found in the PDF 32000 specification, 8.3.2      * Coordinate Spaces.      *      * @param matrix the transformation matrix      * @throws IOException If there is an error writing to the stream.      */
 specifier|public
 name|void
 name|transform
