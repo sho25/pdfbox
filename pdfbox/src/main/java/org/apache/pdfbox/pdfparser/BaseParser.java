@@ -4677,8 +4677,6 @@ name|IOException
 block|{
 name|int
 name|lastByte
-init|=
-literal|0
 decl_stmt|;
 name|StringBuilder
 name|buffer
