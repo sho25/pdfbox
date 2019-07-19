@@ -2700,12 +2700,15 @@ block|{
 name|String
 name|hex
 init|=
-literal|""
-operator|+
+name|Character
+operator|.
+name|toString
+argument_list|(
 operator|(
 name|char
 operator|)
 name|ch1
+argument_list|)
 operator|+
 operator|(
 name|char
