@@ -1000,8 +1000,10 @@ comment|//Special case for ID operator
 name|String
 name|id
 init|=
-literal|""
-operator|+
+name|Character
+operator|.
+name|toString
+argument_list|(
 operator|(
 name|char
 operator|)
@@ -1009,6 +1011,7 @@ name|seqSource
 operator|.
 name|read
 argument_list|()
+argument_list|)
 operator|+
 operator|(
 name|char
