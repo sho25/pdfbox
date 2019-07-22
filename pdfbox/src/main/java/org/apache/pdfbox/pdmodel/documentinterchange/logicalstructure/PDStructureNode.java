@@ -367,11 +367,9 @@ name|COSBase
 name|kid
 range|:
 operator|(
-operator|(
 name|COSArray
 operator|)
 name|k
-operator|)
 control|)
 block|{
 name|Object
