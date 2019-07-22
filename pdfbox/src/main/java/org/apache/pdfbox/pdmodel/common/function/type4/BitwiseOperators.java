@@ -234,7 +234,7 @@ parameter_list|)
 block|{
 return|return
 name|bool1
-operator|&
+operator|&&
 name|bool2
 return|;
 block|}
@@ -522,7 +522,7 @@ parameter_list|)
 block|{
 return|return
 name|bool1
-operator||
+operator|||
 name|bool2
 return|;
 block|}
