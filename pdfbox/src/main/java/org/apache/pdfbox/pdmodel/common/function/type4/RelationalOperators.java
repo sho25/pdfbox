@@ -39,6 +39,12 @@ begin_class
 class|class
 name|RelationalOperators
 block|{
+specifier|private
+name|RelationalOperators
+parameter_list|()
+block|{
+comment|// Private constructor.
+block|}
 comment|/** Implements the "eq" operator. */
 specifier|static
 class|class

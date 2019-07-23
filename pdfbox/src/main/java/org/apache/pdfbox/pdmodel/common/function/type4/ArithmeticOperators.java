@@ -39,6 +39,12 @@ begin_class
 class|class
 name|ArithmeticOperators
 block|{
+specifier|private
+name|ArithmeticOperators
+parameter_list|()
+block|{
+comment|// Private constructor.
+block|}
 comment|/** Implements the "abs" operator. */
 specifier|static
 class|class

@@ -59,6 +59,12 @@ begin_class
 class|class
 name|StackOperators
 block|{
+specifier|private
+name|StackOperators
+parameter_list|()
+block|{
+comment|// Private constructor.
+block|}
 comment|/** Implements the "copy" operator. */
 specifier|static
 class|class

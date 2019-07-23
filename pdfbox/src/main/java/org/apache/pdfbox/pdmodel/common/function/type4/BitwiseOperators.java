@@ -39,6 +39,12 @@ begin_class
 class|class
 name|BitwiseOperators
 block|{
+specifier|private
+name|BitwiseOperators
+parameter_list|()
+block|{
+comment|// Private constructor.
+block|}
 comment|/** Abstract base class for logical operators. */
 specifier|private
 specifier|abstract
