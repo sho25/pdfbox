@@ -179,6 +179,25 @@ name|PDAttributeObject
 extends|extends
 name|PDDictionaryWrapper
 block|{
+comment|/**      * Default constructor.      */
+specifier|public
+name|PDAttributeObject
+parameter_list|()
+block|{     }
+comment|/**      * Creates a new attribute object with a given dictionary.      *       * @param dictionary the dictionary      */
+specifier|public
+name|PDAttributeObject
+parameter_list|(
+name|COSDictionary
+name|dictionary
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|dictionary
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Creates an attribute object.      *       * @param dictionary the dictionary      * @return the attribute object      */
 specifier|public
 specifier|static
@@ -357,25 +376,6 @@ operator|.
 name|structureElement
 operator|=
 name|structureElement
-expr_stmt|;
-block|}
-comment|/**      * Default constructor.      */
-specifier|public
-name|PDAttributeObject
-parameter_list|()
-block|{     }
-comment|/**      * Creates a new attribute object with a given dictionary.      *       * @param dictionary the dictionary      */
-specifier|public
-name|PDAttributeObject
-parameter_list|(
-name|COSDictionary
-name|dictionary
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|dictionary
-argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns the owner of the attributes.      *       * @return the owner of the attributes      */

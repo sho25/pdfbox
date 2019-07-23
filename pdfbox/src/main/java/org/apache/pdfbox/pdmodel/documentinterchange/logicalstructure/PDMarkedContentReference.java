@@ -101,20 +101,6 @@ specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
-comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
-specifier|public
-name|COSDictionary
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|dictionary
-return|;
-block|}
 comment|/**      * Default constructor      */
 specifier|public
 name|PDMarkedContentReference
@@ -156,6 +142,20 @@ name|dictionary
 operator|=
 name|dictionary
 expr_stmt|;
+block|}
+comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
+specifier|public
+name|COSDictionary
+name|getCOSObject
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|dictionary
+return|;
 block|}
 comment|/**      * Gets the page.      *       * @return the page      */
 specifier|public

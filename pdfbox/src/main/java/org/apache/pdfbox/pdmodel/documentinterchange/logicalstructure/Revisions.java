@@ -65,6 +65,11 @@ name|Integer
 argument_list|>
 name|revisionNumbers
 decl_stmt|;
+comment|/**      * Constructor.      */
+specifier|public
+name|Revisions
+parameter_list|()
+block|{     }
 specifier|private
 name|List
 argument_list|<
@@ -131,11 +136,6 @@ operator|.
 name|revisionNumbers
 return|;
 block|}
-comment|/**      *       */
-specifier|public
-name|Revisions
-parameter_list|()
-block|{     }
 comment|/**      * Returns the object at the specified position.      *       * @param index the position      * @return the object      * @throws IndexOutOfBoundsException if the index is out of range      */
 specifier|public
 name|T

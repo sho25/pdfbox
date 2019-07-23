@@ -222,20 +222,6 @@ specifier|final
 name|COSDictionary
 name|dictionary
 decl_stmt|;
-comment|/**      * Returns the underlying dictionary.      *       * @return the dictionary      */
-annotation|@
-name|Override
-specifier|public
-name|COSDictionary
-name|getCOSObject
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|dictionary
-return|;
-block|}
 comment|/**      * Default Constructor.      *      */
 specifier|public
 name|PDObjectReference
@@ -275,6 +261,20 @@ name|dictionary
 operator|=
 name|theDictionary
 expr_stmt|;
+block|}
+comment|/**      * Returns the underlying dictionary.      *       * @return the dictionary      */
+annotation|@
+name|Override
+specifier|public
+name|COSDictionary
+name|getCOSObject
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|dictionary
+return|;
 block|}
 comment|/**      * Gets a higher-level object for the referenced object.      * Currently this method may return a {@link PDAnnotation},      * a {@link PDXObject} or<code>null</code>.      *       * @return a higher-level object for the referenced object      */
 specifier|public
