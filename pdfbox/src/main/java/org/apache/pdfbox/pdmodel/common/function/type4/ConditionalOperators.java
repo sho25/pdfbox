@@ -39,6 +39,12 @@ begin_class
 class|class
 name|ConditionalOperators
 block|{
+specifier|private
+name|ConditionalOperators
+parameter_list|()
+block|{
+comment|// Private constructor.
+block|}
 comment|/** Implements the "if" operator. */
 specifier|static
 class|class
