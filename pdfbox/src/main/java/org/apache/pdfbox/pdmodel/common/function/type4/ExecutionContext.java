@@ -124,14 +124,12 @@ parameter_list|()
 block|{
 return|return
 operator|(
-operator|(
 name|Integer
 operator|)
 name|stack
 operator|.
 name|pop
 argument_list|()
-operator|)
 return|;
 block|}
 comment|/**      * Pops a number from the stack and returns it as a real value. If the value is not of a      * numeric type, a ClassCastException is thrown.      * @return the real value      */
