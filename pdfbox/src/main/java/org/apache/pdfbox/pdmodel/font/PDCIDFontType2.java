@@ -53,6 +53,26 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -311,6 +331,19 @@ decl_stmt|;
 specifier|private
 name|BoundingBox
 name|fontBBox
+decl_stmt|;
+specifier|private
+specifier|final
+name|Set
+argument_list|<
+name|Integer
+argument_list|>
+name|noMapping
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
 decl_stmt|;
 comment|/**      * Constructor.      *       * @param fontDictionary The font dictionary according to the PDF specification.      * @param parent The parent font.      * @throws IOException      */
 specifier|public
@@ -993,6 +1026,25 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|noMapping
+operator|.
+name|contains
+argument_list|(
+name|code
+argument_list|)
+condition|)
+block|{
+comment|// we keep track of which warnings have been issued, so we don't log multiple times
+name|noMapping
+operator|.
+name|add
+argument_list|(
+name|code
+argument_list|)
+expr_stmt|;
 name|LOG
 operator|.
 name|warn
@@ -1007,6 +1059,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Acrobat is willing to use the CID as a GID, even when the font isn't embedded
 comment|// see PDFBOX-2599
 return|return
