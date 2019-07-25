@@ -195,7 +195,7 @@ condition|(
 name|args
 operator|.
 name|length
-operator|<=
+operator|<
 literal|2
 condition|)
 block|{
