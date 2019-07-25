@@ -779,7 +779,7 @@ return|return
 name|textMatrix
 return|;
 block|}
-comment|/**      * Return the direction/orientation of the string in this object based on its text matrix.      * @return The direction of the text (0, 90, 180, or 270)      */
+comment|/**      * Return the direction/orientation of the string in this object based on its text matrix. Only      * angles of 0, 90, 180, or 270 are supported. To get other angles, use this code:      *<pre>      * TextPosition text = ...      * Matrix m = text.getTextMatrix().clone();      * m.concatenate(text.getFont().getFontMatrix());      * int angle = (int) Math.round(Math.toDegrees(Math.atan2(m.getShearY(), m.getScaleY())));      *</pre>      *      * @return The direction of the text (0, 90, 180, or 270).      */
 specifier|public
 name|float
 name|getDir
@@ -1107,7 +1107,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * This will get the page rotation adjusted x position of the character.      * This is adjusted based on page rotation so that the upper left is 0,0.      *      * @return The x coordinate of the character.      */
+comment|/**      * This will get the page rotation adjusted x position of the character.      * This is adjusted based on page rotation so that the upper left is 0,0 which is      * unlike PDF coordinates, which start at the bottom left. See also      *<a href="https://stackoverflow.com/questions/57067372/">this answer by Michael Klink</a> for      * further details and      *<a href="https://issues.apache.org/jira/browse/PDFBOX-4597">PDFBOX-4597</a> for a sample      * file.      *      * @return The x coordinate of the character.      */
 specifier|public
 name|float
 name|getX
@@ -1117,7 +1117,7 @@ return|return
 name|x
 return|;
 block|}
-comment|/**      * This will get the text direction adjusted x position of the character.      * This is adjusted based on text direction so that the first character      * in that direction is in the upper left at 0,0.      *      * @return The x coordinate of the text.      */
+comment|/**      * This will get the text direction adjusted x position of the character.      * This is adjusted based on text direction so that the first character      * in that direction is in the upper left at 0,0.      * This method ignores the page rotation but takes the text rotation (see      * {@link #getDir() getDir()}) and adjusts the coordinates to awt. This is useful when doing      * text extraction, to compare the glyph positions when imagining these to be horizontal. See also      *<a href="https://stackoverflow.com/questions/57067372/">this answer by Michael Klink</a> for      * further details and      *<a href="https://issues.apache.org/jira/browse/PDFBOX-4597">PDFBOX-4597</a> for a sample      * file.      *      * @return The x coordinate of the text.      */
 specifier|public
 name|float
 name|getXDirAdj
@@ -1235,7 +1235,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * This will get the y position of the text, adjusted so that 0,0 is upper left and it is      * adjusted based on the page rotation.      *      * @return The adjusted y coordinate of the character.      */
+comment|/**      * This will get the page rotation adjusted x position of the character.      * This is adjusted based on page rotation so that the upper left is 0,0 which is      * unlike PDF coordinates, which start at the bottom left. See also      *<a href="https://stackoverflow.com/questions/57067372/">this answer by Michael Klink</a> for      * further details and      *<a href="https://issues.apache.org/jira/browse/PDFBOX-4597">PDFBOX-4597</a> for a sample      * file.      *      * @return The adjusted y coordinate of the character.      */
 specifier|public
 name|float
 name|getY
@@ -1245,7 +1245,7 @@ return|return
 name|y
 return|;
 block|}
-comment|/**      * This will get the y position of the text, adjusted so that 0,0 is upper left and it is      * adjusted based on the text direction.      *      * @return The adjusted y coordinate of the character.      */
+comment|/**      * This will get the y position of the text, adjusted so that 0,0 is upper left and it is      * adjusted based on the text direction.      * This method ignores the page rotation but takes the      * text rotation and adjusts the coordinates to awt. This is useful when doing text extraction,      * to compare the glyph positions when imagining these to be horizontal. See also      *<a href="https://stackoverflow.com/questions/57067372/">this answer by Michael Klink</a> for      * further details and      *<a href="https://issues.apache.org/jira/browse/PDFBOX-4597">PDFBOX-4597</a> for a sample      * file.      *      * @return The adjusted y coordinate of the character.      */
 specifier|public
 name|float
 name|getYDirAdj
