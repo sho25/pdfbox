@@ -58,7 +58,7 @@ specifier|public
 class|class
 name|ColorSpaceHelperFactory
 block|{
-comment|/**      * Return an instance of ColorSpaceHelper according to the ColorSpaceRestiction value.      *<UL>      *<li>ColorSpaceRestiction.NO_PATTERN : returns NoPatternColorSpaceHelper      *<li>ColorSpaceRestiction.ONLY_DEVICE : returns DeviceColorSpaceHelper      *<li>default : returns StandardColorSpaceHelper      *</UL>      *       * @param context      *            the PreflightContext to access useful data      * @param cs      *            the High level PDFBox object which represents the ColorSpace      * @param csr      *            the color space restriction      * @return the ColorSpaceHelper instance.       */
+comment|/**      * Return an instance of ColorSpaceHelper according to the ColorSpaceRestriction value.      *<UL>      *<li>ColorSpaceRestriction.NO_PATTERN : returns NoPatternColorSpaceHelper      *<li>ColorSpaceRestriction.ONLY_DEVICE : returns DeviceColorSpaceHelper      *<li>ColorSpaceRestriction.NO_RESTRICTION (default) : returns StandardColorSpaceHelper      *</UL>      *       * @param context      *            the PreflightContext to access useful data      * @param cs      *            the High level PDFBox object which represents the ColorSpace      * @param csr      *            the color space restriction      * @return the ColorSpaceHelper instance.       */
 specifier|public
 name|ColorSpaceHelper
 name|getColorSpaceHelper
