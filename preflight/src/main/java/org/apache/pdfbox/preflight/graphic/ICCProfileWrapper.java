@@ -439,7 +439,7 @@ name|COSStream
 condition|)
 block|{
 try|try
-block|{
+init|(
 name|InputStream
 name|is
 init|=
@@ -452,8 +452,7 @@ operator|)
 operator|.
 name|createInputStream
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 return|return
 operator|new
@@ -467,15 +466,6 @@ name|is
 argument_list|)
 argument_list|)
 return|;
-block|}
-finally|finally
-block|{
-name|is
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
