@@ -2844,11 +2844,7 @@ name|String
 name|toString
 parameter_list|()
 block|{
-name|String
-name|sb
-init|=
-literal|""
-operator|+
+return|return
 literal|"["
 operator|+
 name|single
@@ -2892,9 +2888,6 @@ literal|7
 index|]
 operator|+
 literal|"]"
-decl_stmt|;
-return|return
-name|sb
 return|;
 block|}
 annotation|@

@@ -546,9 +546,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|int
-name|value
-init|=
+return|return
 name|inputBuffer
 index|[
 name|bufferPosition
@@ -557,9 +555,6 @@ name|offset
 index|]
 operator|&
 literal|0xff
-decl_stmt|;
-return|return
-name|value
 return|;
 block|}
 catch|catch

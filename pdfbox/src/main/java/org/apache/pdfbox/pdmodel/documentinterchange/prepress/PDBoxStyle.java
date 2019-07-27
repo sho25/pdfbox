@@ -287,9 +287,7 @@ name|colorValues
 argument_list|)
 expr_stmt|;
 block|}
-name|PDColor
-name|color
-init|=
+return|return
 operator|new
 name|PDColor
 argument_list|(
@@ -302,9 +300,6 @@ name|PDDeviceRGB
 operator|.
 name|INSTANCE
 argument_list|)
-decl_stmt|;
-return|return
-name|color
 return|;
 block|}
 comment|/**      * Set the color space instance for this box style.  This must be a      * PDDeviceRGB!      *      * @param color The new colorspace value.      */
