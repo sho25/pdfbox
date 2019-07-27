@@ -350,8 +350,6 @@ parameter_list|(
 name|PreflightContext
 name|context
 parameter_list|)
-throws|throws
-name|ValidationException
 block|{
 name|PreflightDocument
 name|document
