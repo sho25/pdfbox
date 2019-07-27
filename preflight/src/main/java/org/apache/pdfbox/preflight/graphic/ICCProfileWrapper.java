@@ -341,7 +341,7 @@ name|getType
 argument_list|()
 return|;
 block|}
-comment|/**      * This method read all outputIntent dictionary until on of them have a destOutputProfile stream. This stream is      * parsed and is used to create a IccProfileWrapper.      *       * @param context      * @return an instance of ICCProfileWrapper or null if there are no DestOutputProfile      * @throws ValidationException      *             if an IOException occurs during the DestOutputProfile parsing      */
+comment|/**      * This method read all outputIntent dictionary until on of them have a destOutputProfile stream. This stream is      * parsed and is used to create a IccProfileWrapper.      *       * @param context      * @return an instance of ICCProfileWrapper or null if there are no DestOutputProfile      */
 specifier|private
 specifier|static
 name|ICCProfileWrapper
