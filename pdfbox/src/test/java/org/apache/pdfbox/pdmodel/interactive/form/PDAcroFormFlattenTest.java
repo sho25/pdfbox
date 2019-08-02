@@ -176,7 +176,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test flatten different forms and compare with rendering.  *   * The tests are currently disabled to not run within the CI environment  * as the test results need manual inspection. Enable as needed.  *   */
+comment|/**  * Test flatten different forms and compare with rendering.  *  * The tests are currently disabled to not run within the CI environment  * as the test results need manual inspection. Enable as needed.  *  */
 end_comment
 
 begin_class
@@ -220,15 +220,13 @@ operator|.
 name|mkdirs
 argument_list|()
 expr_stmt|;
-empty_stmt|;
 name|OUT_DIR
 operator|.
 name|mkdirs
 argument_list|()
 expr_stmt|;
-empty_stmt|;
 block|}
-comment|/* 	 * PDFBOX-142 Filled template. 	 */
+comment|/*      * PDFBOX-142 Filled template.      */
 comment|// @Test
 specifier|public
 name|void
@@ -255,7 +253,7 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * PDFBOX-563 Filled template. 	 */
+comment|/*      * PDFBOX-563 Filled template.      */
 comment|// @Test
 specifier|public
 name|void
@@ -282,7 +280,7 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * PDFBOX-2469 Empty template. 	 */
+comment|/*      * PDFBOX-2469 Empty template.      */
 comment|// @Test
 specifier|public
 name|void
@@ -309,7 +307,7 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * PDFBOX-2469 Filled template. 	 */
+comment|/*      * PDFBOX-2469 Filled template.      */
 comment|// @Test
 specifier|public
 name|void
@@ -336,7 +334,7 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * PDFBOX-2586 Empty template. 	 */
+comment|/*      * PDFBOX-2586 Empty template.      */
 comment|// @Test
 specifier|public
 name|void
@@ -363,7 +361,7 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * PDFBOX-3083 Filled template rotated. 	 */
+comment|/*      * PDFBOX-3083 Filled template rotated.      */
 comment|// @Test
 specifier|public
 name|void
@@ -390,7 +388,7 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * PDFBOX-3262 Hidden fields 	 */
+comment|/*      * PDFBOX-3262 Hidden fields      */
 comment|// @Test
 specifier|public
 name|void
@@ -420,7 +418,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * PDFBOX-3396 Signed Document 1. 	 */
+comment|/*      * PDFBOX-3396 Signed Document 1.      */
 comment|// @Test
 specifier|public
 name|void
@@ -447,7 +445,7 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * PDFBOX-3396 Signed Document 2. 	 */
+comment|/*      * PDFBOX-3396 Signed Document 2.      */
 comment|// @Test
 specifier|public
 name|void
@@ -474,7 +472,7 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * PDFBOX-3396 Signed Document 3. 	 */
+comment|/*      * PDFBOX-3396 Signed Document 3.      */
 comment|// @Test
 specifier|public
 name|void
@@ -501,7 +499,7 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * PDFBOX-3396 Signed Document 4. 	 */
+comment|/*      * PDFBOX-3396 Signed Document 4.      */
 comment|// @Test
 specifier|public
 name|void
@@ -528,7 +526,7 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * PDFBOX-3587 Empty template. 	 */
+comment|/*      * PDFBOX-3587 Empty template.      */
 comment|// @Test
 specifier|public
 name|void
@@ -555,7 +553,7 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * PDFBOX-3587 Filled template. 	 */
+comment|/*      * PDFBOX-3587 Filled template.      */
 comment|// @Test
 specifier|public
 name|void
@@ -663,7 +661,7 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* 	 * Flatten and compare with generated image samples. 	 */
+comment|/*      * Flatten and compare with generated image samples.      */
 specifier|private
 specifier|static
 name|boolean
@@ -849,7 +847,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/* 	 * Generate the sample images to which the PDF will be compared after flatten. 	 */
+comment|/*      * Generate the sample images to which the PDF will be compared after flatten.      */
 specifier|private
 specifier|static
 name|void
@@ -993,7 +991,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/* 	 * Get a PDF from URL and copy to file for processing. 	 */
+comment|/*      * Get a PDF from URL and copy to file for processing.      */
 specifier|private
 specifier|static
 name|void
@@ -1087,7 +1085,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/* 	 * Remove renditions for the PDF from the input directory for which there is no 	 * corresponding rendition in the output directory. 	 * Renditions in the output directory which were identical to the ones in the 	 * input directory will have been deleted by the TestPDFToImage utility. 	 */
+comment|/*      * Remove renditions for the PDF from the input directory for which there is no      * corresponding rendition in the output directory.      * Renditions in the output directory which were identical to the ones in the      * input directory will have been deleted by the TestPDFToImage utility.      */
 specifier|private
 specifier|static
 name|void
@@ -1187,7 +1185,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/* 	 * Remove renditions for the PDF from the input directory. 	 * The output directory will have been cleaned by the TestPDFToImage utility. 	 */
+comment|/*      * Remove renditions for the PDF from the input directory.      * The output directory will have been cleaned by the TestPDFToImage utility.      */
 specifier|private
 specifier|static
 name|void
