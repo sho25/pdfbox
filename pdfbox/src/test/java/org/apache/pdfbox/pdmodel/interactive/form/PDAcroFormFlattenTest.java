@@ -582,6 +582,87 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * PDFBOX-4157 Filled template.      */
+comment|// @Test
+specifier|public
+name|void
+name|testFlattenPDFBox4157
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|sourceUrl
+init|=
+literal|"https://issues.apache.org/jira/secure/attachment/12976553/PDFBOX-4157-filled.pdf"
+decl_stmt|;
+name|String
+name|targetFileName
+init|=
+literal|"PDFBOX-4157-filled.pdf"
+decl_stmt|;
+name|flattenAndCompare
+argument_list|(
+name|sourceUrl
+argument_list|,
+name|targetFileName
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * PDFBOX-4172 Filled template.      */
+comment|// @Test
+specifier|public
+name|void
+name|testFlattenPDFBox4172
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|sourceUrl
+init|=
+literal|"https://issues.apache.org/jira/secure/attachment/12976552/PDFBOX-4172-filled.pdf"
+decl_stmt|;
+name|String
+name|targetFileName
+init|=
+literal|"PDFBOX-4172-filled.pdf"
+decl_stmt|;
+name|flattenAndCompare
+argument_list|(
+name|sourceUrl
+argument_list|,
+name|targetFileName
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * PDFBOX-4615 Filled template.      */
+comment|// @Test
+specifier|public
+name|void
+name|testFlattenPDFBox4615
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|sourceUrl
+init|=
+literal|"https://issues.apache.org/jira/secure/attachment/12976452/resetboundingbox-filled.pdf"
+decl_stmt|;
+name|String
+name|targetFileName
+init|=
+literal|"PDFBOX-4615-filled.pdf"
+decl_stmt|;
+name|flattenAndCompare
+argument_list|(
+name|sourceUrl
+argument_list|,
+name|targetFileName
+argument_list|)
+expr_stmt|;
+block|}
 comment|/* 	 * Flatten and compare with generated image samples. 	 */
 specifier|private
 specifier|static
