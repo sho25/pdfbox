@@ -100,6 +100,21 @@ operator|.
 name|getHorizontalHeader
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|hHeader
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Could not get hhea table"
+argument_list|)
+throw|;
+block|}
 name|numHMetrics
 operator|=
 name|hHeader

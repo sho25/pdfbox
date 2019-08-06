@@ -100,6 +100,21 @@ operator|.
 name|getVerticalHeader
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|vHeader
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Could not get vhea table"
+argument_list|)
+throw|;
+block|}
 name|numVMetrics
 operator|=
 name|vHeader

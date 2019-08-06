@@ -102,6 +102,21 @@ operator|.
 name|getHeader
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|head
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Could not get head table"
+argument_list|)
+throw|;
+block|}
 name|int
 name|numGlyphs
 init|=
