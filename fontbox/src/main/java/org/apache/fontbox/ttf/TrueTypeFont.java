@@ -536,7 +536,7 @@ return|return
 name|ttfTable
 return|;
 block|}
-comment|/**      * This will get the naming table for the true type font.      *       * @return The naming table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * This will get the naming table for the true type font.      *       * @return The naming table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|NamingTable
 name|getNaming
@@ -556,7 +556,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the postscript table for this TTF.      *       * @return The postscript table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the postscript table for this TTF.      *       * @return The postscript table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|PostScriptTable
 name|getPostScript
@@ -576,7 +576,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the OS/2 table for this TTF.      *       * @return The OS/2 table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the OS/2 table for this TTF.      *       * @return The OS/2 table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|OS2WindowsMetricsTable
 name|getOS2Windows
@@ -596,7 +596,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the maxp table for this TTF.      *       * @return The maxp table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the maxp table for this TTF.      *       * @return The maxp table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|MaximumProfileTable
 name|getMaximumProfile
@@ -616,7 +616,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the head table for this TTF.      *       * @return The head table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the head table for this TTF.      *       * @return The head table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|HeaderTable
 name|getHeader
@@ -636,7 +636,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the hhea table for this TTF.      *       * @return The hhea table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the hhea table for this TTF.      *       * @return The hhea table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|HorizontalHeaderTable
 name|getHorizontalHeader
@@ -656,7 +656,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the hmtx table for this TTF.      *       * @return The hmtx table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the hmtx table for this TTF.      *       * @return The hmtx table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|HorizontalMetricsTable
 name|getHorizontalMetrics
@@ -676,7 +676,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the loca table for this TTF.      *       * @return The loca table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the loca table for this TTF.      *       * @return The loca table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|IndexToLocationTable
 name|getIndexToLocation
@@ -696,7 +696,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the glyf table for this TTF.      *       * @return The glyf table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the glyf table for this TTF.      *       * @return The glyf table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|GlyphTable
 name|getGlyph
@@ -716,7 +716,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the "cmap" table for this TTF.      *       * @return The "cmap" table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the "cmap" table for this TTF.      *       * @return The "cmap" table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|CmapTable
 name|getCmap
@@ -736,7 +736,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the vhea table for this TTF.      *       * @return The vhea table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the vhea table for this TTF.      *       * @return The vhea table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|VerticalHeaderTable
 name|getVerticalHeader
@@ -756,7 +756,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the vmtx table for this TTF.      *       * @return The vmtx table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the vmtx table for this TTF.      *       * @return The vmtx table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|VerticalMetricsTable
 name|getVerticalMetrics
@@ -776,7 +776,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the VORG table for this TTF.      *       * @return The VORG table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the VORG table for this TTF.      *       * @return The VORG table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|VerticalOriginTable
 name|getVerticalOrigin
@@ -796,7 +796,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the "kern" table for this TTF.      *       * @return The "kern" table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the "kern" table for this TTF.      *       * @return The "kern" table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|KerningTable
 name|getKerning
@@ -816,7 +816,7 @@ name|TAG
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the "gsub" table for this TTF.      *      * @return The "gsub" table.      * @throws IOException if there was an error reading the table.      */
+comment|/**      * Get the "gsub" table for this TTF.      *      * @return The "gsub" table or null if it doesn't exist.      * @throws IOException if there was an error reading the table.      */
 specifier|public
 name|GlyphSubstitutionTable
 name|getGsub
