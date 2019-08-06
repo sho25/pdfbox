@@ -1132,6 +1132,13 @@ operator|.
 name|readUnsignedInt
 argument_list|()
 decl_stmt|;
+name|glyphIdToCharacterCode
+operator|=
+name|newGlyphIdToCharacterCode
+argument_list|(
+name|numGlyphs
+argument_list|)
+expr_stmt|;
 name|characterCodeToGlyphId
 operator|=
 operator|new
