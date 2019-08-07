@@ -193,7 +193,6 @@ init|=
 literal|0
 decl_stmt|;
 comment|/**      * Constructor.      *       * @param bais the stream to be read      * @throws IOException is thrown if something went wrong      */
-specifier|protected
 name|GlyfCompositeComp
 parameter_list|(
 name|TTFDataStream

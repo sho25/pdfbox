@@ -231,7 +231,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * This will read the required data from the stream.      *       * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
-specifier|public
 name|void
 name|initData
 parameter_list|(
@@ -264,7 +263,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * This will read the required data from the stream.      *       * @param cmap the CMAP this encoding belongs to.      * @param numGlyphs number of glyphs.      * @param data The stream to read the data from.      * @throws IOException If there is an error reading the data.      */
-specifier|public
 name|void
 name|initSubtable
 parameter_list|(
@@ -466,7 +464,6 @@ throw|;
 block|}
 block|}
 comment|/**      * Reads a format 8 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
-specifier|protected
 name|void
 name|processSubtype8
 parameter_list|(
@@ -787,7 +784,6 @@ block|}
 block|}
 block|}
 comment|/**      * Reads a format 10 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
-specifier|protected
 name|void
 name|processSubtype10
 parameter_list|(
@@ -880,7 +876,6 @@ throw|;
 block|}
 block|}
 comment|/**      * Reads a format 12 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
-specifier|protected
 name|void
 name|processSubtype12
 parameter_list|(
@@ -1111,7 +1106,6 @@ block|}
 block|}
 block|}
 comment|/**      * Reads a format 13 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
-specifier|protected
 name|void
 name|processSubtype13
 parameter_list|(
@@ -1360,7 +1354,6 @@ block|}
 block|}
 block|}
 comment|/**      * Reads a format 14 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
-specifier|protected
 name|void
 name|processSubtype14
 parameter_list|(
@@ -1384,7 +1377,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Reads a format 6 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
-specifier|protected
 name|void
 name|processSubtype6
 parameter_list|(
@@ -1499,7 +1491,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Reads a format 4 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
-specifier|protected
 name|void
 name|processSubtype4
 parameter_list|(
@@ -1996,7 +1987,6 @@ block|}
 block|}
 block|}
 comment|/**      * Read a format 2 subtable.      *       * @param data the data stream of the to be parsed ttf font      * @param numGlyphs number of glyphs to be read      * @throws IOException If there is an error parsing the true type font.      */
-specifier|protected
 name|void
 name|processSubtype2
 parameter_list|(
@@ -2371,7 +2361,6 @@ block|}
 block|}
 block|}
 comment|/**      * Initialize the CMapEntry when it is a subtype 0.      *       * @param data the data stream of the to be parsed ttf font      * @throws IOException If there is an error parsing the true type font.      */
-specifier|protected
 name|void
 name|processSubtype0
 parameter_list|(

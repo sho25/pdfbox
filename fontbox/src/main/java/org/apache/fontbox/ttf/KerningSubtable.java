@@ -186,7 +186,6 @@ name|KerningSubtable
 parameter_list|()
 block|{     }
 comment|/**      * This will read the required data from the stream.      *       * @param data The stream to read the data from.      * @param version The version of the table to be read      * @throws IOException If there is an error reading the data.      */
-specifier|public
 name|void
 name|read
 parameter_list|(

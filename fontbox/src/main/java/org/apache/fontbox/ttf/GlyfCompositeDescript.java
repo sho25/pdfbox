@@ -181,7 +181,6 @@ operator|-
 literal|1
 decl_stmt|;
 comment|/**      * Constructor.      *       * @param bais the stream to be read      * @param glyphTable the Glyphtable containing all glyphs      * @throws IOException is thrown if something went wrong      */
-specifier|public
 name|GlyfCompositeDescript
 parameter_list|(
 name|TTFDataStream

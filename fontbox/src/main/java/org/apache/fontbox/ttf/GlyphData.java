@@ -93,7 +93,6 @@ init|=
 literal|null
 decl_stmt|;
 comment|/**      * This will read the required data from the stream.      *       * @param glyphTable The glyph table this glyph belongs to.      * @param data The stream to read the data from.      * @param leftSideBearing The left side bearing for this glyph.      * @throws IOException If there is an error reading the data.      */
-specifier|public
 name|void
 name|initData
 parameter_list|(

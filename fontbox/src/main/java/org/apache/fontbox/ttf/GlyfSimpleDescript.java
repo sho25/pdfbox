@@ -106,7 +106,6 @@ name|int
 name|pointCount
 decl_stmt|;
 comment|/**      * Constructor.      *       * @param numberOfContours number of contours      * @param bais the stream to be read      * @param x0 the initial X-position      * @throws IOException is thrown if something went wrong      */
-specifier|public
 name|GlyfSimpleDescript
 parameter_list|(
 name|short

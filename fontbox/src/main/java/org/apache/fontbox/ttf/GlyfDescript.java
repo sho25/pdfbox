@@ -103,7 +103,6 @@ name|int
 name|contourCount
 decl_stmt|;
 comment|/**      * Constructor.      *       * @param numberOfContours the number of contours      * @param bais the stream to be read      * @throws IOException is thrown if something went wrong      */
-specifier|protected
 name|GlyfDescript
 parameter_list|(
 name|short
@@ -152,7 +151,6 @@ name|instructions
 return|;
 block|}
 comment|/**      * Read the hinting instructions.      * @param bais the stream to be read      * @param count the number of instructions to be read       * @throws IOException is thrown if something went wrong      */
-specifier|protected
 name|void
 name|readInstructions
 parameter_list|(
