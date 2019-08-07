@@ -382,6 +382,8 @@ argument_list|(
 name|page
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|PDDocument
 name|template
 init|=
@@ -389,7 +391,8 @@ name|pdfStructure
 operator|.
 name|getTemplate
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 comment|//create /AcroForm
 name|pdfBuilder
 operator|.
@@ -775,16 +778,11 @@ name|available
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we must close the document
-name|template
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 comment|// return result of the stream
 return|return
 name|in
 return|;
+block|}
 block|}
 specifier|private
 name|InputStream
