@@ -781,6 +781,8 @@ name|document
 argument_list|)
 decl_stmt|;
 comment|// save the pre-append graphics state
+try|try
+init|(
 name|OutputStream
 name|prefixOut
 init|=
@@ -788,7 +790,8 @@ name|prefixStream
 operator|.
 name|createOutputStream
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|prefixOut
 operator|.
 name|write
@@ -810,11 +813,7 @@ argument_list|(
 literal|'\n'
 argument_list|)
 expr_stmt|;
-name|prefixOut
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 comment|// insert the new stream at the beginning
 name|array
 operator|.
