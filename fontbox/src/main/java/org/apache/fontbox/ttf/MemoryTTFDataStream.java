@@ -457,7 +457,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{     }
-comment|/**      * Seek into the datasource.      *       * @param pos The position to seek to.      * @throws IOException If there is an error seeking to that position.      */
+comment|/**      * Seek into the datasource.      *      * @param pos The position to seek to.      * @throws IOException If the seek position is negative or larger than MAXINT.      */
 annotation|@
 name|Override
 specifier|public
@@ -470,6 +470,29 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|pos
+argument_list|<
+literal|0
+operator|||
+name|pos
+argument_list|>
+name|Integer
+operator|.
+name|MAX_VALUE
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Illegal seek position: "
+operator|+
+name|pos
+argument_list|)
+throw|;
+block|}
 name|currentPosition
 operator|=
 operator|(
