@@ -465,6 +465,10 @@ decl_stmt|;
 if|if
 condition|(
 name|index
+operator|>=
+literal|0
+operator|&&
+name|index
 operator|<
 name|WGL4Names
 operator|.
