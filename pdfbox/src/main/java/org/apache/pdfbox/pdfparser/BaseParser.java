@@ -560,7 +560,6 @@ init|=
 literal|32
 decl_stmt|;
 comment|/**      * This is the stream that will be read from.      */
-specifier|protected
 specifier|final
 name|SequentialSource
 name|seqSource
@@ -571,7 +570,6 @@ name|COSDocument
 name|document
 decl_stmt|;
 comment|/**      * Default constructor.      */
-specifier|public
 name|BaseParser
 parameter_list|(
 name|SequentialSource
