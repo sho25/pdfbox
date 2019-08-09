@@ -528,6 +528,22 @@ argument_list|(
 name|numGlyphs
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|numGlyphs
+operator|==
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"subtable has no glyphs"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// -- Read all sub header
 for|for
 control|(
@@ -912,6 +928,22 @@ argument_list|(
 name|numGlyphs
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|numGlyphs
+operator|==
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"subtable has no glyphs"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 for|for
 control|(
 name|long
@@ -1142,6 +1174,22 @@ argument_list|(
 name|numGlyphs
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|numGlyphs
+operator|==
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"subtable has no glyphs"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 for|for
 control|(
 name|long
@@ -2173,6 +2221,22 @@ argument_list|(
 name|numGlyphs
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|numGlyphs
+operator|==
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"subtable has no glyphs"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 for|for
 control|(
 name|int
