@@ -647,7 +647,7 @@ operator|)
 name|j
 operator|/
 literal|8
-operator|==
+operator|>=
 name|is32
 operator|.
 name|length
