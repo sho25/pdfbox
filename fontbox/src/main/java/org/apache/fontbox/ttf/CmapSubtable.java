@@ -633,7 +633,33 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"[Sub Format 8] Invalid Character code"
+literal|"[Sub Format 8] Invalid character code "
+operator|+
+name|j
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+operator|(
+name|int
+operator|)
+name|j
+operator|/
+literal|8
+operator|==
+name|is32
+operator|.
+name|length
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"[Sub Format 8] Invalid character code "
+operator|+
+name|j
 argument_list|)
 throw|;
 block|}
@@ -730,7 +756,9 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"[Sub Format 8] Invalid Character code"
+literal|"[Sub Format 8] Invalid character code "
+operator|+
+name|codepoint
 argument_list|)
 throw|;
 block|}
