@@ -215,16 +215,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Vector
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -8105,7 +8095,7 @@ comment|// a pdf may contain more than one xref entry
 name|bfSearchXRefTablesOffsets
 operator|=
 operator|new
-name|Vector
+name|ArrayList
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -8218,7 +8208,7 @@ comment|// a pdf may contain more than one /XRef entry
 name|bfSearchXRefStreamsOffsets
 operator|=
 operator|new
-name|Vector
+name|ArrayList
 argument_list|<>
 argument_list|()
 expr_stmt|;
