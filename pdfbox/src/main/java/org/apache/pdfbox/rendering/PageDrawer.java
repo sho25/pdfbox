@@ -6347,11 +6347,14 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// TODO: Improve memory consumption by passing a ScratchFile
 name|annotation
 operator|.
 name|constructAppearances
-argument_list|()
+argument_list|(
+name|renderer
+operator|.
+name|document
+argument_list|)
 expr_stmt|;
 block|}
 if|if
