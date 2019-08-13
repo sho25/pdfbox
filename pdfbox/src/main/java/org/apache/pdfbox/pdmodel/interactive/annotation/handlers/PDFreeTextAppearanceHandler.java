@@ -529,7 +529,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|".*color\\:\\#([0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]).*"
+literal|".*color\\:\\s*\\#([0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]).*"
 argument_list|)
 decl_stmt|;
 specifier|public
