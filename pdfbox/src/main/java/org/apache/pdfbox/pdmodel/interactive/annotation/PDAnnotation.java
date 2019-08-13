@@ -161,6 +161,20 @@ name|pdfbox
 operator|.
 name|pdmodel
 operator|.
+name|PDDocument
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
 name|PDPage
 import|;
 end_import
@@ -2385,6 +2399,15 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Create the appearance entry for this annotation. Not having it may prevent display in some      * viewers. This method is for overriding in subclasses, the default implementation does      * nothing.      *       * @param document      */
+specifier|public
+name|void
+name|constructAppearances
+parameter_list|(
+name|PDDocument
+name|document
+parameter_list|)
+block|{     }
 comment|/**      * Create the appearance entry for this annotation. Not having it may prevent display in some      * viewers. This method is for overriding in subclasses, the default implementation does      * nothing.      *       */
 specifier|public
 name|void
