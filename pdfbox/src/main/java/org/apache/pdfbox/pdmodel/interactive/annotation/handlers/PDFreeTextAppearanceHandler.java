@@ -519,6 +519,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+specifier|private
+specifier|static
 specifier|final
 name|Pattern
 name|COLOR_PATTERN
