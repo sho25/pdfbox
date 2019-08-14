@@ -2066,7 +2066,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will get the default resources for the AcroForm.      *      * @return The default resources or null if their is none.      */
+comment|/**      * This will get the default resources for the AcroForm.      *      * @return The default resources or null if there is none.      */
 specifier|public
 name|PDResources
 name|getDefaultResources
