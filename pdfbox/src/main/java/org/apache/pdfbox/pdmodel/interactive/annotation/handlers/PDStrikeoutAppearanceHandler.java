@@ -143,6 +143,20 @@ name|PDAppearanceContentStream
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdmodel
+operator|.
+name|PDDocument
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -179,6 +193,24 @@ block|{
 name|super
 argument_list|(
 name|annotation
+argument_list|)
+expr_stmt|;
+block|}
+specifier|public
+name|PDStrikeoutAppearanceHandler
+parameter_list|(
+name|PDAnnotation
+name|annotation
+parameter_list|,
+name|PDDocument
+name|document
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|annotation
+argument_list|,
+name|document
 argument_list|)
 expr_stmt|;
 block|}
