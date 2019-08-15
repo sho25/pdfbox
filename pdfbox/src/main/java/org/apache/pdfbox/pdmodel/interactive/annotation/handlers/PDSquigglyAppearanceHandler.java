@@ -864,8 +864,7 @@ init|=
 operator|new
 name|PDFormXObject
 argument_list|(
-operator|new
-name|COSStream
+name|createCOSStream
 argument_list|()
 argument_list|)
 decl_stmt|;
