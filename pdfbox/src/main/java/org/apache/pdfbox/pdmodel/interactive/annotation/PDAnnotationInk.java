@@ -456,6 +456,8 @@ operator|new
 name|PDInkAppearanceHandler
 argument_list|(
 name|this
+argument_list|,
+name|document
 argument_list|)
 decl_stmt|;
 name|appearanceHandler

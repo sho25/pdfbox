@@ -723,6 +723,8 @@ operator|new
 name|PDLinkAppearanceHandler
 argument_list|(
 name|this
+argument_list|,
+name|document
 argument_list|)
 decl_stmt|;
 name|appearanceHandler
