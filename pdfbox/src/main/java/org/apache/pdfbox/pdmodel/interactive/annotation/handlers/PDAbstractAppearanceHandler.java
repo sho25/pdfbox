@@ -468,8 +468,8 @@ argument_list|()
 return|;
 block|}
 specifier|protected
-name|COSDictionary
-name|getDictionary
+name|COSStream
+name|createCOSStream
 parameter_list|()
 block|{
 return|return
@@ -599,7 +599,7 @@ operator|=
 operator|new
 name|PDAppearanceEntry
 argument_list|(
-name|getDictionary
+name|createCOSStream
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -647,7 +647,7 @@ operator|=
 operator|new
 name|PDAppearanceEntry
 argument_list|(
-name|getDictionary
+name|createCOSStream
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2057,7 +2057,7 @@ operator|=
 operator|new
 name|PDAppearanceEntry
 argument_list|(
-name|getDictionary
+name|createCOSStream
 argument_list|()
 argument_list|)
 expr_stmt|;
