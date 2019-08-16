@@ -1298,6 +1298,16 @@ name|getNormalAppearanceStream
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+name|annotation
+operator|.
+name|getNormalAppearanceStream
+argument_list|()
+operator|.
+name|getBBox
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|contentStream
