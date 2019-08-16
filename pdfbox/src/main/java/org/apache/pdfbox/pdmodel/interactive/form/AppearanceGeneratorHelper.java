@@ -919,6 +919,16 @@ name|appearance
 operator|.
 name|isStream
 argument_list|()
+operator|&&
+name|appearance
+operator|.
+name|getAppearanceStream
+argument_list|()
+operator|.
+name|getBBox
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|appearanceStream
