@@ -74,7 +74,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Khyrul Bashar  * A class that provieds tooltip text for font. This shows the name of the font.  */
+comment|/**  * @author Khyrul Bashar  * A class that provides tooltip text for font. This shows the name of the font.  */
 end_comment
 
 begin_class
