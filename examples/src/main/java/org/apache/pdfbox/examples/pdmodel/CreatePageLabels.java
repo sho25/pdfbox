@@ -96,6 +96,11 @@ specifier|public
 class|class
 name|CreatePageLabels
 block|{
+comment|/**      * Constructor.      */
+specifier|private
+name|CreatePageLabels
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|void
