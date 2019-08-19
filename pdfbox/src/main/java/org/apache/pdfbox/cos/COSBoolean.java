@@ -68,7 +68,7 @@ block|,
 literal|101
 block|}
 decl_stmt|;
-comment|//"true".getBytes( "ISO-8859-1" );
+comment|// "true".getBytes("ISO-8859-1")
 comment|/**      * The false boolean token.      */
 specifier|public
 specifier|static
@@ -92,7 +92,7 @@ block|,
 literal|101
 block|}
 decl_stmt|;
-comment|//"false".getBytes( "ISO-8859-1" );
+comment|// "false".getBytes("ISO-8859-1")
 comment|/**      * The PDF true value.      */
 specifier|public
 specifier|static
@@ -154,7 +154,6 @@ name|getValueAsObject
 parameter_list|()
 block|{
 return|return
-operator|(
 name|value
 condition|?
 name|Boolean
@@ -164,7 +163,6 @@ else|:
 name|Boolean
 operator|.
 name|FALSE
-operator|)
 return|;
 block|}
 comment|/**      * This will get the boolean value.      *      * @param value Parameter telling which boolean value to get.      *      * @return The single boolean instance that matches the parameter.      */
@@ -178,13 +176,11 @@ name|value
 parameter_list|)
 block|{
 return|return
-operator|(
 name|value
 condition|?
 name|TRUE
 else|:
 name|FALSE
-operator|)
 return|;
 block|}
 comment|/**      * This will get the boolean value.      *      * @param value Parameter telling which boolean value to get.      *      * @return The single boolean instance that matches the parameter.      */
