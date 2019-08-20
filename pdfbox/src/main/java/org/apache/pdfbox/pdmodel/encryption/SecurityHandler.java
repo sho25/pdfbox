@@ -630,8 +630,6 @@ name|DecryptionMaterial
 name|decryptionMaterial
 parameter_list|)
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 function_decl|;
 comment|/**      * Encrypt or decrypt a set of data.      *      * @param objectNumber The data object number.      * @param genNumber The data generation number.      * @param data The data to encrypt.      * @param output The output to write the encrypted data to.      * @param decrypt true to decrypt the data, false to encrypt it.      *      * @throws IOException If there is an error reading the data.      */

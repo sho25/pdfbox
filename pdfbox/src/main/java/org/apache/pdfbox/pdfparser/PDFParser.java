@@ -510,8 +510,6 @@ name|void
 name|initialParse
 parameter_list|()
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 name|COSDictionary
@@ -656,8 +654,6 @@ name|void
 name|parse
 parameter_list|()
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 comment|// set to false if all is processed

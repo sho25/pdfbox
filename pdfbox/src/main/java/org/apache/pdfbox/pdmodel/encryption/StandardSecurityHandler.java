@@ -674,8 +674,6 @@ name|DecryptionMaterial
 name|decryptionMaterial
 parameter_list|)
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 if|if

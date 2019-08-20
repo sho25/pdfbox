@@ -3331,8 +3331,6 @@ name|File
 name|file
 parameter_list|)
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 return|return
@@ -3362,8 +3360,6 @@ name|MemoryUsageSetting
 name|memUsageSetting
 parameter_list|)
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 return|return
@@ -3394,8 +3390,6 @@ name|String
 name|password
 parameter_list|)
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 return|return
@@ -3432,8 +3426,6 @@ name|MemoryUsageSetting
 name|memUsageSetting
 parameter_list|)
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 return|return
@@ -3611,8 +3603,6 @@ name|InputStream
 name|input
 parameter_list|)
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 return|return
@@ -3646,8 +3636,6 @@ name|MemoryUsageSetting
 name|memUsageSetting
 parameter_list|)
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 return|return
@@ -3678,8 +3666,6 @@ name|String
 name|password
 parameter_list|)
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 return|return
@@ -3755,8 +3741,6 @@ name|MemoryUsageSetting
 name|memUsageSetting
 parameter_list|)
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 return|return
@@ -3877,8 +3861,6 @@ index|[]
 name|input
 parameter_list|)
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 return|return
@@ -3904,8 +3886,6 @@ name|String
 name|password
 parameter_list|)
 throws|throws
-name|InvalidPasswordException
-throws|,
 name|IOException
 block|{
 return|return
