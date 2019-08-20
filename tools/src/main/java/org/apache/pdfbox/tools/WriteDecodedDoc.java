@@ -415,6 +415,13 @@ operator|new
 name|WriteDecodedDoc
 argument_list|()
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S2068"
+block|}
+argument_list|)
 name|String
 name|password
 init|=

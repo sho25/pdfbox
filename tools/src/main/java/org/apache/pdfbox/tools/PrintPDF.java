@@ -255,6 +255,13 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S2068"
+block|}
+argument_list|)
 name|String
 name|password
 init|=
