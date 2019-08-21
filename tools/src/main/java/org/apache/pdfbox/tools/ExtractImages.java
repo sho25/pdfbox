@@ -501,6 +501,13 @@ specifier|final
 class|class
 name|ExtractImages
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S2068"
+block|}
+argument_list|)
 specifier|private
 specifier|static
 specifier|final
