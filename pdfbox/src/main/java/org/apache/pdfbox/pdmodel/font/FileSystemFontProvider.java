@@ -923,6 +923,13 @@ literal|".ttc"
 argument_list|)
 condition|)
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"squid:S2095"
+argument_list|)
+comment|// ttc not closed here because it is needed later when ttf is accessed,
+comment|// e.g. rendering PDF with non-embedded font which is in ttc file in our font directory
 name|TrueTypeCollection
 name|ttc
 init|=
