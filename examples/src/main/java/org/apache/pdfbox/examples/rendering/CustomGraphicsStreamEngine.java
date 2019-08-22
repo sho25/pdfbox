@@ -224,6 +224,20 @@ name|CustomGraphicsStreamEngine
 extends|extends
 name|PDFGraphicsStreamEngine
 block|{
+comment|/**      * Constructor.      *      * @param page PDF Page      */
+specifier|protected
+name|CustomGraphicsStreamEngine
+parameter_list|(
+name|PDPage
+name|page
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|page
+argument_list|)
+expr_stmt|;
+block|}
 specifier|public
 specifier|static
 name|void
@@ -285,20 +299,6 @@ name|run
 argument_list|()
 expr_stmt|;
 block|}
-block|}
-comment|/**      * Constructor.      *      * @param page PDF Page      */
-specifier|protected
-name|CustomGraphicsStreamEngine
-parameter_list|(
-name|PDPage
-name|page
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|page
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Runs the engine on the current page.      *      * @throws IOException If there is an IO error while drawing the page.      */
 specifier|public
