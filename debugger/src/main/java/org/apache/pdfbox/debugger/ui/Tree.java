@@ -350,6 +350,13 @@ comment|/**  * @author Khyrul Bashar  *  * A customized tree for PDFDebugger.  *
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"serial"
+block|}
+argument_list|)
 specifier|public
 class|class
 name|Tree
@@ -360,11 +367,6 @@ specifier|private
 specifier|final
 name|JPopupMenu
 name|treePopupMenu
-decl_stmt|;
-specifier|private
-specifier|final
-name|Component
-name|parent
 decl_stmt|;
 specifier|private
 specifier|final
@@ -390,14 +392,8 @@ argument_list|(
 name|treePopupMenu
 argument_list|)
 expr_stmt|;
-name|parent
-operator|=
-name|parentComponent
-expr_stmt|;
 name|rootNode
 operator|=
-name|this
-operator|.
 name|getModel
 argument_list|()
 operator|.
@@ -1698,7 +1694,8 @@ init|=
 operator|new
 name|FileOpenSaveDialog
 argument_list|(
-name|parent
+name|getParent
+argument_list|()
 argument_list|,
 name|filter
 argument_list|)
