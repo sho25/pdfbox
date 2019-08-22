@@ -446,6 +446,12 @@ name|XRefType
 name|type
 parameter_list|)
 block|{
+name|curXrefTrailerObj
+operator|=
+operator|new
+name|XrefTrailerObj
+argument_list|()
+expr_stmt|;
 name|bytePosToXrefMap
 operator|.
 name|put
@@ -453,10 +459,6 @@ argument_list|(
 name|startBytePos
 argument_list|,
 name|curXrefTrailerObj
-operator|=
-operator|new
-name|XrefTrailerObj
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|curXrefTrailerObj
