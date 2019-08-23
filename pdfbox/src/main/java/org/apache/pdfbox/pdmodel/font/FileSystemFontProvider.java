@@ -471,7 +471,7 @@ name|File
 name|file
 decl_stmt|;
 specifier|private
-specifier|transient
+specifier|final
 name|FileSystemFontProvider
 name|parent
 decl_stmt|;
