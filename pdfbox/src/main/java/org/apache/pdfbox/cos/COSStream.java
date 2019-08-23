@@ -1039,7 +1039,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * This will return the filters to apply to the byte stream.      * The method will return      * - null if no filters are to be applied      * - a COSName if one filter is to be applied      * - a COSArray containing COSNames if multiple filters are to be applied      *      * @return the COSBase object representing the filters      */
+comment|/**      * This will return the filters to apply to the byte stream.      * The method will return      *<ul>      *<li>null if no filters are to be applied      *<li>a COSName if one filter is to be applied      *<li>a COSArray containing COSNames if multiple filters are to be applied      *</ul>      *      * @return the COSBase object representing the filters      */
 specifier|public
 name|COSBase
 name|getFilters
