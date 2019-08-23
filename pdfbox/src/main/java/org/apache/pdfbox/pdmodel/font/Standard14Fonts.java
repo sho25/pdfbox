@@ -125,10 +125,6 @@ class|class
 name|Standard14Fonts
 block|{
 specifier|private
-name|Standard14Fonts
-parameter_list|()
-block|{     }
-specifier|private
 specifier|static
 specifier|final
 name|Set
@@ -441,6 +437,10 @@ argument_list|)
 throw|;
 block|}
 block|}
+specifier|private
+name|Standard14Fonts
+parameter_list|()
+block|{     }
 specifier|private
 specifier|static
 name|void
