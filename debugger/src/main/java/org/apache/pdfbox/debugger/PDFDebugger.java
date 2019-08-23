@@ -2206,9 +2206,7 @@ name|tree
 operator|=
 operator|new
 name|Tree
-argument_list|(
-name|this
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|jScrollPane2
 operator|=
