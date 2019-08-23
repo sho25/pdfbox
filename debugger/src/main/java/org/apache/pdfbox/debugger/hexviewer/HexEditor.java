@@ -250,6 +250,15 @@ comment|/**  * @author Khyrul Bashar  *  * This class hosts all the UI component
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"serial"
+block|,
+literal|"squid:S1948"
+block|}
+argument_list|)
 class|class
 name|HexEditor
 extends|extends

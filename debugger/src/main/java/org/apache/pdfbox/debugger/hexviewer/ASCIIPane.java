@@ -82,6 +82,15 @@ comment|/**  * @author Khyrul Bashar  *  * This class shows corresponding ASCII 
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"serial"
+block|,
+literal|"squid:S1948"
+block|}
+argument_list|)
 class|class
 name|ASCIIPane
 extends|extends

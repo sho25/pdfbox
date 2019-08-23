@@ -1417,6 +1417,8 @@ block|{
 literal|"serial"
 block|,
 literal|"squid:MaximumInheritanceDepth"
+block|,
+literal|"squid:S1948"
 block|}
 argument_list|)
 specifier|public
@@ -1578,11 +1580,6 @@ specifier|private
 name|RecentFiles
 name|recentFiles
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"squid:S1948"
-argument_list|)
 specifier|private
 name|WindowPrefs
 name|windowPrefs
