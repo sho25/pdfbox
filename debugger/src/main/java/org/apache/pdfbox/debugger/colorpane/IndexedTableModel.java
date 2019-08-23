@@ -48,6 +48,15 @@ comment|/**  * This the table model for showing Indexed color space which extend
 end_comment
 
 begin_class
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"serial"
+block|,
+literal|"squid:S1948"
+block|}
+argument_list|)
 specifier|public
 class|class
 name|IndexedTableModel
