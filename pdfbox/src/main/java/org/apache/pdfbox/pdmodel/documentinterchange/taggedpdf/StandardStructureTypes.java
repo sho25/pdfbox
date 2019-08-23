@@ -126,10 +126,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-specifier|private
-name|StandardStructureTypes
-parameter_list|()
-block|{     }
 comment|// Grouping Elements
 comment|/**      * Document      */
 specifier|public
@@ -669,6 +665,10 @@ name|types
 argument_list|)
 expr_stmt|;
 block|}
+specifier|private
+name|StandardStructureTypes
+parameter_list|()
+block|{     }
 block|}
 end_class
 
