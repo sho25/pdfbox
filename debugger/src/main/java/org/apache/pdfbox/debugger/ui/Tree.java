@@ -373,13 +373,10 @@ specifier|final
 name|Object
 name|rootNode
 decl_stmt|;
-comment|/**      * Constructor.      * @param parentComponent the main UI where the Tree resides.      */
+comment|/**      * Constructor.      */
 specifier|public
 name|Tree
-parameter_list|(
-name|Component
-name|parentComponent
-parameter_list|)
+parameter_list|()
 block|{
 name|treePopupMenu
 operator|=
