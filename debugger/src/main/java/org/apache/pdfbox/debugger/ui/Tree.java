@@ -345,6 +345,8 @@ name|SuppressWarnings
 argument_list|(
 block|{
 literal|"serial"
+block|,
+literal|"squid:S1948"
 block|}
 argument_list|)
 specifier|public
