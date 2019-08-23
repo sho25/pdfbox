@@ -191,16 +191,6 @@ name|java
 operator|.
 name|awt
 operator|.
-name|Component
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
 name|Desktop
 import|;
 end_import
