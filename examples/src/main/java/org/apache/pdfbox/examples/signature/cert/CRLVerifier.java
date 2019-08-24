@@ -1045,6 +1045,13 @@ name|CRLException
 throws|,
 name|CertificateVerificationException
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S1149"
+block|}
+argument_list|)
 name|Hashtable
 argument_list|<
 name|String

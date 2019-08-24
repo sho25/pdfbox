@@ -35,7 +35,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Hashtable
+name|HashMap
 import|;
 end_import
 
@@ -537,7 +537,7 @@ block|}
 block|}
 return|return
 operator|new
-name|Hashtable
+name|HashMap
 argument_list|<>
 argument_list|()
 return|;

@@ -425,6 +425,13 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S1149"
+block|}
+argument_list|)
 name|Dictionary
 argument_list|<
 name|Integer
