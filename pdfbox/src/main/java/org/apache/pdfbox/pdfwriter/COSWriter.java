@@ -1037,6 +1037,13 @@ comment|// maps the object to the keys generated in the writer
 comment|// these are used for indirect references in other objects
 comment|//A hashtable is used on purpose over a hashmap
 comment|//so that null entries will not get added.
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S1149"
+block|}
+argument_list|)
 specifier|private
 specifier|final
 name|Map
