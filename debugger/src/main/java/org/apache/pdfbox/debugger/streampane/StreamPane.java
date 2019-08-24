@@ -2165,12 +2165,15 @@ block|{
 name|String
 name|str
 init|=
-literal|""
-operator|+
+name|Character
+operator|.
+name|toString
+argument_list|(
 operator|(
 name|char
 operator|)
 name|chr
+argument_list|)
 decl_stmt|;
 name|docu
 operator|.
