@@ -530,11 +530,16 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
+operator|(
 name|obj
 operator|instanceof
 name|COSStream
+operator|)
 condition|)
 block|{
+return|return;
+block|}
 name|treePopupMenu
 operator|.
 name|addSeparator
@@ -655,7 +660,6 @@ argument_list|(
 name|open
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/**      * Produce the JMenuItem that gives way to copy tree path string to clipboard      * @param path the TreePath instance      * @return Menu Item      */
@@ -853,13 +857,6 @@ decl_stmt|;
 if|if
 condition|(
 name|filters
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|filters
 operator|instanceof
 name|COSName
 condition|)
@@ -949,7 +946,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
