@@ -1627,7 +1627,6 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-comment|//stripper.setSortByPosition(true);
 name|textDialog
 operator|.
 name|setText
