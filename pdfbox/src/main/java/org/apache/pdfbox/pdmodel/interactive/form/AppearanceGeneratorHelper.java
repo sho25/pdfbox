@@ -534,6 +534,8 @@ expr_stmt|;
 name|validateAndEnsureAcroFormResources
 argument_list|()
 expr_stmt|;
+try|try
+block|{
 name|this
 operator|.
 name|defaultAppearance
@@ -543,6 +545,37 @@ operator|.
 name|getDefaultAppearanceString
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Could not process default appearance string '"
+operator|+
+name|field
+operator|.
+name|getDefaultAppearance
+argument_list|()
+operator|+
+literal|"' for field '"
+operator|+
+name|field
+operator|.
+name|getFullyQualifiedName
+argument_list|()
+operator|+
+literal|"'"
+argument_list|,
+name|ex
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/*      * Adobe Reader/Acrobat are adding resources which are at the field/widget level      * to the AcroForm level.       */
 specifier|private
