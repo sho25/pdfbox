@@ -774,6 +774,25 @@ operator|.
 name|flatten
 argument_list|()
 expr_stmt|;
+comment|// 36 non widget annotations shall not be flattened
+name|assertEquals
+argument_list|(
+literal|36
+argument_list|,
+name|testPdf
+operator|.
+name|getPage
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getAnnotations
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|acroFormToTest
