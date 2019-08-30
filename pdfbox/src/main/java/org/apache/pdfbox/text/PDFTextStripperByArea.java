@@ -203,7 +203,7 @@ name|boolean
 name|aShouldSeparateByBeads
 parameter_list|)
 block|{     }
-comment|/**      * Add a new region to group text by.      *      * @param regionName The name of the region.      * @param rect The rectangle area to retrieve the text from.      */
+comment|/**      * Add a new region to group text by.      *      * @param regionName The name of the region.      * @param rect The rectangle area to retrieve the text from. The y-coordinates are java      * coordinates (y == 0 is top), not PDF coordinates (y == 0 is bottom).      */
 specifier|public
 name|void
 name|addRegion
