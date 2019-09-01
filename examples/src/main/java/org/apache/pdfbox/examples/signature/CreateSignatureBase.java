@@ -524,7 +524,7 @@ operator|=
 name|tsaUrl
 expr_stmt|;
 block|}
-comment|/**      * SignatureInterface implementation.      *      * This method will be called from inside of the pdfbox and create the PKCS #7 signature.      * The given InputStream contains the bytes that are given by the byte range.      *      * This method is for internal use only.      *      * Use your favorite cryptographic library to implement PKCS #7 signature creation.      *      * @throws IOException      */
+comment|/**      * SignatureInterface sample implementation.      *<p>      * This method will be called from inside of the pdfbox and create the PKCS #7 signature.      * The given InputStream contains the bytes that are given by the byte range.      *<p>      * This method is for internal use only.      *<p>      * Use your favorite cryptographic library to implement PKCS #7 signature creation.      * If you want to create the hash and the signature separately (e.g. to transfer only the hash      * to an external application), read<a href="https://stackoverflow.com/questions/41767351">this      * answer</a> or<a href="https://stackoverflow.com/questions/56867465">this answer</a>.      *      * @throws IOException      */
 annotation|@
 name|Override
 specifier|public
