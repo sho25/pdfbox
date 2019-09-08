@@ -832,26 +832,26 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Returns the provided default value in case 'standard' valu      * is<code>null</code>. To be used in cases unboxing may      * lead to a NPE.      *        * @param _value  'standard' value      * @param _default  default value       *       * @return 'standard' value if not<code>null</code>      *         otherwise default value      */
+comment|/**      * Returns the provided default value in case 'standard' value is<code>null</code>. To be used      * in cases unboxing may lead to a NPE.      *      * @param standardValue 'standard' value      * @param defaultValue default value      *      * @return 'standard' value if not<code>null</code> otherwise default value      */
 specifier|private
 name|float
 name|defaultIfNull
 parameter_list|(
 name|Float
-name|_value
+name|standardValue
 parameter_list|,
 name|float
-name|_default
+name|defaultValue
 parameter_list|)
 block|{
 return|return
-name|_value
+name|standardValue
 operator|!=
 literal|null
 condition|?
-name|_value
+name|standardValue
 else|:
-name|_default
+name|defaultValue
 return|;
 block|}
 comment|/**      * This will get the underlying dictionary that this class acts on.      *      * @return The underlying dictionary for this class.      */
