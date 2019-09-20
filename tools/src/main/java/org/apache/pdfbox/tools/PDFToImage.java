@@ -1258,7 +1258,7 @@ literal|"\nOptions:\n"
 operator|+
 literal|"  -password<password>            : Password to decrypt document\n"
 operator|+
-literal|"  -format<string>                 : Image format: "
+literal|"  -format<string>                 : Available image formats: "
 operator|+
 name|getImageFormats
 argument_list|()
@@ -1323,7 +1323,7 @@ name|formats
 init|=
 name|ImageIO
 operator|.
-name|getReaderFormatNames
+name|getWriterFormatNames
 argument_list|()
 decl_stmt|;
 for|for
