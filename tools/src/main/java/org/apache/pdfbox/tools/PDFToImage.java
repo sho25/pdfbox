@@ -400,7 +400,8 @@ decl_stmt|;
 name|float
 name|quality
 init|=
-literal|1.0f
+operator|-
+literal|1
 decl_stmt|;
 name|float
 name|cropBoxLowerLeftX
@@ -841,6 +842,27 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|quality
+operator|<
+literal|0
+condition|)
+block|{
+name|quality
+operator|=
+literal|"png"
+operator|.
+name|equals
+argument_list|(
+name|imageFormat
+argument_list|)
+condition|?
+literal|0f
+else|:
+literal|1f
+expr_stmt|;
+block|}
 try|try
 init|(
 name|PDDocument
@@ -1277,7 +1299,9 @@ literal|"  -color<string>                  : The color depth (valid: bilevel, gr
 operator|+
 literal|"  -dpi<int>                       : The DPI of the output image, default: screen resolution or 96 if unknown\n"
 operator|+
-literal|"  -quality<float>                 : The quality to be used when compressing the image (0< quality<= 1 (default))\n"
+literal|"  -quality<float>                 : The quality to be used when compressing the image (0<= quality<= 1)\n"
+operator|+
+literal|"                                     (default: 0 for PNG and 1 for the other formats)\n"
 operator|+
 literal|"  -cropbox<int><int><int><int> : The page area to export\n"
 operator|+
