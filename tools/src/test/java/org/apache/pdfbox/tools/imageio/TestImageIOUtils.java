@@ -651,11 +651,6 @@ name|document
 init|=
 literal|null
 decl_stmt|;
-name|String
-name|imageType
-init|=
-literal|"png"
-decl_stmt|;
 name|LOG
 operator|.
 name|info
@@ -700,6 +695,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// testing PNG
+name|String
+name|imageType
+init|=
+literal|"png"
+decl_stmt|;
 name|writeImage
 argument_list|(
 name|document
@@ -721,7 +721,7 @@ name|RGB
 argument_list|,
 name|dpi
 argument_list|,
-literal|1
+literal|0
 argument_list|,
 literal|""
 argument_list|)
