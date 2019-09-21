@@ -257,7 +257,7 @@ specifier|private
 name|ImageIOUtil
 parameter_list|()
 block|{     }
-comment|/**      * Writes a buffered image to a file using the given image format. See           * {@link #writeImage(BufferedImage image, String formatName,       * OutputStream output, int dpi, float compressionQuality)} for more details.      *      * @param image the image to be written      * @param filename used to construct the filename for the individual image.      * Its suffix will be used as the image format.      * @param dpi the resolution in dpi (dots per inch) to be used in metadata      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      */
+comment|/**      * Writes a buffered image to a file using the given image format. The compression is set for      * maximum compression for PNG and maximum quality for all other file formats. See      * {@link #writeImage(BufferedImage image, String formatName, OutputStream output, int dpi, float compressionQuality)}      * for more details.      *      * @param image the image to be written      * @param filename used to construct the filename for the individual image.      * Its suffix will be used as the image format.      * @param dpi the resolution in dpi (dots per inch) to be used in metadata      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      */
 specifier|public
 specifier|static
 name|boolean
@@ -456,7 +456,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Writes a buffered image to a file using the given image format. See            * {@link #writeImage(BufferedImage image, String formatName,       * OutputStream output, int dpi, float compressionQuality)} for more details.      *      * @param image the image to be written      * @param formatName the target format (ex. "png")      * @param output the output stream to be used for writing      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      */
+comment|/**      * Writes a buffered image to a file using the given image format. The compression is set for      * maximum compression for PNG and maximum quality for all other file formats. See      * {@link #writeImage(BufferedImage image, String formatName, OutputStream output, int dpi, float compressionQuality)}      * for more details.      *      * @param image the image to be written      * @param formatName the target format (ex. "png")      * @param output the output stream to be used for writing      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      */
 specifier|public
 specifier|static
 name|boolean
@@ -487,7 +487,7 @@ literal|72
 argument_list|)
 return|;
 block|}
-comment|/**      * Writes a buffered image to a file using the given image format. See            * {@link #writeImage(BufferedImage image, String formatName,       * OutputStream output, int dpi, float compressionQuality)} for more details.      *      * @param image the image to be written      * @param formatName the target format (ex. "png")      * @param output the output stream to be used for writing      * @param dpi the resolution in dpi (dots per inch) to be used in metadata      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      */
+comment|/**      * Writes a buffered image to a file using the given image format. The compression is set for      * maximum compression for PNG and maximum quality for all other file formats. See      * {@link #writeImage(BufferedImage image, String formatName, OutputStream output, int dpi, float compressionQuality)}      * for more details.      *      * @param image the image to be written      * @param formatName the target format (ex. "png")      * @param output the output stream to be used for writing      * @param dpi the resolution in dpi (dots per inch) to be used in metadata      * @return true if the image file was produced, false if there was an error.      * @throws IOException if an I/O error occurs      */
 specifier|public
 specifier|static
 name|boolean
