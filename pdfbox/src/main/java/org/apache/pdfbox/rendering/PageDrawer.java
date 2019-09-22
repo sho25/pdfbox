@@ -4554,15 +4554,9 @@ argument_list|)
 decl_stmt|;
 comment|// if the image is scaled down, we use smooth interpolation, eg PDFBOX-2364
 comment|// only when scaled up do we use nearest neighbour, eg PDFBOX-2302 / mori-cvpr01.pdf
-comment|// stencils are excluded from this rule (see survey.pdf)
 if|if
 condition|(
 name|isScaledUp
-operator|||
-name|pdImage
-operator|.
-name|isStencil
-argument_list|()
 condition|)
 block|{
 name|graphics
