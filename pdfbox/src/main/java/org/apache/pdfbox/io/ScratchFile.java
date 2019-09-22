@@ -1256,8 +1256,6 @@ index|]
 decl_stmt|;
 name|int
 name|bytesRead
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
