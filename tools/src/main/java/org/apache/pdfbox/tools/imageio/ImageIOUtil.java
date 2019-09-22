@@ -301,12 +301,9 @@ if|if
 condition|(
 literal|"png"
 operator|.
-name|equals
+name|equalsIgnoreCase
 argument_list|(
 name|formatName
-operator|.
-name|toLowerCase
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -517,12 +514,9 @@ if|if
 condition|(
 literal|"png"
 operator|.
-name|equals
+name|equalsIgnoreCase
 argument_list|(
 name|formatName
-operator|.
-name|toLowerCase
-argument_list|()
 argument_list|)
 condition|)
 block|{
