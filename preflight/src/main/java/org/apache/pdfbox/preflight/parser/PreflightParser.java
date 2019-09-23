@@ -974,7 +974,7 @@ name|scratch
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor. This one is slower than the file and the filename constructors, because      * a temporary file will be created.      *      * @param dataSource the datasource      * @throws IOException if there is a reading error.      */
+comment|/**      * Constructor. This one is slower than the file and the filename constructors, because      * a temporary file will be created.      *      * @param source      * @throws IOException if there is a reading error.      */
 specifier|public
 name|PreflightParser
 parameter_list|(
@@ -998,7 +998,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor. This one is slower than the file and the filename constructors, because      * a temporary file will be created.      *      * @param dataSource the datasource      * @param scratch      * @throws IOException if there is a reading error.      */
+comment|/**      * Constructor. This one is slower than the file and the filename constructors, because      * a temporary file will be created.      *      * @param source      * @param scratch      * @throws IOException if there is a reading error.      */
 specifier|public
 name|PreflightParser
 parameter_list|(
