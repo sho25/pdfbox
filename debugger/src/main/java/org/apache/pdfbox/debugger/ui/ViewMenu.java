@@ -31,18 +31,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|event
-operator|.
-name|ActionListener
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|swing
@@ -431,19 +419,8 @@ name|viewModeItem
 operator|.
 name|addActionListener
 argument_list|(
-operator|new
-name|ActionListener
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|actionPerformed
-parameter_list|(
-name|ActionEvent
 name|actionEvent
-parameter_list|)
+lambda|->
 block|{
 if|if
 condition|(
@@ -498,7 +475,6 @@ operator|.
 name|initTree
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 argument_list|)

@@ -23,16 +23,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -105,11 +95,7 @@ comment|/**      * Default Constructor.      */
 specifier|public
 name|PDOutlineNode
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * @param dict The dictionary storage.      */
 specifier|public
 name|PDOutlineNode
@@ -767,33 +753,14 @@ name|children
 parameter_list|()
 block|{
 return|return
-operator|new
-name|Iterable
-argument_list|<
-name|PDOutlineItem
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|Iterator
-argument_list|<
-name|PDOutlineItem
-argument_list|>
-name|iterator
 parameter_list|()
-block|{
-return|return
+lambda|->
 operator|new
 name|PDOutlineItemIterator
 argument_list|(
 name|getFirstChild
 argument_list|()
 argument_list|)
-return|;
-block|}
-block|}
 return|;
 block|}
 block|}
