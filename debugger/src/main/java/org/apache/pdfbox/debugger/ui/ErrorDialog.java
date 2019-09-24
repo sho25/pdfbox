@@ -1317,14 +1317,9 @@ argument_list|()
 operator|.
 name|anyMatch
 argument_list|(
-name|s
-lambda|->
 name|className
-operator|.
+operator|::
 name|startsWith
-argument_list|(
-name|s
-argument_list|)
 argument_list|)
 return|;
 block|}

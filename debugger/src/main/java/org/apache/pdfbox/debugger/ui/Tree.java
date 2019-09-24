@@ -583,14 +583,9 @@ argument_list|)
 operator|.
 name|forEach
 argument_list|(
-name|menuItem
-lambda|->
 name|treePopupMenu
-operator|.
+operator|::
 name|add
-argument_list|(
-name|menuItem
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
