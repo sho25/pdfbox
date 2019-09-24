@@ -40,6 +40,8 @@ comment|/**  * A Handler for CharStringCommands.  *  * @author Villu Ruusmann  *
 end_comment
 
 begin_interface
+annotation|@
+name|FunctionalInterface
 specifier|public
 interface|interface
 name|CharStringHandler
