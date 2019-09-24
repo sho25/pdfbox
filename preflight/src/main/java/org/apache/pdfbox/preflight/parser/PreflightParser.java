@@ -3936,16 +3936,15 @@ name|parse
 argument_list|()
 expr_stmt|;
 comment|// register all objects which are referenced to be contained in object stream
-for|for
-control|(
-name|COSObject
-name|next
-range|:
 name|parser
 operator|.
 name|getObjects
 argument_list|()
-control|)
+operator|.
+name|forEach
+argument_list|(
+name|next
+lambda|->
 block|{
 name|COSObjectKey
 name|stmObjKey
@@ -4003,6 +4002,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
