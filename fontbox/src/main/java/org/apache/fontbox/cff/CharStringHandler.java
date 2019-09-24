@@ -39,14 +39,13 @@ begin_comment
 comment|/**  * A Handler for CharStringCommands.  *  * @author Villu Ruusmann  * @author John Hewson  *   */
 end_comment
 
-begin_class
+begin_interface
 specifier|public
-specifier|abstract
-class|class
+interface|interface
 name|CharStringHandler
 block|{
 comment|/**      * Handler for a sequence of CharStringCommands.      *      * @param sequence of CharStringCommands      *      */
-specifier|public
+specifier|default
 name|List
 argument_list|<
 name|Number
@@ -71,13 +70,12 @@ name|Stack
 argument_list|<>
 argument_list|()
 decl_stmt|;
-for|for
-control|(
-name|Object
-name|obj
-range|:
 name|sequence
-control|)
+operator|.
+name|forEach
+argument_list|(
+name|obj
+lambda|->
 block|{
 if|if
 condition|(
@@ -130,6 +128,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+argument_list|)
+expr_stmt|;
 return|return
 name|stack
 return|;
@@ -154,7 +154,7 @@ name|command
 parameter_list|)
 function_decl|;
 block|}
-end_class
+end_interface
 
 end_unit
 
