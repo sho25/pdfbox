@@ -1272,25 +1272,9 @@ specifier|private
 name|AnnotationFilter
 name|annotationFilter
 init|=
-operator|new
-name|AnnotationFilter
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|accept
-parameter_list|(
-name|PDAnnotation
 name|annotation
-parameter_list|)
-block|{
-return|return
+lambda|->
 literal|true
-return|;
-block|}
-block|}
 decl_stmt|;
 comment|/**      * Constructor.      *      * @param parameters Parameters for page drawing.      * @throws IOException If there is an error loading properties from the file.      */
 specifier|public
