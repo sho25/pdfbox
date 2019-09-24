@@ -24,6 +24,8 @@ comment|/**  * Simple interface allowing the use of an annotation filter visitor
 end_comment
 
 begin_interface
+annotation|@
+name|FunctionalInterface
 specifier|public
 interface|interface
 name|AnnotationFilter
