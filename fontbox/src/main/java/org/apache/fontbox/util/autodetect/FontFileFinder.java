@@ -43,6 +43,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -235,10 +245,6 @@ argument_list|>
 name|results
 init|=
 operator|new
-name|java
-operator|.
-name|util
-operator|.
 name|ArrayList
 argument_list|<>
 argument_list|()
@@ -282,10 +288,6 @@ argument_list|>
 name|results
 init|=
 operator|new
-name|java
-operator|.
-name|util
-operator|.
 name|ArrayList
 argument_list|<>
 argument_list|()
@@ -337,12 +339,15 @@ block|{
 comment|// search for font files recursively in the given directory
 if|if
 condition|(
+operator|!
 name|directory
 operator|.
 name|isDirectory
 argument_list|()
 condition|)
 block|{
+return|return;
+block|}
 name|File
 index|[]
 name|filelist
@@ -355,10 +360,12 @@ decl_stmt|;
 if|if
 condition|(
 name|filelist
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
+return|return;
+block|}
 for|for
 control|(
 name|File
@@ -455,8 +462,6 @@ name|toURI
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 block|}
 block|}
