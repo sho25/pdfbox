@@ -1202,7 +1202,7 @@ name|charMetrics
 argument_list|)
 return|;
 block|}
-comment|/** Setter for property charMetrics.      * @param charMetricsValue New value of property charMetrics.      */
+comment|/**      * Setter for property charMetrics.      *      * @param charMetricsValue New value of property charMetrics.      */
 specifier|public
 name|void
 name|setCharMetrics
@@ -1230,14 +1230,12 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-for|for
-control|(
-name|CharMetric
-name|metric
-range|:
 name|charMetricsValue
-control|)
-block|{
+operator|.
+name|forEach
+argument_list|(
+name|metric
+lambda|->
 name|charMetricsMap
 operator|.
 name|put
@@ -1249,8 +1247,8 @@ argument_list|()
 argument_list|,
 name|metric
 argument_list|)
+argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * This will add another character metric.      *      * @param metric The character metric to add.      */
 specifier|public

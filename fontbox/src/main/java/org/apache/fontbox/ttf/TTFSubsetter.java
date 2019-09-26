@@ -496,20 +496,18 @@ argument_list|>
 name|unicodeSet
 parameter_list|)
 block|{
-for|for
-control|(
-name|int
-name|unicode
-range|:
 name|unicodeSet
-control|)
-block|{
+operator|.
+name|forEach
+argument_list|(
+name|unicode
+lambda|->
 name|add
 argument_list|(
 name|unicode
 argument_list|)
+argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Returns the map of new -&gt; old GIDs.      */
 specifier|public
