@@ -500,12 +500,9 @@ name|unicodeSet
 operator|.
 name|forEach
 argument_list|(
-name|unicode
-lambda|->
+name|this
+operator|::
 name|add
-argument_list|(
-name|unicode
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
