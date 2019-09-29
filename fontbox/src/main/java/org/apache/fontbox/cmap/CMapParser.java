@@ -1649,6 +1649,7 @@ index|[]
 condition|)
 block|{
 comment|// the range can not represent more that 255 values
+comment|// PDFBOX-4661: be more lenient and support 256 values as well
 if|if
 condition|(
 operator|(
@@ -1657,7 +1658,7 @@ operator|-
 name|start
 operator|)
 operator|>
-literal|255
+literal|256
 condition|)
 block|{
 comment|// PDFBOX-4550: likely corrupt stream
