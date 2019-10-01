@@ -2169,20 +2169,15 @@ expr_stmt|;
 comment|// Create the appearance streams.
 comment|// Adobe Reader will always display annotations without appearance streams nicely,
 comment|// but other applications may not.
-for|for
-control|(
-name|PDAnnotation
-name|ann
-range|:
 name|annotations
-control|)
-block|{
-name|ann
 operator|.
+name|forEach
+argument_list|(
+name|PDAnnotation
+operator|::
 name|constructAppearances
-argument_list|()
+argument_list|)
 expr_stmt|;
-block|}
 name|showPageNo
 argument_list|(
 name|document
