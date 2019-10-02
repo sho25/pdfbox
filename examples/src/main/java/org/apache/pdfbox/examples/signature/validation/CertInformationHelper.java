@@ -141,7 +141,31 @@ name|bouncycastle
 operator|.
 name|asn1
 operator|.
+name|ASN1OctetString
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
+name|asn1
+operator|.
 name|ASN1Sequence
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
+name|asn1
+operator|.
+name|ASN1TaggedObject
 import|;
 end_import
 
@@ -378,11 +402,11 @@ literal|0
 argument_list|)
 decl_stmt|;
 comment|// accessLocation
-name|DERTaggedObject
+name|ASN1TaggedObject
 name|location
 init|=
 operator|(
-name|DERTaggedObject
+name|ASN1TaggedObject
 operator|)
 name|obj
 operator|.
@@ -412,11 +436,11 @@ operator|.
 name|uniformResourceIdentifier
 condition|)
 block|{
-name|DEROctetString
+name|ASN1OctetString
 name|url
 init|=
 operator|(
-name|DEROctetString
+name|ASN1OctetString
 operator|)
 name|location
 operator|.
@@ -451,11 +475,11 @@ name|id_ad_caIssuers
 argument_list|)
 condition|)
 block|{
-name|DEROctetString
+name|ASN1OctetString
 name|uri
 init|=
 operator|(
-name|DEROctetString
+name|ASN1OctetString
 operator|)
 name|location
 operator|.
@@ -584,11 +608,11 @@ block|{
 comment|// happens with SampleSignedPDFDocument.pdf
 continue|continue;
 block|}
-name|DEROctetString
+name|ASN1OctetString
 name|uri
 init|=
 operator|(
-name|DEROctetString
+name|ASN1OctetString
 operator|)
 name|derTagged
 operator|.
