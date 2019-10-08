@@ -555,6 +555,17 @@ operator|.
 name|getObject
 argument_list|()
 expr_stmt|;
+name|taggedObject
+operator|=
+operator|(
+name|ASN1TaggedObject
+operator|)
+name|taggedObject
+operator|.
+name|getObject
+argument_list|()
+expr_stmt|;
+comment|// yes stmt is twice
 if|if
 condition|(
 operator|!
@@ -568,7 +579,7 @@ name|ASN1OctetString
 operator|)
 condition|)
 block|{
-comment|// happens with SampleSignedPDFDocument.pdf
+comment|// happens with http://blogs.adobe.com/security/SampleSignedPDFDocument.pdf
 continue|continue;
 block|}
 name|ASN1OctetString
