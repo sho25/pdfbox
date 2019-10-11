@@ -1371,15 +1371,13 @@ specifier|private
 name|long
 name|codePageRange1
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 specifier|private
 name|long
 name|codePageRange2
 init|=
-operator|-
-literal|1
+literal|0
 decl_stmt|;
 specifier|private
 name|int
