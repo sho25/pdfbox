@@ -417,6 +417,192 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// Chunk Type definitions. The bytes in the comments are the bytes in the spec.
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_IHDR
+init|=
+literal|0x49484452
+decl_stmt|;
+comment|// IHDR: 73 72 68 82
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_IDAT
+init|=
+literal|0x49444154
+decl_stmt|;
+comment|// IDAT: 73 68 65 84
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_PLTE
+init|=
+literal|0x504C5445
+decl_stmt|;
+comment|// PLTE: 80 76 84 69
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_IEND
+init|=
+literal|0x49454E44
+decl_stmt|;
+comment|// IEND: 73 69 78 68
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_TRNS
+init|=
+literal|0x74524E53
+decl_stmt|;
+comment|// tRNS: 116 82 78 83
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_CHRM
+init|=
+literal|0x6348524D
+decl_stmt|;
+comment|// cHRM: 99 72 82 77
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_GAMA
+init|=
+literal|0x67414D41
+decl_stmt|;
+comment|// gAMA: 103 65 77 65
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_ICCP
+init|=
+literal|0x69434350
+decl_stmt|;
+comment|// iCCP: 105 67 67 80
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_SBIT
+init|=
+literal|0x73424954
+decl_stmt|;
+comment|// sBIT: 115 66 73 84
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_SRGB
+init|=
+literal|0x73524742
+decl_stmt|;
+comment|// sRGB: 115 82 71 66
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_TEXT
+init|=
+literal|0x74455874
+decl_stmt|;
+comment|// tEXt: 116 69 88 116
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_ZTXT
+init|=
+literal|0x7A545874
+decl_stmt|;
+comment|// zTXt: 122 84 88 116
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_ITXT
+init|=
+literal|0x69545874
+decl_stmt|;
+comment|// iTXt: 105 84 88 116
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_KBKG
+init|=
+literal|0x6B424B47
+decl_stmt|;
+comment|// kBKG: 107 66 75 71
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_HIST
+init|=
+literal|0x68495354
+decl_stmt|;
+comment|// hIST: 104 73 83 84
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_PHYS
+init|=
+literal|0x70485973
+decl_stmt|;
+comment|// pHYs: 112 72 89 115
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_SPLT
+init|=
+literal|0x73504C54
+decl_stmt|;
+comment|// sPLT: 115 80 76 84
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|CHUNK_TIME
+init|=
+literal|0x74494D45
+decl_stmt|;
+comment|// tIME: 116 73 77 69
+comment|// CRC Reference Implementation, see
+comment|// https://www.w3.org/TR/2003/REC-PNG-20031110/#D-CRCAppendix
+comment|// for details
+comment|/* Table of CRCs of all 8-bit messages. */
+specifier|private
+specifier|static
+specifier|final
+name|int
+index|[]
+name|CRC_TABLE
+init|=
+operator|new
+name|int
+index|[
+literal|256
+index|]
+decl_stmt|;
+static|static
+block|{
+name|makeCrcTable
+argument_list|()
+expr_stmt|;
+block|}
 specifier|private
 name|PNGConverter
 parameter_list|()
@@ -2302,9 +2488,7 @@ name|inputStreams
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InputStream
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int
@@ -2723,10 +2907,8 @@ name|state
 operator|.
 name|IDATs
 operator|.
-name|size
+name|isEmpty
 argument_list|()
-operator|==
-literal|0
 condition|)
 block|{
 name|LOG
@@ -2955,9 +3137,7 @@ name|IDATs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Chunk
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -3114,169 +3294,6 @@ operator|/
 literal|100000f
 return|;
 block|}
-comment|// Chunk Type definitions. The bytes in the comments are the bytes in the spec.
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_IHDR
-init|=
-literal|0x49484452
-decl_stmt|;
-comment|// IHDR: 73 72 68 82
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_IDAT
-init|=
-literal|0x49444154
-decl_stmt|;
-comment|// IDAT: 73 68 65 84
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_PLTE
-init|=
-literal|0x504C5445
-decl_stmt|;
-comment|// PLTE: 80 76 84 69
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_IEND
-init|=
-literal|0x49454E44
-decl_stmt|;
-comment|// IEND: 73 69 78 68
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_TRNS
-init|=
-literal|0x74524E53
-decl_stmt|;
-comment|// tRNS: 116 82 78 83
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_CHRM
-init|=
-literal|0x6348524D
-decl_stmt|;
-comment|// cHRM: 99 72 82 77
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_GAMA
-init|=
-literal|0x67414D41
-decl_stmt|;
-comment|// gAMA: 103 65 77 65
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_ICCP
-init|=
-literal|0x69434350
-decl_stmt|;
-comment|// iCCP: 105 67 67 80
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_SBIT
-init|=
-literal|0x73424954
-decl_stmt|;
-comment|// sBIT: 115 66 73 84
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_SRGB
-init|=
-literal|0x73524742
-decl_stmt|;
-comment|// sRGB: 115 82 71 66
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_TEXT
-init|=
-literal|0x74455874
-decl_stmt|;
-comment|// tEXt: 116 69 88 116
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_ZTXT
-init|=
-literal|0x7A545874
-decl_stmt|;
-comment|// zTXt: 122 84 88 116
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_ITXT
-init|=
-literal|0x69545874
-decl_stmt|;
-comment|// iTXt: 105 84 88 116
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_KBKG
-init|=
-literal|0x6B424B47
-decl_stmt|;
-comment|// kBKG: 107 66 75 71
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_HIST
-init|=
-literal|0x68495354
-decl_stmt|;
-comment|// hIST: 104 73 83 84
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_PHYS
-init|=
-literal|0x70485973
-decl_stmt|;
-comment|// pHYs: 112 72 89 115
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_SPLT
-init|=
-literal|0x73504C54
-decl_stmt|;
-comment|// sPLT: 115 80 76 84
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|CHUNK_TIME
-init|=
-literal|0x74494D45
-decl_stmt|;
-comment|// tIME: 116 73 77 69
 comment|/**      * Parse the PNG structure into the PNGConverterState. If we can't handle      * something, this method will return null.      *      * @param imageData the byte array with the PNG data      * @return null or the converter state with all relevant chunks      */
 specifier|private
 specifier|static
@@ -3724,29 +3741,6 @@ expr_stmt|;
 return|return
 literal|null
 return|;
-block|}
-comment|// CRC Reference Implementation, see
-comment|// https://www.w3.org/TR/2003/REC-PNG-20031110/#D-CRCAppendix
-comment|// for details
-comment|/* Table of CRCs of all 8-bit messages. */
-specifier|private
-specifier|static
-specifier|final
-name|int
-index|[]
-name|CRC_TABLE
-init|=
-operator|new
-name|int
-index|[
-literal|256
-index|]
-decl_stmt|;
-static|static
-block|{
-name|makeCrcTable
-argument_list|()
-expr_stmt|;
 block|}
 comment|/* Make the table for a fast CRC. */
 specifier|private
