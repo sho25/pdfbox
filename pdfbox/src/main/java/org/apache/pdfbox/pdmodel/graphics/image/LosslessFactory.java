@@ -1246,7 +1246,6 @@ name|pdImage
 return|;
 block|}
 comment|/**      * Create a PDImageXObject using the Flate filter.      *       * @param document The document.      * @param byteArray array with data.      * @param width the image width      * @param height the image height      * @param bitsPerComponent the bits per component      * @param initColorSpace the color space      * @return the newly created PDImageXObject with the data compressed.      * @throws IOException       */
-specifier|private
 specifier|static
 name|PDImageXObject
 name|prepareImageXObject

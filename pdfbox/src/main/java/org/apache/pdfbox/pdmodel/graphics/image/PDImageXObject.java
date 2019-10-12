@@ -1305,7 +1305,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-comment|/**      * Create a PDImageXObject from bytes of an image file. The file format is determined by the      * file content. The following file types are supported: jpg, jpeg, tif, tiff, gif, bmp and png.      * This is a convenience method that calls {@link JPEGFactory#createFromByteArray},      * {@link CCITTFactory#createFromFile} or {@link ImageIO#read} combined with      * {@link LosslessFactory#createFromImage}. (The later can also be used to create a      * PDImageXObject from a BufferedImage).      *      * @param byteArray bytes from an image file.      * @param document the document that shall use this PDImageXObject.      * @param name name of image file for exception messages, can be null.      * @return a PDImageXObject.      * @throws IOException if there is an error when reading the file or creating the      * PDImageXObject.      * @throws IllegalArgumentException if the image type is not supported.      */
+comment|/**      * Create a PDImageXObject from bytes of an image file. The file format is determined by the      * file content. The following file types are supported: jpg, jpeg, tif, tiff, gif, bmp and png.      * This is a convenience method that calls {@link JPEGFactory#createFromByteArray},      * {@link CCITTFactory#createFromFile} or {@link ImageIO#read} combined with      * {@link LosslessFactory#createFromImage}. (The later can also be used to create a      * PDImageXObject from a BufferedImage). Since 2.0.18, this call can also create an image      * directly from a PNG file without decoding it, which is faster. However the result size      * depends on the compression skill of the software that created the PNG file.      *      * @param byteArray bytes from an image file.      * @param document the document that shall use this PDImageXObject.      * @param name name of image file for exception messages, can be null.      * @return a PDImageXObject.      * @throws IOException if there is an error when reading the file or creating the      * PDImageXObject.      * @throws IllegalArgumentException if the image type is not supported.      */
 specifier|public
 specifier|static
 name|PDImageXObject
@@ -1396,6 +1396,43 @@ argument_list|,
 name|byteArray
 argument_list|)
 return|;
+block|}
+if|if
+condition|(
+name|fileType
+operator|.
+name|equals
+argument_list|(
+name|FileType
+operator|.
+name|PNG
+argument_list|)
+condition|)
+block|{
+comment|// Try to directly convert the image without recoding it.
+name|PDImageXObject
+name|image
+init|=
+name|PNGConverter
+operator|.
+name|convertPNGImage
+argument_list|(
+name|document
+argument_list|,
+name|byteArray
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|image
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|image
+return|;
+block|}
 block|}
 if|if
 condition|(
@@ -3076,6 +3113,14 @@ argument_list|()
 else|:
 literal|null
 argument_list|)
+expr_stmt|;
+name|colorSpace
+operator|=
+literal|null
+expr_stmt|;
+name|cachedImage
+operator|=
+literal|null
 expr_stmt|;
 block|}
 annotation|@
