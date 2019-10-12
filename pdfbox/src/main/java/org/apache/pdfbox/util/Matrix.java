@@ -2736,7 +2736,7 @@ literal|7
 index|]
 return|;
 block|}
-comment|/**      * Returns a COS array which represents this matrix.      */
+comment|/**      * Returns a COS array which represent the geometric relevant      * components of the matrix. The last column of the matrix is ignored,      * only the first two columns are returned. This is analog to the      * Matrix(COSArray) constructor.      */
 specifier|public
 name|COSArray
 name|toCOSArray
