@@ -1679,8 +1679,6 @@ argument_list|(
 name|end
 operator|-
 name|start
-operator|+
-literal|1
 argument_list|,
 literal|255
 operator|-
@@ -1697,6 +1695,8 @@ operator|&
 literal|0xFF
 operator|)
 argument_list|)
+operator|+
+literal|1
 decl_stmt|;
 name|addMappingFrombfrange
 argument_list|(

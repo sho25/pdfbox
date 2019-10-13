@@ -753,7 +753,7 @@ name|cMap
 operator|.
 name|toUnicode
 argument_list|(
-literal|0x2EF
+literal|0x2F0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -763,7 +763,7 @@ name|cMap
 operator|.
 name|toUnicode
 argument_list|(
-literal|0x2F0
+literal|0x2F1
 argument_list|)
 argument_list|)
 expr_stmt|;
