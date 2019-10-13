@@ -2555,6 +2555,13 @@ index|[
 name|componentCount
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|componentCount
+operator|>
+literal|0
+condition|)
+block|{
 name|componentGlyphIDs
 index|[
 literal|0
@@ -2562,6 +2569,7 @@ index|]
 operator|=
 name|coverageGlyphId
 expr_stmt|;
+block|}
 for|for
 control|(
 name|int
