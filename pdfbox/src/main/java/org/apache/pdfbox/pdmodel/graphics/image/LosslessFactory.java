@@ -417,6 +417,16 @@ name|IOException
 block|{
 if|if
 condition|(
+name|image
+operator|.
+name|getTransparency
+argument_list|()
+operator|==
+name|BufferedImage
+operator|.
+name|OPAQUE
+operator|&&
+operator|(
 operator|(
 name|image
 operator|.
@@ -457,6 +467,7 @@ name|getPixelSize
 argument_list|()
 operator|==
 literal|1
+operator|)
 operator|)
 condition|)
 block|{
