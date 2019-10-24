@@ -551,7 +551,7 @@ name|pdImageXObject
 return|;
 block|}
 block|}
-comment|// Fallback: We export the image as 8-bit sRGB and might loose color information
+comment|// Fallback: We export the image as 8-bit sRGB and might lose color information
 return|return
 name|createFromRGBImage
 argument_list|(
