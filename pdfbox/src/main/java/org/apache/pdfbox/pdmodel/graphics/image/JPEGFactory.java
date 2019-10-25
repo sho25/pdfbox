@@ -1109,15 +1109,7 @@ operator|.
 name|getHeight
 argument_list|()
 argument_list|,
-name|awtColorImage
-operator|.
-name|getColorModel
-argument_list|()
-operator|.
-name|getComponentSize
-argument_list|(
-literal|0
-argument_list|)
+literal|8
 argument_list|,
 name|getColorSpaceFromAWT
 argument_list|(
