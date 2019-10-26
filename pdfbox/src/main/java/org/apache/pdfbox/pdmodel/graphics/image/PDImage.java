@@ -332,6 +332,8 @@ name|getSuffix
 parameter_list|()
 function_decl|;
 comment|/**      * Convert this image to a COS object.      *      * @return The cos object that matches this image object.      */
+annotation|@
+name|Override
 name|COSDictionary
 name|getCOSObject
 parameter_list|()
