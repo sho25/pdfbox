@@ -103,6 +103,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|cos
+operator|.
+name|COSDictionary
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|filter
 operator|.
 name|DecodeOptions
@@ -315,6 +329,11 @@ function_decl|;
 comment|/**      * Returns the suffix for this image type, e.g. "jpg"      */
 name|String
 name|getSuffix
+parameter_list|()
+function_decl|;
+comment|/**      * Convert this image to a COS object.      *      * @return The cos object that matches this image object.      */
+name|COSDictionary
+name|getCOSObject
 parameter_list|()
 function_decl|;
 block|}
