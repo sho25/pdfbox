@@ -415,7 +415,7 @@ name|pdmodel
 operator|.
 name|font
 operator|.
-name|PDFontFactory
+name|PDType1Font
 import|;
 end_import
 
@@ -2573,10 +2573,9 @@ argument_list|)
 expr_stmt|;
 name|font
 operator|=
-name|PDFontFactory
+name|PDType1Font
 operator|.
-name|createDefaultFont
-argument_list|()
+name|HELVETICA
 expr_stmt|;
 block|}
 name|float
