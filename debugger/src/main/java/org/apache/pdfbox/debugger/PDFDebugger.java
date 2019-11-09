@@ -1564,10 +1564,6 @@ name|currentFilePath
 decl_stmt|;
 specifier|private
 name|JScrollPane
-name|jScrollPane1
-decl_stmt|;
-specifier|private
-name|JScrollPane
 name|jScrollPane2
 decl_stmt|;
 specifier|private
@@ -2143,12 +2139,13 @@ operator|.
 name|JSplitPane
 argument_list|()
 expr_stmt|;
+name|JScrollPane
 name|jScrollPane1
-operator|=
+init|=
 operator|new
 name|JScrollPane
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|tree
 operator|=
 operator|new
