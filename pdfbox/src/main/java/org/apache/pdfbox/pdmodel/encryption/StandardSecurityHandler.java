@@ -1276,6 +1276,13 @@ try|try
 block|{
 comment|// "Decrypt the 16-byte Perms string using AES-256 in ECB mode with an
 comment|// initialization vector of zero and the file encryption key as the key."
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S4432"
+block|}
+argument_list|)
 name|Cipher
 name|cipher
 init|=

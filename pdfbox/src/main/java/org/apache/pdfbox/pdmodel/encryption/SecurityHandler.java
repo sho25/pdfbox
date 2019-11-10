@@ -1073,6 +1073,14 @@ return|return;
 block|}
 try|try
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S4432"
+block|}
+argument_list|)
+comment|// PKCS#5 padding is requested by PDF specification
 name|Cipher
 name|decryptCipher
 decl_stmt|;
@@ -1281,6 +1289,14 @@ condition|)
 block|{
 return|return;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S4432"
+block|}
+argument_list|)
+comment|// PKCS#5 padding is requested by PDF specification
 name|Cipher
 name|cipher
 decl_stmt|;
