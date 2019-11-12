@@ -1077,6 +1077,17 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|isStandard14
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * Returns the optional resources of the type3 stream.      *      * @return the resources bound to be used when parsing the type3 stream      */
 specifier|public
 name|PDResources
