@@ -555,6 +555,16 @@ operator|.
 name|getObject
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|taggedObject
+operator|.
+name|getObject
+argument_list|()
+operator|instanceof
+name|ASN1TaggedObject
+condition|)
+block|{
 name|taggedObject
 operator|=
 operator|(
@@ -565,7 +575,47 @@ operator|.
 name|getObject
 argument_list|()
 expr_stmt|;
-comment|// yes stmt is twice
+block|}
+elseif|else
+if|if
+condition|(
+name|taggedObject
+operator|.
+name|getObject
+argument_list|()
+operator|instanceof
+name|ASN1Sequence
+condition|)
+block|{
+comment|// multiple URLs (we take the first)
+name|ASN1Sequence
+name|seq
+init|=
+operator|(
+name|ASN1Sequence
+operator|)
+name|taggedObject
+operator|.
+name|getObject
+argument_list|()
+decl_stmt|;
+name|taggedObject
+operator|=
+operator|(
+name|ASN1TaggedObject
+operator|)
+name|seq
+operator|.
+name|getObjectAt
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+continue|continue;
+block|}
 if|if
 condition|(
 operator|!
@@ -605,7 +655,6 @@ name|getOctets
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// TODO Check for: DistributionPoint ::= SEQUENCE (see RFC 2459), multiples can be possible.
 comment|// return first http(s)-Url for crl
 if|if
 condition|(
