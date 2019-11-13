@@ -895,8 +895,9 @@ block|{
 name|BigDecimal
 name|decimal
 init|=
-operator|new
 name|BigDecimal
+operator|.
+name|valueOf
 argument_list|(
 name|num
 argument_list|)
