@@ -153,6 +153,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|NoSuchElementException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -759,6 +769,19 @@ name|PDPage
 name|next
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|hasNext
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoSuchElementException
+argument_list|()
+throw|;
+block|}
 name|COSDictionary
 name|next
 init|=

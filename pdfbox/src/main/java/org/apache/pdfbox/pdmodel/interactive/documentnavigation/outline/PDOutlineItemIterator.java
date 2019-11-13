@@ -31,6 +31,16 @@ name|Iterator
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|NoSuchElementException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Iterator over the linked list of {@link PDOutlineItem} siblings.  *   * @author Andrea Vacondio  *  */
 end_comment
@@ -112,6 +122,19 @@ name|PDOutlineItem
 name|next
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|hasNext
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|NoSuchElementException
+argument_list|()
+throw|;
+block|}
 if|if
 condition|(
 name|currentItem
