@@ -273,7 +273,7 @@ name|bouncycastle
 operator|.
 name|asn1
 operator|.
-name|DERSequence
+name|ASN1Set
 import|;
 end_import
 
@@ -285,7 +285,7 @@ name|bouncycastle
 operator|.
 name|asn1
 operator|.
-name|DERSet
+name|DLSequence
 import|;
 end_import
 
@@ -710,32 +710,25 @@ operator|.
 name|getAttrValues
 argument_list|()
 operator|instanceof
-name|DERSet
+name|ASN1Set
 condition|)
 block|{
-name|DERSet
+name|ASN1Set
 name|tsSet
 init|=
 operator|(
-name|DERSet
+name|ASN1Set
 operator|)
 name|tsAttribute
 operator|.
 name|getAttrValues
 argument_list|()
 decl_stmt|;
-name|tsSet
-operator|.
-name|getEncoded
-argument_list|(
-literal|"DER"
-argument_list|)
-expr_stmt|;
-name|DERSequence
+name|DLSequence
 name|tsSeq
 init|=
 operator|(
-name|DERSequence
+name|DLSequence
 operator|)
 name|tsSet
 operator|.
