@@ -177,18 +177,6 @@ name|bouncycastle
 operator|.
 name|asn1
 operator|.
-name|DLSequence
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|bouncycastle
-operator|.
-name|asn1
-operator|.
 name|x509
 operator|.
 name|GeneralName
@@ -533,7 +521,7 @@ if|if
 condition|(
 name|obj
 operator|instanceof
-name|DLSequence
+name|ASN1Sequence
 condition|)
 block|{
 name|String
@@ -542,7 +530,7 @@ init|=
 name|extractCrlUrlFromSequence
 argument_list|(
 operator|(
-name|DLSequence
+name|ASN1Sequence
 operator|)
 name|obj
 argument_list|)
@@ -569,7 +557,7 @@ specifier|static
 name|String
 name|extractCrlUrlFromSequence
 parameter_list|(
-name|DLSequence
+name|ASN1Sequence
 name|sequence
 parameter_list|)
 block|{

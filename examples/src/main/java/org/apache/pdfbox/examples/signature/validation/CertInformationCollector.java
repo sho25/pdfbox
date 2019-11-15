@@ -273,7 +273,7 @@ name|bouncycastle
 operator|.
 name|asn1
 operator|.
-name|ASN1Set
+name|ASN1Object
 import|;
 end_import
 
@@ -285,7 +285,7 @@ name|bouncycastle
 operator|.
 name|asn1
 operator|.
-name|DLSequence
+name|ASN1Set
 import|;
 end_import
 
@@ -724,11 +724,11 @@ operator|.
 name|getAttrValues
 argument_list|()
 decl_stmt|;
-name|DLSequence
+name|ASN1Object
 name|tsSeq
 init|=
 operator|(
-name|DLSequence
+name|ASN1Object
 operator|)
 name|tsSet
 operator|.
