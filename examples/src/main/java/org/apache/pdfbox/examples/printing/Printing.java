@@ -320,8 +320,6 @@ name|PDDocument
 name|document
 parameter_list|)
 throws|throws
-name|IOException
-throws|,
 name|PrinterException
 block|{
 name|PrinterJob
@@ -359,8 +357,6 @@ name|PDDocument
 name|document
 parameter_list|)
 throws|throws
-name|IOException
-throws|,
 name|PrinterException
 block|{
 name|PrinterJob
@@ -421,8 +417,6 @@ name|PDDocument
 name|document
 parameter_list|)
 throws|throws
-name|IOException
-throws|,
 name|PrinterException
 block|{
 name|PrinterJob
@@ -469,8 +463,6 @@ name|PDDocument
 name|document
 parameter_list|)
 throws|throws
-name|IOException
-throws|,
 name|PrinterException
 block|{
 name|PrinterJob
@@ -659,8 +651,6 @@ name|PDDocument
 name|document
 parameter_list|)
 throws|throws
-name|IOException
-throws|,
 name|PrinterException
 block|{
 name|PrinterJob
