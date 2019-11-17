@@ -2401,8 +2401,6 @@ name|args
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|GeneralSecurityException
 block|{
 if|if
 condition|(

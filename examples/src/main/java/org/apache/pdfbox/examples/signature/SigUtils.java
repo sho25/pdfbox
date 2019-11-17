@@ -934,7 +934,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the last relevant signature in the document, i.e. the one with the highest offset.      *       * @param document to get its last signature      * @return last signature or null when none found      * @throws IOException      */
+comment|/**      * Gets the last relevant signature in the document, i.e. the one with the highest offset.      *       * @param document to get its last signature      * @return last signature or null when none found      */
 specifier|public
 specifier|static
 name|PDSignature
@@ -943,8 +943,6 @@ parameter_list|(
 name|PDDocument
 name|document
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|SortedMap
 argument_list|<

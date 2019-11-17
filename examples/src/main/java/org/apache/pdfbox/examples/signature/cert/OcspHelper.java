@@ -1127,8 +1127,6 @@ parameter_list|(
 name|X509CertificateHolder
 name|certHolder
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 comment|// https://tools.ietf.org/html/rfc2560#section-4.2.1
 comment|// KeyHash ::= OCTET STRING -- SHA-1 hash of responder's public key
