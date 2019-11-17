@@ -1235,8 +1235,6 @@ parameter_list|(
 name|BufferedImage
 name|image
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

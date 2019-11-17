@@ -1293,8 +1293,6 @@ specifier|private
 name|void
 name|requestImageShowing
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

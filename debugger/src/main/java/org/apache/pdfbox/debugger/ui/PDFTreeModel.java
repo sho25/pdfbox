@@ -1158,9 +1158,7 @@ name|Object
 name|node
 parameter_list|)
 block|{
-name|boolean
-name|isLeaf
-init|=
+return|return
 operator|!
 operator|(
 name|node
@@ -1227,9 +1225,6 @@ argument_list|()
 argument_list|)
 operator|)
 operator|)
-decl_stmt|;
-return|return
-name|isLeaf
 return|;
 block|}
 comment|/** Removes a listener previously added with      *<code>addTreeModelListener</code>.      *      * @see     #addTreeModelListener      * @param   l       the listener to remove      *      */
