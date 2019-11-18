@@ -2108,7 +2108,6 @@ literal|"Signature verification failed"
 argument_list|)
 expr_stmt|;
 block|}
-break|break;
 block|}
 block|}
 block|}
