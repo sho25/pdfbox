@@ -220,6 +220,10 @@ specifier|public
 class|class
 name|CreateSeparationColorBox
 block|{
+specifier|private
+name|CreateSeparationColorBox
+parameter_list|()
+block|{     }
 specifier|public
 specifier|static
 name|void
