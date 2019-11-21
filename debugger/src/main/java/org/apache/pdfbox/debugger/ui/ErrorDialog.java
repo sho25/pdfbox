@@ -241,6 +241,26 @@ name|KeyStroke
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|swing
+operator|.
+name|ScrollPaneConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|swing
+operator|.
+name|WindowConstants
+import|;
+end_import
+
 begin_comment
 comment|/**  * A dialog to display a runtime exception stack trace.  *  * @author Pinaki Poddar  *  * Modified from ErrorDialog.java and SwingHelper.java of the Apache OpenJPA  *<a href="https://svn.apache.org/repos/asf/openjpa/trunk/openjpa-examples/openbooks/src/main/java/jpa/tools/swing/">jpa.tools.swing  * package</a>.  *  */
 end_comment
@@ -472,7 +492,7 @@ expr_stmt|;
 block|}
 name|setDefaultCloseOperation
 argument_list|(
-name|JDialog
+name|WindowConstants
 operator|.
 name|DISPOSE_ON_CLOSE
 argument_list|)
@@ -1124,11 +1144,11 @@ name|JScrollPane
 argument_list|(
 name|stacktrace
 argument_list|,
-name|JScrollPane
+name|ScrollPaneConstants
 operator|.
 name|VERTICAL_SCROLLBAR_AS_NEEDED
 argument_list|,
-name|JScrollPane
+name|ScrollPaneConstants
 operator|.
 name|HORIZONTAL_SCROLLBAR_AS_NEEDED
 argument_list|)

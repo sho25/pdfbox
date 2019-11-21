@@ -18,6 +18,18 @@ package|;
 end_package
 
 begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|color
+operator|.
+name|ColorSpace
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -110,18 +122,6 @@ operator|.
 name|PreflightConstants
 operator|.
 name|MAX_GRAPHIC_STATES
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|awt
-operator|.
-name|color
-operator|.
-name|ICC_ColorSpace
 import|;
 end_import
 
@@ -3213,7 +3213,7 @@ case|:
 return|return
 name|type
 operator|==
-name|ICC_ColorSpace
+name|ColorSpace
 operator|.
 name|TYPE_RGB
 return|;
@@ -3223,7 +3223,7 @@ case|:
 return|return
 name|type
 operator|==
-name|ICC_ColorSpace
+name|ColorSpace
 operator|.
 name|TYPE_CMYK
 return|;

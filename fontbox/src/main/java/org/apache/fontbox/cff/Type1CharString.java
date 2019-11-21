@@ -242,7 +242,7 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|Point
+name|Point2D
 operator|.
 name|Float
 argument_list|>
@@ -1643,7 +1643,7 @@ expr_stmt|;
 return|return;
 block|}
 comment|// reference point is relative to start point
-name|Point
+name|Point2D
 operator|.
 name|Float
 name|reference
@@ -1681,7 +1681,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// first point is relative to reference point
-name|Point
+name|Point2D
 operator|.
 name|Float
 name|first

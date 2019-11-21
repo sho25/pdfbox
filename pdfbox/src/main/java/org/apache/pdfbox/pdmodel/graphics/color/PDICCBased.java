@@ -2001,7 +2001,7 @@ case|case
 literal|1
 case|:
 return|return
-name|ICC_ColorSpace
+name|ColorSpace
 operator|.
 name|TYPE_GRAY
 return|;
@@ -2009,7 +2009,7 @@ case|case
 literal|3
 case|:
 return|return
-name|ICC_ColorSpace
+name|ColorSpace
 operator|.
 name|TYPE_RGB
 return|;
@@ -2017,7 +2017,7 @@ case|case
 literal|4
 case|:
 return|return
-name|ICC_ColorSpace
+name|ColorSpace
 operator|.
 name|TYPE_CMYK
 return|;

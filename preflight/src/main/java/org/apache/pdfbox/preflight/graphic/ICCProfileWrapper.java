@@ -25,6 +25,18 @@ name|awt
 operator|.
 name|color
 operator|.
+name|ColorSpace
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|awt
+operator|.
+name|color
+operator|.
 name|ICC_ColorSpace
 import|;
 end_import
@@ -297,7 +309,7 @@ name|isRGBColorSpace
 parameter_list|()
 block|{
 return|return
-name|ICC_ColorSpace
+name|ColorSpace
 operator|.
 name|TYPE_RGB
 operator|==
@@ -314,7 +326,7 @@ name|isCMYKColorSpace
 parameter_list|()
 block|{
 return|return
-name|ICC_ColorSpace
+name|ColorSpace
 operator|.
 name|TYPE_CMYK
 operator|==
@@ -331,7 +343,7 @@ name|isGrayColorSpace
 parameter_list|()
 block|{
 return|return
-name|ICC_ColorSpace
+name|ColorSpace
 operator|.
 name|TYPE_GRAY
 operator|==
