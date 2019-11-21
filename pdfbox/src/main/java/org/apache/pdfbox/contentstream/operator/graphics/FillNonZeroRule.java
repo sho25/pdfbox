@@ -27,7 +27,7 @@ name|awt
 operator|.
 name|geom
 operator|.
-name|GeneralPath
+name|Path2D
 import|;
 end_import
 
@@ -131,7 +131,7 @@ name|context
 operator|.
 name|fillPath
 argument_list|(
-name|GeneralPath
+name|Path2D
 operator|.
 name|WIND_NON_ZERO
 argument_list|)

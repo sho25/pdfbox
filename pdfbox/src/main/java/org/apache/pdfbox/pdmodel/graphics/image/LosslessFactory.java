@@ -577,7 +577,7 @@ operator|.
 name|getTransparency
 argument_list|()
 operator|!=
-name|BufferedImage
+name|Transparency
 operator|.
 name|OPAQUE
 condition|)

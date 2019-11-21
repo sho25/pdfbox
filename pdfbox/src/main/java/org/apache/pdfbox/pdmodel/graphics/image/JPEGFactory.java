@@ -1611,12 +1611,9 @@ name|ios
 argument_list|)
 expr_stmt|;
 comment|// add compression
-name|JPEGImageWriteParam
+name|ImageWriteParam
 name|jpegParam
 init|=
-operator|(
-name|JPEGImageWriteParam
-operator|)
 name|imageWriter
 operator|.
 name|getDefaultWriteParam
@@ -1626,7 +1623,7 @@ name|jpegParam
 operator|.
 name|setCompressionMode
 argument_list|(
-name|JPEGImageWriteParam
+name|ImageWriteParam
 operator|.
 name|MODE_EXPLICIT
 argument_list|)
