@@ -1671,44 +1671,7 @@ operator|.
 name|getTagName
 argument_list|()
 argument_list|)
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-name|parentAttrKey
-operator|+
-literal|" value("
-operator|+
-name|i
-operator|+
-literal|"): "
-operator|+
-name|child
-operator|.
-name|getAttribute
-argument_list|(
-literal|"VAL"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|array
-operator|.
-name|add
-argument_list|(
-name|COSNumber
-operator|.
-name|get
-argument_list|(
-name|childAttrVal
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
+operator|||
 literal|"FIXED"
 operator|.
 name|equalsIgnoreCase
@@ -1732,12 +1695,7 @@ name|i
 operator|+
 literal|"): "
 operator|+
-name|child
-operator|.
-name|getAttribute
-argument_list|(
-literal|"VAL"
-argument_list|)
+name|childAttrVal
 argument_list|)
 expr_stmt|;
 name|array
@@ -1779,12 +1737,7 @@ name|i
 operator|+
 literal|"): "
 operator|+
-name|child
-operator|.
-name|getAttribute
-argument_list|(
-literal|"VAL"
-argument_list|)
+name|childAttrVal
 argument_list|)
 expr_stmt|;
 name|array
@@ -1826,12 +1779,7 @@ name|i
 operator|+
 literal|"): "
 operator|+
-name|child
-operator|.
-name|getAttribute
-argument_list|(
-literal|"VAL"
-argument_list|)
+name|childAttrVal
 argument_list|)
 expr_stmt|;
 name|array
@@ -1878,12 +1826,7 @@ name|i
 operator|+
 literal|"): "
 operator|+
-name|child
-operator|.
-name|getAttribute
-argument_list|(
-literal|"VAL"
-argument_list|)
+name|childAttrVal
 argument_list|)
 expr_stmt|;
 name|array
@@ -1923,12 +1866,7 @@ name|i
 operator|+
 literal|"): "
 operator|+
-name|child
-operator|.
-name|getAttribute
-argument_list|(
-literal|"VAL"
-argument_list|)
+name|childAttrVal
 argument_list|)
 expr_stmt|;
 name|array
@@ -1968,12 +1906,7 @@ name|i
 operator|+
 literal|"): "
 operator|+
-name|child
-operator|.
-name|getAttribute
-argument_list|(
-literal|"VAL"
-argument_list|)
+name|childAttrVal
 argument_list|)
 expr_stmt|;
 name|array
