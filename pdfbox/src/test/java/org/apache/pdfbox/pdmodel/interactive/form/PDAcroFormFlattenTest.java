@@ -661,6 +661,33 @@ name|targetFileName
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * PDFBOX-4693: page is not rotated, but the appearance stream is.      */
+comment|// @Test
+specifier|public
+name|void
+name|testFlattenPDFBox4693
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|sourceUrl
+init|=
+literal|"https://issues.apache.org/jira/secure/attachment/12986337/stenotypeTest-3_rotate_no_flatten.pdf"
+decl_stmt|;
+name|String
+name|targetFileName
+init|=
+literal|"PDFBOX-4693-filled.pdf"
+decl_stmt|;
+name|flattenAndCompare
+argument_list|(
+name|sourceUrl
+argument_list|,
+name|targetFileName
+argument_list|)
+expr_stmt|;
+block|}
 comment|/*      * Flatten and compare with generated image samples.      */
 specifier|private
 specifier|static
