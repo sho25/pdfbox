@@ -749,8 +749,6 @@ argument_list|()
 expr_stmt|;
 block|}
 try|try
-block|{
-try|try
 init|(
 name|PDDocument
 name|result
@@ -770,7 +768,6 @@ argument_list|(
 name|outputFilename
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
