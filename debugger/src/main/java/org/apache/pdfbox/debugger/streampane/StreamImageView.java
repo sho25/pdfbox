@@ -550,7 +550,7 @@ name|resizedWidth
 argument_list|,
 name|resizedHeight
 argument_list|,
-name|BufferedImage
+name|Image
 operator|.
 name|SCALE_SMOOTH
 argument_list|)

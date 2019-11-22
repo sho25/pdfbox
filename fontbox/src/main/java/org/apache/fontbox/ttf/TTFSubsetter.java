@@ -103,16 +103,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|GregorianCalendar
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashMap
 import|;
 end_import
@@ -5694,7 +5684,7 @@ comment|// inverse operation of TTFDataStream.readInternationalDate()
 name|Calendar
 name|cal
 init|=
-name|GregorianCalendar
+name|Calendar
 operator|.
 name|getInstance
 argument_list|(
