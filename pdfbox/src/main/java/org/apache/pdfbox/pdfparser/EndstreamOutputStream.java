@@ -96,6 +96,7 @@ comment|/**      * Write CR and/or LF that were kept, then writes len bytes from
 annotation|@
 name|Override
 specifier|public
+specifier|synchronized
 name|void
 name|write
 parameter_list|(
@@ -358,6 +359,7 @@ comment|/**      * write out a single CR if one was kept. Don't write kept CR LF
 annotation|@
 name|Override
 specifier|public
+specifier|synchronized
 name|void
 name|flush
 parameter_list|()

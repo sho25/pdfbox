@@ -802,6 +802,7 @@ comment|/**      * Unsupported.      *      * @param readlimit ignored.      */
 annotation|@
 name|Override
 specifier|public
+specifier|synchronized
 name|void
 name|mark
 parameter_list|(
@@ -813,6 +814,7 @@ comment|/**      * Unsupported.      *      * @throws IOException telling that t
 annotation|@
 name|Override
 specifier|public
+specifier|synchronized
 name|void
 name|reset
 parameter_list|()
