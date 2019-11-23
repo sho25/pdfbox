@@ -463,6 +463,16 @@ expr_stmt|;
 block|}
 else|else
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S4435"
+block|,
+literal|"squid:S2755"
+block|}
+argument_list|)
+comment|// self-created XML
 name|Transformer
 name|transformer
 init|=
@@ -746,6 +756,14 @@ argument_list|(
 name|result
 argument_list|)
 expr_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S4435"
+block|}
+argument_list|)
+comment|// self-created XML
 name|Transformer
 name|transformer
 init|=

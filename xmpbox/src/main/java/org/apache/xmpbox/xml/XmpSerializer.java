@@ -381,6 +381,14 @@ name|XmpSerializer
 parameter_list|()
 block|{
 comment|// xml init
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S2755"
+block|}
+argument_list|)
+comment|// self-created XML
 name|DocumentBuilderFactory
 name|builderFactory
 init|=
@@ -1451,6 +1459,14 @@ parameter_list|)
 throws|throws
 name|TransformerException
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S4435"
+block|}
+argument_list|)
+comment|// self-created XML
 name|Transformer
 name|transformer
 init|=

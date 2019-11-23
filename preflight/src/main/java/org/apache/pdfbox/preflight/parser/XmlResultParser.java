@@ -300,6 +300,14 @@ name|IOException
 block|{
 try|try
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S2755"
+block|}
+argument_list|)
+comment|// self-created XML
 name|Document
 name|rdocument
 init|=
