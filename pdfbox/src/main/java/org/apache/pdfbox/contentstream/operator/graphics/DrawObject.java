@@ -417,44 +417,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|formResources
-operator|!=
-literal|null
-operator|&&
-name|context
-operator|.
-name|getResources
-argument_list|()
-operator|.
-name|getCOSObject
-argument_list|()
-operator|==
-name|formResources
-operator|.
-name|getCOSObject
-argument_list|()
-condition|)
-block|{
-comment|//TODO a general solution should be found for recursions that go over several levels
-comment|// context is a PDFStreamEngine and this is the same object on every level.
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"avoiding recursion with XObject '"
-operator|+
-name|objectName
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|"'"
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
-if|if
-condition|(
 name|form
 operator|instanceof
 name|PDTransparencyGroup
