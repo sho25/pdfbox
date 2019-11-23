@@ -489,7 +489,7 @@ specifier|private
 name|COSName
 name|streamFilterName
 decl_stmt|;
-comment|/** 	 * The string filter name. 	 */
+comment|/**      * The string filter name.      */
 specifier|private
 name|COSName
 name|stringFilterName
