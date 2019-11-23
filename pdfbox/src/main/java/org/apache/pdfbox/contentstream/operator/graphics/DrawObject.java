@@ -407,14 +407,6 @@ name|PDFormXObject
 operator|)
 name|xobject
 decl_stmt|;
-name|PDResources
-name|formResources
-init|=
-name|form
-operator|.
-name|getResources
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|form
