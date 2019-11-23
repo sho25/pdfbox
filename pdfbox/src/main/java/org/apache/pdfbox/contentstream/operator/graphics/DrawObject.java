@@ -227,20 +227,6 @@ name|OperatorName
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|PDResources
-import|;
-end_import
-
 begin_comment
 comment|/**  * Do: Draws an XObject.  *  * @author Ben Litchfield  * @author John Hewson  */
 end_comment
