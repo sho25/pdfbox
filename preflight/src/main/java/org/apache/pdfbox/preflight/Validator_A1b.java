@@ -468,8 +468,6 @@ name|SuppressWarnings
 argument_list|(
 block|{
 literal|"squid:S4435"
-block|,
-literal|"squid:S2755"
 block|}
 argument_list|)
 comment|// self-created XML
@@ -516,6 +514,14 @@ condition|(
 name|isGroup
 condition|)
 block|{
+annotation|@
+name|SuppressWarnings
+argument_list|(
+block|{
+literal|"squid:S2755"
+block|}
+argument_list|)
+comment|// self-created XML
 name|Document
 name|document
 init|=
