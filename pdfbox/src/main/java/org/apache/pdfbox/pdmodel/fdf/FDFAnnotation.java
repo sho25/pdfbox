@@ -501,6 +501,17 @@ literal|1
 operator|<<
 literal|8
 decl_stmt|;
+comment|/**      * An annotation flag.      */
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|FLAG_LOCKED_CONTENTS
+init|=
+literal|1
+operator|<<
+literal|9
+decl_stmt|;
 comment|/**      * Annotation dictionary.      */
 specifier|protected
 name|COSDictionary
@@ -2601,6 +2612,48 @@ argument_list|,
 name|FLAG_TOGGLE_NO_VIEW
 argument_list|,
 name|toggleNoView
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Get the LockedContents flag.      *      * @return The LockedContents flag.      */
+specifier|public
+name|boolean
+name|isLockedContents
+parameter_list|()
+block|{
+return|return
+name|annot
+operator|.
+name|getFlag
+argument_list|(
+name|COSName
+operator|.
+name|F
+argument_list|,
+name|FLAG_LOCKED_CONTENTS
+argument_list|)
+return|;
+block|}
+comment|/**      * Set the LockedContents flag.      *       * @param lockedContents The new LockedContents flag.      */
+specifier|public
+name|void
+name|setLockedContents
+parameter_list|(
+name|boolean
+name|lockedContents
+parameter_list|)
+block|{
+name|annot
+operator|.
+name|setFlag
+argument_list|(
+name|COSName
+operator|.
+name|F
+argument_list|,
+name|FLAG_LOCKED_CONTENTS
+argument_list|,
+name|lockedContents
 argument_list|)
 expr_stmt|;
 block|}
