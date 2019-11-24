@@ -281,7 +281,7 @@ literal|"LockedContents"
 block|,
 name|annotation
 operator|.
-name|isLocked
+name|isLockedContents
 argument_list|()
 block|}
 block|}
