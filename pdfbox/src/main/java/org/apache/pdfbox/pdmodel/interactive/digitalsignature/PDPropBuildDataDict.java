@@ -534,7 +534,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * If there is a LegalPDF dictionary in the catalog      * of the PDF file and the NonEmbeddedFonts attribute in this dictionary      * has a non zero value, and the viewing application has a preference      * set to suppress the display of this warning then the value of this      * attribute will be set to true.      *      * @return true if NonEFontNoWarn is set to true      */
+comment|/**      * If there is a LegalPDF dictionary in the catalog      * of the PDF file and the NonEmbeddedFonts attribute in this dictionary      * has a non zero value, and the viewing application has a preference      * set to suppress the display of this warning then the value of this      * attribute will be set to true.      *      * @return true if NonEFontNoWarn is set to true      * @see #setNonEFontNoWarn(boolean)      */
 specifier|public
 name|boolean
 name|getNonEFontNoWarn
@@ -553,7 +553,27 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/*      * setNonEFontNoWarn missing. Maybe not needed or should be self      * implemented.      *      * Documentation says:      * (Optional; PDF 1.5) If there is a LegalPDF dictionary in the catalog      * of the PDF file and the NonEmbeddedFonts attribute in this dictionary      * has a non zero value, and the viewing application has a preference      * set to suppress the display of this warning then the value of this      * attribute will be set to true.      */
+comment|/**      * If true, the reader should not display a warning about fonts not being embedded.      *      * @param noEmbedFontWarning true if there is a Legal dictionary in the catalog and the      * NonEmbeddedFonts attribute has a non-zero value      *      * Documentation says: (Optional; PDF 1.5) If there is a LegalPDF dictionary in the catalog of      * the PDF file and the NonEmbeddedFonts attribute in this dictionary has a non zero value, and      * the viewing application has a preference set to suppress the display of this warning then the      * value of this attribute will be set to true.      *      * @see      *<a href="https://www.adobe.com/content/dam/acom/en/devnet/acrobat/pdfs/Acrobat_Signature_BuildDict.pdf#page=6">Digital      * Signature Build Dictionary Specification</a>      * @see #getNonEFontNoWarn()      * @see COSName#NON_EFONT_NO_WARN      */
+specifier|public
+name|void
+name|setNonEFontNoWarn
+parameter_list|(
+name|boolean
+name|noEmbedFontWarning
+parameter_list|)
+block|{
+name|dictionary
+operator|.
+name|setBoolean
+argument_list|(
+name|COSName
+operator|.
+name|NON_EFONT_NO_WARN
+argument_list|,
+name|noEmbedFontWarning
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * If true, the application was in trusted mode when signing took place.      *      * @return true if the application was in trusted mode while signing.      *              default: false      */
 specifier|public
 name|boolean
