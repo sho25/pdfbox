@@ -756,6 +756,15 @@ operator|=
 name|ocspUrl
 expr_stmt|;
 block|}
+comment|/**      * Get the certificate to be OCSP-checked.      *       * @return The certificate to be OCSP-checked.      */
+name|X509Certificate
+name|getCertificateToCheck
+parameter_list|()
+block|{
+return|return
+name|certificateToCheck
+return|;
+block|}
 comment|/**      * Performs and verifies the OCSP-Request      *      * @return the OCSPResp, when the request was successful, else a corresponding exception will be      * thrown. Never returns null.      *      * @throws IOException      * @throws OCSPException      * @throws RevokedCertificateException      */
 specifier|public
 name|OCSPResp
