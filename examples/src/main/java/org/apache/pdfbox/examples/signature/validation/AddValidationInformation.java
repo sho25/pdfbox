@@ -610,6 +610,19 @@ specifier|private
 name|Calendar
 name|signDate
 decl_stmt|;
+specifier|private
+specifier|final
+name|Set
+argument_list|<
+name|X509Certificate
+argument_list|>
+name|ocspChecked
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+decl_stmt|;
 comment|/**      * Signs the given PDF file.      *       * @param inFile input PDF file      * @param outFile output PDF file      * @throws IOException if the input file could not be read      */
 specifier|public
 name|void
@@ -1157,6 +1170,7 @@ name|getSerialNumber
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|//TODO serial number is not unique!
 if|if
 condition|(
 operator|!
@@ -1443,6 +1457,22 @@ name|CertificateProccessingException
 throws|,
 name|RevokedCertificateException
 block|{
+if|if
+condition|(
+name|ocspChecked
+operator|.
+name|contains
+argument_list|(
+name|certInfo
+operator|.
+name|getCertificate
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// This certificate has been OCSP-checked before
+return|return;
+block|}
 name|OcspHelper
 name|ocspHelper
 init|=
@@ -1488,6 +1518,16 @@ operator|.
 name|getResponseOcsp
 argument_list|()
 decl_stmt|;
+name|ocspChecked
+operator|.
+name|add
+argument_list|(
+name|certInfo
+operator|.
+name|getCertificate
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|BasicOCSPResp
 name|basicResponse
 init|=
