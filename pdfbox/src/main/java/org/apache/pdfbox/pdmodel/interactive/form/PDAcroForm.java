@@ -1189,6 +1189,10 @@ name|fields
 argument_list|)
 expr_stmt|;
 block|}
+comment|// the content stream to write to
+name|PDPageContentStream
+name|contentStream
+decl_stmt|;
 name|Map
 argument_list|<
 name|COSDictionary
@@ -1233,6 +1237,13 @@ name|getCOSObject
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// indicates if the original content stream
+comment|// has been wrapped in a q...Q pair.
+name|boolean
+name|isContentStreamWrapped
+init|=
+literal|false
+decl_stmt|;
 name|List
 argument_list|<
 name|PDAnnotation
@@ -1243,11 +1254,6 @@ operator|new
 name|ArrayList
 argument_list|<>
 argument_list|()
-decl_stmt|;
-name|PDPageContentStream
-name|contentStream
-init|=
-literal|null
 decl_stmt|;
 for|for
 control|(
@@ -1319,14 +1325,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|contentStream
-operator|==
-literal|null
-condition|)
-block|{
-comment|// have one content stream for all (reduces the memory footprint)
 name|contentStream
 operator|=
 operator|new
@@ -1342,10 +1340,14 @@ name|APPEND
 argument_list|,
 literal|true
 argument_list|,
-literal|true
+operator|!
+name|isContentStreamWrapped
 argument_list|)
 expr_stmt|;
-block|}
+name|isContentStreamWrapped
+operator|=
+literal|true
+expr_stmt|;
 name|PDAppearanceStream
 name|appearanceStream
 init|=
@@ -1628,20 +1630,12 @@ operator|.
 name|restoreGraphicsState
 argument_list|()
 expr_stmt|;
-block|}
-block|}
-if|if
-condition|(
-name|contentStream
-operator|!=
-literal|null
-condition|)
-block|{
 name|contentStream
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|page
 operator|.
