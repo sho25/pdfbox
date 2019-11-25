@@ -1015,9 +1015,9 @@ name|SecurityException
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
+throw|throw
+operator|new
+name|IOException
 argument_list|(
 literal|"Failed to create new instance of "
 operator|+
@@ -1028,10 +1028,7 @@ argument_list|()
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
-return|return
-literal|null
-return|;
+throw|;
 block|}
 name|result
 operator|.
