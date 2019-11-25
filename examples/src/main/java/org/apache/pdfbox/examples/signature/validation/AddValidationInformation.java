@@ -73,16 +73,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|math
-operator|.
-name|BigInteger
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|security
 operator|.
 name|GeneralSecurityException
@@ -538,7 +528,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An example for adding Validation Information to a signed PDF, inspired by ETSI TS 102 778-4  * V1.1.2 (2009-12), Part 4: PAdES Long Term - PAdES-LTV Profile. This procedure appends the  * Validation Information of the last signature (more precise its signer(s)) to a copy of the  * document. The signature and the signed data will not be touched and stay valid.  *  * @author Alexis Suter  */
+comment|/**  * An example for adding Validation Information to a signed PDF, inspired by ETSI TS 102 778-4  * V1.1.2 (2009-12), Part 4: PAdES Long Term - PAdES-LTV Profile. This procedure appends the  * Validation Information of the last signature (more precise its signer(s)) to a copy of the  * document. The signature and the signed data will not be touched and stay valid.  *<p>  * See also<a href="http://eprints.hsr.ch/id/eprint/616">Bachelor thesis (in German) about LTV</a>  *  * @author Alexis Suter  */
 end_comment
 
 begin_class
@@ -597,7 +587,7 @@ specifier|private
 specifier|final
 name|Set
 argument_list|<
-name|BigInteger
+name|X509Certificate
 argument_list|>
 name|foundRevocationInformation
 init|=
@@ -623,6 +613,9 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|//TODO foundRevocationInformation and ocspChecked have a similar purpose. One of them should likely
+comment|// be removed and the code improved. When doing so, keep in mind that ocspChecked was added last,
+comment|// because of a problem with freetsa.
 comment|/**      * Signs the given PDF file.      *       * @param inFile input PDF file      * @param outFile output PDF file      * @throws IOException if the input file could not be read      */
 specifier|public
 name|void
@@ -1165,12 +1158,8 @@ name|certInfo
 operator|.
 name|getCertificate
 argument_list|()
-operator|.
-name|getSerialNumber
-argument_list|()
 argument_list|)
 decl_stmt|;
-comment|//TODO serial number is not unique!
 if|if
 condition|(
 operator|!
@@ -1715,9 +1704,6 @@ name|certInfo
 operator|.
 name|getCertificate
 argument_list|()
-operator|.
-name|getSerialNumber
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2014,9 +2000,6 @@ argument_list|(
 name|certInfo
 operator|.
 name|getCertificate
-argument_list|()
-operator|.
-name|getSerialNumber
 argument_list|()
 argument_list|)
 expr_stmt|;
