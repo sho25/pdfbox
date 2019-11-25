@@ -501,6 +501,13 @@ argument_list|(
 name|complexFileSpec
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|embeddedFile
+operator|!=
+literal|null
+condition|)
+block|{
 name|extractFile
 argument_list|(
 name|filePath
@@ -513,6 +520,7 @@ argument_list|,
 name|embeddedFile
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -595,6 +603,13 @@ argument_list|(
 name|fileSpec
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|embeddedFile
+operator|!=
+literal|null
+condition|)
+block|{
 name|extractFile
 argument_list|(
 name|filePath
@@ -604,6 +619,7 @@ argument_list|,
 name|embeddedFile
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 specifier|private
