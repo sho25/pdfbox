@@ -2076,15 +2076,6 @@ argument_list|(
 name|certificateHolder
 argument_list|)
 decl_stmt|;
-name|Assert
-operator|.
-name|assertEquals
-argument_list|(
-name|certificate
-argument_list|,
-name|certFromSignedData
-argument_list|)
-expr_stmt|;
 comment|// CMSVerifierCertificateNotValidException means that the keystore wasn't valid at signing time
 if|if
 condition|(
@@ -2099,7 +2090,7 @@ argument_list|()
 operator|.
 name|build
 argument_list|(
-name|certFromSignedData
+name|certificateHolder
 argument_list|)
 argument_list|)
 condition|)

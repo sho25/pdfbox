@@ -3280,7 +3280,7 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|X509CertificateHolder
-name|holder
+name|certificateHolder
 init|=
 name|tstMatches
 operator|.
@@ -3289,18 +3289,6 @@ argument_list|()
 operator|.
 name|next
 argument_list|()
-decl_stmt|;
-name|X509Certificate
-name|tstCert
-init|=
-operator|new
-name|JcaX509CertificateConverter
-argument_list|()
-operator|.
-name|getCertificate
-argument_list|(
-name|holder
-argument_list|)
 decl_stmt|;
 name|SignerInformationVerifier
 name|siv
@@ -3319,7 +3307,7 @@ argument_list|)
 operator|.
 name|build
 argument_list|(
-name|tstCert
+name|certificateHolder
 argument_list|)
 decl_stmt|;
 name|timeStampToken
