@@ -1469,7 +1469,7 @@ comment|// catch corrupt file
 comment|// https://docs.microsoft.com/en-us/typography/opentype/spec/chapter2#flTbl
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"FeatureRecord array not alphabetically sorted by FeatureTag: "
 operator|+
