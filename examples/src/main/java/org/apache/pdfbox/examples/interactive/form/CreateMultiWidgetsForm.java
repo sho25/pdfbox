@@ -553,7 +553,7 @@ name|textBox
 argument_list|)
 expr_stmt|;
 comment|// set green border and yellow background for 1st widget
-comment|// if you prefer defaults, just delete this code block
+comment|// if you prefer defaults, delete this code block
 name|PDAppearanceCharacteristicsDictionary
 name|fieldAppearance1
 init|=
@@ -621,7 +621,7 @@ name|fieldAppearance1
 argument_list|)
 expr_stmt|;
 comment|// set red border and green background for 2nd widget
-comment|// if you prefer defaults, just delete this code block
+comment|// if you prefer defaults, delete this code block
 name|PDAppearanceCharacteristicsDictionary
 name|fieldAppearance2
 init|=

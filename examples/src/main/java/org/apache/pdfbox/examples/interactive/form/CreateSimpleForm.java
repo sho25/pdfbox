@@ -484,7 +484,7 @@ name|page
 argument_list|)
 expr_stmt|;
 comment|// set green border and yellow background
-comment|// if you prefer defaults, just delete this code block
+comment|// if you prefer defaults, delete this code block
 name|PDAppearanceCharacteristicsDictionary
 name|fieldAppearance
 init|=
