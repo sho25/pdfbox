@@ -3286,7 +3286,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Nice method, gives you every object you want Arrays works properly too. Try "P/Annots/[k]/Rect" where k means the      * index of the Annotsarray.      *      * @param objPath the relative path to the object.      * @return the object      */
+comment|/**      * Nice method, gives you every object you want Arrays works properly too. Try "P/Annots/[k]/Rect" where k means the      * index of the Annots array.      *      * @param objPath the relative path to the object.      * @return the object      */
 specifier|public
 name|COSBase
 name|getObjectFromPath
@@ -3424,9 +3424,7 @@ name|this
 argument_list|,
 operator|new
 name|ArrayList
-argument_list|<
-name|COSBase
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 return|;

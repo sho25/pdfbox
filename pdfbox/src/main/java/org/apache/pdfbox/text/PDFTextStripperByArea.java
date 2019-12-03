@@ -353,9 +353,7 @@ name|add
 argument_list|(
 operator|new
 name|ArrayList
-argument_list|<
-name|TextPosition
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 expr_stmt|;

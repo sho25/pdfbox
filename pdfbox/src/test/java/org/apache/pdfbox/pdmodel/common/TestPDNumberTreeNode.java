@@ -882,11 +882,7 @@ name|setNumbers
 argument_list|(
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|COSObjectable
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1045,11 +1041,7 @@ name|setNumbers
 argument_list|(
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|COSObjectable
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 expr_stmt|;

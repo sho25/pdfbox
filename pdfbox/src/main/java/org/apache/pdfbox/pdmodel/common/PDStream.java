@@ -1092,9 +1092,7 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|map
 argument_list|,
@@ -1453,9 +1451,7 @@ name|retval
 operator|=
 operator|new
 name|COSArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|map
 argument_list|,

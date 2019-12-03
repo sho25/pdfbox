@@ -465,11 +465,7 @@ name|newSetFromMap
 argument_list|(
 operator|new
 name|IdentityHashMap
-argument_list|<
-name|COSBase
-argument_list|,
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 decl_stmt|;
