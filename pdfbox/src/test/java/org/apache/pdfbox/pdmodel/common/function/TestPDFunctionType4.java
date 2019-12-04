@@ -41,6 +41,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -187,7 +199,9 @@ name|function
 operator|.
 name|getBytes
 argument_list|(
-literal|"US-ASCII"
+name|StandardCharsets
+operator|.
+name|US_ASCII
 argument_list|)
 decl_stmt|;
 name|out

@@ -83,7 +83,7 @@ name|nio
 operator|.
 name|charset
 operator|.
-name|Charset
+name|StandardCharsets
 import|;
 end_import
 
@@ -735,7 +735,9 @@ name|tag
 operator|.
 name|getBytes
 argument_list|(
-literal|"US-ASCII"
+name|StandardCharsets
+operator|.
+name|US_ASCII
 argument_list|)
 decl_stmt|;
 name|out
@@ -2275,7 +2277,9 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
-literal|"US-ASCII"
+name|StandardCharsets
+operator|.
+name|US_ASCII
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4601,12 +4605,9 @@ name|name
 operator|.
 name|getBytes
 argument_list|(
-name|Charset
+name|StandardCharsets
 operator|.
-name|forName
-argument_list|(
-literal|"US-ASCII"
-argument_list|)
+name|US_ASCII
 argument_list|)
 decl_stmt|;
 name|writeUint8
