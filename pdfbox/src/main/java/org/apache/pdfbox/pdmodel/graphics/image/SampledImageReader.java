@@ -2815,8 +2815,6 @@ parameter_list|,
 name|BufferedImage
 name|mask
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|int
 name|width

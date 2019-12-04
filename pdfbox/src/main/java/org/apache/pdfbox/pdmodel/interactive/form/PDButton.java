@@ -1030,8 +1030,6 @@ parameter_list|(
 name|String
 name|value
 parameter_list|)
-throws|throws
-name|IllegalArgumentException
 block|{
 name|Set
 argument_list|<

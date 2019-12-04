@@ -571,15 +571,13 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param fontDictionary Font dictionary.      *      * @throws java.io.IOException      */
+comment|/**      * Constructor.      *      * @param fontDictionary Font dictionary.      */
 specifier|protected
 name|PDFont
 parameter_list|(
 name|COSDictionary
 name|fontDictionary
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|dict
 operator|=
@@ -1688,7 +1686,7 @@ name|code
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the Unicode character sequence which corresponds to the given character code.      *      * @param code character code      * @return Unicode character(s)      * @throws IOException      */
+comment|/**      * Returns the Unicode character sequence which corresponds to the given character code.      *      * @param code character code      * @return Unicode character(s)      */
 specifier|public
 name|String
 name|toUnicode
@@ -1696,8 +1694,6 @@ parameter_list|(
 name|int
 name|code
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 comment|// if the font dictionary containsName a ToUnicode CMap, use that CMap
 if|if

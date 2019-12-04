@@ -899,8 +899,6 @@ comment|/**      * Returns the font.      */
 name|PDFont
 name|getFont
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 return|return
 name|font

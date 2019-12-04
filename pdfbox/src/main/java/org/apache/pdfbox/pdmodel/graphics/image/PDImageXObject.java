@@ -1857,6 +1857,7 @@ return|return
 name|image
 return|;
 block|}
+comment|/**      * Extract the matte color from a softmask.      *       * @param softMask      * @return the matte color.      * @throws IOException if the color conversion fails.      */
 specifier|private
 name|float
 index|[]
@@ -2003,8 +2004,6 @@ name|float
 index|[]
 name|matte
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

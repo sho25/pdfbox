@@ -1094,8 +1094,6 @@ parameter_list|(
 name|String
 name|tag
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|String
 name|name
