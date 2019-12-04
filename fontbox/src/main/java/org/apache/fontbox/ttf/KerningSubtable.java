@@ -681,8 +681,6 @@ parameter_list|(
 name|TTFDataStream
 name|data
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|LOG
 operator|.
@@ -699,8 +697,6 @@ parameter_list|(
 name|TTFDataStream
 name|data
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|LOG
 operator|.

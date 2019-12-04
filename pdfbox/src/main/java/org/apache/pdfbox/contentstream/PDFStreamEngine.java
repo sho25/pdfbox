@@ -2503,8 +2503,6 @@ parameter_list|,
 name|float
 name|ty
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 comment|// update the text matrix
 name|textMatrix
