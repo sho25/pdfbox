@@ -4242,8 +4242,6 @@ parameter_list|,
 name|String
 name|name
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|DictData
 operator|.
