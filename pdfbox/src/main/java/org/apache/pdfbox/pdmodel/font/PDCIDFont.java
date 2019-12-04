@@ -316,8 +316,6 @@ parameter_list|,
 name|PDType0Font
 name|parent
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 operator|.

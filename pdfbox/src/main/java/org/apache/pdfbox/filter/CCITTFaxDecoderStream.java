@@ -1386,8 +1386,6 @@ specifier|private
 name|void
 name|resetBuffer
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|bufferPos
 operator|=

@@ -302,8 +302,6 @@ specifier|private
 name|void
 name|init
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|String
 name|eofLookupRangeStr

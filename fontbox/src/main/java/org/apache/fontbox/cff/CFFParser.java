@@ -4181,8 +4181,6 @@ parameter_list|(
 name|int
 name|index
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 if|if
 condition|(

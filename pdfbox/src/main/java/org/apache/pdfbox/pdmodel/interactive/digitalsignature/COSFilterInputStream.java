@@ -383,8 +383,6 @@ specifier|private
 name|boolean
 name|inRange
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|long
 name|pos

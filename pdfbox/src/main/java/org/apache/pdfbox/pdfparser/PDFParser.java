@@ -404,8 +404,6 @@ parameter_list|(
 name|ScratchFile
 name|scratchFile
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|String
 name|eofLookupRangeStr

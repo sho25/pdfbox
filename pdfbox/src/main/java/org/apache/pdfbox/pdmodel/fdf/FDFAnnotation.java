@@ -1431,7 +1431,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Create the correct FDFAnnotation.      *      * @param fdfDic The FDF dictionary.      *      * @return A newly created FDFAnnotation      *      * @throws IOException If there is an error accessing the FDF information.      */
+comment|/**      * Create the correct FDFAnnotation.      *      * @param fdfDic The FDF dictionary.      *      * @return A newly created FDFAnnotation      */
 specifier|public
 specifier|static
 name|FDFAnnotation
@@ -1440,8 +1440,6 @@ parameter_list|(
 name|COSDictionary
 name|fdfDic
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|FDFAnnotation
 name|retval
