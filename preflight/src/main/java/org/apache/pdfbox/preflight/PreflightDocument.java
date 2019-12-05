@@ -19,16 +19,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Collection
@@ -141,15 +131,13 @@ specifier|final
 name|Format
 name|specification
 decl_stmt|;
-comment|/**      * Create an empty preflight document and load the default configuration for the given format.      *       * @param format      * @throws IOException      */
+comment|/**      * Create an empty preflight document and load the default configuration for the given format.      *       * @param format      */
 specifier|public
 name|PreflightDocument
 parameter_list|(
 name|Format
 name|format
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 argument_list|(
@@ -180,7 +168,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create an empty preflight document that will use the given configuration bean to process the validation. if the      * configuration is null, a default configuration will be load using the given format.      *       * @param format      * @param cfg      * @throws IOException      */
+comment|/**      * Create an empty preflight document that will use the given configuration bean to process the validation. if the      * configuration is null, a default configuration will be load using the given format.      *       * @param format      * @param cfg      */
 specifier|public
 name|PreflightDocument
 parameter_list|(
@@ -190,8 +178,6 @@ parameter_list|,
 name|PreflightConfiguration
 name|cfg
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|this
 argument_list|(

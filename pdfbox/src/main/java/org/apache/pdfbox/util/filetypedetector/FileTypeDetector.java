@@ -747,8 +747,6 @@ name|byte
 index|[]
 name|fileBytes
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 return|return
 name|root
