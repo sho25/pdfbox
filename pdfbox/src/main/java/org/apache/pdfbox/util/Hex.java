@@ -777,7 +777,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Decodes a hex String into a byte array.      *      * @param s A String with ASCII hex.      * @return decoded byte array.      * @throws IOException      */
+comment|/**      * Decodes a hex String into a byte array.      *      * @param s A String with ASCII hex.      * @return decoded byte array.      */
 specifier|public
 specifier|static
 name|byte
@@ -787,8 +787,6 @@ parameter_list|(
 name|String
 name|s
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|ByteArrayOutputStream
 name|baos

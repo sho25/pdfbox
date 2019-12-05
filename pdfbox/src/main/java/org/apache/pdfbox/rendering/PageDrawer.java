@@ -3016,8 +3016,6 @@ parameter_list|(
 name|BufferedImage
 name|gray
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|AffineTransform
 name|at

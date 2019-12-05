@@ -785,7 +785,7 @@ else|:
 literal|""
 return|;
 block|}
-comment|/**      * Sets the value of this field. This may be of any kind which is valid for this field's      * children.      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      * @param object      * @throws java.io.IOException      */
+comment|/**      * Sets the value of this field. This may be of any kind which is valid for this field's      * children.      *      *<p><b>Note:</b> while non-terminal fields<b>do</b> inherit field values, this method returns      * the local value, without inheritance.      * @param object      */
 specifier|public
 name|void
 name|setValue
@@ -793,8 +793,6 @@ parameter_list|(
 name|COSBase
 name|object
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|getCOSObject
 argument_list|()

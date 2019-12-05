@@ -429,8 +429,6 @@ parameter_list|(
 name|String
 name|value
 parameter_list|)
-throws|throws
-name|UnsupportedOperationException
 block|{
 throw|throw
 operator|new
