@@ -1992,7 +1992,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Valid the number of graphic states if the operator is the Save Graphic state operator ("q")      *       * @param operator      * @throws ContentStreamException      */
+comment|/**      * Valid the number of graphic states if the operator is the Save Graphic state operator ("q")      *       * @param operator      */
 specifier|protected
 name|void
 name|validateNumberOfGraphicStates
@@ -2000,8 +2000,6 @@ parameter_list|(
 name|Operator
 name|operator
 parameter_list|)
-throws|throws
-name|ContentStreamException
 block|{
 if|if
 condition|(
@@ -2043,7 +2041,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Throw a ContentStreamException if the LZW filter is used in a InlinedImage.      *       * @param operator the InlinedImage object (BI to EI)      * @throws ContentStreamException      */
+comment|/**      * Throw a ContentStreamException if the LZW filter is used in a InlinedImage.      *       * @param operator the InlinedImage object (BI to EI)      */
 specifier|protected
 name|void
 name|validateInlineImageFilter
@@ -2051,8 +2049,6 @@ parameter_list|(
 name|Operator
 name|operator
 parameter_list|)
-throws|throws
-name|ContentStreamException
 block|{
 name|COSDictionary
 name|dict

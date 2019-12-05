@@ -219,7 +219,7 @@ name|pos
 argument_list|)
 return|;
 block|}
-comment|/**      * Return the first child element of the element parameter. If there is no child, null is returned      *       * @param description      * @return the first child element. Might be null.      * @throws XmpParsingException      */
+comment|/**      * Return the first child element of the element parameter. If there is no child, null is returned      *       * @param description      * @return the first child element. Might be null.      */
 specifier|public
 specifier|static
 name|Element
@@ -228,8 +228,6 @@ parameter_list|(
 name|Element
 name|description
 parameter_list|)
-throws|throws
-name|XmpParsingException
 block|{
 name|NodeList
 name|nl
@@ -297,8 +295,6 @@ parameter_list|(
 name|Element
 name|description
 parameter_list|)
-throws|throws
-name|XmpParsingException
 block|{
 name|NodeList
 name|nl

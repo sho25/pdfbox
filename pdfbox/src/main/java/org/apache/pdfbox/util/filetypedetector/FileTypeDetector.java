@@ -640,8 +640,6 @@ block|}
 specifier|private
 name|FileTypeDetector
 parameter_list|()
-throws|throws
-name|Exception
 block|{     }
 comment|/**      * Examines the a file's first bytes and estimates the file's type.      *<p>      * Requires a {@link BufferedInputStream} in order to mark and reset the stream to the position      * at which it was provided to this method once completed.      *<p>      * Requires the stream to contain at least eight bytes.      *      * @param inputStream a buffered input stream of the file to examine.      * @return the file type.      * @throws IOException if an IO error occurred or the input stream ended unexpectedly.      */
 specifier|public
