@@ -35,6 +35,18 @@ name|OutputStream
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class represents an integer number in a PDF document.  *  * @author Ben Litchfield  */
 end_comment
@@ -386,7 +398,9 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-literal|"ISO-8859-1"
+name|StandardCharsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
