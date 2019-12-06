@@ -828,8 +828,6 @@ specifier|static
 name|void
 name|usage
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|String
 name|version

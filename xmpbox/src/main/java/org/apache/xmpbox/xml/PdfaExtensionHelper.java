@@ -1479,8 +1479,6 @@ parameter_list|,
 name|String
 name|valueType
 parameter_list|)
-throws|throws
-name|XmpParsingException
 block|{
 if|if
 condition|(

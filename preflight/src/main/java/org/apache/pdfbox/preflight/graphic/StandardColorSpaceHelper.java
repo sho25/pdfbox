@@ -2075,8 +2075,6 @@ parameter_list|,
 name|ICC_Profile
 name|iccp
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|COSDictionary
 name|streamDict

@@ -985,8 +985,6 @@ parameter_list|(
 name|PDPage
 name|page
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|super
 argument_list|(

@@ -533,8 +533,6 @@ parameter_list|(
 name|Element
 name|element
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|String
 name|callout

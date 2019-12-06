@@ -2198,8 +2198,6 @@ parameter_list|,
 name|ComplexPropertyContainer
 name|container
 parameter_list|)
-throws|throws
-name|XmpParsingException
 block|{
 name|TypeMapping
 name|tm
