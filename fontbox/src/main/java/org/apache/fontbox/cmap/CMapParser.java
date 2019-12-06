@@ -301,6 +301,13 @@ block|{
 comment|// end of CMap reached, stop reading as there isn't any interesting info anymore
 break|break;
 block|}
+if|if
+condition|(
+name|previousToken
+operator|!=
+literal|null
+condition|)
+block|{
 switch|switch
 condition|(
 name|op
@@ -404,6 +411,7 @@ expr_stmt|;
 break|break;
 default|default:
 break|break;
+block|}
 block|}
 block|}
 elseif|else
