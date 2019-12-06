@@ -58,12 +58,14 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|junit
 operator|.
-name|Rule
+name|Assert
+operator|.
+name|assertThrows
 import|;
 end_import
 
@@ -74,18 +76,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|rules
-operator|.
-name|ExpectedException
 import|;
 end_import
 
@@ -200,48 +190,28 @@ expr_stmt|;
 block|}
 comment|/**      * @author John Bergqvist      */
 annotation|@
-name|Rule
-specifier|public
-name|ExpectedException
-name|thrown
-init|=
-name|ExpectedException
-operator|.
-name|none
-argument_list|()
-decl_stmt|;
-annotation|@
 name|Test
 specifier|public
 name|void
 name|fromStringInputNotNullOutputIllegalArgumentException
 parameter_list|()
 block|{
-comment|// Arrange
-specifier|final
-name|String
-name|value
-init|=
-literal|"SinglePag"
-decl_stmt|;
-comment|// Act
-name|thrown
-operator|.
-name|expect
+name|assertThrows
 argument_list|(
 name|IllegalArgumentException
 operator|.
 name|class
-argument_list|)
-expr_stmt|;
+argument_list|,
+parameter_list|()
+lambda|->
 name|PageLayout
 operator|.
 name|fromString
 argument_list|(
-name|value
+literal|"SinglePag"
+argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Method is not expected to return due to exception thrown
 block|}
 block|}
 end_class
