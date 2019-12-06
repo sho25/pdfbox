@@ -150,6 +150,8 @@ name|pdText
 expr_stmt|;
 block|}
 comment|/*      * (non-Javadoc)      *       * @see org.apache.pdfbox.preflight.annotation.AnnotationValidator#checkFlags( java.util.List)      */
+annotation|@
+name|Override
 specifier|protected
 name|boolean
 name|checkFlags
