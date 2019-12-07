@@ -39,6 +39,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -199,20 +211,6 @@ name|COSString
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|Charsets
-import|;
-end_import
-
 begin_comment
 comment|/**  * A class that will take a list of tokens and write out a stream with them.  *  * @author Ben Litchfield  */
 end_comment
@@ -338,7 +336,7 @@ literal|"\n"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -737,7 +735,7 @@ name|BEGIN_INLINE_IMAGE
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -809,7 +807,7 @@ name|BEGIN_INLINE_IMAGE_DATA
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -849,7 +847,7 @@ name|END_INLINE_IMAGE
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -876,7 +874,7 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)

@@ -39,15 +39,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|nio
 operator|.
-name|pdfbox
+name|charset
 operator|.
-name|util
-operator|.
-name|Charsets
+name|StandardCharsets
 import|;
 end_import
 
@@ -125,7 +123,7 @@ literal|"II"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -152,7 +150,7 @@ literal|"MM"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -179,7 +177,7 @@ literal|"8BPS"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -247,7 +245,7 @@ literal|"BM"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -265,7 +263,7 @@ literal|"GIF87a"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -283,7 +281,7 @@ literal|"GIF89a"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -404,14 +402,14 @@ literal|"RIFF"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// https://github.com/drewnoakes/metadata-extractor/issues/217
-comment|// root.addPath(FileType.ARW, "II".getBytes(Charsets.ISO_8859_1), new byte[]{0x2a, 0x00, 0x08, 0x00})
+comment|// root.addPath(FileType.ARW, "II".getBytes(StandardCharsets.ISO_8859_1), new byte[]{0x2a, 0x00, 0x08, 0x00})
 name|root
 operator|.
 name|addPath
@@ -424,7 +422,7 @@ literal|"II"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -446,7 +444,7 @@ literal|"HEAPCCDR"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -464,7 +462,7 @@ literal|"II"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -503,7 +501,7 @@ literal|"MM"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -543,7 +541,7 @@ literal|"IIRO"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -573,7 +571,7 @@ literal|"IIRS"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -603,7 +601,7 @@ literal|"FUJIFILMCCD-RAW"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -621,7 +619,7 @@ literal|"II"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
