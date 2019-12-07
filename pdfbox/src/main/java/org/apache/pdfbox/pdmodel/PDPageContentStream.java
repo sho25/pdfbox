@@ -71,6 +71,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -364,20 +376,6 @@ operator|.
 name|annotation
 operator|.
 name|PDAppearanceStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|Charsets
 import|;
 end_import
 
@@ -800,7 +798,7 @@ literal|"q"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)

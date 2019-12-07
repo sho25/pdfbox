@@ -37,15 +37,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|nio
 operator|.
-name|fontbox
+name|charset
 operator|.
-name|util
-operator|.
-name|Charsets
+name|StandardCharsets
 import|;
 end_import
 
@@ -99,7 +97,7 @@ literal|"huhu"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)

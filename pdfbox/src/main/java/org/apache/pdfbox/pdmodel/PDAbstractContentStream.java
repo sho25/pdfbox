@@ -81,6 +81,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|text
 operator|.
 name|NumberFormat
@@ -684,20 +696,6 @@ operator|.
 name|state
 operator|.
 name|RenderingMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|Charsets
 import|;
 end_import
 
@@ -4613,7 +4611,7 @@ name|comment
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -4771,7 +4769,7 @@ name|text
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -4804,7 +4802,7 @@ name|text
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
