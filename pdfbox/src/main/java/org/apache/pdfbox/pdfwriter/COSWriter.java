@@ -79,6 +79,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|security
 operator|.
 name|MessageDigest
@@ -617,20 +629,6 @@ name|pdfbox
 operator|.
 name|util
 operator|.
-name|Charsets
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
 name|Hex
 import|;
 end_import
@@ -660,7 +658,7 @@ literal|"<<"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -677,7 +675,7 @@ literal|">>"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -718,7 +716,7 @@ literal|"PDF-1.4"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -768,7 +766,7 @@ literal|"%%EOF"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -786,7 +784,7 @@ literal|"R"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -803,7 +801,7 @@ literal|"xref"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -820,7 +818,7 @@ literal|"f"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -837,7 +835,7 @@ literal|"n"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -854,7 +852,7 @@ literal|"trailer"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -871,7 +869,7 @@ literal|"startxref"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -888,7 +886,7 @@ literal|"obj"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -905,7 +903,7 @@ literal|"endobj"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -922,7 +920,7 @@ literal|"["
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -939,7 +937,7 @@ literal|"]"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -956,7 +954,7 @@ literal|"stream"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -973,7 +971,7 @@ literal|"endstream"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)
@@ -2027,7 +2025,7 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -2058,7 +2056,7 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -2187,7 +2185,7 @@ name|headerString
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -2974,7 +2972,7 @@ name|byteRange
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -3321,7 +3319,7 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -3349,7 +3347,7 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -3410,7 +3408,7 @@ name|offset
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -3433,7 +3431,7 @@ name|generation
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -4630,7 +4628,7 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -4819,7 +4817,7 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -4850,7 +4848,7 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -5389,7 +5387,7 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -5436,7 +5434,7 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)

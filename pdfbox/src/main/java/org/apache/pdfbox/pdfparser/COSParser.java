@@ -16,22 +16,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|Charsets
-operator|.
-name|ISO_8859_1
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -3551,6 +3535,8 @@ name|endObjectKey
 operator|.
 name|getBytes
 argument_list|(
+name|StandardCharsets
+operator|.
 name|ISO_8859_1
 argument_list|)
 operator|.
@@ -4464,6 +4450,8 @@ argument_list|)
 operator|.
 name|getBytes
 argument_list|(
+name|StandardCharsets
+operator|.
 name|ISO_8859_1
 argument_list|)
 operator|.
@@ -10192,6 +10180,8 @@ name|headerGarbage
 operator|.
 name|getBytes
 argument_list|(
+name|StandardCharsets
+operator|.
 name|ISO_8859_1
 argument_list|)
 operator|.
@@ -10371,6 +10361,8 @@ name|str
 operator|.
 name|getBytes
 argument_list|(
+name|StandardCharsets
+operator|.
 name|ISO_8859_1
 argument_list|)
 decl_stmt|;

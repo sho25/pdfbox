@@ -71,6 +71,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -343,7 +355,7 @@ specifier|final
 name|CharsetDecoder
 name|utf8Decoder
 init|=
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 operator|.
@@ -2883,7 +2895,7 @@ operator|.
 name|toByteArray
 argument_list|()
 argument_list|,
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
@@ -2955,7 +2967,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Character could not be decoded using Charsets.UTF_8 - returning false"
+literal|"Character could not be decoded using StandardCharsets.UTF_8 - returning false"
 argument_list|,
 name|e
 argument_list|)

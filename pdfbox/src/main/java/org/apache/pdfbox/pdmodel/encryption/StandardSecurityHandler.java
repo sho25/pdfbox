@@ -73,6 +73,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|security
 operator|.
 name|GeneralSecurityException
@@ -234,20 +246,6 @@ operator|.
 name|pdmodel
 operator|.
 name|PDDocument
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|Charsets
 import|;
 end_import
 
@@ -842,7 +840,7 @@ decl_stmt|;
 name|Charset
 name|passwordCharset
 init|=
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 decl_stmt|;
@@ -859,7 +857,7 @@ condition|)
 block|{
 name|passwordCharset
 operator|=
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 expr_stmt|;
@@ -1806,7 +1804,7 @@ name|userPassword
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
@@ -1946,7 +1944,7 @@ name|ownerPassword
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
@@ -2436,7 +2434,7 @@ name|ownerPassword
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -2450,7 +2448,7 @@ name|userPassword
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -2470,7 +2468,7 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -2491,7 +2489,7 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -2560,7 +2558,7 @@ name|ownerPassword
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -2569,7 +2567,7 @@ name|userPassword
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -2589,7 +2587,7 @@ name|userPassword
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -2618,7 +2616,7 @@ name|userPassword
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -4823,7 +4821,7 @@ name|password
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
@@ -4853,7 +4851,7 @@ name|password
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -4917,7 +4915,7 @@ name|password
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
