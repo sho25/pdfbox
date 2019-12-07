@@ -89,20 +89,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|util
-operator|.
-name|Charsets
-import|;
-end_import
-
 begin_comment
 comment|/**  * A table in a true type font.  *   * @author Ben Litchfield  */
 end_comment
@@ -426,9 +412,9 @@ case|:
 comment|//not sure is this is correct??
 name|charset
 operator|=
-name|Charsets
+name|StandardCharsets
 operator|.
-name|ISO_10646
+name|UTF_16BE
 expr_stmt|;
 break|break;
 case|case
