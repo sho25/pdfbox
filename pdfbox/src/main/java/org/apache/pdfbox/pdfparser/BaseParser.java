@@ -291,22 +291,6 @@ name|Charsets
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|util
-operator|.
-name|Charsets
-operator|.
-name|ISO_8859_1
-import|;
-end_import
-
 begin_comment
 comment|/**  * This class is used to contain parsing logic that will be used by both the  * PDFParser and the COSStreamParser.  *  * @author Ben Litchfield  */
 end_comment
@@ -1216,6 +1200,8 @@ name|potentialDEF
 operator|.
 name|getBytes
 argument_list|(
+name|StandardCharsets
+operator|.
 name|ISO_8859_1
 argument_list|)
 argument_list|)
@@ -2512,6 +2498,8 @@ name|isThisTheEnd
 operator|.
 name|getBytes
 argument_list|(
+name|StandardCharsets
+operator|.
 name|ISO_8859_1
 argument_list|)
 argument_list|)
@@ -3019,6 +3007,8 @@ argument_list|(
 literal|4
 argument_list|)
 argument_list|,
+name|StandardCharsets
+operator|.
 name|ISO_8859_1
 argument_list|)
 decl_stmt|;
@@ -3081,6 +3071,8 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
+name|StandardCharsets
+operator|.
 name|ISO_8859_1
 argument_list|)
 decl_stmt|;
@@ -3305,6 +3297,8 @@ argument_list|(
 literal|4
 argument_list|)
 argument_list|,
+name|StandardCharsets
+operator|.
 name|ISO_8859_1
 argument_list|)
 decl_stmt|;
@@ -3367,6 +3361,8 @@ argument_list|(
 literal|5
 argument_list|)
 argument_list|,
+name|StandardCharsets
+operator|.
 name|ISO_8859_1
 argument_list|)
 decl_stmt|;
@@ -3655,6 +3651,8 @@ name|badString
 operator|.
 name|getBytes
 argument_list|(
+name|StandardCharsets
+operator|.
 name|ISO_8859_1
 argument_list|)
 argument_list|)
@@ -4567,6 +4565,8 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
+name|StandardCharsets
+operator|.
 name|ISO_8859_1
 argument_list|)
 argument_list|)
@@ -4650,6 +4650,8 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
+name|StandardCharsets
+operator|.
 name|ISO_8859_1
 argument_list|)
 argument_list|)
