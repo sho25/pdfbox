@@ -608,17 +608,6 @@ name|US_ASCII
 argument_list|)
 return|;
 block|}
-comment|/**      * Close the underlying resources.      *       * @throws IOException If there is an error closing the resources.      */
-annotation|@
-name|Override
-specifier|public
-specifier|abstract
-name|void
-name|close
-parameter_list|()
-throws|throws
-name|IOException
-function_decl|;
 comment|/**      * Seek into the datasource.      *       * @param pos The position to seek to.      * @throws IOException If there is an error seeking to that position.      */
 specifier|public
 specifier|abstract
