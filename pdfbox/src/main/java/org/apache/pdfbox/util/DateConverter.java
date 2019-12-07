@@ -763,15 +763,12 @@ name|char
 name|retval
 init|=
 literal|' '
-decl_stmt|,
+decl_stmt|;
+name|char
 name|currch
 decl_stmt|;
 while|while
 condition|(
-name|text
-operator|!=
-literal|null
-operator|&&
 name|where
 operator|.
 name|getIndex
