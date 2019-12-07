@@ -71,6 +71,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Calendar
@@ -84,20 +96,6 @@ operator|.
 name|util
 operator|.
 name|TimeZone
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|util
-operator|.
-name|Charsets
 import|;
 end_import
 
@@ -162,7 +160,7 @@ name|readString
 argument_list|(
 name|length
 argument_list|,
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -585,7 +583,7 @@ return|return
 name|cal
 return|;
 block|}
-comment|/**      * Reads a tag, an arrau of four uint8s used to identify a script, language system, feature,      * or baseline.      */
+comment|/**      * Reads a tag, an array of four uint8s used to identify a script, language system, feature,      * or baseline.      */
 specifier|public
 name|String
 name|readTag
@@ -602,7 +600,7 @@ argument_list|(
 literal|4
 argument_list|)
 argument_list|,
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 argument_list|)

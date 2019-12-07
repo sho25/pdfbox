@@ -29,6 +29,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -120,20 +132,6 @@ operator|.
 name|logging
 operator|.
 name|LogFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|util
-operator|.
-name|Charsets
 import|;
 end_import
 
@@ -686,7 +684,7 @@ name|String
 argument_list|(
 name|b
 argument_list|,
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)
@@ -1133,7 +1131,7 @@ argument_list|(
 name|length
 argument_list|)
 argument_list|,
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 argument_list|)

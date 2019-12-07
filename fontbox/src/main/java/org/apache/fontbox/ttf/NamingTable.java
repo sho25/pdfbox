@@ -41,6 +41,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -332,7 +344,7 @@ decl_stmt|;
 name|Charset
 name|charset
 init|=
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 decl_stmt|;
@@ -361,7 +373,7 @@ condition|)
 block|{
 name|charset
 operator|=
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_16
 expr_stmt|;
@@ -378,7 +390,7 @@ condition|)
 block|{
 name|charset
 operator|=
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_16
 expr_stmt|;
@@ -403,7 +415,7 @@ literal|0
 case|:
 name|charset
 operator|=
-name|Charsets
+name|StandardCharsets
 operator|.
 name|US_ASCII
 expr_stmt|;
@@ -424,7 +436,7 @@ literal|2
 case|:
 name|charset
 operator|=
-name|Charsets
+name|StandardCharsets
 operator|.
 name|ISO_8859_1
 expr_stmt|;
