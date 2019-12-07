@@ -2224,9 +2224,9 @@ name|WindowEvent
 name|evt
 parameter_list|)
 block|{
-name|exitForm
+name|exitMenuItemActionPerformed
 argument_list|(
-name|evt
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -6185,21 +6185,6 @@ name|e
 argument_list|)
 throw|;
 block|}
-block|}
-comment|/**      * Exit the Application.      */
-specifier|private
-name|void
-name|exitForm
-parameter_list|(
-name|WindowEvent
-name|evt
-parameter_list|)
-block|{
-name|exitMenuItemActionPerformed
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
 block|}
 specifier|private
 name|void
