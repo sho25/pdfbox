@@ -599,6 +599,10 @@ comment|// return the next CharString instead
 if|if
 condition|(
 name|prevToken
+operator|!=
+literal|null
+operator|&&
+name|prevToken
 operator|.
 name|getKind
 argument_list|()
