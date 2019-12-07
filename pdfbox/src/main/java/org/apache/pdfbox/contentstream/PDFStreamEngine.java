@@ -785,6 +785,13 @@ specifier|private
 name|Matrix
 name|initialMatrix
 decl_stmt|;
+comment|// used to monitor potentially recursive operations.
+specifier|private
+name|int
+name|level
+init|=
+literal|0
+decl_stmt|;
 comment|/**      * Creates a new PDFStreamEngine.      */
 specifier|protected
 name|PDFStreamEngine
@@ -3677,6 +3684,53 @@ operator|*
 literal|0.5
 argument_list|)
 return|;
+block|}
+comment|/**      * Get the current level. This can be used to decide whether a recursion has done too deep and      * an operation should be skipped to avoid a stack overflow.      *      * @return the current level.      */
+specifier|public
+name|int
+name|getLevel
+parameter_list|()
+block|{
+return|return
+name|level
+return|;
+block|}
+comment|/**      * Increase the level. Call this before running a potentially recursive operation.      */
+specifier|public
+name|void
+name|increaseLevel
+parameter_list|()
+block|{
+operator|++
+name|level
+expr_stmt|;
+block|}
+comment|/**      * Decrease the level. Call this after running a potentially recursive operation. A log message      * is shown if the level is below 0. This can happen if the level is not decreased after an      * operation is done, e.g. by using a "finally" block.      */
+specifier|public
+name|void
+name|decreaseLevel
+parameter_list|()
+block|{
+operator|--
+name|level
+expr_stmt|;
+if|if
+condition|(
+name|level
+operator|<
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"level is "
+operator|+
+name|level
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
