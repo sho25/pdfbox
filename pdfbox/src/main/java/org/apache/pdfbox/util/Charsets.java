@@ -27,6 +27,18 @@ name|Charset
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
 begin_comment
 comment|/**  * Utility class providing common Charsets used in PDFBox.  *  * @author John Hewson  */
 end_comment
@@ -41,63 +53,59 @@ specifier|private
 name|Charsets
 parameter_list|()
 block|{}
-comment|/*** ASCII charset */
+comment|/**      * ASCII charset      *      * @deprecated use {@link StandardCharsets}      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 specifier|final
 name|Charset
 name|US_ASCII
 init|=
-name|Charset
+name|StandardCharsets
 operator|.
-name|forName
-argument_list|(
-literal|"US-ASCII"
-argument_list|)
+name|US_ASCII
 decl_stmt|;
-comment|/*** UTF-16BE charset */
+comment|/**      * UTF-16BE charset      *      * @deprecated use {@link StandardCharsets}      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 specifier|final
 name|Charset
 name|UTF_16BE
 init|=
-name|Charset
+name|StandardCharsets
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-16BE"
-argument_list|)
+name|UTF_16BE
 decl_stmt|;
-comment|/*** UTF-16LE charset */
+comment|/**      * UTF-16LE charset      *      * @deprecated use {@link StandardCharsets}      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 specifier|final
 name|Charset
 name|UTF_16LE
 init|=
-name|Charset
+name|StandardCharsets
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-16LE"
-argument_list|)
+name|UTF_16LE
 decl_stmt|;
-comment|/*** ISO-8859-1 charset */
+comment|/**      * ISO-8859-1 charset      *      * @deprecated use {@link StandardCharsets}      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 specifier|final
 name|Charset
 name|ISO_8859_1
 init|=
-name|Charset
+name|StandardCharsets
 operator|.
-name|forName
-argument_list|(
-literal|"ISO-8859-1"
-argument_list|)
+name|ISO_8859_1
 decl_stmt|;
-comment|/*** Windows-1252 charset */
+comment|/**      * Windows-1252 charset      */
 specifier|public
 specifier|static
 specifier|final
@@ -111,19 +119,18 @@ argument_list|(
 literal|"Windows-1252"
 argument_list|)
 decl_stmt|;
-comment|/*** UTF-8 charset */
+comment|/**      * UTF-8 charset      *      * @deprecated use {@link StandardCharsets}      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 specifier|final
 name|Charset
 name|UTF_8
 init|=
-name|Charset
+name|StandardCharsets
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+name|UTF_8
 decl_stmt|;
 block|}
 end_class

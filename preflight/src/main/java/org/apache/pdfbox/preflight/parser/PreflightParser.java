@@ -53,6 +53,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -840,19 +852,16 @@ name|PreflightParser
 extends|extends
 name|PDFParser
 block|{
-comment|/**      * Define a one byte encoding that hasn't specific encoding in UTF-8 charset. Avoid unexpected error when the      * encoding is Cp5816      */
+comment|/**      * Define a one byte encoding that hasn't specific encoding in UTF-8 charset. Avoid unexpected      * error when the encoding is Cp5816      */
 specifier|public
 specifier|static
 specifier|final
 name|Charset
-name|encoding
+name|ENCODING
 init|=
-name|Charset
+name|StandardCharsets
 operator|.
-name|forName
-argument_list|(
-literal|"ISO-8859-1"
-argument_list|)
+name|ISO_8859_1
 decl_stmt|;
 specifier|protected
 name|ValidationResult
@@ -1515,7 +1524,7 @@ name|secondLine
 operator|.
 name|getBytes
 argument_list|(
-name|encoding
+name|ENCODING
 operator|.
 name|name
 argument_list|()

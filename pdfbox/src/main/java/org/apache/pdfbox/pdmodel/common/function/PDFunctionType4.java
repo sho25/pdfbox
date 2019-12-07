@@ -139,6 +139,18 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class represents a Type 4 (PostScript calculator) function in a PDF document.  *<p>  * See section 3.9.4 of the PDF 1.4 Reference.  *  */
 end_comment
@@ -198,7 +210,9 @@ name|String
 argument_list|(
 name|bytes
 argument_list|,
-literal|"ISO-8859-1"
+name|StandardCharsets
+operator|.
+name|ISO_8859_1
 argument_list|)
 decl_stmt|;
 name|this

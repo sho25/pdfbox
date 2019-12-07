@@ -27,6 +27,18 @@ name|Charset
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class provides an instance of all common charsets used to transform byte arrays into strings.   *    */
 end_comment
@@ -41,61 +53,57 @@ specifier|private
 name|Charsets
 parameter_list|()
 block|{}
-comment|/**      * ISO-8859-1 Charset      */
+comment|/**      * ISO-8859-1 Charset      *      * @deprecated use {@link StandardCharsets}      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 specifier|final
 name|Charset
 name|ISO_8859_1
 init|=
-name|Charset
+name|StandardCharsets
 operator|.
-name|forName
-argument_list|(
-literal|"ISO-8859-1"
-argument_list|)
+name|ISO_8859_1
 decl_stmt|;
-comment|/**      * UTF-16 Charset      */
+comment|/**      * UTF-16 Charset      *      * @deprecated use {@link StandardCharsets}      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 specifier|final
 name|Charset
 name|UTF_16
 init|=
-name|Charset
+name|StandardCharsets
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-16"
-argument_list|)
+name|UTF_16
 decl_stmt|;
-comment|/**      * UTF-16BE Charset      */
+comment|/**      * UTF-16BE Charset      *      * @deprecated use {@link StandardCharsets}      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 specifier|final
 name|Charset
 name|UTF_16BE
 init|=
-name|Charset
+name|StandardCharsets
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-16BE"
-argument_list|)
+name|UTF_16BE
 decl_stmt|;
-comment|/**      * US-ASCII Charset      */
+comment|/**      * US-ASCII Charset      *      * @deprecated use {@link StandardCharsets}      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 specifier|final
 name|Charset
 name|US_ASCII
 init|=
-name|Charset
+name|StandardCharsets
 operator|.
-name|forName
-argument_list|(
-literal|"US-ASCII"
-argument_list|)
+name|US_ASCII
 decl_stmt|;
 comment|/**      * ISO-10646 Charset      */
 specifier|public
