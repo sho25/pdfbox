@@ -476,11 +476,6 @@ specifier|private
 name|Graphics2D
 name|g2d
 decl_stmt|;
-specifier|private
-specifier|final
-name|PDDocument
-name|document
-decl_stmt|;
 comment|/**      * Instantiate a new PDFTextStripper object.      *      * @param document      * @param filename      * @throws IOException If there is an error loading the properties.      */
 specifier|public
 name|DrawPrintTextLocations
@@ -500,6 +495,7 @@ name|document
 operator|=
 name|document
 expr_stmt|;
+comment|// must initialize here, base class initializes too late
 name|this
 operator|.
 name|filename
