@@ -3939,15 +3939,10 @@ argument_list|,
 name|document
 argument_list|)
 decl_stmt|;
-name|parser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 comment|// register all objects which are referenced to be contained in object stream
 name|parser
 operator|.
-name|getObjects
+name|parse
 argument_list|()
 operator|.
 name|forEach

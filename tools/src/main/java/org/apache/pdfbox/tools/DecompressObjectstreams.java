@@ -297,11 +297,6 @@ name|getDocument
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|sp
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|COSObject
@@ -309,7 +304,7 @@ name|next
 range|:
 name|sp
 operator|.
-name|getObjects
+name|parse
 argument_list|()
 control|)
 block|{

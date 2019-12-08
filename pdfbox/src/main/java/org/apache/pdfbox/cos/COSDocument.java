@@ -1254,11 +1254,6 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-name|parser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|COSObject
@@ -1266,7 +1261,7 @@ name|next
 range|:
 name|parser
 operator|.
-name|getObjects
+name|parse
 argument_list|()
 control|)
 block|{

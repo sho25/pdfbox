@@ -3821,74 +3821,10 @@ argument_list|,
 name|document
 argument_list|)
 expr_stmt|;
-name|parser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ex
-parameter_list|)
-block|{
-if|if
-condition|(
-name|isLenient
-condition|)
-block|{
-if|if
-condition|(
-name|parser
-operator|==
-literal|null
-condition|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"object stream "
-operator|+
-name|objstmObjNr
-operator|+
-literal|" could not be parsed due to an exception"
-argument_list|,
-name|ex
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Stop reading object stream "
-operator|+
-name|objstmObjNr
-operator|+
-literal|" due to an exception"
-argument_list|,
-name|ex
-argument_list|)
-expr_stmt|;
-block|}
-comment|// the error is handled in parseDictObjects
-return|return;
-block|}
-else|else
-block|{
-throw|throw
-name|ex
-throw|;
-block|}
-block|}
 comment|// register all objects which are referenced to be contained in object stream
 name|parser
 operator|.
-name|getObjects
+name|parse
 argument_list|()
 operator|.
 name|stream
@@ -3957,6 +3893,65 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+if|if
+condition|(
+name|isLenient
+condition|)
+block|{
+if|if
+condition|(
+name|parser
+operator|==
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"object stream "
+operator|+
+name|objstmObjNr
+operator|+
+literal|" could not be parsed due to an exception"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Stop reading object stream "
+operator|+
+name|objstmObjNr
+operator|+
+literal|" due to an exception"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
+comment|// the error is handled in parseDictObjects
+return|return;
+block|}
+else|else
+block|{
+throw|throw
+name|ex
+throw|;
+block|}
+block|}
 block|}
 block|}
 comment|/**       * Returns length value referred to or defined in given object.       */
