@@ -355,6 +355,8 @@ operator|!=
 literal|0
 expr_stmt|;
 break|break;
+default|default:
+break|break;
 block|}
 block|}
 specifier|private
@@ -1018,6 +1020,8 @@ case|:
 name|decodeRowType6
 argument_list|()
 expr_stmt|;
+break|break;
+default|default:
 break|break;
 block|}
 name|int

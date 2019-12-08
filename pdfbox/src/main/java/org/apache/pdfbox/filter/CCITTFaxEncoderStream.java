@@ -892,6 +892,8 @@ literal|7
 argument_list|)
 expr_stmt|;
 break|break;
+default|default:
+break|break;
 block|}
 name|white
 operator|=

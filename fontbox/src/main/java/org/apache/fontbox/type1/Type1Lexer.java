@@ -1444,6 +1444,8 @@ literal|')'
 argument_list|)
 expr_stmt|;
 break|break;
+default|default:
+break|break;
 block|}
 comment|// octal \ddd
 if|if

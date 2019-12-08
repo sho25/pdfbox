@@ -2787,6 +2787,8 @@ operator|=
 name|b0
 expr_stmt|;
 break|break;
+default|default:
+break|break;
 block|}
 block|}
 specifier|private
