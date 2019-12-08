@@ -859,7 +859,7 @@ name|add
 argument_list|(
 name|postScriptName
 operator|.
-name|replaceAll
+name|replace
 argument_list|(
 literal|"-"
 argument_list|,
@@ -970,7 +970,7 @@ name|get
 argument_list|(
 name|postScriptName
 operator|.
-name|replaceAll
+name|replace
 argument_list|(
 literal|" "
 argument_list|,
@@ -1596,7 +1596,7 @@ name|format
 argument_list|,
 name|postScriptName
 operator|.
-name|replaceAll
+name|replace
 argument_list|(
 literal|"-"
 argument_list|,
@@ -1663,7 +1663,7 @@ name|format
 argument_list|,
 name|postScriptName
 operator|.
-name|replaceAll
+name|replace
 argument_list|(
 literal|","
 argument_list|,

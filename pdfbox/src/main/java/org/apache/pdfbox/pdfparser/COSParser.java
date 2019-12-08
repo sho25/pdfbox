@@ -7870,14 +7870,14 @@ name|numbersStr
 operator|=
 name|numbersStr
 operator|.
-name|replaceAll
+name|replace
 argument_list|(
-literal|"\n"
+literal|'\n'
 argument_list|,
-literal|" "
+literal|' '
 argument_list|)
 operator|.
-name|replaceAll
+name|replace
 argument_list|(
 literal|"  "
 argument_list|,
