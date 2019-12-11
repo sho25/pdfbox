@@ -6056,6 +6056,18 @@ argument_list|(
 literal|"URLType"
 argument_list|)
 decl_stmt|;
+specifier|public
+specifier|static
+specifier|final
+name|COSName
+name|USER_UNIT
+init|=
+operator|new
+name|COSName
+argument_list|(
+literal|"UserUnit"
+argument_list|)
+decl_stmt|;
 comment|// V
 specifier|public
 specifier|static
