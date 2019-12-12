@@ -287,7 +287,7 @@ specifier|private
 name|TypeMapping
 name|typeMapping
 decl_stmt|;
-comment|/**      * Contructor of an empty default XMPMetaData.      *       */
+comment|/**      * Constructor of an empty default XMPMetaData.      *       */
 specifier|protected
 name|XMPMetadata
 parameter_list|()
