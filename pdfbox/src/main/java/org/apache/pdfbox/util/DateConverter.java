@@ -1622,7 +1622,7 @@ operator|==
 literal|'.'
 condition|)
 block|{
-comment|// fractions of a second: skip upto 19 digits
+comment|// fractions of a second: skip up to 19 digits
 name|parseTimeField
 argument_list|(
 name|text
