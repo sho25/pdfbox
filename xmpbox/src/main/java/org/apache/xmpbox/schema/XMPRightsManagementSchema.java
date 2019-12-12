@@ -728,7 +728,7 @@ name|getStringValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Set the Certificate URL.      *       * @param url      *            certficate url value to set      */
+comment|/**      * Set the Certificate URL.      *       * @param url      *            certificate url value to set      */
 specifier|public
 name|void
 name|setCertificate

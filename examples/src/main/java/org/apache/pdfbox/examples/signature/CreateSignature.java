@@ -228,7 +228,7 @@ name|CreateSignature
 extends|extends
 name|CreateSignatureBase
 block|{
-comment|/**      * Initialize the signature creator with a keystore and certficate password.      *      * @param keystore the pkcs12 keystore containing the signing certificate      * @param pin the password for recovering the key      * @throws KeyStoreException if the keystore has not been initialized (loaded)      * @throws NoSuchAlgorithmException if the algorithm for recovering the key cannot be found      * @throws UnrecoverableKeyException if the given password is wrong      * @throws CertificateException if the certificate is not valid as signing time      * @throws IOException if no certificate could be found      */
+comment|/**      * Initialize the signature creator with a keystore and certificate password.      *      * @param keystore the pkcs12 keystore containing the signing certificate      * @param pin the password for recovering the key      * @throws KeyStoreException if the keystore has not been initialized (loaded)      * @throws NoSuchAlgorithmException if the algorithm for recovering the key cannot be found      * @throws UnrecoverableKeyException if the given password is wrong      * @throws CertificateException if the certificate is not valid as signing time      * @throws IOException if no certificate could be found      */
 specifier|public
 name|CreateSignature
 parameter_list|(
