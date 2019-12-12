@@ -1069,7 +1069,7 @@ condition|(
 name|useBackground
 condition|)
 block|{
-comment|// use the given backgound color values
+comment|// use the given background color values
 name|value
 operator|=
 name|getRgbBackground
