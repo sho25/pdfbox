@@ -894,7 +894,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the unique identifer of the work from which this resource was derived      *       * @param text      *            Value to set      */
+comment|/**      * Set the unique identifier of the work from which this resource was derived      *       * @param text      *            Value to set      */
 specifier|public
 name|void
 name|setSource
@@ -914,7 +914,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the unique identifer of the work from which this resource was derived      *       * @param text      *            Property to set      */
+comment|/**      * Set the unique identifier of the work from which this resource was derived      *       * @param text      *            Property to set      */
 specifier|public
 name|void
 name|setSourceProperty
@@ -929,7 +929,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the unique identifer of the work from which this resource was derived      *       * @param text      *            Property to set      */
+comment|/**      * Set the unique identifier of the work from which this resource was derived      *       * @param text      *            Property to set      */
 specifier|public
 name|void
 name|setFormatProperty
