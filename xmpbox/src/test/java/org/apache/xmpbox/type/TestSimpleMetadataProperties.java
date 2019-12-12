@@ -131,7 +131,7 @@ literal|null
 argument_list|,
 literal|"test"
 argument_list|,
-literal|"booleen"
+literal|"boolean"
 argument_list|,
 literal|"Not a Boolean"
 argument_list|)
@@ -321,7 +321,7 @@ literal|null
 argument_list|,
 literal|"test"
 argument_list|,
-literal|"booleen"
+literal|"boolean"
 argument_list|,
 name|boolv
 argument_list|)
@@ -517,7 +517,7 @@ literal|null
 argument_list|,
 literal|"test"
 argument_list|,
-literal|"booleen"
+literal|"boolean"
 argument_list|,
 name|boolv
 argument_list|)
@@ -680,7 +680,7 @@ name|ns
 argument_list|,
 literal|"test"
 argument_list|,
-literal|"booleen"
+literal|"boolean"
 argument_list|,
 literal|true
 argument_list|)
