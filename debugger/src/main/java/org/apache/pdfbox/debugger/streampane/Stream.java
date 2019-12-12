@@ -236,7 +236,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Khyrul Bashar  *  * A class that provides the COSStream in different version and related informations.  */
+comment|/**  * @author Khyrul Bashar  *  * A class that provides the COSStream in various views and related information.  */
 end_comment
 
 begin_class

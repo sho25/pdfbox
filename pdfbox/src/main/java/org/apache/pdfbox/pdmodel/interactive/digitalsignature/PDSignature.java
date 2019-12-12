@@ -1118,7 +1118,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * PDF signature build dictionary. Provides informations about the signature handler.      *      * @return the pdf signature build dictionary.      */
+comment|/**      * PDF signature build dictionary. Provides information about the signature handler.      *      * @return the pdf signature build dictionary.      */
 specifier|public
 name|PDPropBuild
 name|getPropBuild
@@ -1161,7 +1161,7 @@ return|return
 name|propBuild
 return|;
 block|}
-comment|/**      * PDF signature build dictionary. Provides informations about the signature handler.      *      * @param propBuild the prop build      */
+comment|/**      * PDF signature build dictionary. Provides information about the signature handler.      *      * @param propBuild the prop build      */
 specifier|public
 name|void
 name|setPropBuild
