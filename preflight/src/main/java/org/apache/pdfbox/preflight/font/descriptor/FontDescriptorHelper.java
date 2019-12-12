@@ -1298,7 +1298,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|": Filter specified in font file metadata dictionnary"
+literal|": Filter specified in font file metadata dictionary"
 argument_list|)
 argument_list|)
 expr_stmt|;

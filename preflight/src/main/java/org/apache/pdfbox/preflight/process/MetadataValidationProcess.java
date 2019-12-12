@@ -1263,7 +1263,7 @@ name|PreflightConstants
 operator|.
 name|ERROR_METADATA_FORMAT
 argument_list|,
-literal|"xapGImg:witdh does not match the actual base64-encoded thumbnail image data"
+literal|"xapGImg:width does not match the actual base64-encoded thumbnail image data"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1475,7 +1475,7 @@ name|PreflightConstants
 operator|.
 name|ERROR_SYNTAX_STREAM_INVALID_FILTER
 argument_list|,
-literal|"Filter specified in metadata dictionnary"
+literal|"Filter specified in metadata dictionary"
 argument_list|)
 decl_stmt|;
 throw|throw
