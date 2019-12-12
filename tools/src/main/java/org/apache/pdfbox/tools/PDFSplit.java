@@ -731,7 +731,7 @@ literal|"  -startPage<integer>   : start page\n"
 operator|+
 literal|"  -endPage<integer>   : end page\n"
 operator|+
-literal|"  -outputPrefix<prefix> : Filename prefix for splitted files\n"
+literal|"  -outputPrefix<prefix> : Filename prefix for split files\n"
 operator|+
 literal|"<inputfile>            : The PDF document to use\n"
 decl_stmt|;

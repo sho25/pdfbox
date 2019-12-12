@@ -744,7 +744,7 @@ operator|instanceof
 name|PDPageDestination
 condition|)
 block|{
-comment|// TODO preserve links to pages within the splitted result
+comment|// TODO preserve links to pages within the split result
 operator|(
 operator|(
 name|PDPageDestination
@@ -759,7 +759,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// TODO preserve links to pages within the splitted result
+comment|// TODO preserve links to pages within the split result
 name|annotation
 operator|.
 name|setPage
@@ -769,7 +769,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * The source PDF document.      *       * @return the pdf to be splitted      */
+comment|/**      * The source PDF document.      *       * @return the pdf to be split      */
 specifier|protected
 specifier|final
 name|PDDocument
