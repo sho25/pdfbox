@@ -1084,7 +1084,7 @@ argument_list|,
 name|reader
 argument_list|)
 decl_stmt|;
-comment|// The number 50 is somewhat arbitary, it just stops us load up junk from somewhere
+comment|// The number 50 is somewhat arbitrary, it just stops us load up junk from somewhere
 comment|// and tramping on
 if|if
 condition|(
@@ -1440,7 +1440,7 @@ operator|!=
 literal|0
 condition|)
 block|{
-comment|// T4 2D - arbitary positive K value
+comment|// T4 2D - arbitrary positive K value
 name|k
 operator|=
 literal|50

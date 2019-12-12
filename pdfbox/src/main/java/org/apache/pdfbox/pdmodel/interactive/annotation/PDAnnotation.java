@@ -1895,7 +1895,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will retrieve the date and time the annotation was modified.      *       * @return the modified date/time (often in date format, but can be an arbitary string).      */
+comment|/**      * This will retrieve the date and time the annotation was modified.      *       * @return the modified date/time (often in date format, but can be an arbitrary string).      */
 specifier|public
 name|String
 name|getModifiedDate

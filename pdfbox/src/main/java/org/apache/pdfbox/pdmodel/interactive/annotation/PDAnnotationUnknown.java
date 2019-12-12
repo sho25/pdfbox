@@ -34,7 +34,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is the class that represents an arbitary Unknown Annotation type.  *  * @author Paul King  */
+comment|/**  * This is the class that represents an arbitrary Unknown Annotation type.  *  * @author Paul King  */
 end_comment
 
 begin_class
@@ -44,7 +44,7 @@ name|PDAnnotationUnknown
 extends|extends
 name|PDAnnotation
 block|{
-comment|/**      * Creates an arbitary annotation from a COSDictionary, expected to be a correct object definition for some sort of      * annotation.      *      * @param dic The dictionary which represents this Annotation.      */
+comment|/**      * Creates an arbitrary annotation from a COSDictionary, expected to be a correct object definition for some sort of      * annotation.      *      * @param dic The dictionary which represents this Annotation.      */
 specifier|public
 name|PDAnnotationUnknown
 parameter_list|(

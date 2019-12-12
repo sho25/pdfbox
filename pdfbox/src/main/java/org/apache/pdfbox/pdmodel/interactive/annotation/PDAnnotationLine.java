@@ -312,7 +312,7 @@ argument_list|,
 name|SUB_TYPE
 argument_list|)
 expr_stmt|;
-comment|// Dictionary value L is mandatory, fill in with arbitary value
+comment|// Dictionary value L is mandatory, fill in with arbitrary value
 name|setLine
 argument_list|(
 operator|new
