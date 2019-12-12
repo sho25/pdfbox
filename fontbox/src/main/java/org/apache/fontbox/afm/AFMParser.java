@@ -613,7 +613,7 @@ name|CC
 init|=
 literal|"CC"
 decl_stmt|;
-comment|/**      * This is a composite charater part.      */
+comment|/**      * This is a composite character part.      */
 specifier|public
 specifier|static
 specifier|final
