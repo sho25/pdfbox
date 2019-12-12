@@ -787,7 +787,7 @@ return|return
 name|implicitEdge
 return|;
 block|}
-comment|/*      dividing a patch into a grid, return a matrix of the coordinate and color at the crossing points of the grid,       the rule to calculate the coordinate is defined in page 195 of PDF32000_2008.pdf, the rule to calculate the       cooresponding color is bilinear interpolation      */
+comment|/*      dividing a patch into a grid, return a matrix of the coordinate and color at the crossing points of the grid,       the rule to calculate the coordinate is defined in page 195 of PDF32000_2008.pdf, the rule to calculate the       corresponding color is bilinear interpolation      */
 specifier|private
 name|CoordinateColorPair
 index|[]
