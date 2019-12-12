@@ -920,7 +920,7 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-comment|// no META data posible for GIF, thus no dpi test
+comment|// no META data possible for GIF, thus no dpi test
 name|checkFileTypeByContent
 argument_list|(
 name|outDir
@@ -970,7 +970,7 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-comment|// no META data posible for WBMP, thus no dpi test
+comment|// no META data possible for WBMP, thus no dpi test
 comment|// testing TIFF
 name|imageType
 operator|=
