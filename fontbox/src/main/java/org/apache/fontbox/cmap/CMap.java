@@ -730,7 +730,7 @@ name|code
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will add a CID Range.      *      * @param from starting charactor of the CID range.      * @param to ending character of the CID range.      * @param cid the cid to be started with.      *      */
+comment|/**      * This will add a CID Range.      *      * @param from starting character of the CID range.      * @param to ending character of the CID range.      * @param cid the cid to be started with.      *      */
 name|void
 name|addCIDRange
 parameter_list|(
