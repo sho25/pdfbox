@@ -344,7 +344,7 @@ name|Overlay
 implements|implements
 name|Closeable
 block|{
-comment|/**      * Possible location of the overlayed pages: foreground or background.      */
+comment|/**      * Possible location of the overlaid pages: foreground or background.      */
 specifier|public
 enum|enum
 name|Position
@@ -2731,7 +2731,7 @@ operator|=
 name|overlayPosition
 expr_stmt|;
 block|}
-comment|/**      * Sets the file to be overlayed.      *      * @param inputFile the file to be overlayed. The {@link PDDocument} object gathered from      * opening this file will be returned by      * {@link #overlay(java.util.Map) overlay(Map&lt;Integer, String&gt;)}.      */
+comment|/**      * Sets the file to be overlaid.      *      * @param inputFile the file to be overlaid. The {@link PDDocument} object gathered from      * opening this file will be returned by      * {@link #overlay(java.util.Map) overlay(Map&lt;Integer, String&gt;)}.      */
 specifier|public
 name|void
 name|setInputFile
@@ -2745,7 +2745,7 @@ operator|=
 name|inputFile
 expr_stmt|;
 block|}
-comment|/**      * Sets the PDF to be overlayed.      *      * @param inputPDF the PDF to be overlayed. This will be the object that is returned by      * {@link #overlay(java.util.Map) overlay(Map&lt;Integer, String&gt;)}.      */
+comment|/**      * Sets the PDF to be overlaid.      *      * @param inputPDF the PDF to be overlaid. This will be the object that is returned by      * {@link #overlay(java.util.Map) overlay(Map&lt;Integer, String&gt;)}.      */
 specifier|public
 name|void
 name|setInputPDF

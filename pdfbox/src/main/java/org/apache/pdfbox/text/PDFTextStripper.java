@@ -3127,7 +3127,7 @@ argument_list|)
 decl_stmt|;
 comment|// In the wild, some PDF encoded documents put diacritics (accents on
 comment|// top of characters) into a separate Tj element. When displaying them
-comment|// graphically, the two chunks get overlayed. With text output though,
+comment|// graphically, the two chunks get overlaid. With text output though,
 comment|// we need to do the overlay. This code recombines the diacritic with
 comment|// its associated character if the two are consecutive.
 if|if

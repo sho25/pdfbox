@@ -728,7 +728,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|/* In the wild, some PDF encoded documents put diacritics (accents on              * top of characters) into a separate Tj element.  When displaying them              * graphically, the two chunks get overlayed.  With text output though,              * we need to do the overlay. This code recombines the diacritic with              * its associated character if the two are consecutive.              */
+comment|/* In the wild, some PDF encoded documents put diacritics (accents on              * top of characters) into a separate Tj element.  When displaying them              * graphically, the two chunks get overlaid.  With text output though,              * we need to do the overlay. This code recombines the diacritic with              * its associated character if the two are consecutive.              */
 if|if
 condition|(
 name|textList
