@@ -1056,7 +1056,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**      * Set the fonts bounding box.      *      * @param rect The new bouding box.      */
+comment|/**      * Set the fonts bounding box.      *      * @param rect The new bounding box.      */
 specifier|public
 name|void
 name|setFontBoundingBox
