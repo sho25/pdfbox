@@ -722,7 +722,7 @@ name|i
 operator|++
 control|)
 block|{
-comment|// Need to convert a (row, column) co-ordinate into a straight index.
+comment|// Need to convert a (row, column) coordinate into a straight index.
 name|int
 name|row
 init|=
