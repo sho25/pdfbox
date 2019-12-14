@@ -54,7 +54,7 @@ name|CHUNK_SIZE
 init|=
 literal|1024
 decl_stmt|;
-comment|/**      * This test checks two corner cases where the last read ends      * exactly at the end of a chunck (remainingBytes == 0)      * @throws IOException      */
+comment|/**      * This test checks two corner cases where the last read ends      * exactly at the end of a chunk (remainingBytes == 0)      * @throws IOException      */
 specifier|public
 name|void
 name|testRemainingByteZero
