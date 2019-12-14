@@ -2033,7 +2033,7 @@ end_function
 
 begin_comment
 unit|}
-comment|/**  * Collect all angles while doing text extraction. Angles are in degrees and rounded to the closest  * integer (to avoid slight differences from floating point arithmethic resulting in similarly  * angled glyphs being treated separately). This class must be constructed for each page so that the  * angle set is initialized.  */
+comment|/**  * Collect all angles while doing text extraction. Angles are in degrees and rounded to the closest  * integer (to avoid slight differences from floating point arithmetic resulting in similarly  * angled glyphs being treated separately). This class must be constructed for each page so that the  * angle set is initialized.  */
 end_comment
 
 begin_expr_stmt
