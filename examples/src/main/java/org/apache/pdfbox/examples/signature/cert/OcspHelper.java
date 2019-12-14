@@ -2262,6 +2262,7 @@ argument_list|()
 return|;
 block|}
 specifier|private
+specifier|synchronized
 name|byte
 index|[]
 name|create16BytesNonce
