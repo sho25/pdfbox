@@ -95,7 +95,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ERROR_METADATA_FORMAT_UNKOWN
+name|ERROR_METADATA_FORMAT_UNKNOWN
 import|;
 end_import
 
@@ -1505,7 +1505,7 @@ argument_list|(
 operator|new
 name|ValidationError
 argument_list|(
-name|ERROR_METADATA_FORMAT_UNKOWN
+name|ERROR_METADATA_FORMAT_UNKNOWN
 argument_list|,
 name|this
 operator|.

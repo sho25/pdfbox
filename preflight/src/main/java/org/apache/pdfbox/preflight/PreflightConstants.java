@@ -1869,7 +1869,7 @@ literal|"7.1.2"
 decl_stmt|;
 comment|/**      * Unexpected type of a Metadata entry      */
 name|String
-name|ERROR_METADATA_FORMAT_UNKOWN
+name|ERROR_METADATA_FORMAT_UNKNOWN
 init|=
 literal|"7.1.3"
 decl_stmt|;
