@@ -644,7 +644,7 @@ name|domainValues
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Evaluates the function at the given input.      * ReturnValue = f(input)      *      * @param input The array of input values for the function.       * In many cases will be an array of a single value, but not always.      *       * @return The of outputs the function returns based on those inputs.       * In many cases will be an array of a single value, but not always.      *       * @throws IOException an IOExcpetion is thrown if something went wrong processing the function.        */
+comment|/**      * Evaluates the function at the given input.      * ReturnValue = f(input)      *      * @param input The array of input values for the function.       * In many cases will be an array of a single value, but not always.      *       * @return The of outputs the function returns based on those inputs.       * In many cases will be an array of a single value, but not always.      *       * @throws IOException if something went wrong processing the function.        */
 specifier|public
 specifier|abstract
 name|float
