@@ -303,7 +303,7 @@ comment|// "yyyy-MM-dd'T'HH:mm:ss",
 comment|// "yyyymmdd hh:mm:ss",
 comment|// "yyyymmdd",
 comment|// "yyyymmddX''00''",  // covers 24 cases
-comment|//    (orignally the above ended with '+00''00''';
+comment|//    (originally the above ended with '+00''00''';
 comment|//      the first apostrophe quoted the plus,
 comment|//      '' mapped to a single ', and the ''' was invalid)
 block|}
