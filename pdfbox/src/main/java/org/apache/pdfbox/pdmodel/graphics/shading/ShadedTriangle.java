@@ -1102,7 +1102,7 @@ argument_list|()
 operator|)
 return|;
 block|}
-comment|// calcuate the area of a triangle
+comment|// calculate the area of a triangle
 specifier|private
 name|double
 name|getArea
