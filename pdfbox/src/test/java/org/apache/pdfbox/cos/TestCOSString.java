@@ -795,7 +795,7 @@ expr_stmt|;
 name|String
 name|textAscii
 init|=
-literal|"This is some regular text. It should all be expressable in ASCII"
+literal|"This is some regular text. It should all be expressible in ASCII"
 decl_stmt|;
 comment|/** En français où les choses sont accentués. En español, así */
 name|String
