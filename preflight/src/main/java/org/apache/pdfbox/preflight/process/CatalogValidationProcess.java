@@ -1175,7 +1175,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This method checks the content of each OutputIntent. The S entry must contain GTS_PDFA1. The DestOuputProfile      * must contain a valid ICC Profile Stream.      *       * If there are more than one OutputIntent, they have to use the same ICC Profile.      *       * This method returns a list of ValidationError. It is empty if no errors have been found.      *       * @param ctx      * @throws ValidationException      */
+comment|/**      * This method checks the content of each OutputIntent. The S entry must contain GTS_PDFA1. The DestOutputProfile      * must contain a valid ICC Profile Stream.      *       * If there are more than one OutputIntent, they have to use the same ICC Profile.      *       * This method returns a list of ValidationError. It is empty if no errors have been found.      *       * @param ctx      * @throws ValidationException      */
 specifier|public
 name|void
 name|validateOutputIntent

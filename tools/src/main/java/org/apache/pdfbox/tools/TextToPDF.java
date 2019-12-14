@@ -192,7 +192,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This will take a text file and ouput a pdf with that text.  *  * @author Ben Litchfield  */
+comment|/**  * This will take a text file and output a pdf with that text.  *  * @author Ben Litchfield  */
 end_comment
 
 begin_class
