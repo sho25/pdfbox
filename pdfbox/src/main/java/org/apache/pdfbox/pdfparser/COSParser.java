@@ -3943,7 +3943,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// the error is handled in parseDictObjects
-return|return;
 block|}
 else|else
 block|{
