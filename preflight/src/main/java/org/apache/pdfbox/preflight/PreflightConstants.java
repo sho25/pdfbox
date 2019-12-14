@@ -1969,7 +1969,7 @@ name|ERROR_METADATA_CATEGORY_PROPERTY_INVALID
 init|=
 literal|"7.5.1"
 decl_stmt|;
-comment|/**      * the infor dictionary is corrupt or value can't be read      */
+comment|/**      * the info dictionary is corrupt or value can't be read      */
 name|String
 name|ERROR_METADATA_DICT_INFO_CORRUPT
 init|=
