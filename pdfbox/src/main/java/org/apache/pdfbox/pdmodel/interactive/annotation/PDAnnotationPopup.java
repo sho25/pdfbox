@@ -152,7 +152,7 @@ name|field
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will set inital state of the annotation, open or closed.      *      * @param open Boolean value, true = open false = closed.      */
+comment|/**      * This will set the initial state of the annotation, open or closed.      *      * @param open Boolean value, true = open false = closed.      */
 specifier|public
 name|void
 name|setOpen
