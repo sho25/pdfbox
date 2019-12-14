@@ -268,7 +268,7 @@ name|LE_R_OPEN_ARROW
 init|=
 literal|"ROpenArrow"
 decl_stmt|;
-comment|/**      * Constant for a revered closed arrow line ending.      */
+comment|/**      * Constant for a reversed closed arrow line ending.      */
 specifier|public
 specifier|static
 specifier|final
