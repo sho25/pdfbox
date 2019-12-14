@@ -674,8 +674,8 @@ literal|0
 return|;
 block|}
 comment|/**      * Set the access permissions granted for this document in the DocMDP transform parameters      * dictionary. Details are described in the table "Entries in the DocMDP transform parameters      * dictionary" in the PDF specification.      *      * @param doc The document.      * @param signature The signature object.      * @param accessPermissions The permission value (1, 2 or 3).      */
-specifier|static
 specifier|public
+specifier|static
 name|void
 name|setMDPPermission
 parameter_list|(
