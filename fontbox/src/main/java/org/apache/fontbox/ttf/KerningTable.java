@@ -273,7 +273,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Obtain first subtable that supports horizontal kerning with specificed cross stream.      *      * @param cross true if requesting cross stream horizontal kerning      * @return first matching subtable or null if none found      */
+comment|/**      * Obtain first subtable that supports horizontal kerning with specified cross stream.      *      * @param cross true if requesting cross stream horizontal kerning      * @return first matching subtable or null if none found      */
 specifier|public
 name|KerningSubtable
 name|getHorizontalKerningSubtable
