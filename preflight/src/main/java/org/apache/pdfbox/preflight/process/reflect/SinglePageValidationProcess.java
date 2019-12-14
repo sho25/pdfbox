@@ -127,7 +127,7 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ERROR_UNKOWN_ERROR
+name|ERROR_UNKNOWN_ERROR
 import|;
 end_import
 
@@ -1020,7 +1020,7 @@ argument_list|(
 operator|new
 name|ValidationError
 argument_list|(
-name|ERROR_UNKOWN_ERROR
+name|ERROR_UNKNOWN_ERROR
 argument_list|,
 name|e
 operator|.

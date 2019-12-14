@@ -1015,7 +1015,7 @@ literal|"opRGB"
 decl_stmt|;
 comment|/**      * Error code uses by the Validator when there is an error without error code.      */
 name|String
-name|ERROR_UNKOWN_ERROR
+name|ERROR_UNKNOWN_ERROR
 init|=
 literal|"-1"
 decl_stmt|;

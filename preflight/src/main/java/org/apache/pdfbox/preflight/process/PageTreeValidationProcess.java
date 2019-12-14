@@ -341,7 +341,7 @@ name|ValidationError
 argument_list|(
 name|PreflightConstants
 operator|.
-name|ERROR_UNKOWN_ERROR
+name|ERROR_UNKNOWN_ERROR
 argument_list|,
 literal|"Over "
 operator|+
