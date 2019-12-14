@@ -923,7 +923,7 @@ argument_list|)
 operator|)
 condition|)
 block|{
-comment|// thats a timezone string, remove the :
+comment|// that's a timezone string, remove the :
 name|date
 operator|=
 name|date

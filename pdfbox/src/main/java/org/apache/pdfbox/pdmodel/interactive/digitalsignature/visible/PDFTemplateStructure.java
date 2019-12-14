@@ -550,7 +550,7 @@ operator|=
 name|pdSignature
 expr_stmt|;
 block|}
-comment|/**      * Gets Dictionary of AcroForm. Thats<b> /DR</b>      * entry in the AcroForm      * @return the AcroForm's dictionary       */
+comment|/**      * Gets Dictionary of AcroForm. That's<b> /DR</b>      * entry in the AcroForm      * @return the AcroForm's dictionary       */
 specifier|public
 name|COSDictionary
 name|getAcroFormDictionary
