@@ -1356,7 +1356,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|": The Witdhs array is unreachable"
+literal|": The Widths array is unreachable"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1477,7 +1477,7 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|": The length of Witdhs array is invalid. Expected : \""
+literal|": The length of Widths array is invalid. Expected : \""
 operator|+
 name|expectedLength
 operator|+
