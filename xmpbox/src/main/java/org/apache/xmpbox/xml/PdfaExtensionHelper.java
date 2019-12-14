@@ -1022,7 +1022,7 @@ literal|"Missing field in property definition"
 argument_list|)
 throw|;
 block|}
-comment|// check ptype existance
+comment|// check ptype existence
 name|PropertyType
 name|pt
 init|=
