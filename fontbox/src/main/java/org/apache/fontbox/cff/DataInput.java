@@ -219,7 +219,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"An error occured reading a byte - returning -1"
+literal|"An error occurred reading a byte - returning -1"
 argument_list|,
 name|re
 argument_list|)
@@ -523,7 +523,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"An error occured reading an int - returning -1"
+literal|"An error occurred reading an int - returning -1"
 argument_list|,
 name|re
 argument_list|)
@@ -565,7 +565,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"An error occured peeking at offset "
+literal|"An error occurred peeking at offset "
 operator|+
 name|offset
 operator|+

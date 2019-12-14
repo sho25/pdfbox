@@ -55,7 +55,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Set CMS signature bytes to PDF.      *      * @param signature CMS signature as byte array      *      * @throws IOException if exception occured during PDF writing      */
+comment|/**      * Set CMS signature bytes to PDF.      *      * @param signature CMS signature as byte array      *      * @throws IOException if exception occurred during PDF writing      */
 name|void
 name|setSignature
 parameter_list|(

@@ -1135,7 +1135,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"An exception occured trying to get the content - returning empty string instead"
+literal|"An exception occurred trying to get the content - returning empty string instead"
 argument_list|,
 name|e
 argument_list|)

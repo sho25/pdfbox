@@ -3439,7 +3439,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"An exception occured trying - returning error message instead"
+literal|"An exception occurred trying - returning error message instead"
 argument_list|,
 name|e
 argument_list|)

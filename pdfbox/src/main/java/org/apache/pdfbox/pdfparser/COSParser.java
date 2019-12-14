@@ -6646,7 +6646,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"An exception occured during brute force search for trailer - ignoring"
+literal|"An exception occurred during brute force search for trailer - ignoring"
 argument_list|,
 name|exception
 argument_list|)
@@ -7132,7 +7132,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"An exception occured during brute force for last EOF - ignoring"
+literal|"An exception occurred during brute force for last EOF - ignoring"
 argument_list|,
 name|exception
 argument_list|)

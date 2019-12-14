@@ -381,7 +381,7 @@ parameter_list|)
 block|{
 name|fail
 argument_list|(
-literal|"An exception occured while parsing the PDF "
+literal|"An exception occurred while parsing the PDF "
 operator|+
 name|pdf
 operator|+

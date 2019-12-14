@@ -1236,7 +1236,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"A GeneralSecurityException occured when decrypting some stream data"
+literal|"A GeneralSecurityException occurred when decrypting some stream data"
 argument_list|,
 name|exception
 argument_list|)

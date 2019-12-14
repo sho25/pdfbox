@@ -1484,7 +1484,7 @@ comment|// Make sure that:
 comment|// - first Exception is kept
 comment|// - all PDDocuments are closed
 comment|// - all FileInputStreams are closed
-comment|// - there's a way to see which errors occured
+comment|// - there's a way to see which errors occurred
 name|List
 argument_list|<
 name|PDDocument

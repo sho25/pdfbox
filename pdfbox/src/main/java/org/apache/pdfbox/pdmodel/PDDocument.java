@@ -4504,7 +4504,7 @@ block|{
 comment|// Make sure that:
 comment|// - first Exception is kept
 comment|// - all IO resources are closed
-comment|// - there's a way to see which errors occured
+comment|// - there's a way to see which errors occurred
 name|IOException
 name|firstException
 init|=

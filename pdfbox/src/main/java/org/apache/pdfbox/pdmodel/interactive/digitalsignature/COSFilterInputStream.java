@@ -369,7 +369,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"An exception occured while trying to fill byte[] - ignoring"
+literal|"An exception occurred while trying to fill byte[] - ignoring"
 argument_list|,
 name|ee
 argument_list|)

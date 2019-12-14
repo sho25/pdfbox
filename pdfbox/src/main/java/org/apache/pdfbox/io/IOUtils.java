@@ -348,7 +348,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"An exception occured while trying to close - ignoring"
+literal|"An exception occurred while trying to close - ignoring"
 argument_list|,
 name|ioe
 argument_list|)
