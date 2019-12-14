@@ -881,7 +881,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// default Unkown error
+comment|// default Unknown error
 name|this
 operator|.
 name|details
