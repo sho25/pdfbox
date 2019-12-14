@@ -424,7 +424,7 @@ argument_list|)
 condition|)
 block|{
 comment|// it is a linearized PDF, check the linearized dictionary
-name|checkLinearizedDictionnary
+name|checkLinearizedDictionary
 argument_list|(
 name|ctx
 argument_list|,
@@ -1486,7 +1486,7 @@ block|}
 comment|/**      * Check if mandatory keys of linearized dictionary are present.      *       * @param ctx the preflight context.      * @param linearizedDict the linearization dictionary.      */
 specifier|protected
 name|void
-name|checkLinearizedDictionnary
+name|checkLinearizedDictionary
 parameter_list|(
 name|PreflightContext
 name|ctx

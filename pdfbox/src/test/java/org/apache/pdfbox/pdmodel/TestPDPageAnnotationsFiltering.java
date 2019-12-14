@@ -208,13 +208,13 @@ name|COSDictionary
 argument_list|()
 decl_stmt|;
 name|COSArray
-name|annotsDictionnary
+name|annotsDictionary
 init|=
 operator|new
 name|COSArray
 argument_list|()
 decl_stmt|;
-name|annotsDictionnary
+name|annotsDictionary
 operator|.
 name|add
 argument_list|(
@@ -226,7 +226,7 @@ name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|annotsDictionnary
+name|annotsDictionary
 operator|.
 name|add
 argument_list|(
@@ -238,7 +238,7 @@ name|getCOSObject
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|annotsDictionnary
+name|annotsDictionary
 operator|.
 name|add
 argument_list|(
@@ -258,7 +258,7 @@ name|COSName
 operator|.
 name|ANNOTS
 argument_list|,
-name|annotsDictionnary
+name|annotsDictionary
 argument_list|)
 expr_stmt|;
 name|page

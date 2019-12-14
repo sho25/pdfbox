@@ -224,7 +224,7 @@ name|n
 init|=
 name|this
 operator|.
-name|actionDictionnary
+name|actionDictionary
 operator|.
 name|getNameAsString
 argument_list|(

@@ -202,7 +202,7 @@ name|d
 init|=
 name|this
 operator|.
-name|actionDictionnary
+name|actionDictionary
 operator|.
 name|getDictionaryObject
 argument_list|(

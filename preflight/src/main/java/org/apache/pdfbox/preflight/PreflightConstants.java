@@ -1885,7 +1885,7 @@ name|ERROR_METADATA_FORMAT_XPACKET
 init|=
 literal|"7.1.5"
 decl_stmt|;
-comment|/**      * Metadata mismatch between PDF Dictionnary and xmp      */
+comment|/**      * Metadata mismatch between PDF Dictionary and xmp      */
 name|String
 name|ERROR_METADATA_MISMATCH
 init|=

@@ -126,7 +126,7 @@ decl_stmt|;
 comment|/**      * The action dictionary checked by this class      */
 specifier|protected
 name|COSDictionary
-name|actionDictionnary
+name|actionDictionary
 init|=
 literal|null
 decl_stmt|;
@@ -161,7 +161,7 @@ name|amFact
 expr_stmt|;
 name|this
 operator|.
-name|actionDictionnary
+name|actionDictionary
 operator|=
 name|adict
 expr_stmt|;
@@ -192,14 +192,14 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * @return the actionDictionnary      */
+comment|/**      * @return the actionDictionary      */
 specifier|public
 name|COSDictionary
-name|getActionDictionnary
+name|getActionDictionary
 parameter_list|()
 block|{
 return|return
-name|actionDictionnary
+name|actionDictionary
 return|;
 block|}
 comment|/**      * @return the aaKey      */
@@ -238,7 +238,7 @@ name|context
 argument_list|,
 name|this
 operator|.
-name|actionDictionnary
+name|actionDictionary
 argument_list|)
 decl_stmt|;
 for|for

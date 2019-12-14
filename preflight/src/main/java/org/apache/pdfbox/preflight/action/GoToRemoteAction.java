@@ -308,7 +308,7 @@ name|dest
 init|=
 name|this
 operator|.
-name|actionDictionnary
+name|actionDictionary
 operator|.
 name|getItem
 argument_list|(
@@ -392,7 +392,7 @@ name|f
 init|=
 name|this
 operator|.
-name|actionDictionnary
+name|actionDictionary
 operator|.
 name|getItem
 argument_list|(

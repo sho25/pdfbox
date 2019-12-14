@@ -218,7 +218,7 @@ name|t
 init|=
 name|this
 operator|.
-name|actionDictionnary
+name|actionDictionary
 operator|.
 name|getDictionaryObject
 argument_list|(
@@ -297,7 +297,7 @@ name|h
 init|=
 name|this
 operator|.
-name|actionDictionnary
+name|actionDictionary
 operator|.
 name|getBoolean
 argument_list|(
