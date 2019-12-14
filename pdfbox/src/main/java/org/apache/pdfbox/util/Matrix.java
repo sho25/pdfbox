@@ -1174,7 +1174,7 @@ name|m
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Translates this matrix by the given ammount.      *      * @param tx x-translation      * @param ty y-translation      */
+comment|/**      * Translates this matrix by the given amount.      *      * @param tx x-translation      * @param ty y-translation      */
 specifier|public
 name|void
 name|translate
