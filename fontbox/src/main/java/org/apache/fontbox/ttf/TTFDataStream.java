@@ -310,7 +310,7 @@ return|return
 name|unsignedByte
 return|;
 block|}
-comment|/**      * Read an unsigned integer.      *       * @return An unsiged integer.      * @throws IOException If there is an error reading the data.      */
+comment|/**      * Read an unsigned integer.      *       * @return An unsigned integer.      * @throws IOException If there is an error reading the data.      */
 specifier|public
 name|long
 name|readUnsignedInt
