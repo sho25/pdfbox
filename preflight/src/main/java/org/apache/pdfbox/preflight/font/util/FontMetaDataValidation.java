@@ -625,7 +625,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * If XMP MetaData are present, they must have followings information :      *<UL>      *<li>dc:rights      *<li>Marked (with the value true)      *<li>Owner      *<li>UsageTerms      *</UL>      *       * @param metadata      *            XMPMetaData of the Font File Stream      * @param fontDesc      *            The FontDescriptor dictionary      * @param ve      *            the list of validation error to update if the validation fails      * @return true if the analysis found no problems, false if it did.      */
+comment|/**      * If XMP MetaData is present, they must have the following information :      *<UL>      *<li>dc:rights      *<li>Marked (with the value true)      *<li>Owner      *<li>UsageTerms      *</UL>      *       * @param metadata      *            XMPMetaData of the Font File Stream      * @param fontDesc      *            The FontDescriptor dictionary      * @param ve      *            the list of validation error to update if the validation fails      * @return true if the analysis found no problems, false if it did.      */
 specifier|public
 name|boolean
 name|analyseRights
