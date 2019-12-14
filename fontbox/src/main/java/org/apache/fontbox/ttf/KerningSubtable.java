@@ -167,7 +167,7 @@ specifier|private
 name|boolean
 name|horizontal
 decl_stmt|;
-comment|// true if mimimum adjustment values (versus kerning values)
+comment|// true if minimum adjustment values (versus kerning values)
 specifier|private
 name|boolean
 name|minimums
