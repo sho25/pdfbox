@@ -1551,7 +1551,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"couldn't read one type declaration, please check accessibility and declaration of fields annoted in "
+literal|"couldn't read one type declaration, please check accessibility and declaration of fields annotated in "
 operator|+
 name|classSchem
 operator|.

@@ -264,7 +264,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Check if information between objects and the elment generated are equals      *       * @throws Exception      */
+comment|/**      * Check if information between objects and the element generated are equals      *       * @throws Exception      */
 annotation|@
 name|Test
 specifier|public

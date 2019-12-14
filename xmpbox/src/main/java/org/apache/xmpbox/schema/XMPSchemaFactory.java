@@ -136,7 +136,7 @@ return|return
 name|namespace
 return|;
 block|}
-comment|/**      * Get type declared for the name property given      *       * @param name      *            The property name      * @return null if propery name is unknown      */
+comment|/**      * Get type declared for the name property given      *       * @param name      *            The property name      * @return null if property name is unknown      */
 specifier|public
 name|PropertyType
 name|getPropertyType

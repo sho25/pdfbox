@@ -613,7 +613,7 @@ name|text
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * set the autor(s) of the resource      *      * @param properName Value to add      */
+comment|/**      * set the author(s) of the resource      *      * @param properName Value to add      */
 specifier|public
 name|void
 name|addCreator
@@ -1227,7 +1227,7 @@ name|DESCRIPTION
 argument_list|)
 return|;
 block|}
-comment|/**      * Return a language value for description property      *       * @param lang      *            The language wanted      * @return Desription value for specified language      */
+comment|/**      * Return a language value for description property      *       * @param lang      *            The language wanted      * @return Description value for specified language      */
 specifier|public
 name|String
 name|getDescription
