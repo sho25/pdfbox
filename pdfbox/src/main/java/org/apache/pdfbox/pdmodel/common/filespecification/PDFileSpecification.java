@@ -99,7 +99,7 @@ name|PDFileSpecification
 implements|implements
 name|COSObjectable
 block|{
-comment|/**      * A file specfication can either be a COSString or a COSDictionary.  This      * will create the file specification either way.      *      * @param base The cos object that describes the fs.      *      * @return The file specification for the COSBase object.      *      * @throws IOException If there is an error creating the file spec.      */
+comment|/**      * A file specification can either be a COSString or a COSDictionary.  This      * will create the file specification either way.      *      * @param base The cos object that describes the fs.      *      * @return The file specification for the COSBase object.      *      * @throws IOException If there is an error creating the file spec.      */
 specifier|public
 specifier|static
 name|PDFileSpecification
