@@ -1252,7 +1252,7 @@ name|ArrayDeque
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// if greater zero the content is hidden and wil not be rendered
+comment|// if greater zero the content is hidden and will not be rendered
 specifier|private
 name|int
 name|nestedHiddenOCGCount
