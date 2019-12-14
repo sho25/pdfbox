@@ -1481,7 +1481,7 @@ operator|.
 name|readUnsignedShort
 argument_list|()
 decl_stmt|;
-comment|// skip emtpy tables
+comment|// skip empty tables
 if|if
 condition|(
 name|entryCount
