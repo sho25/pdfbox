@@ -1675,7 +1675,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"not suppported"
+literal|"not supported"
 argument_list|)
 throw|;
 block|}
