@@ -631,7 +631,7 @@ operator|++
 name|i
 control|)
 block|{
-comment|// get mid point between bounds, substract the line width to approximate what Adobe is doing
+comment|// get mid point between bounds, subtract the line width to approximate what Adobe is doing
 comment|// See e.g. CTAN-example-Annotations.pdf and PLPDF.com-MarkupAnnotations.pdf
 comment|// and https://bugs.ghostscript.com/show_bug.cgi?id=693664
 comment|// do the math for diagonal annotations with this weird old trick:

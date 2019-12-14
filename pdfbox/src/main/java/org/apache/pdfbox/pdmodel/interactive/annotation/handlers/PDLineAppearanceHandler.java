@@ -550,7 +550,7 @@ name|ab
 operator|.
 name|width
 decl_stmt|;
-comment|// add/substract with, font height, and arrows
+comment|// add/subtract with, font height, and arrows
 comment|// arrow length is 9 * width at about 30° => 10 * width seems to be enough
 comment|// but need to consider /LL, /LLE and /LLO too
 comment|//TODO find better way to calculate padding

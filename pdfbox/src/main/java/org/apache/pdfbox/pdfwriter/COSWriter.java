@@ -3210,7 +3210,7 @@ argument_list|(
 name|cmsSignature
 argument_list|)
 decl_stmt|;
-comment|// substract 2 bytes because of the enclosing "<>"
+comment|// subtract 2 bytes because of the enclosing "<>"
 if|if
 condition|(
 name|signatureBytes
