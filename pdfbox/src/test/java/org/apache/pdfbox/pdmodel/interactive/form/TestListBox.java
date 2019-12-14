@@ -802,7 +802,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// now this call must suceed
+comment|// now this call must succeed
 name|choice
 operator|.
 name|setValue
