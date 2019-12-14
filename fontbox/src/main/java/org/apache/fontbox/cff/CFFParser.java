@@ -1933,7 +1933,7 @@ argument_list|(
 name|topDictInput
 argument_list|)
 decl_stmt|;
-comment|// we dont't support synthetic fonts
+comment|// we don't support synthetic fonts
 name|DictData
 operator|.
 name|Entry
