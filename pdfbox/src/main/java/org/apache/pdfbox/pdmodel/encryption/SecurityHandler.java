@@ -488,7 +488,7 @@ specifier|private
 name|COSName
 name|stringFilterName
 decl_stmt|;
-comment|/**      * Set wether to decrypt meta data.      *      * @param decryptMetadata true if meta data has to be decrypted.      */
+comment|/**      * Set whether to decrypt meta data.      *      * @param decryptMetadata true if meta data has to be decrypted.      */
 specifier|protected
 name|void
 name|setDecryptMetadata
