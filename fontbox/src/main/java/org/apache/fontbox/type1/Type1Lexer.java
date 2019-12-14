@@ -64,7 +64,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Lexer for the ASCII portions of an Adobe Type 1 font.  *  * @see Type1Parser  *  * The PostScript language, of which Type 1 fonts are a subset, has a  * somewhat awkward lexical structure. It is neither regular nor  * context-free, and the execution of the program can modify the  * the behaviour of the lexer/parser.  *  * Nevertheless, this class represents an attempt to artificially seperate  * the PostScript parsing process into separate lexing and parsing phases  * in order to reduce the complexity of the parsing phase.  *  * @see "PostScript Language Reference 3rd ed, Adobe Systems (1999)"  *  * @author John Hewson  */
+comment|/**  * Lexer for the ASCII portions of an Adobe Type 1 font.  *  * @see Type1Parser  *  * The PostScript language, of which Type 1 fonts are a subset, has a  * somewhat awkward lexical structure. It is neither regular nor  * context-free, and the execution of the program can modify the  * the behaviour of the lexer/parser.  *  * Nevertheless, this class represents an attempt to artificially separate  * the PostScript parsing process into separate lexing and parsing phases  * in order to reduce the complexity of the parsing phase.  *  * @see "PostScript Language Reference 3rd ed, Adobe Systems (1999)"  *  * @author John Hewson  */
 end_comment
 
 begin_class
