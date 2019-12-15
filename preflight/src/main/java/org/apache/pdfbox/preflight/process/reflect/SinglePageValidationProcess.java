@@ -1008,7 +1008,7 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Unable to read page contet stream"
+literal|"Unable to read page content stream"
 argument_list|,
 name|e
 argument_list|)

@@ -1252,7 +1252,7 @@ return|return
 name|documentIDBytes
 return|;
 block|}
-comment|// Algorithm 13: validate permissions ("Perms" field). Relaxed to accomodate buggy encoders
+comment|// Algorithm 13: validate permissions ("Perms" field). Relaxed to accommodate buggy encoders
 comment|// https://www.adobe.com/content/dam/Adobe/en/devnet/acrobat/pdfs/adobe_supplement_iso32000.pdf
 specifier|private
 name|void

@@ -563,7 +563,7 @@ argument_list|,
 name|pdSignatureField
 argument_list|)
 expr_stmt|;
-comment|// inner form stream, form and resource (hlder form containts inner form)
+comment|// inner form stream, form and resource (holder form contains inner form)
 name|pdfBuilder
 operator|.
 name|createInnerFormStream
