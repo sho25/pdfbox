@@ -1249,7 +1249,7 @@ argument_list|(
 name|pageIndex
 argument_list|)
 decl_stmt|;
-comment|// TODO need width/wight calculations? should these be in PageDrawer?
+comment|// TODO need width/height calculations? should these be in PageDrawer?
 name|transform
 argument_list|(
 name|graphics
