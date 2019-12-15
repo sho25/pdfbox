@@ -1262,43 +1262,6 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Returns the best Unicode from the font (the most general). The PDF spec says that "The means      * by which this is accomplished are implementation-dependent."      *       * @throws IOException if the font could not be read      * @deprecated Use {@link #getUnicodeCmapLookup()} instead      */
-annotation|@
-name|Deprecated
-specifier|public
-name|CmapSubtable
-name|getUnicodeCmap
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|getUnicodeCmap
-argument_list|(
-literal|true
-argument_list|)
-return|;
-block|}
-comment|/**      * Returns the best Unicode from the font (the most general). The PDF spec says that "The means      * by which this is accomplished are implementation-dependent."      *       * @param isStrict False if we allow falling back to any cmap, even if it's not Unicode.      * @throws IOException if the font could not be read, or there is no Unicode cmap      * @deprecated Use {@link #getUnicodeCmapLookup(boolean)} instead      */
-annotation|@
-name|Deprecated
-specifier|public
-name|CmapSubtable
-name|getUnicodeCmap
-parameter_list|(
-name|boolean
-name|isStrict
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|getUnicodeCmapImpl
-argument_list|(
-name|isStrict
-argument_list|)
-return|;
-block|}
 comment|/**      * Returns the best Unicode from the font (the most general). The PDF spec says that "The means      * by which this is accomplished are implementation-dependent."      *      * The returned cmap will perform glyph substitution.      *      * @throws IOException if the font could not be read      */
 specifier|public
 name|CmapLookup
