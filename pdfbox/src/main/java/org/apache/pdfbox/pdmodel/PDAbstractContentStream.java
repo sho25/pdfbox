@@ -2728,7 +2728,9 @@ name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the stroking color in the DeviceRGB color space. Range is 0..255.      *      * @param r The red value      * @param g The green value.      * @param b The blue value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameters are invalid.      * @see #setStrokingColor(float, float, float) setStrokingColor(r/255f, g/255f, b/255f)      */
+comment|/**      * Set the stroking color in the DeviceRGB color space. Range is 0..255.      *      * @param r The red value      * @param g The green value.      * @param b The blue value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameters are invalid.      * @deprecated use      * {@link #setStrokingColor(float, float, float) setStrokingColor(r/255f, g/255f, b/255f)}      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|setStrokingColor
@@ -3238,7 +3240,9 @@ name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the non stroking color in the DeviceRGB color space. Range is 0..255.      *      * @param r The red value      * @param g The green value.      * @param b The blue value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameters are invalid.      * @see #setNonStrokingColor(float, float, float) setNonStrokingColor(r/255f, g/255f, b/255f)      */
+comment|/**      * Set the non stroking color in the DeviceRGB color space. Range is 0..255.      *      * @param r The red value      * @param g The green value.      * @param b The blue value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameters are invalid.      * @deprecated use      * {@link #setNonStrokingColor(float, float, float) setNonStrokingColor(r/255f, g/255f, b/255f)}      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|setNonStrokingColor
@@ -3497,7 +3501,9 @@ name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set the non-stroking color in the DeviceGray color space. Range is 0..255.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameter is invalid.      */
+comment|/**      * Set the non-stroking color in the DeviceGray color space. Range is 0..255.      *      * @param g The gray value.      * @throws IOException If an IO error occurs while writing to the stream.      * @throws IllegalArgumentException If the parameter is invalid.      * @deprecated use {@link #setNonStrokingColor(float) setNonStrokingColor(g/255f)}      */
+annotation|@
+name|Deprecated
 specifier|public
 name|void
 name|setNonStrokingColor
