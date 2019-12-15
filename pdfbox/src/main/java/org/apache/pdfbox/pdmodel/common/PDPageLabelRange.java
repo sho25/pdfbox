@@ -60,7 +60,7 @@ specifier|private
 name|COSDictionary
 name|root
 decl_stmt|;
-comment|// Page label dictonary (PDF32000-1:2008 Section 12.4.2, Table 159)
+comment|// Page label dictionary (PDF32000-1:2008 Section 12.4.2, Table 159)
 specifier|private
 specifier|static
 specifier|final
