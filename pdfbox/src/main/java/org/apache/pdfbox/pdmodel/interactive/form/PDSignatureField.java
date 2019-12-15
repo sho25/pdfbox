@@ -362,25 +362,6 @@ operator|+
 name|i
 return|;
 block|}
-comment|/**      * Add a signature dictionary to the signature field.      *       * @param value is the PDSignatureField      * @deprecated Use {@link #setValue(PDSignature)} instead.      */
-annotation|@
-name|Deprecated
-specifier|public
-name|void
-name|setSignature
-parameter_list|(
-name|PDSignature
-name|value
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|setValue
-argument_list|(
-name|value
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Get the signature dictionary.      *       * @return the signature dictionary      *       */
 specifier|public
 name|PDSignature

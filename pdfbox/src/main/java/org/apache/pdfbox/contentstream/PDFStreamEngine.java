@@ -797,37 +797,6 @@ specifier|protected
 name|PDFStreamEngine
 parameter_list|()
 block|{     }
-comment|/**      * Register a custom operator processor with the engine.      *       * @param operator The operator as a string.      * @param op Processor instance.      * @deprecated Use {@link #addOperator(OperatorProcessor)} instead      */
-annotation|@
-name|Deprecated
-specifier|public
-name|void
-name|registerOperatorProcessor
-parameter_list|(
-name|String
-name|operator
-parameter_list|,
-name|OperatorProcessor
-name|op
-parameter_list|)
-block|{
-name|op
-operator|.
-name|setContext
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-name|operators
-operator|.
-name|put
-argument_list|(
-name|operator
-argument_list|,
-name|op
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Adds an operator processor to the engine.      *      * @param op operator processor      */
 specifier|public
 specifier|final

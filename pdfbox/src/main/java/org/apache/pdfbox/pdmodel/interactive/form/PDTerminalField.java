@@ -747,24 +747,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This will get the single associated widget that is part of this field. This occurs when the      * Widget is embedded in the fields dictionary. Sometimes there are multiple sub widgets      * associated with this field, in which case you want to use getWidgets(). If the kids entry is      * specified, then the first entry in that list will be returned.      *       * @return The widget that is associated with this field.      * @deprecated Fields may have more than one widget, call {@link #getWidgets()} instead.      */
-annotation|@
-name|Deprecated
-specifier|public
-name|PDAnnotationWidget
-name|getWidget
-parameter_list|()
-block|{
-return|return
-name|getWidgets
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-return|;
-block|}
 comment|/**      * Applies a value change to the field. Generates appearances if required and raises events.      *       * @throws IOException if the appearance couldn't be generated      */
 specifier|protected
 specifier|final

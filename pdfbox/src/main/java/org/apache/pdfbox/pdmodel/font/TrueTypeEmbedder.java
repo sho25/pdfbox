@@ -143,20 +143,6 @@ name|fontbox
 operator|.
 name|ttf
 operator|.
-name|CmapSubtable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|fontbox
-operator|.
-name|ttf
-operator|.
 name|HeaderTable
 import|;
 end_import
@@ -367,14 +353,6 @@ specifier|protected
 name|PDFontDescriptor
 name|fontDescriptor
 decl_stmt|;
-comment|/**      * For API backwards compatibility.      *       * @deprecated      */
-annotation|@
-name|Deprecated
-specifier|protected
-specifier|final
-name|CmapSubtable
-name|cmap
-decl_stmt|;
 specifier|protected
 specifier|final
 name|CmapLookup
@@ -536,13 +514,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// choose a Unicode "cmap"
-name|cmap
-operator|=
-name|ttf
-operator|.
-name|getUnicodeCmap
-argument_list|()
-expr_stmt|;
 name|cmapLookup
 operator|=
 name|ttf
@@ -1274,18 +1245,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|fd
-return|;
-block|}
-comment|/**      * Returns the FontBox font.      *       * @deprecated       */
-annotation|@
-name|Deprecated
-specifier|public
-name|TrueTypeFont
-name|getTrueTypeFont
-parameter_list|()
-block|{
-return|return
-name|ttf
 return|;
 block|}
 comment|/**      * Returns the font descriptor.      */

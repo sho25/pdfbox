@@ -359,21 +359,6 @@ comment|// Tip for debugging: look at the destination file with an editor, you'l
 comment|// incomplete stream at the bottom.
 block|}
 block|}
-comment|/**      * This will get the stream with all of the filters applied.      *      * @return the bytes of the physical (encoded) stream      * @throws IOException when encoding causes an exception      * @deprecated Use {@link #createRawInputStream()} instead.      */
-annotation|@
-name|Deprecated
-specifier|public
-name|InputStream
-name|getFilteredStream
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|createRawInputStream
-argument_list|()
-return|;
-block|}
 comment|/**      * Ensures {@link #randomAccess} is not<code>null</code> by creating a      * buffer from {@link #scratchFile} if needed.      *       * @param forInputStream  if<code>true</code> and {@link #randomAccess} is<code>null</code>      *                        a debug message is logged - input stream should be retrieved after      *                        data being written to stream      * @throws IOException      */
 specifier|private
 name|void
@@ -457,21 +442,6 @@ name|randomAccess
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the logical content stream with none of the filters.      *      * @return the bytes of the logical (decoded) stream      * @throws IOException when decoding causes an exception      * @deprecated Use {@link #createInputStream()} instead.      */
-annotation|@
-name|Deprecated
-specifier|public
-name|InputStream
-name|getUnfilteredStream
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|createInputStream
-argument_list|()
-return|;
-block|}
 comment|/**      * Returns a new InputStream which reads the decoded stream data.      *       * @return InputStream containing decoded stream data.      * @throws IOException If the stream could not be read.      */
 specifier|public
 name|COSInputStream
@@ -545,21 +515,6 @@ name|scratchFile
 argument_list|,
 name|options
 argument_list|)
-return|;
-block|}
-comment|/**      * This will create an output stream that can be written to.      *      * @return An output stream which raw data bytes should be written to.      * @throws IOException If there is an error creating the stream.      * @deprecated Use {@link #createOutputStream()} instead.      */
-annotation|@
-name|Deprecated
-specifier|public
-name|OutputStream
-name|createUnfilteredStream
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|createOutputStream
-argument_list|()
 return|;
 block|}
 comment|/**      * Returns a new OutputStream for writing stream data, using the current filters.      *      * @return OutputStream for un-encoded stream data.      * @throws IOException If the output stream could not be created.      */
@@ -740,21 +695,6 @@ literal|false
 expr_stmt|;
 block|}
 block|}
-return|;
-block|}
-comment|/**      * This will create a new stream for which filtered byte should be      * written to. You probably don't want this but want to use the      * createUnfilteredStream, which is used to write raw bytes to.      *      * @return A stream that can be written to.      * @throws IOException If there is an error creating the stream.      * @deprecated Use {@link #createRawOutputStream()} instead.      */
-annotation|@
-name|Deprecated
-specifier|public
-name|OutputStream
-name|createFilteredStream
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|createRawOutputStream
-argument_list|()
 return|;
 block|}
 comment|/**      * Returns a new OutputStream for writing encoded PDF data. Experts only!      *       * @return OutputStream for raw PDF stream data.      * @throws IOException If the output stream could not be created.      */
@@ -1052,42 +992,6 @@ name|COSName
 operator|.
 name|FILTER
 argument_list|)
-return|;
-block|}
-comment|/**      * Sets the filters to be applied when encoding or decoding the stream.      *      * @param filters The filters to set on this stream.      * @throws IOException If there is an error clearing the old filters.      * @deprecated Use {@link #createOutputStream(COSBase)} instead.      */
-annotation|@
-name|Deprecated
-specifier|public
-name|void
-name|setFilters
-parameter_list|(
-name|COSBase
-name|filters
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|setItem
-argument_list|(
-name|COSName
-operator|.
-name|FILTER
-argument_list|,
-name|filters
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Returns the contents of the stream as a text string.      *       * @deprecated Use {@link #toTextString()} instead.      */
-annotation|@
-name|Deprecated
-specifier|public
-name|String
-name|getString
-parameter_list|()
-block|{
-return|return
-name|toTextString
-argument_list|()
 return|;
 block|}
 comment|/**      * Returns the contents of the stream as a PDF "text string".      */
