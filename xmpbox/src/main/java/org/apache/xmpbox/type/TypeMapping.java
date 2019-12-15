@@ -1163,7 +1163,7 @@ name|String
 name|ns
 parameter_list|,
 name|String
-name|prefered
+name|preferred
 parameter_list|)
 block|{
 name|PropertiesDescription

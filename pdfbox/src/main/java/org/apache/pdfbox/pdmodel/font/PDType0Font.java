@@ -1762,7 +1762,7 @@ literal|null
 condition|)
 block|{
 comment|// if the font is composite and uses a predefined cmap (excluding Identity-H/V) then
-comment|// or if its decendant font uses Adobe-GB1/CNS1/Japan1/Korea1
+comment|// or if its descendant font uses Adobe-GB1/CNS1/Japan1/Korea1
 comment|// a) Map the character code to a character identifier (CID) according to the font?s CMap
 name|int
 name|cid
