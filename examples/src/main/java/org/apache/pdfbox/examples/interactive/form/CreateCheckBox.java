@@ -1233,7 +1233,7 @@ name|yesAPCS
 operator|.
 name|setNonStrokingColor
 argument_list|(
-literal|0
+literal|0f
 argument_list|)
 expr_stmt|;
 name|yesAPCS

@@ -477,16 +477,22 @@ comment|/**      * The highlight color      *      * The color setting is used b
 specifier|private
 specifier|static
 specifier|final
-name|int
+name|float
 index|[]
 name|HIGHLIGHT_COLOR
 init|=
 block|{
 literal|153
+operator|/
+literal|255f
 block|,
 literal|193
+operator|/
+literal|255f
 block|,
 literal|215
+operator|/
+literal|255f
 block|}
 decl_stmt|;
 comment|/**      * The scaling factor for font units to PDF units      */
@@ -3157,7 +3163,7 @@ name|contents
 operator|.
 name|setNonStrokingColor
 argument_list|(
-literal|0
+literal|0f
 argument_list|)
 expr_stmt|;
 block|}
@@ -3187,7 +3193,7 @@ name|contents
 operator|.
 name|setNonStrokingColor
 argument_list|(
-literal|0
+literal|0f
 argument_list|)
 expr_stmt|;
 name|int
