@@ -3761,10 +3761,7 @@ name|startsWith
 argument_list|(
 literal|"endobj"
 argument_list|)
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|endObjectKey
 operator|.
 name|startsWith
@@ -3802,7 +3799,6 @@ name|readString
 argument_list|()
 expr_stmt|;
 comment|// read next line
-block|}
 block|}
 block|}
 block|}

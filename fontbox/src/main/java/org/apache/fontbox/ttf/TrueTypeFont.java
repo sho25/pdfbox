@@ -500,10 +500,7 @@ condition|(
 name|ttfTable
 operator|!=
 literal|null
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 operator|!
 name|ttfTable
 operator|.
@@ -528,7 +525,6 @@ argument_list|(
 name|ttfTable
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

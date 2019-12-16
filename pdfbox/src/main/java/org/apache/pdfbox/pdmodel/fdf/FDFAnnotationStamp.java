@@ -1518,10 +1518,7 @@ name|equals
 argument_list|(
 name|parentAttrKey
 argument_list|)
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|nodeList
 operator|.
 name|getLength
@@ -1543,7 +1540,6 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-block|}
 elseif|else
 if|if
 condition|(
@@ -1553,10 +1549,7 @@ name|equals
 argument_list|(
 name|parentAttrKey
 argument_list|)
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|nodeList
 operator|.
 name|getLength
@@ -1577,7 +1570,6 @@ name|getLength
 argument_list|()
 argument_list|)
 throw|;
-block|}
 block|}
 for|for
 control|(

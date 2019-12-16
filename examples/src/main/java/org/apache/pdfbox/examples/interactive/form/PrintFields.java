@@ -257,10 +257,7 @@ operator|.
 name|getPartialName
 argument_list|()
 argument_list|)
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|partialName
 operator|!=
 literal|null
@@ -274,7 +271,6 @@ literal|"."
 operator|+
 name|partialName
 expr_stmt|;
-block|}
 block|}
 name|System
 operator|.

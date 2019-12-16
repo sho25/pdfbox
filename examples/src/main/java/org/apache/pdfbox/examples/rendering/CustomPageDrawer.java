@@ -450,7 +450,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// if this is the non-stroking color
+comment|// if this is the non-stroking color, find red, ignoring alpha channel
 if|if
 condition|(
 name|getGraphicsState
@@ -460,11 +460,7 @@ name|getNonStrokingColor
 argument_list|()
 operator|==
 name|color
-condition|)
-block|{
-comment|// find red, ignoring alpha channel
-if|if
-condition|(
+operator|&&
 name|color
 operator|.
 name|toRGB
@@ -488,7 +484,6 @@ name|Color
 operator|.
 name|BLUE
 return|;
-block|}
 block|}
 return|return
 name|super

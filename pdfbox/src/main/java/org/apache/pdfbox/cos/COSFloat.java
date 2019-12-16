@@ -353,10 +353,7 @@ literal|0
 argument_list|)
 operator|!=
 literal|0
-condition|)
-block|{
-if|if
-condition|(
+operator|&&
 name|Math
 operator|.
 name|abs
@@ -390,7 +387,6 @@ name|valueReplaced
 operator|=
 literal|true
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
