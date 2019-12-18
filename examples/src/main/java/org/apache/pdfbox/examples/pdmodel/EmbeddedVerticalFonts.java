@@ -170,7 +170,7 @@ name|page
 argument_list|)
 expr_stmt|;
 comment|// The actual font file
-comment|// Download: https://ipafont.ipa.go.jp/old/ipafont/ipag00303.php
+comment|// Download: https://ipafont.ipa.go.jp/ipafont/ipag00303.zip
 comment|// (free license: https://www.gnu.org/licenses/license-list.html#IPAFONT)
 name|File
 name|ipafont
