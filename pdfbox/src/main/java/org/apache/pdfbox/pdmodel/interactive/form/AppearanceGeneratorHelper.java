@@ -513,7 +513,7 @@ name|DEFAULT_FONT_SIZE
 init|=
 literal|12
 decl_stmt|;
-comment|/**      * The minimum font size used for multiline text auto sizing      */
+comment|/**      * The minimum/maximum font sizes used for multiline text auto sizing      */
 specifier|private
 specifier|static
 specifier|final
@@ -521,6 +521,14 @@ name|float
 name|MINIMUM_FONT_SIZE
 init|=
 literal|4
+decl_stmt|;
+specifier|private
+specifier|static
+specifier|final
+name|float
+name|MAXIMUM_FONT_SIZE
+init|=
+literal|300
 decl_stmt|;
 comment|/**      * The default padding applied by Acrobat to the fields bbox.      */
 specifier|private
@@ -3562,15 +3570,28 @@ literal|null
 condition|)
 block|{
 name|float
+name|width
+init|=
+name|contentRect
+operator|.
+name|getWidth
+argument_list|()
+operator|-
+name|contentRect
+operator|.
+name|getLowerLeftX
+argument_list|()
+decl_stmt|;
+name|float
 name|fs
 init|=
-name|DEFAULT_FONT_SIZE
+name|MINIMUM_FONT_SIZE
 decl_stmt|;
 while|while
 condition|(
 name|fs
-operator|>
-name|MINIMUM_FONT_SIZE
+operator|<=
+name|MAXIMUM_FONT_SIZE
 condition|)
 block|{
 comment|// determine the number of lines needed for this font and contentRect
@@ -3602,36 +3623,20 @@ name|font
 argument_list|,
 name|fs
 argument_list|,
-name|contentRect
-operator|.
-name|getWidth
-argument_list|()
+name|width
 argument_list|)
 operator|.
 name|size
 argument_list|()
 expr_stmt|;
 block|}
-comment|// calculate the height using the capHeight and leading for this font size
+comment|// calculate the height required for this font size
 name|float
 name|fontScaleY
 init|=
 name|fs
 operator|/
 name|FONTSCALE
-decl_stmt|;
-name|float
-name|fontCapAtSize
-init|=
-name|font
-operator|.
-name|getFontDescriptor
-argument_list|()
-operator|.
-name|getCapHeight
-argument_list|()
-operator|*
-name|fontScaleY
 decl_stmt|;
 name|float
 name|leading
@@ -3649,23 +3654,15 @@ decl_stmt|;
 name|float
 name|height
 init|=
-name|fontCapAtSize
-operator|+
-operator|(
-operator|(
-name|numLines
-operator|-
-literal|1
-operator|)
-operator|*
 name|leading
-operator|)
+operator|*
+name|numLines
 decl_stmt|;
-comment|// if within bounds, return this font size
+comment|// if this font size didn't fit, use the prior size that did fit
 if|if
 condition|(
 name|height
-operator|<=
+operator|>
 name|contentRect
 operator|.
 name|getHeight
@@ -3673,15 +3670,32 @@ argument_list|()
 condition|)
 block|{
 return|return
+name|Math
+operator|.
+name|max
+argument_list|(
 name|fs
+operator|-
+literal|1
+argument_list|,
+name|MINIMUM_FONT_SIZE
+argument_list|)
 return|;
 block|}
-comment|// otherwise, try again with a smaller font
 name|fs
-operator|-=
-literal|1
+operator|++
 expr_stmt|;
 block|}
+return|return
+name|Math
+operator|.
+name|min
+argument_list|(
+name|fs
+argument_list|,
+name|MAXIMUM_FONT_SIZE
+argument_list|)
+return|;
 block|}
 comment|// Acrobat defaults to 12 for multiline text with size 0
 return|return
