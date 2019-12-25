@@ -237,6 +237,14 @@ name|E
 argument_list|>
 name|actual
 decl_stmt|;
+comment|// indicates that the list has been filtered
+comment|// i.e. the number of entries in array and actual differ
+specifier|private
+name|boolean
+name|isFiltered
+init|=
+literal|false
+decl_stmt|;
 specifier|private
 name|COSDictionary
 name|parentDict
@@ -264,7 +272,7 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param actualList The list of standard java objects      * @param cosArray The COS array object to sync to.      */
+comment|/**      * Create the COSArrayList specifing the List and the backing COSArray.      *       *<p>User of this constructor need to ensure that the entries in the List and      * the backing COSArray are matching i.e. the COSObject of the List entry is      * included in the COSArray.      *         *<p>If the number of entries in the List and the COSArray differ      * it is assumed that the List has been filtered. In that case the COSArrayList      * shall only be used for reading purposes and no longer for updating.      *       * @param actualList The list of standard java objects      * @param cosArray The COS array object to sync to.      */
 specifier|public
 name|COSArrayList
 parameter_list|(
@@ -286,6 +294,26 @@ name|array
 operator|=
 name|cosArray
 expr_stmt|;
+comment|// if the number of entries differs this may come from a filter being
+comment|// applied at the PDModel level
+if|if
+condition|(
+name|actual
+operator|.
+name|size
+argument_list|()
+operator|!=
+name|array
+operator|.
+name|size
+argument_list|()
+condition|)
+block|{
+name|isFiltered
+operator|=
+literal|true
+expr_stmt|;
+block|}
 block|}
 comment|/**      * This constructor is to be used if the array doesn't exist, but is to be created and added to      * the parent dictionary as soon as the first element is added to the array.      *      * @param dictionary The dictionary that holds the item, and will hold the array if an item is      * added.      * @param dictionaryKey The key into the dictionary to set the item.      */
 specifier|public
@@ -587,6 +615,19 @@ name|Object
 name|o
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isFiltered
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"removing entries from a filtered List is not permitted"
+argument_list|)
+throw|;
+block|}
 name|boolean
 name|retval
 init|=
@@ -674,6 +715,19 @@ argument_list|>
 name|c
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isFiltered
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Apping to a filtered List is not permitted"
+argument_list|)
+throw|;
+block|}
 comment|//when adding if there is a parentDict then change the item
 comment|//in the dictionary from a single item to an array.
 if|if
@@ -744,6 +798,19 @@ argument_list|>
 name|c
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isFiltered
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Inserting to a filtered List is not permitted"
+argument_list|)
+throw|;
+block|}
 comment|//when adding if there is a parentDict then change the item
 comment|//in the dictionary from a single item to an array.
 if|if
@@ -1812,6 +1879,19 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|isFiltered
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Replacing an element in a filtered List is not permitted"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
 name|element
 operator|instanceof
 name|String
@@ -1934,6 +2014,19 @@ name|E
 name|element
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isFiltered
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Adding an element in a filtered List is not permitted"
+argument_list|)
+throw|;
+block|}
 comment|//when adding if there is a parentDict then change the item
 comment|//in the dictionary from a single item to an array.
 if|if
@@ -2024,6 +2117,19 @@ name|int
 name|index
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isFiltered
+condition|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"removing entries from a filtered List is not permitted"
+argument_list|)
+throw|;
+block|}
 name|array
 operator|.
 name|remove
