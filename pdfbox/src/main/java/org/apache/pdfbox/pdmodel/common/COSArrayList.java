@@ -2180,7 +2180,7 @@ block|{
 return|return
 name|actual
 operator|.
-name|indexOf
+name|lastIndexOf
 argument_list|(
 name|o
 argument_list|)
