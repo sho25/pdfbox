@@ -351,8 +351,6 @@ expr_stmt|;
 name|position
 operator|-=
 name|len
-operator|-
-name|start
 expr_stmt|;
 block|}
 annotation|@
