@@ -424,10 +424,6 @@ name|len
 operator|-=
 name|n
 expr_stmt|;
-name|position
-operator|+=
-name|n
-expr_stmt|;
 block|}
 else|else
 block|{
