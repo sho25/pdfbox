@@ -1353,11 +1353,8 @@ expr_stmt|;
 name|found
 operator|=
 name|searched
-operator|.
-name|equals
-argument_list|(
+operator|==
 name|current
-argument_list|)
 expr_stmt|;
 block|}
 block|}

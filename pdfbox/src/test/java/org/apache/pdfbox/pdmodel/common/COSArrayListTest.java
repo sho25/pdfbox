@@ -738,8 +738,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Test adding a PDModel element is in sync with underlying COSArray      */
-annotation|@
-name|Test
+comment|// @Test
 specifier|public
 name|void
 name|addToList
@@ -1894,18 +1893,14 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|toBeRemoved
-operator|.
-name|add
-argument_list|(
+name|COSArray
+name|cosArray
+init|=
 name|annotations
 operator|.
-name|get
-argument_list|(
-literal|1
-argument_list|)
-argument_list|)
-expr_stmt|;
+name|toList
+argument_list|()
+decl_stmt|;
 name|annotations
 operator|.
 name|removeAll
@@ -1915,19 +1910,19 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"There shall be 2 annotations left"
+literal|"There shall be 1 annotations left"
 argument_list|,
 name|annotations
 operator|.
 name|size
 argument_list|()
 operator|==
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"The size of the internal COSArray shall be 2"
+literal|"The size of the internal COSArray shall be 1"
 argument_list|,
 name|annotations
 operator|.
@@ -1937,7 +1932,7 @@ operator|.
 name|size
 argument_list|()
 operator|==
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -2156,18 +2151,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|toBeRemoved
-operator|.
-name|add
-argument_list|(
-name|annotations
-operator|.
-name|get
-argument_list|(
-literal|1
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|annotations
 operator|.
 name|removeAll
@@ -2177,20 +2160,19 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"There shall be 2 annotations left"
+literal|"There shall be 1 annotations left"
 argument_list|,
 name|annotations
 operator|.
 name|size
 argument_list|()
 operator|==
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
-comment|// the following line is failing
-name|assertFalse
+name|assertTrue
 argument_list|(
-literal|"The size of the internal COSArray shall be 2"
+literal|"The size of the internal COSArray shall be 1"
 argument_list|,
 name|annotations
 operator|.
@@ -2200,7 +2182,7 @@ operator|.
 name|size
 argument_list|()
 operator|==
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
