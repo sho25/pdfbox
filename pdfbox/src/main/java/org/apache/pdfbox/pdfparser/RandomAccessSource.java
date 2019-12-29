@@ -238,8 +238,6 @@ operator|.
 name|rewind
 argument_list|(
 name|len
-operator|-
-name|start
 argument_list|)
 expr_stmt|;
 block|}
