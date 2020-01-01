@@ -132,7 +132,7 @@ name|PDEmbeddedFile
 extends|extends
 name|PDStream
 block|{
-comment|/**      * Constructor.      *      * @param document {@inheritDoc}      */
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|PDEmbeddedFile
 parameter_list|(
@@ -158,7 +158,7 @@ literal|"EmbeddedFile"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param str The stream parameter.      */
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|PDEmbeddedFile
 parameter_list|(
@@ -172,7 +172,7 @@ name|str
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param doc {@inheritDoc}      * @param str {@inheritDoc}      *      * @throws IOException {@inheritDoc}      */
+comment|/**      * {@inheritDoc}      */
 specifier|public
 name|PDEmbeddedFile
 parameter_list|(
@@ -205,7 +205,7 @@ literal|"EmbeddedFile"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor.      *      * @param doc {@inheritDoc}      * @param input {@inheritDoc}      * @param filter Filter to apply to the stream.      *      * @throws IOException {@inheritDoc}      */
+comment|/**      * {@inheritDoc}      * @param filter Filter to apply to the stream.      *      * @throws IOException {@inheritDoc}      */
 specifier|public
 name|PDEmbeddedFile
 parameter_list|(
