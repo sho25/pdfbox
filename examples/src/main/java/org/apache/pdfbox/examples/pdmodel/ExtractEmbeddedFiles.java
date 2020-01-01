@@ -601,14 +601,6 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|String
-name|filename
-init|=
-name|entry
-operator|.
-name|getKey
-argument_list|()
-decl_stmt|;
 name|PDComplexFileSpecification
 name|fileSpec
 init|=
@@ -636,7 +628,10 @@ name|extractFile
 argument_list|(
 name|filePath
 argument_list|,
-name|filename
+name|fileSpec
+operator|.
+name|getFilename
+argument_list|()
 argument_list|,
 name|embeddedFile
 argument_list|)
