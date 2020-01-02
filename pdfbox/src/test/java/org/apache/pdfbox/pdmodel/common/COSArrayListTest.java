@@ -3178,21 +3178,6 @@ argument_list|(
 name|toBeRetained
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|annotations
-operator|.
-name|toList
-argument_list|()
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"There shall be 3 annotations left"
