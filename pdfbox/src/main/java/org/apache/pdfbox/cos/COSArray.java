@@ -957,6 +957,8 @@ name|removed
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals

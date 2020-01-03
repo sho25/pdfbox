@@ -3440,6 +3440,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|equals
