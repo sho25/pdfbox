@@ -436,7 +436,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|UnsupportedOperationException
 argument_list|(
 literal|"Not yet implemented"
 argument_list|)
