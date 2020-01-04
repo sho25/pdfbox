@@ -160,11 +160,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *@author Khyrul Bashar.  */
-end_comment
-
-begin_comment
-comment|/**  * A class that provides the necessary UI and functionalities to show the DeviceN color space.  */
+comment|/**  * A class that provides the necessary UI and functionalities to show the DeviceN color space.  *  * @author Khyrul Bashar.  *  */
 end_comment
 
 begin_class
@@ -173,6 +169,7 @@ class|class
 name|CSDeviceN
 block|{
 specifier|private
+specifier|final
 name|PDDeviceN
 name|deviceN
 decl_stmt|;
@@ -180,15 +177,15 @@ specifier|private
 name|JPanel
 name|panel
 decl_stmt|;
-comment|/**      * Constructor      *      * @param array COSArray instance that holds DeviceN color space      */
+comment|/**      * Constructor      *      * @param array COSArray instance that holds the DeviceN color space      */
 specifier|public
 name|CSDeviceN
 parameter_list|(
 name|COSArray
 name|array
 parameter_list|)
-block|{
-try|try
+throws|throws
+name|IOException
 block|{
 name|deviceN
 operator|=
@@ -210,21 +207,6 @@ argument_list|(
 name|colorants
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * Parses the colorant data from the array.      *      * @return the parsed colorants.      * @throws java.io.IOException if the color conversion fails.      */
 specifier|private

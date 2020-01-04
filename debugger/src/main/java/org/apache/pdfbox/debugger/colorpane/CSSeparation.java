@@ -260,11 +260,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Khyrul Bashar.  */
-end_comment
-
-begin_comment
-comment|/**  *A class that provides the necessary UI and functionalities to show the Separation color space.  */
+comment|/**  * A class that provides the necessary UI and functionalities to show the Separation color space.  *  * @author Khyrul Bashar.  */
 end_comment
 
 begin_class
@@ -293,6 +289,7 @@ name|JPanel
 name|panel
 decl_stmt|;
 specifier|private
+specifier|final
 name|PDSeparation
 name|separation
 decl_stmt|;
@@ -302,15 +299,15 @@ name|tintValue
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * Constructor      * @param array COSArray instance of the separation color space.      */
+comment|/**      * Constructor      *      * @param array COSArray instance of the Separation color space.      *       * @throws java.io.IOException      */
 specifier|public
 name|CSSeparation
 parameter_list|(
 name|COSArray
 name|array
 parameter_list|)
-block|{
-try|try
+throws|throws
+name|IOException
 block|{
 name|separation
 operator|=
@@ -320,21 +317,6 @@ argument_list|(
 name|array
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 name|initUI
 argument_list|()
 expr_stmt|;

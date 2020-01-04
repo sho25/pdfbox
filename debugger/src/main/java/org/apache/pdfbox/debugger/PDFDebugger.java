@@ -4567,6 +4567,8 @@ parameter_list|(
 name|Object
 name|csNode
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|csNode
 operator|=

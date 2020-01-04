@@ -184,11 +184,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @author Khyrul Bashar.  */
-end_comment
-
-begin_comment
-comment|/**  * A class that provides the necessary UI and functionalities to show the Indexed colorspace.  */
+comment|/**  * A class that provides the necessary UI and functionalities to show the Indexed colorspace.  *  * @author Khyrul Bashar.  */
 end_comment
 
 begin_class
@@ -197,6 +193,7 @@ class|class
 name|CSIndexed
 block|{
 specifier|private
+specifier|final
 name|PDIndexed
 name|indexed
 decl_stmt|;
@@ -205,18 +202,19 @@ name|JPanel
 name|panel
 decl_stmt|;
 specifier|private
+specifier|final
 name|int
 name|colorCount
 decl_stmt|;
-comment|/**      * Constructor.      * @param array COSArray instance for Indexed Colorspace.      */
+comment|/**      * Constructor.      * @param array COSArray instance for Indexed color space.      * @throws java.io.IOException      */
 specifier|public
 name|CSIndexed
 parameter_list|(
 name|COSArray
 name|array
 parameter_list|)
-block|{
-try|try
+throws|throws
+name|IOException
 block|{
 name|indexed
 operator|=
@@ -241,21 +239,6 @@ name|getColorantData
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 comment|/**      * Parses the colorant data from the array and return.      *      * @return      */
 specifier|private
