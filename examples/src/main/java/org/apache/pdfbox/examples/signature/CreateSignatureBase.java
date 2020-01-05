@@ -358,6 +358,10 @@ literal|null
 decl_stmt|;
 while|while
 condition|(
+name|cert
+operator|==
+literal|null
+operator|&&
 name|aliases
 operator|.
 name|hasMoreElements
@@ -400,12 +404,10 @@ decl_stmt|;
 if|if
 condition|(
 name|certChain
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
-continue|continue;
-block|}
 name|setCertificateChain
 argument_list|(
 name|certChain
@@ -447,7 +449,7 @@ name|cert
 argument_list|)
 expr_stmt|;
 block|}
-break|break;
+block|}
 block|}
 if|if
 condition|(
