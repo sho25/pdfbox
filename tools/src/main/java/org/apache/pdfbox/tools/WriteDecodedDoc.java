@@ -385,6 +385,16 @@ argument_list|()
 expr_stmt|;
 name|doc
 operator|.
+name|getDocument
+argument_list|()
+operator|.
+name|setIsXRefStream
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|doc
+operator|.
 name|save
 argument_list|(
 name|out
