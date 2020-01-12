@@ -445,10 +445,6 @@ extends|extends
 name|PDFTextStripper
 block|{
 specifier|private
-name|BufferedImage
-name|image
-decl_stmt|;
-specifier|private
 name|AffineTransform
 name|flipAT
 decl_stmt|;
@@ -1091,8 +1087,9 @@ argument_list|(
 name|document
 argument_list|)
 decl_stmt|;
+name|BufferedImage
 name|image
-operator|=
+init|=
 name|pdfRenderer
 operator|.
 name|renderImage
@@ -1101,7 +1098,7 @@ name|page
 argument_list|,
 name|SCALE
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|PDPage
 name|pdPage
 init|=
