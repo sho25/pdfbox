@@ -70,8 +70,8 @@ comment|/**      * Uses a byte instead of a char buffer for efficiency reasons. 
 specifier|private
 specifier|final
 name|byte
-name|buffer
 index|[]
+name|buffer
 decl_stmt|;
 specifier|private
 name|int
@@ -304,8 +304,8 @@ name|int
 name|read
 parameter_list|(
 name|byte
-name|b
 index|[]
+name|b
 parameter_list|,
 name|int
 name|off

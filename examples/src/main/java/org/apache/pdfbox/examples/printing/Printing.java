@@ -230,8 +230,8 @@ name|void
 name|main
 parameter_list|(
 name|String
-name|args
 index|[]
+name|args
 parameter_list|)
 throws|throws
 name|PrinterException

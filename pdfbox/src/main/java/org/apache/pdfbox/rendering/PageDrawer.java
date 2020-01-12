@@ -5652,16 +5652,16 @@ block|}
 comment|// prepare transfer functions (either one per color or one for all)
 comment|// and maps (actually arrays[256] to be faster) to avoid calculating values several times
 name|Integer
+index|[]
 name|rMap
-index|[]
 decl_stmt|;
 name|Integer
+index|[]
 name|gMap
-index|[]
 decl_stmt|;
 name|Integer
-name|bMap
 index|[]
+name|bMap
 decl_stmt|;
 name|PDFunction
 name|rf
