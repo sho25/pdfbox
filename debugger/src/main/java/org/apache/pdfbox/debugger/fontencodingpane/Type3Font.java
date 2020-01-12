@@ -1149,7 +1149,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"<%02X> Tj\n"
+literal|"<%02X> Tj%n"
 argument_list|,
 name|index
 argument_list|)

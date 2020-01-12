@@ -1216,7 +1216,7 @@ name|err
 operator|.
 name|printf
 argument_list|(
-literal|"Rendered %d page%s in %dms\n"
+literal|"Rendered %d page%s in %dms%n"
 argument_list|,
 name|count
 argument_list|,

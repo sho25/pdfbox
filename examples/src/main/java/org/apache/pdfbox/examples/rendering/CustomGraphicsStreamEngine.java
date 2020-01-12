@@ -360,7 +360,7 @@ name|out
 operator|.
 name|printf
 argument_list|(
-literal|"appendRectangle %.2f %.2f, %.2f %.2f, %.2f %.2f, %.2f %.2f\n"
+literal|"appendRectangle %.2f %.2f, %.2f %.2f, %.2f %.2f, %.2f %.2f%n"
 argument_list|,
 name|p0
 operator|.
@@ -469,7 +469,7 @@ name|out
 operator|.
 name|printf
 argument_list|(
-literal|"moveTo %.2f %.2f\n"
+literal|"moveTo %.2f %.2f%n"
 argument_list|,
 name|x
 argument_list|,
@@ -498,7 +498,7 @@ name|out
 operator|.
 name|printf
 argument_list|(
-literal|"lineTo %.2f %.2f\n"
+literal|"lineTo %.2f %.2f%n"
 argument_list|,
 name|x
 argument_list|,
@@ -539,7 +539,7 @@ name|out
 operator|.
 name|printf
 argument_list|(
-literal|"curveTo %.2f %.2f, %.2f %.2f, %.2f %.2f\n"
+literal|"curveTo %.2f %.2f, %.2f %.2f, %.2f %.2f%n"
 argument_list|,
 name|x1
 argument_list|,
