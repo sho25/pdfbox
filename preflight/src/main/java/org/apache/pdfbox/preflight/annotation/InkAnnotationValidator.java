@@ -18,22 +18,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ANNOT_DICTIONARY_KEY_INKLIST
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -155,18 +139,13 @@ name|checkSpecificMandatoryFields
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
 name|annotDictionary
 operator|.
 name|containsKey
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-name|ANNOT_DICTIONARY_KEY_INKLIST
-argument_list|)
+name|INKLIST
 argument_list|)
 return|;
 block|}

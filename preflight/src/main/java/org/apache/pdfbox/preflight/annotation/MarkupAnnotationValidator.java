@@ -18,22 +18,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
-name|ANNOT_DICTIONARY_KEY_QUADPOINTS
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -145,10 +129,7 @@ name|containsKey
 argument_list|(
 name|COSName
 operator|.
-name|getPDFName
-argument_list|(
-name|ANNOT_DICTIONARY_KEY_QUADPOINTS
-argument_list|)
+name|QUADPOINTS
 argument_list|)
 return|;
 block|}

@@ -97,20 +97,6 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|cos
-operator|.
-name|COSDocument
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
 name|io
 operator|.
 name|MemoryUsageSetting
@@ -498,7 +484,7 @@ throws|,
 name|URISyntaxException
 block|{
 comment|// PDFBOX-3060
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -538,7 +524,7 @@ init|(
 name|PDDocument
 name|doc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -667,7 +653,7 @@ init|(
 name|PDDocument
 name|doc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -776,7 +762,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -808,7 +794,7 @@ init|(
 name|PDDocument
 name|doc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -844,7 +830,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -871,7 +857,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -898,7 +884,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -930,7 +916,7 @@ init|(
 name|PDDocument
 name|doc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1038,7 +1024,7 @@ init|(
 name|PDDocument
 name|doc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1079,7 +1065,7 @@ init|(
 name|PDDocument
 name|doc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1120,7 +1106,7 @@ init|(
 name|PDDocument
 name|doc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1214,7 +1200,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1241,7 +1227,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1268,7 +1254,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1318,19 +1304,14 @@ argument_list|,
 name|scratchFile
 argument_list|)
 decl_stmt|;
-name|pdfParser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 try|try
 init|(
-name|COSDocument
+name|PDDocument
 name|doc
 init|=
 name|pdfParser
 operator|.
-name|getDocument
+name|parse
 argument_list|()
 init|)
 block|{

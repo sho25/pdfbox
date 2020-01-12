@@ -153,6 +153,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdfparser
+operator|.
+name|PDFParser
+import|;
+end_import
+
+begin_import
+import|import
 name|junit
 operator|.
 name|framework
@@ -325,7 +339,7 @@ comment|// Load
 name|PDDocument
 name|loadDoc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -504,7 +518,7 @@ comment|// Load
 name|PDDocument
 name|loadDoc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -795,7 +809,7 @@ try|try
 block|{
 name|doc
 operator|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -885,7 +899,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -986,7 +1000,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(

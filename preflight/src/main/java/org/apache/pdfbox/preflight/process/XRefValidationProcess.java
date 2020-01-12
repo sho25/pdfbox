@@ -179,7 +179,7 @@ if|if
 condition|(
 name|document
 operator|.
-name|getObjects
+name|getXrefTable
 argument_list|()
 operator|.
 name|size

@@ -1107,14 +1107,10 @@ name|hasNextSpaceOrReturn
 argument_list|()
 operator|&&
 name|hasNoFollowingBinData
-argument_list|(
-name|seqSource
-argument_list|)
+argument_list|()
 operator|)
 operator|&&
 operator|!
-name|seqSource
-operator|.
 name|isEOF
 argument_list|()
 condition|)
@@ -1238,10 +1234,7 @@ comment|/**      * Looks up an amount of bytes if they contain only ASCII charac
 specifier|private
 name|boolean
 name|hasNoFollowingBinData
-parameter_list|(
-name|SequentialSource
-name|pdfSource
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -1250,7 +1243,7 @@ specifier|final
 name|int
 name|readBytes
 init|=
-name|pdfSource
+name|seqSource
 operator|.
 name|read
 argument_list|(
@@ -1533,7 +1526,7 @@ literal|false
 expr_stmt|;
 block|}
 block|}
-name|pdfSource
+name|seqSource
 operator|.
 name|unread
 argument_list|(
@@ -1557,7 +1550,7 @@ name|warn
 argument_list|(
 literal|"ignoring 'EI' assumed to be in the middle of inline image at stream offset "
 operator|+
-name|pdfSource
+name|seqSource
 operator|.
 name|getPosition
 argument_list|()

@@ -518,8 +518,6 @@ decl_stmt|;
 while|while
 condition|(
 operator|!
-name|seqSource
-operator|.
 name|isEOF
 argument_list|()
 operator|&&

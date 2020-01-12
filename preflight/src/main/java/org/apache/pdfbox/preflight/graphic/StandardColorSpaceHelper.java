@@ -1895,10 +1895,7 @@ operator|.
 name|getDocument
 argument_list|()
 operator|.
-name|getResult
-argument_list|()
-operator|.
-name|getErrorsList
+name|getValidationErrors
 argument_list|()
 operator|.
 name|size
@@ -1917,10 +1914,7 @@ operator|.
 name|getDocument
 argument_list|()
 operator|.
-name|getResult
-argument_list|()
-operator|.
-name|getErrorsList
+name|getValidationErrors
 argument_list|()
 operator|.
 name|size

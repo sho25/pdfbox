@@ -49,6 +49,20 @@ name|PDDocument
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdfparser
+operator|.
+name|PDFParser
+import|;
+end_import
+
 begin_comment
 comment|/**  * Test suite for PageExtractor.  *  * This is just some simple tests based on a test document.  It merely ensures  * that the correct number of pages are extracted as this is virtually the only  * thing which could go wrong when coping pages from one PDF to a new one.  *  * @author Adam Nichols  */
 end_comment
@@ -147,7 +161,7 @@ block|{
 comment|// this should work for most users
 name|sourcePdf
 operator|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(

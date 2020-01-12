@@ -160,30 +160,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|fail
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -278,6 +254,20 @@ operator|.
 name|pdmodel
 operator|.
 name|PDDocument
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdfparser
+operator|.
+name|PDFParser
 import|;
 end_import
 
@@ -931,7 +921,7 @@ init|(
 name|PDDocument
 name|mergedDoc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1001,7 +991,7 @@ decl_stmt|;
 name|PDDocument
 name|src
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1071,7 +1061,7 @@ expr_stmt|;
 name|PDDocument
 name|dst
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1119,7 +1109,7 @@ expr_stmt|;
 name|PDDocument
 name|doc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1209,7 +1199,7 @@ decl_stmt|;
 name|PDDocument
 name|doc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1308,7 +1298,7 @@ expr_stmt|;
 name|PDDocument
 name|src
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1324,7 +1314,7 @@ decl_stmt|;
 name|PDDocument
 name|dst
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1373,7 +1363,7 @@ argument_list|()
 expr_stmt|;
 name|doc
 operator|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1463,7 +1453,7 @@ decl_stmt|;
 name|PDDocument
 name|src
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1533,7 +1523,7 @@ expr_stmt|;
 name|PDDocument
 name|dst
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1580,7 +1570,7 @@ argument_list|()
 expr_stmt|;
 name|dst
 operator|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1686,7 +1676,7 @@ decl_stmt|;
 name|PDDocument
 name|src
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1756,7 +1746,7 @@ expr_stmt|;
 name|PDDocument
 name|dst
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1803,7 +1793,7 @@ argument_list|()
 expr_stmt|;
 name|dst
 operator|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1909,7 +1899,7 @@ decl_stmt|;
 name|PDDocument
 name|src
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1965,7 +1955,7 @@ decl_stmt|;
 name|PDDocument
 name|dst
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2012,7 +2002,7 @@ argument_list|()
 expr_stmt|;
 name|dst
 operator|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2118,7 +2108,7 @@ decl_stmt|;
 name|PDDocument
 name|src
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2223,7 +2213,7 @@ expr_stmt|;
 name|PDDocument
 name|dst
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2352,7 +2342,7 @@ argument_list|()
 expr_stmt|;
 name|dst
 operator|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2497,7 +2487,7 @@ decl_stmt|;
 name|PDDocument
 name|src
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2640,7 +2630,7 @@ argument_list|()
 expr_stmt|;
 name|dst
 operator|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2779,7 +2769,7 @@ decl_stmt|;
 name|PDDocument
 name|src
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2795,7 +2785,7 @@ decl_stmt|;
 name|PDDocument
 name|dst
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2865,7 +2855,7 @@ argument_list|()
 expr_stmt|;
 name|dst
 operator|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2918,7 +2908,7 @@ decl_stmt|;
 name|PDDocument
 name|src
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2934,7 +2924,7 @@ decl_stmt|;
 name|PDDocument
 name|dst
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -3108,7 +3098,7 @@ argument_list|()
 expr_stmt|;
 name|dst
 operator|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -3198,7 +3188,7 @@ decl_stmt|;
 name|PDDocument
 name|src
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -3214,7 +3204,7 @@ decl_stmt|;
 name|PDDocument
 name|dst
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -3317,7 +3307,7 @@ decl_stmt|;
 name|PDDocument
 name|src
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -3333,7 +3323,7 @@ decl_stmt|;
 name|PDDocument
 name|dst
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -3429,7 +3419,7 @@ block|{
 name|PDDocument
 name|doc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -4713,7 +4703,7 @@ init|(
 name|PDDocument
 name|srcDoc1
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -4799,7 +4789,7 @@ init|(
 name|PDDocument
 name|srcDoc2
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -4927,7 +4917,7 @@ init|(
 name|PDDocument
 name|mergedDoc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(

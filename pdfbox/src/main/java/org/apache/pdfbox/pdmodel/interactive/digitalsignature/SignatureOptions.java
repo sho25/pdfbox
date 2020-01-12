@@ -289,14 +289,12 @@ argument_list|(
 name|pdfSource
 argument_list|)
 decl_stmt|;
+name|visualSignature
+operator|=
 name|parser
 operator|.
 name|parse
 argument_list|()
-expr_stmt|;
-name|visualSignature
-operator|=
-name|parser
 operator|.
 name|getDocument
 argument_list|()

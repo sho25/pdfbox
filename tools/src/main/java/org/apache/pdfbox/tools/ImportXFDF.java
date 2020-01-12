@@ -23,9 +23,37 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdfparser
+operator|.
+name|FDFParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDDocument
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
+name|pdfparser
+operator|.
+name|PDFParser
 import|;
 end_import
 
@@ -232,7 +260,7 @@ init|(
 name|PDDocument
 name|pdf
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -245,7 +273,7 @@ literal|0
 index|]
 argument_list|)
 argument_list|)
-init|;                     FDFDocument fdf = FDFDocument.loadXFDF( args[1] )
+init|;                     FDFDocument fdf = FDFParser.loadXFDF(args[1])
 block|)
 block|{
 name|importer

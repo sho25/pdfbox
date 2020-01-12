@@ -135,9 +135,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
+name|pdfparser
 operator|.
-name|PDDocument
+name|PDFParser
 import|;
 end_import
 
@@ -482,7 +482,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(

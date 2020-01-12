@@ -260,50 +260,16 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|junit
+import|import
+name|org
 operator|.
-name|framework
+name|apache
 operator|.
-name|TestCase
+name|pdfbox
 operator|.
-name|assertEquals
-import|;
-end_import
-
-begin_import
-import|import static
-name|junit
+name|pdmodel
 operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertFalse
-import|;
-end_import
-
-begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-operator|.
-name|assertTrue
+name|PDDocument
 import|;
 end_import
 
@@ -315,9 +281,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
+name|pdfparser
 operator|.
-name|PDDocument
+name|PDFParser
 import|;
 end_import
 
@@ -362,24 +328,6 @@ operator|.
 name|PDPageContentStream
 operator|.
 name|AppendMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdmodel
-operator|.
-name|graphics
-operator|.
-name|color
-operator|.
-name|PDDeviceCMYK
 import|;
 end_import
 
@@ -979,7 +927,7 @@ argument_list|()
 expr_stmt|;
 name|document
 operator|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -3281,7 +3229,7 @@ argument_list|()
 expr_stmt|;
 name|document
 operator|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -3562,6 +3510,7 @@ literal|false
 argument_list|,
 operator|new
 name|Hashtable
+argument_list|<>
 argument_list|()
 argument_list|)
 decl_stmt|;

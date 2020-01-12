@@ -1012,7 +1012,7 @@ init|(
 name|PDDocument
 name|doc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(

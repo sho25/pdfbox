@@ -314,10 +314,7 @@ operator|.
 name|getDocument
 argument_list|()
 operator|.
-name|getResult
-argument_list|()
-operator|.
-name|getErrorsList
+name|getValidationErrors
 argument_list|()
 operator|.
 name|size
@@ -388,7 +385,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-specifier|protected
+specifier|private
 name|void
 name|validatePage
 parameter_list|(

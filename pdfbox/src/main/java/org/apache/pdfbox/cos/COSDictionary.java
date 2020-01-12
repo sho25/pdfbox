@@ -4002,6 +4002,15 @@ name|getDictionaryString
 argument_list|(
 name|obj
 operator|.
+name|isObjectNull
+argument_list|()
+condition|?
+name|COSNull
+operator|.
+name|NULL
+else|:
+name|obj
+operator|.
 name|getObject
 argument_list|()
 argument_list|,

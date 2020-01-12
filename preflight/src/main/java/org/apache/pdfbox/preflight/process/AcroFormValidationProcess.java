@@ -277,22 +277,6 @@ name|preflight
 operator|.
 name|PreflightConstants
 operator|.
-name|ACROFORM_DICTIONARY_KEY_NEED_APPEARANCES
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|preflight
-operator|.
-name|PreflightConstants
-operator|.
 name|ERROR_ACTION_FORBIDDEN_ADDITIONAL_ACTIONS_FIELD
 import|;
 end_import
@@ -494,7 +478,9 @@ argument_list|()
 operator|.
 name|getBoolean
 argument_list|(
-name|ACROFORM_DICTIONARY_KEY_NEED_APPEARANCES
+name|COSName
+operator|.
+name|NEED_APPEARANCES
 argument_list|,
 literal|false
 argument_list|)

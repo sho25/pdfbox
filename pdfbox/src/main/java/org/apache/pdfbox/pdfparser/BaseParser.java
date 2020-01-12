@@ -4162,6 +4162,21 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * This will tell if the end of the data is reached.      *       * @return true if the end of the data is reached.      * @throws IOException If there is an error reading from the stream.      */
+specifier|protected
+name|boolean
+name|isEOF
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|seqSource
+operator|.
+name|isEOF
+argument_list|()
+return|;
+block|}
 comment|/**      * This will tell if the next byte to be read is an end of line byte.      *      * @param c The character to check against end of line      * @return true if the next byte is 0x0A or 0x0D.      */
 specifier|protected
 name|boolean

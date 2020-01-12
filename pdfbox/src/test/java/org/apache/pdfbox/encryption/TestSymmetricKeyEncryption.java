@@ -253,6 +253,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdfparser
+operator|.
+name|PDFParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|PDDocumentCatalog
@@ -869,7 +883,7 @@ init|(
 name|PDDocument
 name|doc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1465,7 +1479,7 @@ init|(
 name|PDDocument
 name|doc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -1586,7 +1600,7 @@ block|{
 name|PDDocument
 name|document
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2021,7 +2035,7 @@ comment|// test with owner password => full permissions
 name|PDDocument
 name|encryptedDoc
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2163,7 +2177,7 @@ expr_stmt|;
 comment|// test with user password => restricted permissions
 name|encryptedDoc
 operator|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
@@ -2231,16 +2245,14 @@ name|IOException
 block|{
 name|PDDocument
 name|docWithEmbeddedFile
-decl_stmt|;
-name|docWithEmbeddedFile
-operator|=
-name|PDDocument
+init|=
+name|PDFParser
 operator|.
 name|load
 argument_list|(
 name|pdfInputStream
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|PDDocumentCatalog
 name|catalog
 init|=
@@ -2443,7 +2455,7 @@ block|{
 name|PDDocument
 name|document
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(

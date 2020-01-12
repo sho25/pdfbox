@@ -57,6 +57,20 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|pdfparser
+operator|.
+name|PDFParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|pdmodel
 operator|.
 name|interactive
@@ -97,7 +111,7 @@ specifier|public
 name|ExportXFDF
 parameter_list|()
 block|{     }
-comment|/**      * This will import an fdf document and write out another pdf.      *<br>      * see usage() for commandline      *      * @param args command line arguments      * @throws IOException in case the file can not be read or the data can not be exported.      *      * @throws IOException If there is an error importing the FDF document.      */
+comment|/**      * This will import an fdf document and write out another pdf.      *<br>      * see usage() for commandline      *      * @param args command line arguments      * @throws IOException in case the file can not be read or the data can not be exported.      *      */
 specifier|public
 specifier|static
 name|void
@@ -172,7 +186,7 @@ init|(
 name|PDDocument
 name|pdf
 init|=
-name|PDDocument
+name|PDFParser
 operator|.
 name|load
 argument_list|(
