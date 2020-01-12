@@ -484,7 +484,7 @@ decl_stmt|;
 comment|/*      * debug flag      */
 specifier|private
 name|boolean
-name|debug
+name|debugOutput
 init|=
 literal|false
 decl_stmt|;
@@ -830,7 +830,7 @@ name|DEBUG
 argument_list|)
 condition|)
 block|{
-name|debug
+name|debugOutput
 operator|=
 literal|true
 expr_stmt|;
@@ -1157,7 +1157,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|debug
+name|debugOutput
 condition|)
 block|{
 name|System
@@ -1371,7 +1371,7 @@ control|)
 block|{
 if|if
 condition|(
-name|debug
+name|debugOutput
 condition|)
 block|{
 name|System
@@ -1426,7 +1426,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|debug
+name|debugOutput
 condition|)
 block|{
 name|System
@@ -1812,7 +1812,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|debug
+name|debugOutput
 condition|)
 block|{
 name|System
@@ -1848,7 +1848,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|debug
+name|debugOutput
 condition|)
 block|{
 name|long
