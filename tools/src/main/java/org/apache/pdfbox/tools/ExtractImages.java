@@ -562,7 +562,7 @@ argument_list|)
 decl_stmt|;
 specifier|private
 name|boolean
-name|directJPEG
+name|useDirectJPEG
 decl_stmt|;
 specifier|private
 name|String
@@ -760,7 +760,7 @@ break|break;
 case|case
 name|DIRECTJPEG
 case|:
-name|directJPEG
+name|useDirectJPEG
 operator|=
 literal|true
 expr_stmt|;
@@ -1189,7 +1189,7 @@ name|pdImage
 argument_list|,
 name|name
 argument_list|,
-name|directJPEG
+name|useDirectJPEG
 argument_list|)
 expr_stmt|;
 block|}
