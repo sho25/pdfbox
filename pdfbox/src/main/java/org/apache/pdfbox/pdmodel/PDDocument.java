@@ -1219,7 +1219,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor that uses an existing document. The COSDocument that is passed in must be valid.      *       * @param doc The COSDocument that this document wraps.      * @param source the parser which is used to read the pdf      */
+comment|/**      * Constructor that uses an existing document. The COSDocument that is passed in must be valid.      *       * @param doc The COSDocument that this document wraps.      * @param source input representing the pdf      */
 specifier|public
 name|PDDocument
 parameter_list|(
@@ -1240,7 +1240,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructor that uses an existing document. The COSDocument that is passed in must be valid.      *       * @param doc The COSDocument that this document wraps.      * @param source the parser which is used to read the pdf      * @param permission he access permissions of the pdf      *       */
+comment|/**      * Constructor that uses an existing document. The COSDocument that is passed in must be valid.      *       * @param doc The COSDocument that this document wraps.      * @param source input representing the pdf      * @param permission he access permissions of the pdf      *       */
 specifier|public
 name|PDDocument
 parameter_list|(
