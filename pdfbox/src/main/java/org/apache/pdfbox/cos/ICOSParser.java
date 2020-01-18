@@ -30,9 +30,9 @@ specifier|public
 interface|interface
 name|ICOSParser
 block|{
-comment|/**      * Dereference the COSBase object which is referenced by the given COSObject.      *       * @param obj the COSObject which references the COSBase object to be dereferenced.      *       * @return true if the referenced object was read successfully      *       * @throws IOException if something went wrong when dereferencing the COSBase object      */
+comment|/**      * Dereference the COSBase object which is referenced by the given COSObject.      *       * @param obj the COSObject which references the COSBase object to be dereferenced.      *       * @return the referenced object      *       * @throws IOException if something went wrong when dereferencing the COSBase object      */
 specifier|public
-name|boolean
+name|COSBase
 name|dereferenceCOSObject
 parameter_list|(
 name|COSObject

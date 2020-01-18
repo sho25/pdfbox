@@ -2199,7 +2199,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|boolean
+name|COSBase
 name|dereferenceCOSObject
 parameter_list|(
 name|COSObject
@@ -2251,8 +2251,6 @@ expr_stmt|;
 block|}
 return|return
 name|parsedObj
-operator|!=
-literal|null
 return|;
 block|}
 comment|/**      * Parse the object for the given object number.        *       * @param objNr object number of object to be parsed      * @param objGenNr object generation number of object to be parsed      * @param requireExistingNotCompressedObj if<code>true</code> the object to be parsed must be defined in xref      * (comment: null objects may be missing from xref) and it must not be a compressed object within object stream      * (this is used to circumvent being stuck in a loop in a malicious PDF)      *       * @return the parsed object (which is also added to document object)      *       * @throws IOException If an IO error occurs.      */
@@ -2494,25 +2492,13 @@ block|}
 if|if
 condition|(
 name|referencedObject
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
 name|referencedObject
-operator|!=
+operator|instanceof
 name|COSNull
-operator|.
-name|NULL
 condition|)
-block|{
-name|pdfObject
-operator|.
-name|setObject
-argument_list|(
-name|referencedObject
-argument_list|)
-expr_stmt|;
-block|}
-else|else
 block|{
 name|pdfObject
 operator|.
