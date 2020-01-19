@@ -169,12 +169,18 @@ name|int
 name|hashCode
 parameter_list|()
 block|{
+comment|// most likely generation is 0. Shift number 4 times (fast as multiply)
+comment|// to support generation numbers up to 15
 return|return
 name|Long
 operator|.
 name|valueOf
 argument_list|(
+operator|(
 name|number
+operator|<<
+literal|4
+operator|)
 operator|+
 name|generation
 argument_list|)
