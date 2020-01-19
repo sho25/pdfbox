@@ -139,6 +139,38 @@ operator|=
 name|parser
 expr_stmt|;
 block|}
+comment|/**      * Constructor.      *      * @param key The object number of the encapsulated object.      * @param parser The parser to be used to load the object on demand      *      */
+specifier|public
+name|COSObject
+parameter_list|(
+name|COSObjectKey
+name|key
+parameter_list|,
+name|ICOSParser
+name|parser
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parser
+operator|=
+name|parser
+expr_stmt|;
+name|objectNumber
+operator|=
+name|key
+operator|.
+name|getNumber
+argument_list|()
+expr_stmt|;
+name|generationNumber
+operator|=
+name|key
+operator|.
+name|getGeneration
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * Indicates if the referenced object is present or not.      *       * @return true if the indirect object is dereferenced      */
 specifier|public
 name|boolean
@@ -284,20 +316,6 @@ return|return
 name|objectNumber
 return|;
 block|}
-comment|/**       * Setter for property objectNumber.      * @param objectNum New value of property objectNumber.      */
-specifier|public
-name|void
-name|setObjectNumber
-parameter_list|(
-name|long
-name|objectNum
-parameter_list|)
-block|{
-name|objectNumber
-operator|=
-name|objectNum
-expr_stmt|;
-block|}
 comment|/**       * Getter for property generationNumber.      * @return Value of property generationNumber.      */
 specifier|public
 name|int
@@ -307,20 +325,6 @@ block|{
 return|return
 name|generationNumber
 return|;
-block|}
-comment|/**       * Setter for property generationNumber.      * @param generationNumberValue New value of property generationNumber.      */
-specifier|public
-name|void
-name|setGenerationNumber
-parameter_list|(
-name|int
-name|generationNumberValue
-parameter_list|)
-block|{
-name|generationNumber
-operator|=
-name|generationNumberValue
-expr_stmt|;
 block|}
 comment|/**      * visitor pattern double dispatch method.      *      * @param visitor The object to notify when visiting this object.      * @return any object, depending on the visitor implementation, or null      * @throws IOException If an error occurs while visiting this object.      */
 annotation|@
