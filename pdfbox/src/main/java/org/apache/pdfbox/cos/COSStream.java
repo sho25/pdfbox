@@ -535,9 +535,7 @@ return|;
 block|}
 block|}
 comment|// compare stream content
-if|if
-condition|(
-operator|!
+return|return
 name|toBeCompared
 operator|.
 name|toTextString
@@ -548,14 +546,6 @@ argument_list|(
 name|toTextString
 argument_list|()
 argument_list|)
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-return|return
-literal|true
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */
