@@ -368,7 +368,7 @@ name|doc
 init|=
 name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|url
 operator|.
