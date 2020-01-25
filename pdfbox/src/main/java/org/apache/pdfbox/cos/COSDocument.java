@@ -945,7 +945,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * This will close all storage and delete the tmp files.      *      *  @throws IOException If there is an error close resources.      */
+comment|/**      * This will close all storage and delete the tmp files.      *      * @throws IOException If there is an error close resources.      */
 annotation|@
 name|Override
 specifier|public
@@ -957,10 +957,11 @@ name|IOException
 block|{
 if|if
 condition|(
-operator|!
 name|closed
 condition|)
 block|{
+return|return;
+block|}
 comment|// Make sure that:
 comment|// - first Exception is kept
 comment|// - all COSStreams are closed
@@ -1090,7 +1091,6 @@ block|{
 throw|throw
 name|firstException
 throw|;
-block|}
 block|}
 block|}
 comment|/**      * Returns true if this document has been closed.      */
