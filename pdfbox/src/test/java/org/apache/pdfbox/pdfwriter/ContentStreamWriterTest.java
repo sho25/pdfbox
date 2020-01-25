@@ -95,9 +95,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|cos
-operator|.
-name|COSName
+name|Loader
 import|;
 end_import
 
@@ -109,9 +107,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfparser
+name|cos
 operator|.
-name|PDFParser
+name|COSName
 import|;
 end_import
 
@@ -368,7 +366,7 @@ init|(
 name|PDDocument
 name|doc
 init|=
-name|PDFParser
+name|Loader
 operator|.
 name|load
 argument_list|(
