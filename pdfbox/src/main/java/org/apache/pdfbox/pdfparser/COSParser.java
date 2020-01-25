@@ -7478,7 +7478,7 @@ return|return
 name|trailer
 return|;
 block|}
-comment|/**      * Search for the different parts of the trailer dictionary.      *      * @param trailer      * @return true if the root was found, false if not.      * @throws IOException      */
+comment|/**      * Search for the different parts of the trailer dictionary.      *      * @param trailer      * @return true if the root was found, false if not.      */
 specifier|private
 name|boolean
 name|searchForTrailerItems
@@ -7486,8 +7486,6 @@ parameter_list|(
 name|COSDictionary
 name|trailer
 parameter_list|)
-throws|throws
-name|IOException
 block|{
 name|boolean
 name|rootFound
