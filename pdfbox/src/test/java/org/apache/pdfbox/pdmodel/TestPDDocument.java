@@ -145,9 +145,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|io
-operator|.
-name|IOUtils
+name|Loader
 import|;
 end_import
 
@@ -159,9 +157,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfparser
+name|io
 operator|.
-name|PDFParser
+name|IOUtils
 import|;
 end_import
 
@@ -339,9 +337,9 @@ comment|// Load
 name|PDDocument
 name|loadDoc
 init|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 operator|new
 name|ByteArrayInputStream
@@ -518,9 +516,9 @@ comment|// Load
 name|PDDocument
 name|loadDoc
 init|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|targetFile
 argument_list|)
@@ -809,9 +807,9 @@ try|try
 block|{
 name|doc
 operator|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|f
 argument_list|)
@@ -899,9 +897,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|f
 argument_list|)
@@ -1000,9 +998,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 operator|new
 name|ByteArrayInputStream

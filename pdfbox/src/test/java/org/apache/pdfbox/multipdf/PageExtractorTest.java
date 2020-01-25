@@ -43,9 +43,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
-operator|.
-name|PDDocument
+name|Loader
 import|;
 end_import
 
@@ -57,9 +55,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfparser
+name|pdmodel
 operator|.
-name|PDFParser
+name|PDDocument
 import|;
 end_import
 
@@ -161,9 +159,9 @@ block|{
 comment|// this should work for most users
 name|sourcePdf
 operator|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 operator|new
 name|File

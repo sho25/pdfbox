@@ -127,9 +127,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfparser
-operator|.
-name|PDFParser
+name|Loader
 import|;
 end_import
 
@@ -454,9 +452,9 @@ init|(
 name|PDDocument
 name|document
 init|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 operator|new
 name|File
@@ -494,9 +492,9 @@ init|(
 name|PDDocument
 name|document
 init|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|documentStream
 argument_list|)

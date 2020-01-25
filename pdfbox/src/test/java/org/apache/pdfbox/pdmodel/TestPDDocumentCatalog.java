@@ -53,9 +53,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|cos
-operator|.
-name|COSName
+name|Loader
 import|;
 end_import
 
@@ -67,9 +65,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfparser
+name|cos
 operator|.
-name|PDFParser
+name|COSName
 import|;
 end_import
 
@@ -179,9 +177,9 @@ try|try
 block|{
 name|doc
 operator|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|TestPDDocumentCatalog
 operator|.
@@ -379,9 +377,9 @@ try|try
 block|{
 name|doc
 operator|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|TestPDDocumentCatalog
 operator|.
@@ -447,9 +445,9 @@ try|try
 block|{
 name|doc
 operator|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|TestPDDocumentCatalog
 operator|.
@@ -513,9 +511,9 @@ try|try
 block|{
 name|doc
 operator|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|TestPDDocumentCatalog
 operator|.

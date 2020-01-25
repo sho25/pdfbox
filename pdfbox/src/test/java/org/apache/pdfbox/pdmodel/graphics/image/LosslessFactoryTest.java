@@ -267,9 +267,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
-operator|.
-name|PDDocument
+name|Loader
 import|;
 end_import
 
@@ -281,9 +279,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfparser
+name|pdmodel
 operator|.
-name|PDFParser
+name|PDDocument
 import|;
 end_import
 
@@ -927,9 +925,9 @@ argument_list|()
 expr_stmt|;
 name|document
 operator|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|pdfFile
 argument_list|,
@@ -3229,9 +3227,9 @@ argument_list|()
 expr_stmt|;
 name|document
 operator|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|pdfFile
 argument_list|,

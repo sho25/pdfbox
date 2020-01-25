@@ -249,6 +249,18 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
+name|Loader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|pdfbox
+operator|.
 name|cos
 operator|.
 name|COSName
@@ -280,20 +292,6 @@ operator|.
 name|pdmodel
 operator|.
 name|PDDocument
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|pdfbox
-operator|.
-name|pdfparser
-operator|.
-name|PDFParser
 import|;
 end_import
 
@@ -677,9 +675,9 @@ decl_stmt|;
 comment|// low DPI so that rendering is FAST
 name|document
 operator|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|file
 argument_list|)

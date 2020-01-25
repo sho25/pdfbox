@@ -77,9 +77,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfparser
-operator|.
-name|PDFParser
+name|Loader
 import|;
 end_import
 
@@ -471,9 +469,9 @@ operator|+
 name|CLONEDST
 argument_list|)
 expr_stmt|;
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 operator|new
 name|File
@@ -487,9 +485,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 operator|new
 name|File
@@ -508,9 +506,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 operator|new
 name|File
@@ -524,9 +522,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 operator|new
 name|File

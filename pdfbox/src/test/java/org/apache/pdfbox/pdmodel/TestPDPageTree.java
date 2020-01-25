@@ -45,9 +45,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfparser
-operator|.
-name|PDFParser
+name|Loader
 import|;
 end_import
 
@@ -172,9 +170,9 @@ name|IOException
 block|{
 name|doc
 operator|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|TestPDPageTree
 operator|.
@@ -255,9 +253,9 @@ name|IOException
 block|{
 name|doc
 operator|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|TestPDPageTree
 operator|.
@@ -320,9 +318,9 @@ name|IOException
 block|{
 name|doc
 operator|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|TestPDPageTree
 operator|.
@@ -385,9 +383,9 @@ name|IOException
 block|{
 name|doc
 operator|=
-name|PDFParser
+name|Loader
 operator|.
-name|load
+name|loadPDF
 argument_list|(
 name|TestPDPageTree
 operator|.
