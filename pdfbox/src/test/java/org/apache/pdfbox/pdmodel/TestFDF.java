@@ -93,9 +93,9 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfparser
+name|pdmodel
 operator|.
-name|FDFParser
+name|PDDocument
 import|;
 end_import
 
@@ -107,9 +107,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdmodel
-operator|.
-name|PDDocument
+name|Loader
 import|;
 end_import
 
@@ -226,9 +224,9 @@ init|(
 name|FDFDocument
 name|fdf
 init|=
-name|FDFParser
+name|Loader
 operator|.
-name|load
+name|loadFDF
 argument_list|(
 operator|new
 name|File

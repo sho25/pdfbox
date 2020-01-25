@@ -77,9 +77,7 @@ name|apache
 operator|.
 name|pdfbox
 operator|.
-name|pdfparser
-operator|.
-name|FDFParser
+name|Loader
 import|;
 end_import
 
@@ -147,7 +145,7 @@ init|(
 name|FDFDocument
 name|fdfDoc
 init|=
-name|FDFParser
+name|Loader
 operator|.
 name|loadXFDF
 argument_list|(
