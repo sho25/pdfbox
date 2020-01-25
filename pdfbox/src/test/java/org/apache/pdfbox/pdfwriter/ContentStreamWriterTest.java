@@ -350,7 +350,7 @@ block|{
 name|String
 name|filename
 init|=
-literal|"PDFBOX-4750.pdf"
+literal|"PDFBOX-4750-test.pdf"
 decl_stmt|;
 name|URL
 name|url
@@ -358,7 +358,7 @@ init|=
 operator|new
 name|URL
 argument_list|(
-literal|"https://issues.apache.org/jira/secure/attachment/12991732/01%20-%20K17%20-%20Was%20dahinter%20steckt%20-%20dsb.pdf"
+literal|"https://issues.apache.org/jira/secure/attachment/12991833/PDFBOX-4750-test.pdf"
 argument_list|)
 decl_stmt|;
 try|try
