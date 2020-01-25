@@ -1109,8 +1109,7 @@ operator|=
 operator|new
 name|PreflightDocument
 argument_list|(
-name|getDocument
-argument_list|()
+name|document
 argument_list|,
 name|format
 argument_list|,

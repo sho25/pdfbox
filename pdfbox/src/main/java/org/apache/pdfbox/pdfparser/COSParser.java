@@ -7412,8 +7412,7 @@ operator|.
 name|getTrailer
 argument_list|()
 expr_stmt|;
-name|getDocument
-argument_list|()
+name|document
 operator|.
 name|setTrailer
 argument_list|(
@@ -9395,33 +9394,6 @@ operator|.
 name|parse
 argument_list|()
 expr_stmt|;
-block|}
-comment|/**      * This will get the document that was parsed. The document must be parsed before this is called. When you are done      * with this document you must call close() on it to release resources.      *      * @return The document that was parsed.      *      * @throws IOException If there is an error getting the document.      */
-specifier|public
-name|COSDocument
-name|getDocument
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|document
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"You must parse the document first before calling getDocument()"
-argument_list|)
-throw|;
-block|}
-return|return
-name|document
-return|;
 block|}
 comment|/**      * This will get the encryption dictionary. The document must be parsed before this is called.      *      * @return The encryption dictionary of the document that was parsed.      *      * @throws IOException If there is an error getting the document.      */
 specifier|public
