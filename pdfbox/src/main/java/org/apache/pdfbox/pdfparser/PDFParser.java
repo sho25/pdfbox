@@ -703,6 +703,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Parses a PDF. Unrestricted main memory will be used for buffering PDF streams.      *       * @param file file to be loaded      *       * @return loaded document      *       * @throws InvalidPasswordException If the file required a non-empty password.      * @throws IOException in case of a file reading or parsing error      *       * @deprecated use {@link Loader#loadPDF(File)} instead      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 name|PDDocument
@@ -724,6 +726,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Parses a PDF. Unrestricted main memory will be used for buffering PDF streams.      *       * @param file file to be loaded      * @param password password to be used for decryption      *       * @return loaded document      *       * @throws InvalidPasswordException If the password is incorrect.      * @throws IOException in case of a file reading or parsing error      *       * @deprecated use {@link Loader#loadPDF(File, String)} instead      */
+annotation|@
+name|Deprecated
 specifier|public
 specifier|static
 name|PDDocument
