@@ -1683,15 +1683,10 @@ name|getContents
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|parser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 return|return
 name|parser
 operator|.
-name|getTokens
+name|parse
 argument_list|()
 return|;
 block|}

@@ -261,21 +261,6 @@ name|class
 argument_list|)
 decl_stmt|;
 specifier|private
-specifier|final
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|streamObjects
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|(
-literal|100
-argument_list|)
-decl_stmt|;
-specifier|private
 specifier|static
 specifier|final
 name|int
@@ -340,14 +325,30 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This will parse all the tokens in the stream. This will close the stream when it is finished      * parsing. You can then access these with {@link #getTokens() getTokens()}.      *      * @throws IOException If there is an error while parsing the stream.      */
+comment|/**      * This will parse all the tokens in the stream. This will close the stream when it is finished parsing.      *      * @return All of the tokens in the stream.      * @throws IOException If there is an error while parsing the stream.      */
 specifier|public
-name|void
+name|List
+argument_list|<
+name|Object
+argument_list|>
 name|parse
 parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|streamObjects
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
+literal|100
+argument_list|)
+decl_stmt|;
 name|Object
 name|token
 decl_stmt|;
@@ -371,16 +372,11 @@ name|token
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|/**      * This will get the tokens that were parsed from the stream by the {@link #parse() parse()} method.      *      * @return All of the tokens in the stream.      */
-specifier|public
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|getTokens
-parameter_list|()
-block|{
+name|seqSource
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 return|return
 name|streamObjects
 return|;
@@ -420,6 +416,11 @@ operator|-
 literal|1
 condition|)
 block|{
+name|seqSource
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 return|return
 literal|null
 return|;
@@ -1562,7 +1563,7 @@ name|noBinData
 return|;
 block|}
 comment|/**      * This will read an operator from the stream.      *      * @return The operator that was read from the stream.      *      * @throws IOException If there is an error reading from the stream.      */
-specifier|protected
+specifier|private
 name|String
 name|readOperator
 parameter_list|()

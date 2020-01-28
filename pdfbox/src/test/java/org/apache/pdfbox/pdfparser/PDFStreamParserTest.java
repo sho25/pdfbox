@@ -695,15 +695,10 @@ name|getBytes
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|pdfStreamParser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 return|return
 name|pdfStreamParser
 operator|.
-name|getTokens
+name|parse
 argument_list|()
 return|;
 block|}

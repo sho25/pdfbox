@@ -211,11 +211,6 @@ name|getContents
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|parser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 name|List
 argument_list|<
 name|Object
@@ -224,7 +219,7 @@ name|pageTokens
 init|=
 name|parser
 operator|.
-name|getTokens
+name|parse
 argument_list|()
 decl_stmt|;
 comment|// expected five tokens :
@@ -396,16 +391,11 @@ name|getContents
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|parser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 name|pageTokens
 operator|=
 name|parser
 operator|.
-name|getTokens
+name|parse
 argument_list|()
 expr_stmt|;
 comment|// expected five tokens  :
@@ -620,11 +610,6 @@ name|getContents
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|parser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 name|List
 argument_list|<
 name|Object
@@ -633,7 +618,7 @@ name|pageTokens
 init|=
 name|parser
 operator|.
-name|getTokens
+name|parse
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -984,16 +969,11 @@ name|getContents
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|parser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 name|pageTokens
 operator|=
 name|parser
 operator|.
-name|getTokens
+name|parse
 argument_list|()
 expr_stmt|;
 name|assertEquals
@@ -1289,11 +1269,6 @@ name|getContents
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|parser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 name|List
 argument_list|<
 name|Object
@@ -1302,7 +1277,7 @@ name|tokens
 init|=
 name|parser
 operator|.
-name|getTokens
+name|parse
 argument_list|()
 decl_stmt|;
 name|assertEquals

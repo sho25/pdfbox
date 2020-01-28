@@ -483,11 +483,6 @@ argument_list|(
 name|is
 argument_list|)
 decl_stmt|;
-name|parser
-operator|.
-name|parse
-argument_list|()
-expr_stmt|;
 name|ContentStreamWriter
 name|tokenWriter
 init|=
@@ -503,7 +498,7 @@ name|writeTokens
 argument_list|(
 name|parser
 operator|.
-name|getTokens
+name|parse
 argument_list|()
 argument_list|)
 expr_stmt|;
