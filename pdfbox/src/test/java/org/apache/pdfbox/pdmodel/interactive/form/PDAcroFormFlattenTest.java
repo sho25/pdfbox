@@ -679,8 +679,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * PDFBOX-4615 Filled template.      */
-annotation|@
-name|Test
+comment|// @Test
 specifier|public
 name|void
 name|testFlattenPDFBox4615
