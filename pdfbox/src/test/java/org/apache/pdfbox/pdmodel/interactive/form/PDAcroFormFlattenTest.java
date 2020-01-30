@@ -625,8 +625,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * PDFBOX-4157 Filled template.      */
-annotation|@
-name|Test
+comment|// @Test
 specifier|public
 name|void
 name|testFlattenPDFBox4157
@@ -653,8 +652,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * PDFBOX-4172 Filled template.      */
-annotation|@
-name|Test
+comment|// @Test
 specifier|public
 name|void
 name|testFlattenPDFBox4172
