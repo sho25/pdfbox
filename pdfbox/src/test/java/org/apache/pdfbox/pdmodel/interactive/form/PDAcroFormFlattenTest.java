@@ -178,12 +178,34 @@ import|;
 end_import
 
 begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
 name|junit
 operator|.
 name|Before
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
 import|;
 end_import
 
@@ -266,7 +288,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * PDFBOX-563 Filled template.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBOX563
@@ -293,7 +316,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * PDFBOX-2469 Empty template.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBOX2469Empty
@@ -320,7 +344,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * PDFBOX-2469 Filled template.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBOX2469Filled
@@ -347,7 +372,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * PDFBOX-2586 Empty template.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBOX2586
@@ -401,7 +427,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * PDFBOX-3262 Hidden fields      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBOX3262
@@ -431,7 +458,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * PDFBOX-3396 Signed Document 1.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBOX3396_1
@@ -458,7 +486,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * PDFBOX-3396 Signed Document 2.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBOX3396_2
@@ -485,7 +514,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * PDFBOX-3396 Signed Document 3.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBOX3396_3
@@ -512,7 +542,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * PDFBOX-3396 Signed Document 4.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBOX3396_4
@@ -539,7 +570,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * PDFBOX-3587 Empty template.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenOpenOfficeForm
@@ -593,7 +625,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * PDFBOX-4157 Filled template.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBox4157
@@ -620,7 +653,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * PDFBOX-4172 Filled template.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBox4172
@@ -647,7 +681,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * PDFBOX-4615 Filled template.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBox4615
@@ -674,7 +709,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * PDFBOX-4693: page is not rotated, but the appearance stream is.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBox4693
@@ -836,12 +872,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// don't fail, rendering is different on different systems, result must be viewed manually
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|fail
 argument_list|(
 literal|"Rendering of "
 operator|+
