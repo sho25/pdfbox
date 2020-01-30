@@ -210,7 +210,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test flatten different forms and compare with rendering.  *  * The tests are currently disabled to not run within the CI environment  * as the test results need manual inspection. Enable as needed.  *  */
+comment|/**  * Test flatten different forms and compare with rendering.  *  * Some of the tests are currently disabled to not run within the CI environment  * as the test results need manual inspection. Enable as needed.  *  */
 end_comment
 
 begin_class
