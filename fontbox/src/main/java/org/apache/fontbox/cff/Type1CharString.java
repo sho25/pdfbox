@@ -191,7 +191,10 @@ specifier|private
 specifier|final
 name|String
 name|fontName
-decl_stmt|,
+decl_stmt|;
+specifier|private
+specifier|final
+name|String
 name|glyphName
 decl_stmt|;
 specifier|private

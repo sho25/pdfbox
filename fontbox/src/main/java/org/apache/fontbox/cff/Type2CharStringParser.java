@@ -94,7 +94,15 @@ specifier|private
 specifier|final
 name|String
 name|fontName
-decl_stmt|,
+decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
+specifier|private
+specifier|final
+name|String
 name|glyphName
 decl_stmt|;
 comment|/**      * Constructs a new Type1CharStringParser object for a Type 1-equivalent font.      *      * @param fontName font name      * @param glyphName glyph name      */
