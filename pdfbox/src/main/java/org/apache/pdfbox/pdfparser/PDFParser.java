@@ -711,7 +711,7 @@ name|PDDocument
 name|load
 parameter_list|(
 name|File
-name|filename
+name|file
 parameter_list|)
 throws|throws
 name|IOException
@@ -721,7 +721,7 @@ name|Loader
 operator|.
 name|loadPDF
 argument_list|(
-name|filename
+name|file
 argument_list|)
 return|;
 block|}
@@ -734,7 +734,7 @@ name|PDDocument
 name|load
 parameter_list|(
 name|File
-name|filename
+name|file
 parameter_list|,
 name|String
 name|password
@@ -747,7 +747,7 @@ name|Loader
 operator|.
 name|loadPDF
 argument_list|(
-name|filename
+name|file
 argument_list|,
 name|password
 argument_list|)
