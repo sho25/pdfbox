@@ -4791,7 +4791,7 @@ name|IllegalArgumentException
 argument_list|(
 name|real
 operator|+
-literal|"is not a finite number"
+literal|" is not a finite number"
 argument_list|)
 throw|;
 block|}
