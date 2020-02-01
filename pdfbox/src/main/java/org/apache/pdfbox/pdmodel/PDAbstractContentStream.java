@@ -4763,7 +4763,7 @@ literal|'\n'
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes a real number to the content stream.      * @param real      * @throws java.io.IOException      */
+comment|/**      * Writes a real number to the content stream.      * @param real      * @throws java.io.IOException      * @throws IllegalArgumentException if the parameter is not a finite number      */
 specifier|protected
 name|void
 name|writeOperand
@@ -4774,6 +4774,27 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+operator|!
+name|Float
+operator|.
+name|isFinite
+argument_list|(
+name|real
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|real
+operator|+
+literal|"is not a finite number"
+argument_list|)
+throw|;
+block|}
 name|int
 name|byteCount
 init|=
