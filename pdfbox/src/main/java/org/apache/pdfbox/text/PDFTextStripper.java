@@ -2225,8 +2225,8 @@ operator|&&
 name|expectedStartOfNextWordX
 operator|<
 name|positionX
+comment|// only bother adding a word separator if the last character was not a word separator
 operator|&&
-comment|// only bother adding a space if the last character was not a space
 name|lastPosition
 operator|.
 name|getTextPosition
@@ -2248,7 +2248,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|" "
+name|wordSeparator
 argument_list|)
 condition|)
 block|{
