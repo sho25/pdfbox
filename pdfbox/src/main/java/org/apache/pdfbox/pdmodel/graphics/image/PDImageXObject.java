@@ -717,10 +717,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|filters
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|filters
 operator|.
@@ -3387,8 +3383,9 @@ decl_stmt|;
 if|if
 condition|(
 name|filters
-operator|==
-literal|null
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 return|return

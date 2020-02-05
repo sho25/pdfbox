@@ -756,16 +756,6 @@ argument_list|(
 name|stream
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|pdStream
-operator|.
-name|getFilters
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 name|int
 name|filtersSize
 init|=
@@ -820,7 +810,6 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|filterList
 return|;

@@ -1186,13 +1186,6 @@ block|{
 comment|// Filters are forbidden in a XMP stream
 if|if
 condition|(
-name|metadata
-operator|.
-name|getFilters
-argument_list|()
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|metadata
 operator|.
