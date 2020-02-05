@@ -1030,6 +1030,15 @@ operator|.
 name|getResources
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|res
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 for|for
 control|(
 name|COSName
