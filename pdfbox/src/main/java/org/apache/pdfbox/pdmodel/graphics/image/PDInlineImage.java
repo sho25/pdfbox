@@ -1078,7 +1078,8 @@ name|names
 init|=
 name|Collections
 operator|.
-name|EMPTY_LIST
+name|emptyList
+argument_list|()
 decl_stmt|;
 name|COSBase
 name|filters
