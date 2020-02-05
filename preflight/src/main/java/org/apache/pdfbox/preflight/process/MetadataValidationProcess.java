@@ -1541,10 +1541,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|filters
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|filters
 operator|.
