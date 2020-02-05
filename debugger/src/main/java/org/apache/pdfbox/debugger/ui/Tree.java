@@ -331,7 +331,6 @@ name|Tree
 extends|extends
 name|JTree
 block|{
-comment|// No logging possible because this class is created before the "LogDialog.init()" call
 specifier|private
 specifier|final
 name|JPopupMenu
