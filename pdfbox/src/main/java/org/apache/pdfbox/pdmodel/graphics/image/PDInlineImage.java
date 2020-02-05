@@ -97,6 +97,26 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -1051,8 +1071,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns a list of filters applied to this stream, or null if there are none.      *      * @return a list of filters applied to this stream      */
-comment|// TODO return an empty list if there are none?
+comment|/**      * Returns A list of filters applied to this stream.      *      * @return A (possibly empty) list of filters applied to this stream, never null.      */
 specifier|public
 name|List
 argument_list|<
@@ -1067,7 +1086,9 @@ name|String
 argument_list|>
 name|names
 init|=
-literal|null
+name|Collections
+operator|.
+name|EMPTY_LIST
 decl_stmt|;
 name|COSBase
 name|filters

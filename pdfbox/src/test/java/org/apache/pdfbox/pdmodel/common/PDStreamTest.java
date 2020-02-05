@@ -186,11 +186,14 @@ argument_list|)
 decl_stmt|;
 name|Assert
 operator|.
-name|assertNull
+name|assertTrue
 argument_list|(
 name|pdStream
 operator|.
 name|getFilters
+argument_list|()
+operator|.
+name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -1453,18 +1453,22 @@ name|error
 argument_list|)
 throw|;
 block|}
-comment|// no filter key
 if|if
 condition|(
 name|metadata
 operator|.
-name|getFilters
+name|getCOSObject
 argument_list|()
-operator|!=
-literal|null
+operator|.
+name|containsKey
+argument_list|(
+name|COSName
+operator|.
+name|FILTER
+argument_list|)
 condition|)
 block|{
-comment|// should not be defined
+comment|// filter key should not be defined
 name|ValidationError
 name|error
 init|=

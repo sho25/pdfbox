@@ -83,6 +83,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -762,7 +772,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * This will get the list of filters that are associated with this stream.      * Or null if there are none.      *       * @return A list of all encoding filters to apply to this stream.      */
+comment|/**      * This will get the list of filters that are associated with this stream.      *       * @return A (possibly empty) list of all encoding filters to apply to this stream, never null.      */
 specifier|public
 name|List
 argument_list|<
@@ -777,7 +787,9 @@ name|COSName
 argument_list|>
 name|retval
 init|=
-literal|null
+name|Collections
+operator|.
+name|EMPTY_LIST
 decl_stmt|;
 name|COSBase
 name|filters
