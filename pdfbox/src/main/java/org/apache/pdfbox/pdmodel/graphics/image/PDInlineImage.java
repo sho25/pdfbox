@@ -1633,6 +1633,9 @@ argument_list|(
 name|COSName
 operator|.
 name|CCITTFAX_DECODE
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 operator|||
 name|filters
