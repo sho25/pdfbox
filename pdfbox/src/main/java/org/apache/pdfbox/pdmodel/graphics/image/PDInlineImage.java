@@ -1443,14 +1443,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-operator|new
-name|ByteArrayInputStream
-argument_list|(
-name|out
-operator|.
-name|toByteArray
-argument_list|()
-argument_list|)
+name|in
 return|;
 block|}
 annotation|@
