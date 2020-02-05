@@ -2227,6 +2227,14 @@ operator|<
 name|positionX
 comment|// only bother adding a word separator if the last character was not a word separator
 operator|&&
+operator|(
+name|wordSeparator
+operator|.
+name|isEmpty
+argument_list|()
+operator|||
+comment|//
+operator|(
 name|lastPosition
 operator|.
 name|getTextPosition
@@ -2250,6 +2258,8 @@ name|endsWith
 argument_list|(
 name|wordSeparator
 argument_list|)
+operator|)
+operator|)
 condition|)
 block|{
 name|line
