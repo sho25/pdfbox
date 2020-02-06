@@ -378,10 +378,6 @@ decl_stmt|;
 if|if
 condition|(
 name|filters
-operator|==
-literal|null
-operator|||
-name|filters
 operator|.
 name|isEmpty
 argument_list|()
@@ -1371,10 +1367,6 @@ name|i
 init|=
 literal|0
 init|;
-name|filters
-operator|!=
-literal|null
-operator|&&
 name|i
 operator|<
 name|filters
@@ -1386,12 +1378,6 @@ name|i
 operator|++
 control|)
 block|{
-comment|// TODO handling of abbreviated names belongs here, rather than in other classes
-name|out
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|stopFilters
@@ -1409,8 +1395,7 @@ condition|)
 block|{
 break|break;
 block|}
-else|else
-block|{
+comment|// TODO handling of abbreviated names belongs here, rather than in other classes
 name|Filter
 name|filter
 init|=
@@ -1428,6 +1413,11 @@ name|i
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|out
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 name|filter
 operator|.
 name|decode
@@ -1452,7 +1442,6 @@ name|toByteArray
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|in
