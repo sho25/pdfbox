@@ -147,11 +147,15 @@ literal|50
 block|,
 literal|100
 block|,
+literal|150
+block|,
 literal|200
 block|,
 literal|400
 block|,
 literal|1000
+block|,
+literal|2000
 block|}
 decl_stmt|;
 specifier|private
