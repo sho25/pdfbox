@@ -348,7 +348,7 @@ specifier|private
 specifier|static
 specifier|final
 name|NumberFormat
-name|formatDecimal
+name|FORMATDECIMAL
 init|=
 name|NumberFormat
 operator|.
@@ -770,7 +770,7 @@ name|appendRawCommands
 argument_list|(
 name|os
 argument_list|,
-name|formatDecimal
+name|FORMATDECIMAL
 operator|.
 name|format
 argument_list|(
@@ -789,7 +789,7 @@ name|appendRawCommands
 argument_list|(
 name|os
 argument_list|,
-name|formatDecimal
+name|FORMATDECIMAL
 operator|.
 name|format
 argument_list|(
@@ -808,7 +808,7 @@ name|appendRawCommands
 argument_list|(
 name|os
 argument_list|,
-name|formatDecimal
+name|FORMATDECIMAL
 operator|.
 name|format
 argument_list|(
@@ -827,7 +827,7 @@ name|appendRawCommands
 argument_list|(
 name|os
 argument_list|,
-name|formatDecimal
+name|FORMATDECIMAL
 operator|.
 name|format
 argument_list|(
@@ -846,7 +846,7 @@ name|appendRawCommands
 argument_list|(
 name|os
 argument_list|,
-name|formatDecimal
+name|FORMATDECIMAL
 operator|.
 name|format
 argument_list|(
@@ -865,7 +865,7 @@ name|appendRawCommands
 argument_list|(
 name|os
 argument_list|,
-name|formatDecimal
+name|FORMATDECIMAL
 operator|.
 name|format
 argument_list|(

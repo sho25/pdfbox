@@ -157,7 +157,7 @@ specifier|final
 name|long
 name|LEAD_OFFSET
 init|=
-literal|0xD800
+literal|0xD800l
 operator|-
 operator|(
 literal|0x10000
@@ -171,7 +171,7 @@ specifier|final
 name|long
 name|SURROGATE_OFFSET
 init|=
-literal|0x10000
+literal|0x10000l
 operator|-
 operator|(
 literal|0xD800

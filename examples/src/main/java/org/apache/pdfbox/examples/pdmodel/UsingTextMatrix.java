@@ -160,11 +160,7 @@ comment|/**      * Constructor.      */
 specifier|public
 name|UsingTextMatrix
 parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 comment|/**      * creates a sample document with some text using a text matrix.      *      * @param message The message to write in the file.      * @param outfile The resulting PDF.      *      * @throws IOException If there is an error writing the data.      */
 specifier|public
 name|void
@@ -497,7 +493,7 @@ argument_list|(
 operator|new
 name|Matrix
 argument_list|(
-literal|12
+literal|12f
 operator|+
 operator|(
 name|i
@@ -509,7 +505,7 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-literal|12
+literal|12f
 operator|+
 operator|(
 name|i
@@ -519,7 +515,7 @@ operator|)
 argument_list|,
 literal|100
 argument_list|,
-literal|100
+literal|100f
 operator|+
 name|i
 operator|*
