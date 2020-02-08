@@ -39,11 +39,11 @@ begin_class
 class|class
 name|Vertex
 block|{
-specifier|public
+specifier|final
 name|Point2D
 name|point
 decl_stmt|;
-specifier|public
+specifier|final
 name|float
 index|[]
 name|color
