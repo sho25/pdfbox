@@ -882,6 +882,24 @@ operator|/
 name|pageSize
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|seekToPosition
+operator|%
+name|pageSize
+operator|==
+literal|0
+operator|&&
+name|seekToPosition
+operator|==
+name|size
+condition|)
+block|{
+name|newPagePosition
+operator|--
+expr_stmt|;
+comment|// PDFBOX-4756: Prevent seeking a non-yet-existent page...
+block|}
 name|currentPage
 operator|=
 name|pageHandler
