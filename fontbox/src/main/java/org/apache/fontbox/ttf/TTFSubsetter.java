@@ -3743,14 +3743,10 @@ name|writeUint32
 argument_list|(
 name|out
 argument_list|,
-literal|4
-operator|*
-literal|2
-operator|+
-literal|4
+literal|12
 argument_list|)
 expr_stmt|;
-comment|// offset
+comment|// offset 4 * 2 + 4
 comment|// build Format 4 subtable (Unicode BMP)
 name|Iterator
 argument_list|<
@@ -4787,7 +4783,7 @@ name|offset
 operator|=
 name|glyphId
 operator|*
-literal|4
+literal|4l
 expr_stmt|;
 name|lastOffset
 operator|=
@@ -4822,7 +4818,7 @@ name|offset
 operator|=
 name|lastgid
 operator|*
-literal|4
+literal|4l
 expr_stmt|;
 name|lastOffset
 operator|=
@@ -4849,7 +4845,7 @@ operator|.
 name|getNumberOfHMetrics
 argument_list|()
 operator|*
-literal|4
+literal|4l
 operator|+
 operator|(
 name|glyphId
@@ -4860,7 +4856,7 @@ name|getNumberOfHMetrics
 argument_list|()
 operator|)
 operator|*
-literal|2
+literal|2l
 expr_stmt|;
 name|lastOffset
 operator|=
