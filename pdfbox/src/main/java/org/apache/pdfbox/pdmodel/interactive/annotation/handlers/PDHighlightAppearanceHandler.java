@@ -823,8 +823,6 @@ argument_list|(
 name|r1
 argument_list|)
 expr_stmt|;
-comment|//TODO replace with document.getDocument().createCOSStream()
-comment|//     or call new PDFormXObject(document)
 name|PDFormXObject
 name|frm1
 init|=
