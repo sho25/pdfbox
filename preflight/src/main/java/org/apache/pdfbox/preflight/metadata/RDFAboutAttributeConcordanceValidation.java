@@ -70,7 +70,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class which all elements within an rdf:RDF have the same value for their rdf:about attributes  *   * @author Germain Costenobel  *   */
+comment|/**  * Class which checks that all elements within an rdf:RDF have the same value for their rdf:about  * attributes.  *  * @author Germain Costenobel  *  */
 end_comment
 
 begin_class
@@ -78,7 +78,7 @@ specifier|public
 class|class
 name|RDFAboutAttributeConcordanceValidation
 block|{
-comment|/**      *       * @param metadata the XMP metadata.      * @throws DifferentRDFAboutException      * @throws ValidationException      */
+comment|/**      *      * @param metadata the XMP metadata.      * @throws DifferentRDFAboutException      * @throws ValidationException      */
 specifier|public
 name|void
 name|validateRDFAboutAttributes
@@ -114,7 +114,7 @@ throw|throw
 operator|new
 name|ValidationException
 argument_list|(
-literal|"Schemas not found in the given metadata representation"
+literal|"No schema found in the given metadata representation"
 argument_list|)
 throw|;
 block|}
