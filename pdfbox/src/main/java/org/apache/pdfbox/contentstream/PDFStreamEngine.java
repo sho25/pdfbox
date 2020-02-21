@@ -1384,6 +1384,20 @@ operator|&&
 name|bbox
 operator|!=
 literal|null
+operator|&&
+name|bbox
+operator|.
+name|getWidth
+argument_list|()
+operator|>
+literal|0
+operator|&&
+name|bbox
+operator|.
+name|getHeight
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 comment|// transformed appearance box  fixme: may be an arbitrary shape
