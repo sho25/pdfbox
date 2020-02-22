@@ -558,37 +558,18 @@ name|this
 operator|.
 name|characterListMapping
 operator|.
-name|get
+name|computeIfAbsent
 argument_list|(
 name|textCharacter
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|sameTextCharacters
-operator|==
-literal|null
-condition|)
-block|{
-name|sameTextCharacters
-operator|=
+argument_list|,
+name|k
+lambda|->
 operator|new
 name|ArrayList
 argument_list|<>
 argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|characterListMapping
-operator|.
-name|put
-argument_list|(
-name|textCharacter
-argument_list|,
-name|sameTextCharacters
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 comment|// RDD - Here we compute the value that represents the end of the rendered
 comment|// text.  This value is used to determine whether subsequent text rendered
 comment|// on the same line overwrites the current text.
