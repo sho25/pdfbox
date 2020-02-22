@@ -2010,37 +2010,6 @@ literal|1
 return|;
 block|}
 block|}
-comment|/**      * Sets the number of color components.      * @param n the number of color components      */
-comment|// TODO it's probably not safe to use this
-annotation|@
-name|Deprecated
-specifier|public
-name|void
-name|setNumberOfComponents
-parameter_list|(
-name|int
-name|n
-parameter_list|)
-block|{
-name|numberOfComponents
-operator|=
-name|n
-expr_stmt|;
-name|stream
-operator|.
-name|getCOSObject
-argument_list|()
-operator|.
-name|setInt
-argument_list|(
-name|COSName
-operator|.
-name|N
-argument_list|,
-name|n
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Sets the list of alternateColorSpace color spaces.      *      * @param list the list of color space objects      */
 specifier|public
 name|void
