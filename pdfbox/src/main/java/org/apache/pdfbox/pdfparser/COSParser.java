@@ -876,23 +876,10 @@ name|bfSearchCOSObjectKeyOffsets
 init|=
 literal|null
 decl_stmt|;
-specifier|private
-name|List
-argument_list|<
-name|Long
-argument_list|>
-name|bfSearchXRefTablesOffsets
+name|boolean
+name|bruteForceSearchTriggered
 init|=
-literal|null
-decl_stmt|;
-specifier|private
-name|List
-argument_list|<
-name|Long
-argument_list|>
-name|bfSearchXRefStreamsOffsets
-init|=
-literal|null
+literal|false
 decl_stmt|;
 specifier|private
 name|PDEncryption
@@ -1163,12 +1150,11 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|bfSearchCOSObjectKeyOffsets
-operator|!=
-literal|null
+name|bruteForceSearchTriggered
 operator|&&
 operator|!
-name|bfSearchCOSObjectKeyOffsets
+name|getBFCOSObjectOffsets
+argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
@@ -4607,8 +4593,14 @@ operator|==
 literal|null
 condition|)
 block|{
+name|bfSearchCOSObjectKeyOffsets
+operator|=
 name|bfSearchForObjects
 argument_list|()
+expr_stmt|;
+name|bruteForceSearchTriggered
+operator|=
+literal|true
 expr_stmt|;
 block|}
 return|return
@@ -4617,25 +4609,36 @@ return|;
 block|}
 comment|/**      * Brute force search for every object in the pdf.      *         * @throws IOException if something went wrong      */
 specifier|private
-name|void
+name|Map
+argument_list|<
+name|COSObjectKey
+argument_list|,
+name|Long
+argument_list|>
 name|bfSearchForObjects
 parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|Map
+argument_list|<
+name|COSObjectKey
+argument_list|,
+name|Long
+argument_list|>
+name|bfCOSObjectKeyOffsets
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
 name|long
 name|lastEOFMarker
 init|=
 name|bfSearchForLastEOFMarker
 argument_list|()
 decl_stmt|;
-name|bfSearchCOSObjectKeyOffsets
-operator|=
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|()
-expr_stmt|;
 name|long
 name|originOffset
 init|=
@@ -4848,7 +4851,7 @@ literal|0
 condition|)
 block|{
 comment|// add the former object ID only if there was a subsequent object ID
-name|bfSearchCOSObjectKeyOffsets
+name|bfCOSObjectKeyOffsets
 operator|.
 name|put
 argument_list|(
@@ -4935,8 +4938,8 @@ name|endOfObjFound
 operator|=
 literal|true
 expr_stmt|;
-continue|continue;
 block|}
+elseif|else
 if|if
 condition|(
 name|isString
@@ -4955,7 +4958,6 @@ name|endOfObjFound
 operator|=
 literal|true
 expr_stmt|;
-continue|continue;
 block|}
 block|}
 block|}
@@ -4991,7 +4993,7 @@ condition|)
 block|{
 comment|// if the pdf wasn't cut off in the middle or if the last object ends with a "endobj" marker
 comment|// the last object id has to be added here so that it can't get lost as there isn't any subsequent object id
-name|bfSearchCOSObjectKeyOffsets
+name|bfCOSObjectKeyOffsets
 operator|.
 name|put
 argument_list|(
@@ -5015,6 +5017,9 @@ argument_list|(
 name|originOffset
 argument_list|)
 expr_stmt|;
+return|return
+name|bfCOSObjectKeyOffsets
+return|;
 block|}
 comment|/**      * Search for the offset of the given xref table/stream among those found by a brute force search.      *       * @return the offset of the xref entry      * @throws IOException if something went wrong      */
 specifier|private
@@ -5034,13 +5039,25 @@ operator|-
 literal|1
 decl_stmt|;
 comment|// initialize bfSearchXRefTablesOffsets -> not null
+name|List
+argument_list|<
+name|Long
+argument_list|>
+name|bfSearchXRefTablesOffsets
+init|=
 name|bfSearchForXRefTables
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 comment|// initialize bfSearchXRefStreamsOffsets -> not null
+name|List
+argument_list|<
+name|Long
+argument_list|>
+name|bfSearchXRefStreamsOffsets
+init|=
 name|bfSearchForXRefStreams
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 comment|// TODO to be optimized, this won't work in every case
 name|long
 name|newOffsetTable
@@ -6099,6 +6116,17 @@ init|=
 name|bfSearchForObjStreamOffsets
 argument_list|()
 decl_stmt|;
+name|Map
+argument_list|<
+name|COSObjectKey
+argument_list|,
+name|Long
+argument_list|>
+name|bfCOSObjectOffsets
+init|=
+name|getBFCOSObjectOffsets
+argument_list|()
+decl_stmt|;
 comment|// log warning about skipped stream
 name|bfSearchForObjStreamOffsets
 operator|.
@@ -6113,7 +6141,7 @@ name|filter
 argument_list|(
 name|o
 lambda|->
-name|bfSearchCOSObjectKeyOffsets
+name|bfCOSObjectOffsets
 operator|.
 name|get
 argument_list|(
@@ -6171,7 +6199,7 @@ name|filter
 argument_list|(
 name|o
 lambda|->
-name|bfSearchCOSObjectKeyOffsets
+name|bfCOSObjectOffsets
 operator|.
 name|get
 argument_list|(
@@ -6196,7 +6224,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-name|bfSearchCOSObjectKeyOffsets
+name|bfCOSObjectOffsets
 operator|.
 name|get
 argument_list|(
@@ -6363,7 +6391,7 @@ decl_stmt|;
 name|Long
 name|existingOffset
 init|=
-name|bfSearchCOSObjectKeyOffsets
+name|bfCOSObjectOffsets
 operator|.
 name|get
 argument_list|(
@@ -6400,7 +6428,7 @@ argument_list|)
 decl_stmt|;
 name|existingOffset
 operator|=
-name|bfSearchCOSObjectKeyOffsets
+name|bfCOSObjectOffsets
 operator|.
 name|get
 argument_list|(
@@ -6419,7 +6447,7 @@ operator|>
 name|existingOffset
 condition|)
 block|{
-name|bfSearchCOSObjectKeyOffsets
+name|bfCOSObjectOffsets
 operator|.
 name|put
 argument_list|(
@@ -6817,27 +6845,27 @@ return|;
 block|}
 comment|/**      * Brute force search for all xref entries (tables).      *       * @throws IOException if something went wrong      */
 specifier|private
-name|void
+name|List
+argument_list|<
+name|Long
+argument_list|>
 name|bfSearchForXRefTables
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
+name|List
+argument_list|<
+name|Long
+argument_list|>
 name|bfSearchXRefTablesOffsets
-operator|==
-literal|null
-condition|)
-block|{
-comment|// a pdf may contain more than one xref entry
-name|bfSearchXRefTablesOffsets
-operator|=
+init|=
 operator|new
 name|ArrayList
 argument_list|<>
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+comment|// a pdf may contain more than one xref entry
 name|source
 operator|.
 name|seek
@@ -6903,31 +6931,33 @@ name|XREF_TABLE
 argument_list|)
 expr_stmt|;
 block|}
-block|}
+return|return
+name|bfSearchXRefTablesOffsets
+return|;
 block|}
 comment|/**      * Brute force search for all /XRef entries (streams).      *       * @throws IOException if something went wrong      */
 specifier|private
-name|void
+name|List
+argument_list|<
+name|Long
+argument_list|>
 name|bfSearchForXRefStreams
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
+name|List
+argument_list|<
+name|Long
+argument_list|>
 name|bfSearchXRefStreamsOffsets
-operator|==
-literal|null
-condition|)
-block|{
-comment|// a pdf may contain more than one /XRef entry
-name|bfSearchXRefStreamsOffsets
-operator|=
+init|=
 operator|new
 name|ArrayList
 argument_list|<>
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+comment|// a pdf may contain more than one /XRef entry
 name|source
 operator|.
 name|seek
@@ -7214,7 +7244,9 @@ name|XREF_STREAM
 argument_list|)
 expr_stmt|;
 block|}
-block|}
+return|return
+name|bfSearchXRefStreamsOffsets
+return|;
 block|}
 comment|/**      * Rebuild the trailer dictionary if startxref can't be found.      *        * @return the rebuild trailer dictionary      *       * @throws IOException if something went wrong      */
 specifier|private
@@ -7229,16 +7261,17 @@ name|trailer
 init|=
 literal|null
 decl_stmt|;
-name|bfSearchForObjects
+name|Map
+argument_list|<
+name|COSObjectKey
+argument_list|,
+name|Long
+argument_list|>
+name|bfCOSObjectOffsets
+init|=
+name|getBFCOSObjectOffsets
 argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|bfSearchCOSObjectKeyOffsets
-operator|!=
-literal|null
-condition|)
-block|{
+decl_stmt|;
 comment|// reset trailer resolver
 name|xrefTrailerResolver
 operator|.
@@ -7267,7 +7300,7 @@ name|Long
 argument_list|>
 name|entry
 range|:
-name|bfSearchCOSObjectKeyOffsets
+name|bfCOSObjectOffsets
 operator|.
 name|entrySet
 argument_list|()
@@ -7359,7 +7392,6 @@ name|bfSearchForObjStreams
 argument_list|()
 expr_stmt|;
 block|}
-block|}
 name|trailerWasRebuild
 operator|=
 literal|true
@@ -7368,7 +7400,7 @@ return|return
 name|trailer
 return|;
 block|}
-comment|/**      * Search for the different parts of the trailer dictionary.      *      * @param trailer      * @return true if the root was found, false if not.      */
+comment|/**      * Search for the different parts of the trailer dictionary.      *      * @param trailer      * @return true if the root was found, false if not.      * @throws java.io.IOException if the page tree root is null      */
 specifier|private
 name|boolean
 name|searchForTrailerItems
@@ -7376,6 +7408,8 @@ parameter_list|(
 name|COSDictionary
 name|trailer
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|boolean
 name|rootFound
@@ -7387,7 +7421,8 @@ control|(
 name|COSObjectKey
 name|key
 range|:
-name|bfSearchCOSObjectKeyOffsets
+name|getBFCOSObjectOffsets
+argument_list|()
 operator|.
 name|keySet
 argument_list|()
