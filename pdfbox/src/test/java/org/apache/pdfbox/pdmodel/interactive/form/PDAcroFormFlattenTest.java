@@ -734,7 +734,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * PDFBOX-4788: non-widget annotations are not to be removed on a page that has no widget      * annotations.      */
-comment|// @Test
+annotation|@
+name|Test
 specifier|public
 name|void
 name|testFlattenPDFBox4788
