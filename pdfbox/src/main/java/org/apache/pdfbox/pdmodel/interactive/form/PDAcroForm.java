@@ -1269,9 +1269,9 @@ block|{
 if|if
 condition|(
 name|widgetsForPageMap
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
 operator|!
 name|widgetsForPageMap
 operator|.
