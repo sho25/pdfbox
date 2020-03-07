@@ -691,9 +691,10 @@ argument_list|(
 name|checkbox
 argument_list|)
 expr_stmt|;
+comment|// always call check() or unCheck(), or the box will remain invisible.
 name|checkbox
 operator|.
-name|check
+name|unCheck
 argument_list|()
 expr_stmt|;
 name|document
