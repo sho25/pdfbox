@@ -722,7 +722,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * LEGACY text calculations which are known to be incorrect but are depended on by PDFTextStripper.  *   * This class exists only so that we don't break the code of users who have their own subclasses  * of PDFTextStripper. It replaces the good implementation of showGlyph in PDFStreamEngine, with  * a bad implementation which is backwards compatible.  *   * DO NOT USE THIS CODE UNLESS YOU ARE WORKING WITH PDFTextStripper.  * THIS CODE IS DELIBERATELY INCORRECT, USE PDFStreamEngine INSTEAD.  */
+comment|/**  * LEGACY text calculations which are known to be incorrect but are depended on by PDFTextStripper.  *   * This class exists only so that we don't break the code of users who have their own subclasses of  * PDFTextStripper. It replaces the mostly empty implementation of showGlyph() in PDFStreamEngine  * with a heuristic implementation which is backwards compatible.  *  * DO NOT USE THIS CODE UNLESS YOU ARE WORKING WITH PDFTextStripper.  * THIS CODE IS DELIBERATELY INCORRECT, USE PDFStreamEngine INSTEAD.  */
 end_comment
 
 begin_class
@@ -1058,7 +1058,7 @@ name|page
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * This method was originally written by Ben Litchfield for PDFStreamEngine.      */
+comment|/**      * Called when a glyph is to be processed. The heuristic calculations here were originally      * written by Ben Litchfield for PDFStreamEngine.      */
 annotation|@
 name|Override
 specifier|protected

@@ -2883,7 +2883,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Called when a glyph is to be processed.This method is intended for overriding in subclasses,      * the default implementation does nothing.      *      * @param textRenderingMatrix the current text rendering matrix, T<sub>rm</sub>      * @param font the current font      * @param code internal PDF character code for the glyph      * @param unicode the Unicode text for this glyph, or null if the PDF does provide it      * @param displacement the displacement (i.e. advance) of the glyph in text space      * @throws IOException if the glyph cannot be processed      */
+comment|/**      * Called when a glyph is to be processed. This method is intended for overriding in subclasses,      * the default implementation does nothing.      *      * @param textRenderingMatrix the current text rendering matrix, T<sub>rm</sub>      * @param font the current font      * @param code internal PDF character code for the glyph      * @param unicode the Unicode text for this glyph, or null if the PDF does provide it      * @param displacement the displacement (i.e. advance) of the glyph in text space      * @throws IOException if the glyph cannot be processed      */
 specifier|protected
 name|void
 name|showGlyph
@@ -2947,7 +2947,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Called when a glyph is to be processed.This method is intended for overriding in subclasses,      * the default implementation does nothing.      *      * @param textRenderingMatrix the current text rendering matrix, T<sub>rm</sub>      * @param font the current font      * @param code internal PDF character code for the glyph      * @param unicode the Unicode text for this glyph, or null if the PDF does provide it      * @param displacement the displacement (i.e. advance) of the glyph in text space      * @throws IOException if the glyph cannot be processed      */
+comment|/**      * Called when a glyph is to be processed. This method is intended for overriding in subclasses,      * the default implementation does nothing.      *      * @param textRenderingMatrix the current text rendering matrix, T<sub>rm</sub>      * @param font the current font      * @param code internal PDF character code for the glyph      * @param unicode the Unicode text for this glyph, or null if the PDF does provide it      * @param displacement the displacement (i.e. advance) of the glyph in text space      * @throws IOException if the glyph cannot be processed      */
 specifier|protected
 name|void
 name|showFontGlyph
@@ -2972,7 +2972,7 @@ name|IOException
 block|{
 comment|// overridden in subclasses
 block|}
-comment|/**      * Called when a glyph is to be processed.This method is intended for overriding in subclasses,      * the default implementation does nothing.      *      * @param textRenderingMatrix the current text rendering matrix, T<sub>rm</sub>      * @param font the current font      * @param code internal PDF character code for the glyph      * @param unicode the Unicode text for this glyph, or null if the PDF does provide it      * @param displacement the displacement (i.e. advance) of the glyph in text space      * @throws IOException if the glyph cannot be processed      */
+comment|/**      * Called when a glyph is to be processed. This method is intended for overriding in subclasses,      * the default implementation does nothing.      *      * @param textRenderingMatrix the current text rendering matrix, T<sub>rm</sub>      * @param font the current font      * @param code internal PDF character code for the glyph      * @param unicode the Unicode text for this glyph, or null if the PDF does provide it      * @param displacement the displacement (i.e. advance) of the glyph in text space      * @throws IOException if the glyph cannot be processed      */
 specifier|protected
 name|void
 name|showType3Glyph
