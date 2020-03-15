@@ -268,7 +268,7 @@ condition|)
 block|{
 name|seqSource
 operator|.
-name|readFully
+name|skip
 argument_list|(
 name|firstObject
 operator|-
@@ -282,7 +282,7 @@ block|}
 comment|// jump to the offset of the object to be parsed
 name|seqSource
 operator|.
-name|readFully
+name|skip
 argument_list|(
 name|objectOffset
 argument_list|)
