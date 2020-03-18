@@ -1722,6 +1722,8 @@ block|}
 catch|catch
 parameter_list|(
 name|IllegalArgumentException
+decl||
+name|ArrayIndexOutOfBoundsException
 name|e
 parameter_list|)
 block|{
