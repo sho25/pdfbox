@@ -1813,13 +1813,16 @@ operator|-
 literal|2
 index|]
 decl_stmt|;
+name|int
+name|contentBytesRead
+init|=
 name|raf
 operator|.
 name|read
 argument_list|(
 name|contentFromFile
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|byte
 index|[]
 name|contentAsHex
@@ -1843,9 +1846,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|contentFromFile
-operator|.
-name|length
+name|contentBytesRead
 operator|!=
 name|contentAsHex
 operator|.
@@ -1860,9 +1861,7 @@ name|println
 argument_list|(
 literal|"Raw content length from file is "
 operator|+
-name|contentFromFile
-operator|.
-name|length
+name|contentBytesRead
 operator|+
 literal|", but internal content string in hex has length "
 operator|+
@@ -1883,9 +1882,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|contentFromFile
-operator|.
-name|length
+name|contentBytesRead
 condition|;
 operator|++
 name|i
