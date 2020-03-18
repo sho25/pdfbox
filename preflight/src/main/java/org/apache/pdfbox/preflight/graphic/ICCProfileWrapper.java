@@ -479,6 +479,8 @@ return|;
 block|}
 catch|catch
 parameter_list|(
+name|ArrayIndexOutOfBoundsException
+decl||
 name|IllegalArgumentException
 name|e
 parameter_list|)
